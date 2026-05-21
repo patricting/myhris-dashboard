@@ -4,7 +4,7 @@
   "start": "2026/05/05",
   "phase": "P0",
   "pct": 20,
-  "health": "amber",
+  "health": "green",
   "healthTxt": "注意・合約待簽",
   "vpSummary": "1. 問卷5份已全數提前完成回傳\n2. 05/26起逐鹿顧問正式駐點訪談\n3. 合約法務審閱中，目標本週完成簽核\n4. 本週無需決策議題",
   "modPct": {
