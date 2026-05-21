@@ -253,27 +253,36 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 <body>
 
 <script>
-const D = {
-  updated:   "2026/05/18",
+// D 物件由 data.json 動態載入
+// 以下為預設值（離線或讀取失敗時使用）
+let D = {
+  updated:   "載入中...",
   goLive:    "2027/01/01",
   start:     "2026/05/05",
   phase:     "P0",
-  pct:       8,
+  pct:       0,
   health:    "amber",
-  healthTxt: "注意・合約待簽",
-  vpSummary: "訪談依時程推進中，M06問卷截止05/22為硬節點。下週：05/26組織訪談。本期無需決策事項。",
+  healthTxt: "資料載入中",
+  vpSummary: "資料載入中，請稍候...",
   vendor: {
-    week:     "第2週",
-    delivery: "準時",
-    consult:  "05/26駐點訪談已確認",
-    issue:    "無",
-    next:     "05/26 組織職位訪談",
+    week: "", delivery: "準時",
+    consult: "", issue: "無", next: "",
   },
-  modPct: {
-    org: 5, per: 5,
-    att: 0, pay: 0, ins: 0,
-  },
+  modPct: { org:0, per:0, att:0, pay:0, ins:0 },
 }; // ← END CONFIG
+
+// 從 GitHub 讀取最新資料
+async function loadData() {
+  try {
+    const url = 'https://patricting.github.io/myhris-dashboard/data.json?t=' + Date.now();
+    const res = await fetch(url);
+    if (res.ok) {
+      D = await res.json();
+    }
+  } catch(e) {
+    console.log('使用預設資料');
+  }
+}
 
 // ── 靜態資料（不需每週更新）─────────────────────────────────
 const STATIC = {
@@ -659,7 +668,10 @@ function gp(n,b){
   document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
   $('page-'+n).classList.add('active');if(b)b.classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded', async function(){
+  await loadData();
+  init();
+});
 </script>
 </body>
 </html>
