@@ -11,8 +11,8 @@
     "org": 5,
     "per": 5,
     "att": 0,
-    "pay": 0,
-    "ins": 0
+    "pay": 100,
+    "ins": 100
   },
   "vendor": {
     "week": "第2週",
