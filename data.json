@@ -10,9 +10,9 @@
   "modPct": {
     "org": 5,
     "per": 5,
-    "att": 0,
-    "pay": 100,
-    "ins": 100
+    "att": 5,
+    "pay": 5,
+    "ins": 5
   },
   "vendor": {
     "week": "第2週",
