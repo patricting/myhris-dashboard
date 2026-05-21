@@ -17,7 +17,7 @@
   --tel:#0A7272;--tell:#E5F5F4;--telb:#A8D8D5;
   --pur:#6B1FA4;--purl:#F3EBF9;--purb:#D0A8F0;
 }
-body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif;font-size:13px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;overflow-x:hidden}
 
 /* TOP BAR */
 .topbar{background:var(--red);color:#fff;padding:0 24px;height:54px;display:flex;align-items:center;position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(231,26,40,.3)}
@@ -51,16 +51,16 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 .shnote{font-size:11px;color:var(--gray)}
 
 /* VP SUMMARY CARD */
-.vp-card{background:var(--blk);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;gap:24px;align-items:stretch}
+.vp-card{background:var(--card);border-radius:12px;padding:22px 26px;margin-bottom:24px;display:flex;gap:24px;align-items:stretch;border:0.5px solid var(--bdr);border-top:3px solid var(--red)}
 .vp-left{flex:1}
-.vp-label{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;font-weight:500}
-.vp-text{font-size:14px;color:#fff;line-height:1.65;font-weight:400}
-.vp-divider{width:1px;background:rgba(255,255,255,.12);flex-shrink:0}
-.vp-right{display:flex;flex-direction:column;gap:12px;min-width:200px}
-.vp-meta-item{display:flex;flex-direction:column;gap:2px}
-.vp-meta-label{font-size:9.5px;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase}
-.vp-meta-val{font-size:12.5px;font-weight:600}
-.vp-meta-val.ok{color:#5CDB95}.vp-meta-val.warn{color:#FFC947}.vp-meta-val.danger{color:#FF6B6B}
+.vp-label{font-size:10px;color:var(--gray);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.vp-text{font-size:14px;color:var(--blk);line-height:1.8;font-weight:400;white-space:pre-line}
+.vp-divider{width:1px;background:var(--bdr);flex-shrink:0}
+.vp-right{display:flex;flex-direction:column;gap:12px;min-width:190px}
+.vp-meta-item{display:flex;flex-direction:column;gap:3px;background:var(--bg);border-radius:8px;padding:10px 14px}
+.vp-meta-label{font-size:9.5px;color:var(--gray);letter-spacing:.8px;text-transform:uppercase}
+.vp-meta-val{font-size:14px;font-weight:500;color:var(--blk)}
+.vp-meta-val.ok{color:var(--grn)}.vp-meta-val.warn{color:var(--amb)}.vp-meta-val.danger{color:var(--red)}
 
 /* KPI ROW */
 .krow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
@@ -413,7 +413,7 @@ const STATIC = {
 
 <!-- PAGE: 總覽 -->
 <div class="page active" id="page-overview"><div class="pb">
-  <div class="sh"><div class="shbar"></div><div class="shtxt">本週專案摘要</div></div>
+  <div class="sh"><div class="shbar"></div><div class="shtxt">本週狀態摘要</div></div>
   <div class="vp-card" id="vp-card"></div>
 
   <div class="sh"><div class="shbar"></div><div class="shtxt">專案健康指標</div><div class="shnote">點擊查看說明</div></div>
@@ -499,8 +499,8 @@ function init(){
   const vpStatus=D.health==='green'?'🟢 正常推進':D.health==='red'?'🔴 需要關注':'🟡 注意事項';
   $('vp-card').innerHTML=`
     <div class="vp-left">
-      <div class="vp-label">本週狀態摘要（給湯副總）</div>
-      <div class="vp-text">${D.vpSummary}</div>
+      <div class="vp-label">本週狀態摘要</div>
+      <div class="vp-text" id="vp-summary-txt"></div>
     </div>
     <div class="vp-divider"></div>
     <div class="vp-right">
