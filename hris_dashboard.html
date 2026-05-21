@@ -335,7 +335,7 @@ const STATIC = {
     {id:"M01",name:"專案開工 Kick-off",              date:"2026/05/05",owner:"Kate/冠元",    status:"done",   note:"已完成"},
     {id:"M02",name:"啟動說明會 + PM說明會",            date:"2026/05/11",owner:"Kate/冠元",    status:"done",   note:"已完成"},
     {id:"M03",name:"合約簽署完成",                    date:"2026/05/15",owner:"冠元/採購",    status:"warning",note:"法務5/11意見，目標05/15"},
-    {id:"M04",name:"問卷說明會（組織/職位/人事）",      date:"2026/05/18",owner:"Kate/俊翔",    status:"active", note:"14:00 @小紅屋"},
+    {id:"M04",name:"問卷說明會（組織/職位/人事）",      date:"2026/05/18",owner:"Kate/俊翔",    status:"done",   note:"已完成（14:00 @小紅屋）"},
     {id:"M05",name:"IT環境全數就緒",                   date:"2026/05/22",owner:"慈琬",         status:"active", note:"SQL定序已確認，其餘進行中"},
     {id:"M06",name:"問卷①②③回傳（⚠ 硬節點）",        date:"2026/05/22",owner:"俊翔/Kate",    status:"active", note:"延誤→訪談延後→付款延後"},
     {id:"M07",name:"問卷④⑤回傳截止",                  date:"2026/05/29",owner:"Ken/智翔",     status:"pending",note:"差勤/薪資/保險，需於06/02前到位"},
@@ -346,7 +346,7 @@ const STATIC = {
     {id:"M12",name:"薪資保險配置完成",                  date:"2026/10/31",owner:"逐鹿",         status:"pending",note:""},
     {id:"M13",name:"整合測試完成（含表單）",             date:"2026/11/30",owner:"雙方",         status:"pending",note:""},
     {id:"M14",name:"上線前置作業完成",                  date:"2026/12/31",owner:"雙方",         status:"pending",note:"資料匯入、確認清單"},
-    {id:"M15",name:"平測開始（薪資第一個月）",           date:"2027/01/01",owner:"智翔/逐鹿",    status:"pending",note:""},
+    {id:"M15",name:"平測開始（薪資第一個月）",           date:"2026/12/01",owner:"智翔/逐鹿",    status:"pending",note:"平測期間 2026/12/01–12/31"},
     {id:"M16",name:"🎯 正式上線 Go-Live",              date:"2027/01/01",owner:"全體",         status:"pending",note:"湯副總確認基準"},
   ],
   risks:[
@@ -478,6 +478,17 @@ function sec(t,h){return`<div class="dsec"><div class="dstitle">${t}</div>${h}</
 function dl(a){return`<ul class="dlist">${a.map(i=>`<li>${i}</li>`).join('')}</ul>`}
 function dm(a){return`<div class="dmetas">${a.map(([l,v])=>`<div class="dmi2"><div class="dmil">${l}</div><div class="dmiv">${v}</div></div>`).join('')}</div>`}
 
+function autoStatus(m){
+  // 有明確設定 warning 或 danger 的保留
+  if(m.status==='warning'||m.status==='danger') return m.status;
+  const today=new Date(); today.setHours(0,0,0,0);
+  const d=new Date(m.date.replace(/\//g,'-'));
+  const diff=Math.ceil((d-today)/86400000);
+  if(diff<0) return 'done';         // 日期已過 → 已完成
+  if(diff<=7) return 'active';      // 7天內 → 進行中
+  return 'pending';                  // 超過7天 → 未開始
+}
+
 function init(){
   // Nav
   const c=$('hchip');c.textContent=D.healthTxt;c.className='hchip '+D.health;
@@ -585,7 +596,10 @@ function init(){
   });
 
   // Milestones (upcoming 6)
-  $('msup').innerHTML=STATIC.milestones.filter(m=>m.status!=='done').slice(0,6).map(m=>`<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(m.status)}">${bt(m.status)}</span></td></tr>`).join('');
+  $('msup').innerHTML=STATIC.milestones.filter(m=>autoStatus(m)!=='done').slice(0,6).map(m=>{
+    const s=autoStatus(m);
+    return `<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(s)}">${bt(s)}</span></td></tr>`;
+  }).join('');
 
   // Modules
   $('mgrid').innerHTML=STATIC.modules.map(m=>{
@@ -603,7 +617,10 @@ function init(){
   $('vstrip').onclick=()=>od('廠商逐鹿本週狀態',`${vd.week} ｜ 交付：${vd.delivery}`,sec('本週顧問配合',`<p class="dtxt">${vd.consult}</p>`)+sec('本週問題落差',`<p class="dtxt">${vd.issue==='無'?'本週無落差或問題。':vd.issue}</p>`)+sec('下週預計',`<div class="dnext">${vd.next}</div>`),vd.delivery==='準時'?'var(--grn)':'#E8A030');
 
   // All milestones
-  $('msall').innerHTML=STATIC.milestones.map(m=>`<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(m.status)}">${bt(m.status)}</span></td><td class="ms-note">${m.note}</td></tr>`).join('');
+  $('msall').innerHTML=STATIC.milestones.map(m=>{
+    const s=autoStatus(m);
+    return `<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(s)}">${bt(s)}</span></td><td class="ms-note">${m.note}</td></tr>`;
+  }).join('');
 
   // Risks
   const rr=r=>`<div class="ritem ${r.level}" onclick="oRsk('${r.id}')"><div class="rh"><span class="rid">${r.id}</span><span class="rmod">${r.module}</span><span class="rlvl ${r.level}">${r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低'}</span><span class="rsc ${r.status}" style="margin-left:auto">${r.status==='processing'?'處理中':r.status==='monitoring'?'持續監控':'待確認'}</span></div><div class="rdesc">${r.desc}</div><div class="rmit">▸ ${r.mit}</div><div class="rown">負責：${r.owner}</div></div>`;
