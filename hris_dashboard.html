@@ -477,6 +477,10 @@ function sec(t,h){return`<div class="dsec"><div class="dstitle">${t}</div>${h}</
 function dl(a){return`<ul class="dlist">${a.map(i=>`<li>${i}</li>`).join('')}</ul>`}
 function dm(a){return`<div class="dmetas">${a.map(([l,v])=>`<div class="dmi2"><div class="dmil">${l}</div><div class="dmiv">${v}</div></div>`).join('')}</div>`}
 
+function getStatus(m){
+  var live = (D.milestones && D.milestones.length);
+  return live ? m.status : autoStatus(m);
+}
 function autoStatus(m){
   // 有明確設定 warning 或 danger 的保留
   if(m.status==='warning'||m.status==='danger') return m.status;
@@ -597,11 +601,14 @@ function init(){
 
   // Milestones (upcoming 6)
   var msData = (D.milestones && D.milestones.length) ? D.milestones : STATIC.milestones;
-  var useLive = (D.milestones && D.milestones.length) ? true : false;
-  function getStatus(m){ return useLive ? m.status : autoStatus(m); }
   $('msup').innerHTML=msData.filter(function(m){return getStatus(m)!=='done';}).slice(0,6).map(function(m){
     var s=getStatus(m);
-    return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
+    return '<tr onclick="oMs(\'' + m.id + '\')">' +
+      '<td class="ms-id">'+m.id+'</td>' +
+      '<td><div class="ms-name">'+m.name+'</div></td>' +
+      '<td><div class="ms-date">'+m.date+'</div></td>' +
+      '<td class="ms-own">'+m.owner+'</td>' +
+      '<td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
   }).join('');
 
   // Modules
@@ -622,7 +629,13 @@ function init(){
   // All milestones
   $('msall').innerHTML=msData.map(function(m){
     var s=getStatus(m);
-    return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td><td class="ms-note">'+m.note+'</td></tr>';
+    return '<tr onclick="oMs(\'' + m.id + '\')">' +
+      '<td class="ms-id">'+m.id+'</td>' +
+      '<td><div class="ms-name">'+m.name+'</div></td>' +
+      '<td><div class="ms-date">'+m.date+'</div></td>' +
+      '<td class="ms-own">'+m.owner+'</td>' +
+      '<td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td>' +
+      '<td class="ms-note">'+m.note+'</td></tr>';
   }).join('');
 
   // Risks
@@ -647,7 +660,7 @@ function oPay(code){
 }
 function oMs(id){
   var msAll=(D.milestones&&D.milestones.length)?D.milestones:STATIC.milestones;
-  const m=msAll.find(function(x){return x.id===id;});if(!m)return;
+  var m=msAll.find(function(x){return x.id===id;});if(!m)return;
   const col={done:'var(--grn)',active:'var(--red)',warning:'#E8A030',pending:'var(--gl)'}[m.status]||'var(--gl)';
   od(m.name,`${m.id} ｜ 負責：${m.owner}`,sec('基本資訊',dm([['計畫日期',m.date],['負責人',m.owner],['狀態',bt(m.status)]]))+
   (m.note?`<div class="dflag amb" style="margin-top:12px">${m.note}</div>`:'')+
