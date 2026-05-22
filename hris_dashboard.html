@@ -770,19 +770,42 @@ function oMod(id){
     m.status==='active'?'var(--red)':'var(--gl)');
 }
 function oRsk(id){
-  var r=(D.risks&&D.risks.length?D.risks:STATIC.risks).find(function(x){return x.id===id;});if(!r)return;
-  od(`${r.id}：${r.desc}`,`${r.module} ｜ 負責：${r.owner}`,
-    sec('風險描述',`<p class="dtxt">${r.desc}</p>`)+sec('管控措施',`<div class="dnext">${r.mit}</div>`)+
-    (r.actions.length?sec('近期行動',dl(r.actions)):'')+
-    sec('資訊',dm([['模組',r.module],['等級',r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低'],['負責人',r.owner],['狀態',r.status==='processing'?'處理中':r.status==='monitoring'?'持續監控':'待確認']])),
-    r.level==='high'?'var(--red)':r.level==='medium'?'#E8A030':'var(--grn)');
+  var rAll = D.risks&&D.risks.length ? D.risks : STATIC.risks;
+  var r = rAll.find(function(x){return x.id===id;});
+  if(!r) return;
+  var lvlColor = r.level==='high'?'var(--red)':r.level==='medium'?'#E8A030':'var(--grn)';
+  var lvlTxt = r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低';
+  var stTxt = r.status==='processing'?'🔄 處理中':r.status==='monitoring'?'👁 持續監控':r.status==='closed'?'✅ 已關閉':'⏳ 待確認';
+  var body = '';
+  if(r.background) body += sec('背景說明','<p class="dtxt">'+r.background+'</p>');
+  body += sec('風險描述','<p class="dtxt">'+r.desc+'</p>');
+  body += sec('管控措施','<div class="dnext">'+r.mit+'</div>');
+  if(r.actions&&r.actions.length) body += sec('近期行動',dl(r.actions));
+  body += sec('基本資訊',dm([
+    ['構面',r.module],
+    ['風險等級',lvlTxt],
+    ['責任人',r.owner],
+    ['目標解決日',r.deadline||'─'],
+    ['狀態',stTxt]
+  ]));
+  od(r.id+'：'+r.desc, r.module+' ｜ 負責：'+r.owner, body, lvlColor);
 }
 function oDec(id){
-  var d=(D.decisions&&D.decisions.length?D.decisions:STATIC.decisions).find(function(x){return x.id===id;});if(!d)return;
-  od(d.title,`${d.id} ｜ ${d.module}`,
-    sec('決策內容',`<p class="dtxt">${d.content}</p>`)+
-    sec('執行資訊',dm([['決策人',d.decider],['執行人',d.executor],['截止',d.deadline],['狀態',d.status==='decided'?'✔ 已決策':'⏳ 待確認']])),
-    d.status==='decided'?'var(--grn)':'#E8A030');
+  var dAll = D.decisions&&D.decisions.length ? D.decisions : STATIC.decisions;
+  var d = dAll.find(function(x){return x.id===id;});
+  if(!d) return;
+  var stTxt = d.status==='decided'?'✔ 已決策':'⏳ 待確認';
+  var stColor = d.status==='decided'?'var(--grn)':'#E8A030';
+  var body = sec('決策內容','<p class="dtxt">'+d.content+'</p>');
+  if(d.note) body += sec('補充說明','<p class="dtxt">'+d.note+'</p>');
+  body += sec('執行資訊',dm([
+    ['決策人',d.decider],
+    ['執行人',d.executor],
+    ['截止日',d.deadline],
+    ['記錄日',d.date],
+    ['狀態',stTxt]
+  ]));
+  od(d.title, d.id+' ｜ '+d.module, body, stColor);
 }
 function oAct(i){
   const a=STATIC.actions[i];if(!a)return;
