@@ -294,5 +294,165 @@
       "person": "Robert",
       "duty": "系統配置、技術移轉、需求確認"
     }
+  ],
+  "risks": [
+    {
+      "id": "R01",
+      "module": "合約",
+      "desc": "合約未簽已開工，雄獅無法律保障",
+      "level": "high",
+      "mit": "目標05/15完成採購簽核，法務5/11提供意見",
+      "owner": "冠元/Kate",
+      "status": "processing"
+    },
+    {
+      "id": "R02",
+      "module": "全體",
+      "desc": "時程壓縮，開工到正式上線僅8個月",
+      "level": "high",
+      "mit": "每節點嚴格追蹤，任何延遲立即升級APL",
+      "owner": "冠元",
+      "status": "processing"
+    },
+    {
+      "id": "R03",
+      "module": "組織",
+      "desc": "旅天下/欣食旅規則不一致，範疇擴大",
+      "level": "medium",
+      "mit": "第一輪訪談同步確認差異",
+      "owner": "Kate/俊翔",
+      "status": "pending"
+    },
+    {
+      "id": "R04",
+      "module": "組織",
+      "desc": "根組織節點代碼設定錯誤，建置後難修改",
+      "level": "medium",
+      "mit": "HR主管確認後才回傳，不由IT自行決定",
+      "owner": "Kate/冠元",
+      "status": "pending"
+    },
+    {
+      "id": "R05",
+      "module": "薪酬",
+      "desc": "薪資規則複雜度過高，配置時間不足",
+      "level": "medium",
+      "mit": "提前盤點複雜度，訪談定案前確認計薪邏輯",
+      "owner": "智翔",
+      "status": "pending"
+    },
+    {
+      "id": "R06",
+      "module": "全體",
+      "desc": "功能PM本業繁忙，訪談回應速度慢",
+      "level": "medium",
+      "mit": "訪談後24h填報機制，逾期升級APL",
+      "owner": "Kate",
+      "status": "processing"
+    },
+    {
+      "id": "R07",
+      "module": "IT",
+      "desc": "異系統對接複雜度超出預期",
+      "level": "medium",
+      "mit": "儘早啟動對接需求訪談",
+      "owner": "慈琬",
+      "status": "pending"
+    },
+    {
+      "id": "R08",
+      "module": "薪酬",
+      "desc": "月底算薪與打卡同時發生，DB Lock風險",
+      "level": "medium",
+      "mit": "壓測情境含月底混合負載",
+      "owner": "智翔/慈琬",
+      "status": "pending"
+    },
+    {
+      "id": "R09",
+      "module": "法遵",
+      "desc": "越南DPIA申報責任在雄獅非廠商",
+      "level": "medium",
+      "mit": "指定法務窗口，逐鹿提供技術說明",
+      "owner": "冠元/法務",
+      "status": "pending"
+    },
+    {
+      "id": "R10",
+      "module": "專案",
+      "desc": "專案成員異動或離職",
+      "level": "low",
+      "mit": "每版規格文件雙方皆保留，決策紀錄即時更新",
+      "owner": "Kate/逐鹿",
+      "status": "processing"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D01",
+      "date": "2026/05/05",
+      "module": "全體",
+      "title": "時程基準",
+      "content": "正式上線 2027/01/01（湯副總確認基準）。保守基準：2027/03/01",
+      "decider": "Steven/Vivian",
+      "executor": "Kate",
+      "deadline": "2026/05/07",
+      "status": "decided"
+    },
+    {
+      "id": "D02",
+      "date": "2026/05/05",
+      "module": "全體",
+      "title": "導入範疇",
+      "content": "單一組織樹、單套規則、台灣事業體。旅天下/欣食旅規則須一致才納入",
+      "decider": "Steven/Vivian",
+      "executor": "Kate/俊翔",
+      "deadline": "2026/05/07",
+      "status": "decided"
+    },
+    {
+      "id": "D03",
+      "date": "2026/05/05",
+      "module": "IT",
+      "title": "技術移轉範圍",
+      "content": "郵件/報表/查詢中心技轉後由雄獅IT開發。標準報表4張由逐鹿提供",
+      "decider": "Steven/Vivian",
+      "executor": "慈琬",
+      "deadline": "2026/06/30",
+      "status": "decided"
+    },
+    {
+      "id": "D04",
+      "date": "2026/05/07",
+      "module": "合約",
+      "title": "合約簽署截止日",
+      "content": "確認付款期程後走採購簽核，目標05/15完成",
+      "decider": "待確認",
+      "executor": "Kate/採購",
+      "deadline": "2026/05/15",
+      "status": "pending"
+    },
+    {
+      "id": "D05",
+      "date": "2026/05/07",
+      "module": "組織",
+      "title": "根組織節點代碼",
+      "content": "由HR主管確認後回傳，不由IT自行決定",
+      "decider": "待確認",
+      "executor": "Kate/冠元",
+      "deadline": "2026/05/15",
+      "status": "pending"
+    },
+    {
+      "id": "D06",
+      "date": "2026/05/11",
+      "module": "考勤保險",
+      "title": "考勤PM調整",
+      "content": "考勤PM與保險PM統一由 Ken 負責，俊翔專注組織模組",
+      "decider": "冠元",
+      "executor": "Kate",
+      "deadline": "2026/05/11",
+      "status": "decided"
+    }
   ]
 }
