@@ -8,7 +8,7 @@
   "totalTasks": 57,
   "health": "green",
   "healthTxt": "注意・合約待簽",
-  "vpSummary": "（AI摘要暫時無法取得，狀態碼：429）",
+  "vpSummary": "1. 問卷5份已全數提前完成回傳\n2. 05/26起逐鹿顧問正式駐點訪談\n3. 合約法務審閱中，目標本週完成簽核\n4. 本週無需決策議題",
   "modPct": {
     "org": 50,
     "per": 33,
