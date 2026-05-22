@@ -531,7 +531,9 @@ function init(){
     var cc=D.health==='green'?'green':D.health==='red'?'red':'amber';
     var div=document.createElement('div');
     div.className='kpi '+cc; div.title='點擊查看詳情';
-    div.innerHTML='<div class="klbl">整體完成度</div><div class="kval">'+D.pct+'<small> %</small></div><div class="knote">'+D.phase+' 階段</div>';
+    var doneN=D.doneTasks||0; var totalN=D.totalTasks||0;
+    var subNote=totalN>0?(doneN+' 項已完成・'+totalN+' 項總計'):D.phase+' 階段';
+    div.innerHTML='<div class="klbl">整體完成度</div><div class="kval">'+D.pct+'<small> %</small></div><div class="knote">'+subNote+'</div>';
     div.onclick=function(){
       od('整體完成度','當前進度',
         sec('進度說明','<p class="dtxt">目前處於 <strong>'+D.phase+' 啟動階段</strong>，整體完成度約 <strong>'+D.pct+'%</strong>。</p>')+
