@@ -3,9 +3,9 @@
   "goLive": "2027/01/01",
   "start": "2026/05/05",
   "phase": "P0",
-  "pct": 21,
+  "pct": 24,
   "doneTasks": 12,
-  "totalTasks": 57,
+  "totalTasks": 49,
   "health": "green",
   "healthTxt": "注意・合約待簽",
   "vpSummary": "1. 問卷5份已全數提前完成回傳\n2. 05/26起逐鹿顧問正式駐點訪談\n3. 合約法務審閱中，目標本週完成簽核\n4. 本週無需決策議題",
@@ -13,7 +13,7 @@
     "org": 50,
     "per": 33,
     "att": 0,
-    "pay": 14,
+    "pay": 20,
     "ins": 33
   },
   "modTasks": {
@@ -27,11 +27,11 @@
     },
     "att": {
       "done": 0,
-      "total": 8
+      "total": 6
     },
     "pay": {
       "done": 1,
-      "total": 7
+      "total": 5
     },
     "ins": {
       "done": 1,
@@ -51,7 +51,7 @@
       "name": "專案開工 Kick-off",
       "date": "2026/05/05",
       "actual": "2026/05/05",
-      "status": "✅ 已完成",
+      "status": "done",
       "owner": "Kate",
       "note": ""
     },
@@ -60,7 +60,7 @@
       "name": "啟動說明會 + PM說明會",
       "date": "2026/05/11",
       "actual": "2026/05/11",
-      "status": "✅ 已完成",
+      "status": "done",
       "owner": "Kate",
       "note": ""
     },
@@ -69,7 +69,7 @@
       "name": "合約簽署完成",
       "date": "2026/05/15",
       "actual": "",
-      "status": "⚠️ 風險",
+      "status": "warning",
       "owner": "Kate/採購",
       "note": "法務5/11意見，目標05/15"
     },
@@ -78,7 +78,7 @@
       "name": "問卷討論會議（組織/職位/人事）",
       "date": "2026/05/18",
       "actual": "",
-      "status": "✅ 已完成",
+      "status": "done",
       "owner": "Kate/俊翔",
       "note": "14:00 @小紅屋"
     },
@@ -87,7 +87,7 @@
       "name": "IT環境全數就緒",
       "date": "2026/05/26",
       "actual": "",
-      "status": "🔄 進行中",
+      "status": "active",
       "owner": "IT/慈琬",
       "note": "SQL定序已確認"
     },
@@ -96,7 +96,7 @@
       "name": "問卷①②③回傳截止（⚠️ 硬節點）",
       "date": "2026/05/22",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "俊翔/Kate",
       "note": "延誤→訪談延後→付款延後"
     },
@@ -105,7 +105,7 @@
       "name": "問卷④⑤回傳截止（⚠️ 硬節點）",
       "date": "2026/05/22",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "Ken/智翔",
       "note": "需於06/02訪談前到位"
     },
@@ -114,7 +114,7 @@
       "name": "顧問駐點訪談全數完成（4場）",
       "date": "2026/06/06",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "逐鹿/各PM",
       "note": "05/26~06/04，4場"
     },
@@ -123,7 +123,7 @@
       "name": "基礎訪談定案（全模組簽回）",
       "date": "2026/06/30",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "各功能PM",
       "note": ""
     },
@@ -132,7 +132,7 @@
       "name": "客製需求定案",
       "date": "2026/07/31",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "逐鹿/各PM",
       "note": "觸發C期付款 NT$1,968,000"
     },
@@ -141,7 +141,7 @@
       "name": "考勤配置完成",
       "date": "2026/08/31",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "逐鹿",
       "note": ""
     },
@@ -150,7 +150,7 @@
       "name": "薪資保險配置完成",
       "date": "2026/10/31",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "逐鹿",
       "note": ""
     },
@@ -159,7 +159,7 @@
       "name": "整合測試完成（含表單）",
       "date": "2026/11/30",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "雙方",
       "note": ""
     },
@@ -168,7 +168,7 @@
       "name": "上線前置作業完成",
       "date": "2026/12/31",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "雙方",
       "note": "資料匯入、確認清單"
     },
@@ -177,7 +177,7 @@
       "name": "平測開始（薪資第一個月）",
       "date": "2026/12/31",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "智翔/逐鹿",
       "note": ""
     },
@@ -186,7 +186,7 @@
       "name": "🎯 正式上線 Go-Live",
       "date": "2027/01/01",
       "actual": "",
-      "status": "⏳ 未開始",
+      "status": "pending",
       "owner": "全體",
       "note": "湯副總確認基準"
     }
