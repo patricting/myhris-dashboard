@@ -311,7 +311,7 @@
       "desc": "時程壓縮，開工到正式上線僅8個月",
       "level": "high",
       "mit": "每節點嚴格追蹤，任何延遲立即升級APL",
-      "owner": "冠元",
+      "owner": "冠元/Kate",
       "status": "processing"
     },
     {
@@ -329,7 +329,7 @@
       "desc": "根組織節點代碼設定錯誤，建置後難修改",
       "level": "medium",
       "mit": "HR主管確認後才回傳，不由IT自行決定",
-      "owner": "Kate/冠元",
+      "owner": "Kate",
       "status": "pending"
     },
     {
@@ -374,7 +374,7 @@
       "desc": "越南DPIA申報責任在雄獅非廠商",
       "level": "medium",
       "mit": "指定法務窗口，逐鹿提供技術說明",
-      "owner": "冠元/法務",
+      "owner": "Steven/Kate/法務",
       "status": "pending"
     },
     {
