@@ -697,10 +697,37 @@ function init(){
   }).join('');
 
   // Risks
-  const rr=r=>`<div class="ritem ${r.level}" onclick="oRsk('${r.id}')"><div class="rh"><span class="rid">${r.id}</span><span class="rmod">${r.module}</span><span class="rlvl ${r.level}">${r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低'}</span><span class="rsc ${r.status}" style="margin-left:auto">${r.status==='processing'?'處理中':r.status==='monitoring'?'持續監控':'待確認'}</span></div><div class="rdesc">${r.desc}</div><div class="rmit">▸ ${r.mit}</div><div class="rown">負責：${r.owner}</div></div>`;
-  $('rhigh').innerHTML=STATIC.risks.filter(r=>r.level==='high').map(rr).join('')||'<p style="font-size:12px;color:var(--grn);padding:10px">暫無高風險項目</p>';
-  $('rmed').innerHTML=STATIC.risks.filter(r=>r.level!=='high').map(rr).join('');
-  $('declist').innerHTML=STATIC.decisions.map(d=>`<div class="ditem" onclick="oDec('${d.id}')"><div class="dh"><span class="did">${d.id}</span><span class="dtitle2">${d.title}</span><span class="rmod">${d.module}</span><span class="bdg ${d.status==='decided'?'done':'warning'}">${d.status==='decided'?'✔ 已決策':'⏳ 待確認'}</span></div><div class="dcnt">${d.content}</div><div class="dmeta"><div class="dmi"><strong>決策人 </strong>${d.decider}</div><div class="dmi"><strong>執行人 </strong>${d.executor}</div><div class="dmi"><strong>截止 </strong>${d.deadline}</div></div></div>`).join('');
+  var riskData = (D.risks && D.risks.length) ? D.risks : STATIC.risks;
+  var decData  = (D.decisions && D.decisions.length) ? D.decisions : STATIC.decisions;
+
+  function renderRisk(r) {
+    var lvlTxt = r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低';
+    var scTxt  = r.status==='processing'?'處理中':r.status==='monitoring'?'持續監控':'待確認';
+    return '<div class="ritem '+r.level+'" onclick="oRsk(''+r.id+'')">' +
+      '<div class="rh"><span class="rid">'+r.id+'</span><span class="rmod">'+r.module+'</span>' +
+      '<span class="rlvl '+r.level+'">'+lvlTxt+'</span>' +
+      '<span class="rsc '+r.status+'" style="margin-left:auto">'+scTxt+'</span></div>' +
+      '<div class="rdesc">'+r.desc+'</div>' +
+      '<div class="rmit">▸ '+r.mit+'</div>' +
+      '<div class="rown">負責：'+r.owner+'</div></div>';
+  }
+
+  $('rhigh').innerHTML = riskData.filter(function(r){return r.level==='high';}).map(renderRisk).join('') ||
+    '<p style="font-size:12px;color:var(--grn);padding:10px">暫無高風險項目</p>';
+  $('rmed').innerHTML = riskData.filter(function(r){return r.level!=='high';}).map(renderRisk).join('');
+
+  $('declist').innerHTML = decData.map(function(d){
+    var bdgCls = d.status==='decided'?'done':'warning';
+    var bdgTxt = d.status==='decided'?'✔ 已決策':'⏳ 待確認';
+    return '<div class="ditem" onclick="oDec(''+d.id+'')">' +
+      '<div class="dh"><span class="did">'+d.id+'</span><span class="dtitle2">'+d.title+'</span>' +
+      '<span class="rmod">'+d.module+'</span>' +
+      '<span class="bdg '+bdgCls+'">'+bdgTxt+'</span></div>' +
+      '<div class="dcnt">'+d.content+'</div>' +
+      '<div class="dmeta"><div class="dmi"><strong>決策人 </strong>'+d.decider+'</div>' +
+      '<div class="dmi"><strong>執行人 </strong>'+d.executor+'</div>' +
+      '<div class="dmi"><strong>截止 </strong>'+d.deadline+'</div></div></div>';
+  }).join('');
 
   // Visits
   $('vgrid').innerHTML=STATIC.visits.map(v=>`<div class="vc ${v.urg?'urg':'nrm'}"><div class="vdate">${v.date}</div><div class="vtime">${v.time}</div><div class="vloc">${v.loc}</div><div class="vmod">${v.module}</div><div class="vpm">PM：${v.pm}</div><div class="vstaff">主責：${v.staff}</div><div class="vpre ${v.urg?'urg':'nrm'}">前提：${v.pre}回傳</div></div>`).join('');
@@ -734,7 +761,7 @@ function oMod(id){
     m.status==='active'?'var(--red)':'var(--gl)');
 }
 function oRsk(id){
-  const r=STATIC.risks.find(x=>x.id===id);if(!r)return;
+  var r=(D.risks&&D.risks.length?D.risks:STATIC.risks).find(function(x){return x.id===id;});if(!r)return;
   od(`${r.id}：${r.desc}`,`${r.module} ｜ 負責：${r.owner}`,
     sec('風險描述',`<p class="dtxt">${r.desc}</p>`)+sec('管控措施',`<div class="dnext">${r.mit}</div>`)+
     (r.actions.length?sec('近期行動',dl(r.actions)):'')+
@@ -742,7 +769,7 @@ function oRsk(id){
     r.level==='high'?'var(--red)':r.level==='medium'?'#E8A030':'var(--grn)');
 }
 function oDec(id){
-  const d=STATIC.decisions.find(x=>x.id===id);if(!d)return;
+  var d=(D.decisions&&D.decisions.length?D.decisions:STATIC.decisions).find(function(x){return x.id===id;});if(!d)return;
   od(d.title,`${d.id} ｜ ${d.module}`,
     sec('決策內容',`<p class="dtxt">${d.content}</p>`)+
     sec('執行資訊',dm([['決策人',d.decider],['執行人',d.executor],['截止',d.deadline],['狀態',d.status==='decided'?'✔ 已決策':'⏳ 待確認']])),
