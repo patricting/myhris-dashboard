@@ -703,31 +703,40 @@ function init(){
   function renderRisk(r) {
     var lvlTxt = r.level==='high'?'🔴 高':r.level==='medium'?'🟡 中':'🟢 低';
     var scTxt  = r.status==='processing'?'處理中':r.status==='monitoring'?'持續監控':'待確認';
-    return '<div class="ritem '+r.level+'" onclick="oRsk(''+r.id+'')">' +
+    var div = document.createElement('div');
+    div.className = 'ritem ' + r.level;
+    div.onclick = (function(id){ return function(){ oRsk(id); }; })(r.id);
+    div.innerHTML =
       '<div class="rh"><span class="rid">'+r.id+'</span><span class="rmod">'+r.module+'</span>' +
       '<span class="rlvl '+r.level+'">'+lvlTxt+'</span>' +
       '<span class="rsc '+r.status+'" style="margin-left:auto">'+scTxt+'</span></div>' +
       '<div class="rdesc">'+r.desc+'</div>' +
       '<div class="rmit">▸ '+r.mit+'</div>' +
-      '<div class="rown">負責：'+r.owner+'</div></div>';
+      '<div class="rown">負責：'+r.owner+'</div>';
+    return div.outerHTML;
   }
 
   $('rhigh').innerHTML = riskData.filter(function(r){return r.level==='high';}).map(renderRisk).join('') ||
     '<p style="font-size:12px;color:var(--grn);padding:10px">暫無高風險項目</p>';
   $('rmed').innerHTML = riskData.filter(function(r){return r.level!=='high';}).map(renderRisk).join('');
 
-  $('declist').innerHTML = decData.map(function(d){
+  $('declist').innerHTML='';
+  decData.forEach(function(d){
     var bdgCls = d.status==='decided'?'done':'warning';
     var bdgTxt = d.status==='decided'?'✔ 已決策':'⏳ 待確認';
-    return '<div class="ditem" onclick="oDec(''+d.id+'')">' +
+    var div = document.createElement('div');
+    div.className = 'ditem';
+    div.onclick = (function(id){ return function(){ oDec(id); }; })(d.id);
+    div.innerHTML =
       '<div class="dh"><span class="did">'+d.id+'</span><span class="dtitle2">'+d.title+'</span>' +
       '<span class="rmod">'+d.module+'</span>' +
       '<span class="bdg '+bdgCls+'">'+bdgTxt+'</span></div>' +
       '<div class="dcnt">'+d.content+'</div>' +
       '<div class="dmeta"><div class="dmi"><strong>決策人 </strong>'+d.decider+'</div>' +
       '<div class="dmi"><strong>執行人 </strong>'+d.executor+'</div>' +
-      '<div class="dmi"><strong>截止 </strong>'+d.deadline+'</div></div></div>';
-  }).join('');
+      '<div class="dmi"><strong>截止 </strong>'+d.deadline+'</div></div>';
+    $('declist').appendChild(div);
+  });
 
   // Visits
   $('vgrid').innerHTML=STATIC.visits.map(v=>`<div class="vc ${v.urg?'urg':'nrm'}"><div class="vdate">${v.date}</div><div class="vtime">${v.time}</div><div class="vloc">${v.loc}</div><div class="vmod">${v.module}</div><div class="vpm">PM：${v.pm}</div><div class="vstaff">主責：${v.staff}</div><div class="vpre ${v.urg?'urg':'nrm'}">前提：${v.pre}回傳</div></div>`).join('');
