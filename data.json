@@ -8,7 +8,7 @@
   "totalTasks": 57,
   "health": "green",
   "healthTxt": "注意・合約待簽",
-  "vpSummary": "（AI摘要暫時無法取得，請稍後更新）",
+  "vpSummary": "（AI摘要暫時無法取得，狀態碼：429）",
   "modPct": {
     "org": 50,
     "per": 33,
