@@ -597,8 +597,10 @@ function init(){
 
   // Milestones (upcoming 6)
   var msData = (D.milestones && D.milestones.length) ? D.milestones : STATIC.milestones;
-  $('msup').innerHTML=msData.filter(function(m){return autoStatus(m)!=='done';}).slice(0,6).map(function(m){
-    var s=autoStatus(m);
+  var useLive = (D.milestones && D.milestones.length) ? true : false;
+  function getStatus(m){ return useLive ? m.status : autoStatus(m); }
+  $('msup').innerHTML=msData.filter(function(m){return getStatus(m)!=='done';}).slice(0,6).map(function(m){
+    var s=getStatus(m);
     return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
   }).join('');
 
@@ -619,7 +621,7 @@ function init(){
 
   // All milestones
   $('msall').innerHTML=msData.map(function(m){
-    var s=autoStatus(m);
+    var s=getStatus(m);
     return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td><td class="ms-note">'+m.note+'</td></tr>';
   }).join('');
 
