@@ -4,6 +4,8 @@
   "start": "2026/05/05",
   "phase": "P0",
   "pct": 21,
+  "doneTasks": 12,
+  "totalTasks": 57,
   "health": "green",
   "healthTxt": "注意・合約待簽",
   "vpSummary": "（AI摘要暫時無法取得，請稍後更新）",
@@ -13,6 +15,28 @@
     "att": 0,
     "pay": 14,
     "ins": 33
+  },
+  "modTasks": {
+    "org": {
+      "done": 3,
+      "total": 6
+    },
+    "per": {
+      "done": 1,
+      "total": 3
+    },
+    "att": {
+      "done": 0,
+      "total": 8
+    },
+    "pay": {
+      "done": 1,
+      "total": 7
+    },
+    "ins": {
+      "done": 1,
+      "total": 3
+    }
   },
   "vendor": {
     "week": "第2週",
