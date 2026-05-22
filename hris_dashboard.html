@@ -332,16 +332,16 @@ const STATIC = {
      schedule:"問卷④ 05/29截止 ｜ 訪談 06/02（二）09:30–18:00 @2-1 ｜ 配置完成 10/31"},
   ],
   milestones:[
-    {id:"M01",name:"專案開工 Kick-off",              date:"2026/05/05",owner:"Kate/冠元",    status:"done",   note:"已完成"},
-    {id:"M02",name:"啟動說明會 + PM說明會",            date:"2026/05/11",owner:"Kate/冠元",    status:"done",   note:"已完成"},
-    {id:"M03",name:"合約簽署完成",                    date:"2026/05/15",owner:"冠元/採購",    status:"warning",note:"法務5/11意見，目標05/15"},
+    {id:"M01",name:"專案開工 Kick-off",              date:"2026/05/05",owner:"Kate",    status:"done",   note:"已完成"},
+    {id:"M02",name:"啟動說明會 + PM說明會",            date:"2026/05/11",owner:"Kate",    status:"done",   note:"已完成"},
+    {id:"M03",name:"合約簽署完成",                    date:"2026/05/15",owner:"Kate/採購",    status:"warning",note:"法務5/11意見，目標05/15"},
     {id:"M04",name:"問卷說明會（組織/職位/人事）",      date:"2026/05/18",owner:"Kate/俊翔",    status:"done",   note:"已完成（14:00 @小紅屋）"},
     {id:"M05",name:"IT環境全數就緒",                   date:"2026/05/22",owner:"慈琬",         status:"active", note:"SQL定序已確認，其餘進行中"},
     {id:"M06",name:"問卷①②③回傳（⚠ 硬節點）",        date:"2026/05/22",owner:"俊翔/Kate",    status:"active", note:"延誤→訪談延後→付款延後"},
     {id:"M07",name:"問卷④⑤回傳截止",                  date:"2026/05/22",owner:"Ken/智翔",     status:"pending",note:"差勤/薪資/保險，需於06/02前到位"},
     {id:"M08",name:"顧問駐點訪談全數完成（4場）",       date:"2026/06/06",owner:"逐鹿/各PM",    status:"pending",note:"05/26~06/04，06/06確認全數完成"},
     {id:"M09",name:"基礎訪談定案（全模組簽回）",        date:"2026/06/30",owner:"各功能PM",     status:"pending",note:""},
-    {id:"M10",name:"客製需求定案",                     date:"2026/07/31",owner:"冠元/Kate",    status:"pending",note:"觸發C期付款 NT$1,968,000"},
+    {id:"M10",name:"客製需求定案",                     date:"2026/07/31",owner:"Kate",    status:"pending",note:"觸發C期付款 NT$1,968,000"},
     {id:"M11",name:"考勤配置完成",                     date:"2026/08/31",owner:"逐鹿",         status:"pending",note:""},
     {id:"M12",name:"薪資保險配置完成",                  date:"2026/10/31",owner:"逐鹿",         status:"pending",note:""},
     {id:"M13",name:"整合測試完成（含表單）",             date:"2026/11/30",owner:"雙方",         status:"pending",note:""},
@@ -350,15 +350,15 @@ const STATIC = {
     {id:"M16",name:"🎯 正式上線 Go-Live",              date:"2027/01/01",owner:"全體",         status:"pending",note:"湯副總確認基準"},
   ],
   risks:[
-    {id:"R01",module:"合約",  level:"high",  owner:"冠元/Kate",  status:"processing",desc:"合約未簽已開工，法律保障缺口",mit:"目標05/15完成採購簽核",actions:["今日確認口徑","Kate啟動採購簽核"]},
-    {id:"R02",module:"全體",  level:"high",  owner:"冠元",       status:"monitoring",desc:"時程壓縮，開工到上線僅8個月",mit:"每節點嚴格追蹤，延遲立即升級APL",actions:["訪談後24h填報機制","紅燈當天通知不等週報"]},
+    {id:"R01",module:"合約",  level:"high",  owner:"Kate",  status:"processing",desc:"合約未簽已開工，法律保障缺口",mit:"目標05/15完成採購簽核",actions:["今日確認口徑","Kate啟動採購簽核"]},
+    {id:"R02",module:"全體",  level:"high",  owner:"Kate",       status:"monitoring",desc:"時程壓縮，開工到上線僅8個月",mit:"每節點嚴格追蹤，延遲立即升級APL",actions:["訪談後24h填報機制","紅燈當天通知不等週報"]},
     {id:"R03",module:"組織",  level:"medium",owner:"Kate/俊翔",  status:"pending",   desc:"旅天下/欣食旅規則不一致，範疇擴大",mit:"第一輪訪談同步確認差異",actions:["05/26訪談同步詢問"]},
-    {id:"R04",module:"組織",  level:"medium",owner:"Kate/冠元",  status:"pending",   desc:"根組織節點代碼設定錯誤，建置後難修改",mit:"HR主管確認後才回傳",actions:["本週主管確認後回傳逐鹿"]},
+    {id:"R04",module:"組織",  level:"medium",owner:"Kate",  status:"pending",   desc:"根組織節點代碼設定錯誤，建置後難修改",mit:"HR主管確認後才回傳",actions:["本週主管確認後回傳逐鹿"]},
     {id:"R05",module:"薪酬",  level:"medium",owner:"智翔",       status:"pending",   desc:"薪資規則複雜度超出預期",mit:"訪談前具體描述計薪邏輯",actions:[]},
     {id:"R06",module:"全體",  level:"medium",owner:"Kate",       status:"monitoring",desc:"功能PM本業繁忙，訪談回應速度慢",mit:"訪談後24h填報，逾期升級APL",actions:[]},
     {id:"R07",module:"IT",    level:"medium",owner:"慈琬",       status:"pending",   desc:"異系統對接（ERP）複雜度超出預期",mit:"儘早啟動對接需求訪談",actions:[]},
     {id:"R08",module:"薪酬",  level:"medium",owner:"智翔/慈琬",  status:"pending",   desc:"月底算薪與打卡同時發生，DB Lock風險",mit:"壓測含月底混合負載",actions:[]},
-    {id:"R09",module:"法遵",  level:"medium",owner:"冠元/法務",  status:"pending",   desc:"越南DPIA申報責任在雄獅，延遲有法規風險",mit:"指定法務窗口，逐鹿提供技術說明",actions:[]},
+    {id:"R09",module:"法遵",  level:"medium",owner:"Kate/法務",  status:"pending",   desc:"越南DPIA申報責任在雄獅，延遲有法規風險",mit:"指定法務窗口，逐鹿提供技術說明",actions:[]},
     {id:"R10",module:"專案",  level:"low",   owner:"Kate/逐鹿",  status:"monitoring",desc:"專案成員異動或離職，知識斷層",mit:"每版規格文件雙方皆保留，決策紀錄即時更新",actions:[]},
   ],
   decisions:[
@@ -366,8 +366,8 @@ const STATIC = {
     {id:"D02",title:"導入範疇鎖定",  module:"全體",date:"2026/05/05",status:"decided",  content:"單一組織樹、單套規則、台灣事業體。旅天下/欣食旅規則須一致才納入，否則第二階段。",decider:"Steven/Vivian",executor:"Kate/俊翔",deadline:"2026/05/07"},
     {id:"D03",title:"IT技術移轉範圍",module:"IT",  date:"2026/05/05",status:"decided",  content:"郵件/報表/查詢中心技轉後由雄獅IT開發。標準報表4張由逐鹿提供。",decider:"Steven/Vivian",executor:"慈琬",deadline:"2026/06/30"},
     {id:"D04",title:"合約簽署截止日",module:"合約",date:"2026/05/07",status:"pending",  content:"確認付款期程後走採購簽核，目標05/15完成。",decider:"待確認",executor:"Kate/採購",deadline:"2026/05/15"},
-    {id:"D05",title:"根組織節點代碼",module:"組織",date:"2026/05/07",status:"pending",  content:"由HR主管確認後回傳，不由IT自行決定。",decider:"待確認",executor:"Kate/冠元",deadline:"2026/05/15"},
-    {id:"D06",title:"考勤PM調整",    module:"考勤",date:"2026/05/11",status:"decided",  content:"考勤PM與保險PM統一由 Ken 負責，俊翔專注組織模組。",decider:"冠元",executor:"Kate",deadline:"2026/05/11"},
+    {id:"D05",title:"根組織節點代碼",module:"組織",date:"2026/05/07",status:"pending",  content:"由HR主管確認後回傳，不由IT自行決定。",decider:"待確認",executor:"Kate",deadline:"2026/05/15"},
+    {id:"D06",title:"考勤PM調整",    module:"考勤",date:"2026/05/11",status:"decided",  content:"考勤PM與保險PM統一由 Ken 負責，俊翔專注組織模組。",decider:"湯副總/APL",executor:"Kate",deadline:"2026/05/11"},
   ],
   actions:[
     {date:"05/18（一）",hard:false,task:"問卷說明會：組織/職位/人事 @14:00小紅屋",owner:"俊翔/Kate",pre:"",status:"active"},
@@ -413,7 +413,6 @@ const STATIC = {
 
 <!-- PAGE: 總覽 -->
 <div class="page active" id="page-overview"><div class="pb">
-  <div class="sh"><div class="shbar"></div><div class="shtxt">本週狀態摘要</div></div>
   <div class="vp-card" id="vp-card"></div>
 
   <div class="sh"><div class="shbar"></div><div class="shtxt">專案健康指標</div><div class="shnote">點擊查看說明</div></div>
@@ -499,8 +498,7 @@ function init(){
   const vpStatus=D.health==='green'?'🟢 正常推進':D.health==='red'?'🔴 需要關注':'🟡 注意事項';
   $('vp-card').innerHTML=`
     <div class="vp-left">
-      <div class="vp-label">本週狀態摘要</div>
-      <div class="vp-text">${D.vpSummary}</div>
+      <div class="vp-text">${D.vpSummary.replace(/\\n/g,"\n")}</div>
     </div>
     <div class="vp-divider"></div>
     <div class="vp-right">
@@ -598,9 +596,10 @@ function init(){
   });
 
   // Milestones (upcoming 6)
-  $('msup').innerHTML=STATIC.milestones.filter(m=>autoStatus(m)!=='done').slice(0,6).map(m=>{
-    const s=autoStatus(m);
-    return `<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(s)}">${bt(s)}</span></td></tr>`;
+  var msData = (D.milestones && D.milestones.length) ? D.milestones : STATIC.milestones;
+  $('msup').innerHTML=msData.filter(function(m){return autoStatus(m)!=='done';}).slice(0,6).map(function(m){
+    var s=autoStatus(m);
+    return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
   }).join('');
 
   // Modules
@@ -619,9 +618,9 @@ function init(){
   $('vstrip').onclick=()=>od('廠商逐鹿本週狀態',`${vd.week} ｜ 交付：${vd.delivery}`,sec('本週顧問配合',`<p class="dtxt">${vd.consult}</p>`)+sec('本週問題落差',`<p class="dtxt">${vd.issue==='無'?'本週無落差或問題。':vd.issue}</p>`)+sec('下週預計',`<div class="dnext">${vd.next}</div>`),vd.delivery==='準時'?'var(--grn)':'#E8A030');
 
   // All milestones
-  $('msall').innerHTML=STATIC.milestones.map(m=>{
-    const s=autoStatus(m);
-    return `<tr onclick="oMs('${m.id}')"><td class="ms-id">${m.id}</td><td><div class="ms-name">${m.name}</div></td><td><div class="ms-date">${m.date}</div></td><td class="ms-own">${m.owner}</td><td><span class="bdg ${bc(s)}">${bt(s)}</span></td><td class="ms-note">${m.note}</td></tr>`;
+  $('msall').innerHTML=msData.map(function(m){
+    var s=autoStatus(m);
+    return '<tr onclick="oMs(''+m.id+'')"><td class="ms-id">'+m.id+'</td><td><div class="ms-name">'+m.name+'</div></td><td><div class="ms-date">'+m.date+'</div></td><td class="ms-own">'+m.owner+'</td><td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td><td class="ms-note">'+m.note+'</td></tr>';
   }).join('');
 
   // Risks
@@ -645,7 +644,8 @@ function oPay(code){
   od(`${p.code}期：${p.phase}`,`${p.attach} ｜ ${money(p.amount)} ｜ ${p.pct}%`,sec('觸發條件',`<p class="dtxt">${p.note}</p>`)+sec('執行步驟',dl(p.actions)),col);
 }
 function oMs(id){
-  const m=STATIC.milestones.find(x=>x.id===id);if(!m)return;
+  var msAll=(D.milestones&&D.milestones.length)?D.milestones:STATIC.milestones;
+  const m=msAll.find(function(x){return x.id===id;});if(!m)return;
   const col={done:'var(--grn)',active:'var(--red)',warning:'#E8A030',pending:'var(--gl)'}[m.status]||'var(--gl)';
   od(m.name,`${m.id} ｜ 負責：${m.owner}`,sec('基本資訊',dm([['計畫日期',m.date],['負責人',m.owner],['狀態',bt(m.status)]]))+
   (m.note?`<div class="dflag amb" style="margin-top:12px">${m.note}</div>`:'')+
