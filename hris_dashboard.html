@@ -609,19 +609,23 @@ function init(){
     $('kd-section').style.display='block';
     var now = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
     var html = '<div class="kd-head"><div class="kd-label">⚡ 本週關鍵決策</div><div class="kd-week">'+now+'</div></div>';
+    $('kd-block').innerHTML = html;
     recent.forEach(function(d){
-      var kdDiv=document.createElement('div'); kdDiv.className='kd-item'; kdDiv.onclick=(function(id){return function(){oDec(id);};})(d.id); kdDiv.innerHTML=+
+      var kdDiv = document.createElement('div');
+      kdDiv.className = 'kd-item';
+      kdDiv.onclick = (function(id){return function(){oDec(id);};})(d.id);
+      kdDiv.innerHTML =
         '<div class="kd-row">'+
         '<div class="kd-id">'+d.id+'</div>'+
         '<div class="kd-info">'+
         '<div class="kd-title">'+d.title+'</div>'+
         '<div class="kd-desc">'+d.content.substring(0,80)+(d.content.length>80?'…':'')+'</div>'+
-        '<div class="kd-meta">決策人：'+d.decider+' ｜ '+d.date+'</div>'+
+        '<div class="kd-meta">決策人：'+d.decider+'</div>'+
         '</div>'+
         '<div class="kd-arrow">→</div>'+
-        '</div></div>';
+        '</div>';
+      $('kd-block').appendChild(kdDiv);
     });
-    $('kd-block').innerHTML = html;
   })();
 
   // KPI 1: 距正式上線
