@@ -599,8 +599,12 @@ function init(){
     var weekAgo = new Date(today - 7*24*60*60*1000);
     var recent = decAll.filter(function(d){
       if(d.status !== 'decided') return false;
-      var dt = new Date(String(d.date).replace(/\//g,'-'));
-      return dt >= weekAgo;
+      // 只要是已決策就顯示，不限7天，由 slice(0,3) 控制最多3筆
+      return true;
+    }).slice(0,3);
+    // 依日期排序，最新的在前
+    recent.sort(function(a,b){
+      return new Date(b.date) - new Date(a.date);
     });
     if(!recent.length) { $('kd-section').style.display='none'; return; }
     $('kd-section').style.display='block';
@@ -716,15 +720,7 @@ function init(){
       '<td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
   }).join('');
 
-  // Modules
-  $('mgrid').innerHTML=STATIC.modules.map(m=>{
-    const pct=D.modPct[m.id]||0;
-    const cls=pct>=100?'dn':m.status==='active'?'act':'';
-    const fc=pct>=100?'dn':pct>0?'':'pd';
-    const chip=pct>=100?'dn':m.status==='active'?'act':'pd';
-    const chipTxt=pct>=100?'✔ 完成':m.status==='active'?'▶ 訪談中':'— 待啟動';
-    return`<div class="mc ${cls}" onclick="oMod('${m.id}')"><div class="mc-name">${m.name}</div><div class="mc-pm">PM：${m.pm}</div><div class="mc-staff">主責：${m.staff}</div><div class="mc-pbar"><div class="mc-fill ${fc}" style="width:${Math.max(pct,2)}%"></div></div><div class="mc-pct">${pct}%</div><div><span class="mchip ${chip}">${chipTxt}</span></div></div>`;
-  }).join('');
+  // Modules (handled by new modStatus code above)
 
   // Vendor strip
   const vd=D.vendor;
