@@ -235,6 +235,22 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 .dtxt{font-size:12.5px;color:var(--cha);line-height:1.55}
 .dnext{font-size:12.5px;color:var(--cha);line-height:1.5;background:var(--bg);border-radius:6px;padding:10px 14px;border-left:3px solid var(--red)}
 
+/* KEY DECISION BLOCK */
+.kd-block{background:var(--card);border:1px solid var(--bdr);border-left:4px solid var(--red);border-radius:10px;padding:16px 20px;margin-bottom:24px}
+.kd-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.kd-label{font-size:10px;font-weight:700;color:var(--red);letter-spacing:1px;text-transform:uppercase}
+.kd-week{font-size:10px;color:var(--gray);margin-left:auto;font-family:'DM Mono',monospace}
+.kd-item{padding:10px 14px;background:var(--bg);border-radius:7px;margin-bottom:8px;cursor:pointer;transition:all .15s}
+.kd-item:last-child{margin-bottom:0}
+.kd-item:hover{background:var(--red-l)}
+.kd-row{display:flex;align-items:flex-start;gap:10px}
+.kd-id{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex-shrink:0;margin-top:2px}
+.kd-info{flex:1}
+.kd-title{font-size:13px;font-weight:700;color:var(--blk);margin-bottom:2px}
+.kd-desc{font-size:12px;color:var(--cha);line-height:1.45}
+.kd-meta{font-size:10.5px;color:var(--gray);margin-top:4px}
+.kd-arrow{font-size:11px;color:var(--red);flex-shrink:0;margin-top:2px}
+
 /* RESPONSIVE */
 @media(max-width:1000px){.mgrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}.vrow{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){
@@ -473,6 +489,7 @@ const STATIC = {
 <div class="page active" id="page-overview"><div class="pb">
   <div class="vp-card" id="vp-card"></div>
 
+  <div id="kd-section" style="display:none"><div class="kd-block" id="kd-block"></div></div>
   <div class="sh"><div class="shbar"></div><div class="shtxt">專案健康指標</div><div class="shnote">點擊查看說明</div></div>
   <div class="krow" id="krow"></div>
 
@@ -574,6 +591,36 @@ function init(){
   const paid=STATIC.payments.filter(p=>p.status==='triggered').reduce((s,p)=>s+p.amount,0);
   const tot=STATIC.payments.reduce((s,p)=>s+p.amount,0);
   const hn=STATIC.risks.filter(r=>r.level==='high').length;
+  // 本週關鍵決策區塊
+  (function(){
+    var decAll = D.decisions&&D.decisions.length ? D.decisions : STATIC.decisions;
+    // 找最近7天內新增的已決策項目
+    var today = new Date();
+    var weekAgo = new Date(today - 7*24*60*60*1000);
+    var recent = decAll.filter(function(d){
+      if(d.status !== 'decided') return false;
+      var dt = new Date(String(d.date).replace(/\//g,'-'));
+      return dt >= weekAgo;
+    });
+    if(!recent.length) { $('kd-section').style.display='none'; return; }
+    $('kd-section').style.display='block';
+    var now = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+    var html = '<div class="kd-head"><div class="kd-label">⚡ 本週關鍵決策</div><div class="kd-week">'+now+'</div></div>';
+    recent.forEach(function(d){
+      html += '<div class="kd-item" onclick="oDec(''+d.id+'')">'+
+        '<div class="kd-row">'+
+        '<div class="kd-id">'+d.id+'</div>'+
+        '<div class="kd-info">'+
+        '<div class="kd-title">'+d.title+'</div>'+
+        '<div class="kd-desc">'+d.content.substring(0,80)+(d.content.length>80?'…':'')+'</div>'+
+        '<div class="kd-meta">決策人：'+d.decider+' ｜ '+d.date+'</div>'+
+        '</div>'+
+        '<div class="kd-arrow">→</div>'+
+        '</div></div>';
+    });
+    $('kd-block').innerHTML = html;
+  })();
+
   // KPI 1: 距正式上線
   (function(){
     var d=dy(D.goLive);
