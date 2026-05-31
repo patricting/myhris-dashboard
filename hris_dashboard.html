@@ -597,15 +597,14 @@ function init(){
     // 找最近7天內新增的已決策項目
     var today = new Date();
     var weekAgo = new Date(today - 7*24*60*60*1000);
-    var recent = decAll.filter(function(d){
-      if(d.status !== 'decided') return false;
-      // 只要是已決策就顯示，不限7天，由 slice(0,3) 控制最多3筆
-      return true;
-    }).slice(0,3);
-    // 依日期排序，最新的在前
+    var recent = [];
+    decAll.forEach(function(d){
+      if(d.status === 'decided') recent.push(d);
+    });
     recent.sort(function(a,b){
       return new Date(b.date) - new Date(a.date);
     });
+    recent = recent.slice(0,3);
     if(!recent.length) { $('kd-section').style.display='none'; return; }
     $('kd-section').style.display='block';
     var now = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
@@ -720,7 +719,41 @@ function init(){
       '<td><span class="bdg '+bc(s)+'">'+bt(s)+'</span></td></tr>';
   }).join('');
 
-  // Modules (handled by new modStatus code above)
+  // Modules - auto status based on interview dates
+  (function(){
+    var interviewDates = {
+      org:'2026-05-26', per:'2026-05-28',
+      pay:'2026-06-02', ins:'2026-06-02', att:'2026-06-04'
+    };
+    var today = new Date(); today.setHours(0,0,0,0);
+    $('mgrid').innerHTML = '';
+    STATIC.modules.forEach(function(m){
+      var pct = D.modPct[m.id]||0;
+      var done = D.modTasks&&D.modTasks[m.id] ? D.modTasks[m.id].done : 0;
+      var total = D.modTasks&&D.modTasks[m.id] ? D.modTasks[m.id].total : 0;
+      // Auto status
+      var ms = 'pending';
+      if(pct >= 100) ms = 'done';
+      else if(interviewDates[m.id] && today >= new Date(interviewDates[m.id])) ms = 'active';
+      var cls = ms==='done'?'dn':ms==='active'?'act':'';
+      var fc  = ms==='done'?'dn':pct>0?'':'pd';
+      var chip= ms==='done'?'dn':ms==='active'?'act':'pd';
+      var chipTxt = ms==='done'?'✔ 完成':ms==='active'?'▶ 訪談中':'— 待啟動';
+      var sub = total>0 ? (done+' / '+total+' 項') : '';
+      var div = document.createElement('div');
+      div.className = 'mc '+cls;
+      div.onclick = (function(id){return function(){oMod(id);};})(m.id);
+      div.innerHTML =
+        '<div class="mc-name">'+m.name+'</div>'+
+        '<div class="mc-pm">PM：'+m.pm+'</div>'+
+        '<div class="mc-staff">主責：'+m.staff+'</div>'+
+        '<div class="mc-pbar"><div class="mc-fill '+fc+'" style="width:'+Math.max(pct,2)+'%"></div></div>'+
+        '<div class="mc-pct">'+pct+'%</div>'+
+        (sub?'<div class="mc-note">'+sub+'</div>':'')+
+        '<div><span class="mchip '+chip+'">'+chipTxt+'</span></div>';
+      $('mgrid').appendChild(div);
+    });
+  })();
 
   // Vendor strip
   const vd=D.vendor;
