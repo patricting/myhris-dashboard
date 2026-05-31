@@ -607,7 +607,7 @@ function init(){
     var now = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
     var html = '<div class="kd-head"><div class="kd-label">⚡ 本週關鍵決策</div><div class="kd-week">'+now+'</div></div>';
     recent.forEach(function(d){
-      html += '<div class="kd-item" onclick="oDec(''+d.id+'')">'+
+      var kdDiv=document.createElement('div'); kdDiv.className='kd-item'; kdDiv.onclick=(function(id){return function(){oDec(id);};})(d.id); kdDiv.innerHTML=+
         '<div class="kd-row">'+
         '<div class="kd-id">'+d.id+'</div>'+
         '<div class="kd-info">'+
