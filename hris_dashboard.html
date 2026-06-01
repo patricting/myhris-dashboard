@@ -338,6 +338,7 @@ let D = {
   health:    "amber",
   healthTxt: "資料載入中",
   vpSummary: "資料載入中，請稍候...",
+  vpSummaryFull: "",
   vendor: {
     week: "", delivery: "準時",
     consult: "", issue: "無", next: "",
@@ -586,16 +587,44 @@ function init(){
       <div class="vp-meta-item"><div class="vp-meta-label">距正式上線</div><div class="vp-meta-val ${dy(D.goLive)<60?'danger':'ok'}">${dy(D.goLive)} 天</div></div>
       <div class="vp-meta-item"><div class="vp-meta-label">當前階段</div><div class="vp-meta-val">${D.phase}</div></div>
     </div>`;
-  // Render vp summary after DOM is set
+  // Render vp summary after DOM is set - 彩色標籤版
   (function(){
     var el = document.getElementById('vp-txt');
     if(!el || !D.vpSummary) return;
-    el.innerHTML = D.vpSummary.split('\n').map(function(l){
-      if(!l.trim()) return '';
-      return '<div style="margin-bottom:7px;line-height:1.6">'+
-        l.replace(/^(\d+\.\s*)/,'<strong style="color:var(--red)">$1</strong>')+
-        '</div>';
-    }).filter(Boolean).join('');
+    var tagColors = {
+      '訪談進度':   {bg:'#E6F1FB', fg:'#0C447C'},
+      '關鍵決策':   {bg:'#E1F5EE', fg:'#0F6E56'},
+      '合約付款':   {bg:'#FAEEDA', fg:'#854F0B'},
+      '待確認與風險':{bg:'#FCEBEB', fg:'#A32D2D'},
+      '下週行動':   {bg:'#EEEDFE', fg:'#3C3489'}
+    };
+    var lines = D.vpSummary.split('\n').filter(function(l){return l.trim();});
+    var html = '';
+    lines.forEach(function(line){
+      var parts = line.split('｜');
+      if(parts.length >= 2){
+        var tag = parts[0].trim().replace(/^\d+[\.、]\s*/,'');
+        var content = parts.slice(1).join('｜').trim();
+        var c = tagColors[tag] || {bg:'#F1EFE8', fg:'#444441'};
+        html += '<div style="display:flex;gap:10px;margin-bottom:11px;align-items:flex-start">'+
+          '<span style="flex-shrink:0;background:'+c.bg+';color:'+c.fg+';font-size:11px;font-weight:600;padding:3px 11px;border-radius:6px;min-width:72px;text-align:center;line-height:1.5">'+tag+'</span>'+
+          '<span style="font-size:13.5px;color:var(--blk);line-height:1.55;padding-top:1px">'+content+'</span>'+
+          '</div>';
+      } else {
+        html += '<div style="font-size:13.5px;color:var(--blk);line-height:1.6;margin-bottom:8px">'+line+'</div>';
+      }
+    });
+    if(D.vpSummaryFull && D.vpSummaryFull.length > 10){
+      html += '<div id="vp-more-btn" style="margin-top:14px;display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--red);cursor:pointer;font-weight:500;padding:6px 0">查看完整週報 →</div>';
+    }
+    el.innerHTML = html;
+    var btn = document.getElementById('vp-more-btn');
+    if(btn){
+      btn.onclick = function(){
+        var body = sec('本週完整週報', '<div style="font-size:13px;line-height:1.7;white-space:pre-line;color:var(--blk)">'+D.vpSummaryFull+'</div>');
+        od('本週狀態摘要（完整版）', '更新於 '+D.updated, body, 'var(--red)');
+      };
+    }
   })();
 
   // KPI
@@ -630,7 +659,7 @@ function init(){
       '<div class="kd-desc">'+d.content.substring(0,120)+(d.content.length>120?'…':'')+'</div>'+
       '<div class="kd-footer">'+
       '<div class="kd-decider">決策人：'+d.decider+'</div>'+
-      '<div class="kd-decider">'+d.date+'</div>'+
+      '<div class="kd-decider">'+(function(s){var dt=new Date(s);return isNaN(dt.getTime())?s:(dt.getFullYear()+'/'+(dt.getMonth()+1)+'/'+dt.getDate());})(d.date)+'</div>'+
       '<div class="kd-more">點擊查看完整說明 →</div>'+
       '</div>';
     $('kd-block').onclick = (function(id){ return function(){ oDec(id); }; })(d.id);
