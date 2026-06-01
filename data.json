@@ -303,7 +303,7 @@
       "level": "medium",
       "mit": "C期文字已定稿「含雙方認定上線前之必要客製規格」，待報價單用印完成",
       "owner": "Kate/採購",
-      "deadline": "Tue May 26 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "processing",
       "background": "訪談前逐鹿顧問對C期付款文字有異議，今日經協調後雙方達成共識，待報價單用印確認後正式收斂"
     },
@@ -314,7 +314,7 @@
       "level": "high",
       "mit": "報價單已用印，系統安裝授權檔已可交付；合約本體持續推進採購簽核",
       "owner": "Kate/採購",
-      "deadline": "Tue May 26 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "processing",
       "background": "05/26系統安裝已排定，但合約未確認，Robert說明授權檔會後補。合約用印是系統正式安裝的前提"
     },
@@ -325,7 +325,7 @@
       "level": "medium",
       "mit": "每節點嚴格追蹤，延遲立即升級APL；訪談後24小時內完成填報",
       "owner": "Kate",
-      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "processing",
       "background": "整體時程僅8個月，訪談、定案、配置、測試任一環節延誤均連鎖影響後續，無緩衝空間"
     },
@@ -336,7 +336,7 @@
       "level": "medium",
       "mit": "顧問駐點訪談同步確認旅天下、欣食旅差異；差異大則納入第二階段",
       "owner": "Kate/俊翔",
-      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "顧問駐點計劃要求三法人同步訪談。若各法人規則不一致，單一組織樹前提不成立，需重新議定導入範疇"
     },
@@ -347,7 +347,7 @@
       "level": "medium",
       "mit": "以標準化模板為基礎，非必要不客製；冠元與Steven各自擔保範疇不發散",
       "owner": "Kate/逐鹿",
-      "deadline": "Fri Jul 31 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Fri Jul 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "C期付款以「雙方認定必要客製規格」為基準，但「必要」缺乏客觀標準，訪談過程中雙方認知可能出現落差"
     },
@@ -358,7 +358,7 @@
       "level": "medium",
       "mit": "訪談時確認eNitorWeb刷卡格式規格，提前進行欄位對應確認",
       "owner": "Ken/慈琬",
-      "deadline": "Mon Aug 31 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Mon Aug 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "現有系統刷卡資料為自定義格式（工號5碼+日期+時間+進出代碼），對接Gaia HCM需精確欄位映射，設定錯誤將導致全員考勤資料無法匯入"
     },
@@ -369,7 +369,7 @@
       "level": "medium",
       "mit": "訪談逐一確認加班科目及法院扣款設定，主責經辦Betty/伊雯進行驗證",
       "owner": "智翔/逐鹿",
-      "deadline": "Sat Oct 31 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Sat Oct 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "問卷顯示加班費有16個科目（應稅/免稅×4種倍率）、法院扣款科目、計勤區間非自然月（上月21至當月20日），設定錯誤影響全員薪資並違反勞基法"
     },
@@ -380,7 +380,7 @@
       "level": "medium",
       "mit": "提前啟動對接需求訪談，確認API規格與資料清理工作量",
       "owner": "慈琬/逐鹿",
-      "deadline": "Mon Nov 30 2026 16:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Mon Nov 30 2026 16:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "與ERP系統的對接規格需待需求訪談完成才能鎖定，複雜度超出預期將壓縮整合測試時間"
     },
@@ -391,7 +391,7 @@
       "level": "medium",
       "mit": "提前確認各法人資料格式，主責經辦主導清理，逐鹿提供匯入範本",
       "owner": "Kate/全體經辦",
-      "deadline": "Tue Dec 15 2026 16:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue Dec 15 2026 16:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "background": "多法人、多薪資結構下歷史資料格式不一致，清理工作量難以預估，資料品質直接影響平測能否正常執行"
     },
@@ -402,7 +402,7 @@
       "level": "medium",
       "mit": "節點代碼由HR主管確認後才回傳，不由IT自行決定",
       "owner": "Kate",
-      "deadline": "Fri May 22 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Fri May 22 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "closed",
       "background": "組織樹根節點代碼一旦設定錯誤幾乎無法修改，影響後續所有模組配置。已於05/18由主管確認後回傳逐鹿，此風險已關閉"
     }
@@ -410,85 +410,85 @@
   "decisions": [
     {
       "id": "D01",
-      "date": "Tue May 05 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "全體",
       "title": "時程基準",
       "content": "正式上線 2027/01/01（湯副總確認基準）。保守基準：2027/03/01",
       "decider": "Steven/Vivian",
       "executor": "Kate",
-      "deadline": "Thu May 07 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "decided",
       "note": ""
     },
     {
       "id": "D02",
-      "date": "Tue May 05 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "全體",
       "title": "導入範疇",
       "content": "單一組織樹、單套規則、台灣事業體。旅天下/欣食旅規則須一致才納入",
       "decider": "Steven/Vivian",
       "executor": "Kate/俊翔",
-      "deadline": "Thu May 07 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "decided",
       "note": ""
     },
     {
       "id": "D03",
-      "date": "Tue May 05 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "IT",
       "title": "技術移轉範圍",
       "content": "郵件/報表/查詢中心技轉後由雄獅IT開發。標準報表4張由逐鹿提供",
       "decider": "Steven/Vivian",
       "executor": "慈琬",
-      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "decided",
       "note": ""
     },
     {
       "id": "D04",
-      "date": "Thu May 07 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "合約",
       "title": "合約簽署截止日",
       "content": "確認付款期程後走採購簽核，目標05/15完成",
       "decider": "待確認",
       "executor": "Kate/採購",
-      "deadline": "Fri May 15 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Fri May 15 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "note": "報價單已用印完成，合約本體仍在走採購簽核流程"
     },
     {
       "id": "D05",
-      "date": "Thu May 07 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "組織",
       "title": "根組織節點代碼",
       "content": "由HR主管確認後回傳，不由IT自行決定",
       "decider": "待確認",
       "executor": "Kate/冠元",
-      "deadline": "Fri May 15 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Fri May 15 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "pending",
       "note": ""
     },
     {
       "id": "D06",
-      "date": "Mon May 11 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Mon May 11 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "考勤保險",
       "title": "考勤PM調整",
       "content": "考勤PM與保險PM統一由 Ken 負責，俊翔專注組織模組",
       "decider": "冠元",
       "executor": "Kate",
-      "deadline": "Mon May 11 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Mon May 11 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "decided",
       "note": ""
     },
     {
       "id": "D07",
-      "date": "Wed May 27 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "date": "Wed May 27 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "module": "組織/人事",
       "title": "組織+人事1/1上線導入策略",
       "content": "以現有資料為基礎導入，透過欄位定義進行資料清洗。影響ERP/SERP/訂單/權限/經營分析的欄位獨立設定，透過顯示/不顯示控制，不貿然調動。SERP+ERP透過API抓欄位維持業務系統正常運作。終極目標：乾淨組織簽核邏輯、清洗過的職稱職等職級",
       "decider": "Steven",
       "executor": "俊翔/慈琬/義峰/All",
-      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (台北標準時間)",
+      "deadline": "Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)",
       "status": "decided",
       "note": "05/27內部工作會議，與會：Steven、冠元、慈琬、俊翔、義峰、Ken。組織樹raw data牽涉SERP、ERP、訂單、權限角色與經營分析平台，不能貿然調動"
     }
