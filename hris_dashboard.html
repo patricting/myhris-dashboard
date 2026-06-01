@@ -586,6 +586,17 @@ function init(){
       <div class="vp-meta-item"><div class="vp-meta-label">距正式上線</div><div class="vp-meta-val ${dy(D.goLive)<60?'danger':'ok'}">${dy(D.goLive)} 天</div></div>
       <div class="vp-meta-item"><div class="vp-meta-label">當前階段</div><div class="vp-meta-val">${D.phase}</div></div>
     </div>`;
+  // Render vp summary after DOM is set
+  (function(){
+    var el = document.getElementById('vp-txt');
+    if(!el || !D.vpSummary) return;
+    el.innerHTML = D.vpSummary.split('\n').map(function(l){
+      if(!l.trim()) return '';
+      return '<div style="margin-bottom:7px;line-height:1.6">'+
+        l.replace(/^(\d+\.\s*)/,'<strong style="color:var(--red)">$1</strong>')+
+        '</div>';
+    }).filter(Boolean).join('');
+  })();
 
   // KPI
   const paid=STATIC.payments.filter(p=>p.status==='triggered').reduce((s,p)=>s+p.amount,0);
