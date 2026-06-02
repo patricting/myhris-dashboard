@@ -553,6 +553,64 @@ function sec(t,h){return`<div class="dsec"><div class="dstitle">${t}</div>${h}</
 function dl(a){return`<ul class="dlist">${a.map(i=>`<li>${i}</li>`).join('')}</ul>`}
 function dm(a){return`<div class="dmetas">${a.map(([l,v])=>`<div class="dmi2"><div class="dmil">${l}</div><div class="dmiv">${v}</div></div>`).join('')}</div>`}
 
+// 把完整版週報文字解析成卡片式色塊排版
+function formatFullReport(text){
+  if(!text) return '<div style="font-size:13px;color:var(--gray)">尚無完整週報</div>';
+  // 五大項配色：淡背景 + 左色條 + 主色 + 標籤底色
+  var sc = [
+    {bar:'#2D7DD2', bg:'#F5F9FE', fg:'#0C447C', tag:'#E6F1FB'},  // 1 訪談進度 藍
+    {bar:'#1D9E75', bg:'#F4FBF8', fg:'#0F6E56', tag:'#E1F5EE'},  // 2 關鍵決策 綠
+    {bar:'#E0922F', bg:'#FEFAF3', fg:'#854F0B', tag:'#FAEEDA'},  // 3 合約付款 橘
+    {bar:'#D9534F', bg:'#FEF6F6', fg:'#A32D2D', tag:'#FCEBEB'},  // 4 待確認與風險 紅
+    {bar:'#6C5CE7', bg:'#F8F7FE', fg:'#3C3489', tag:'#EEEDFE'}   // 5 下週行動 紫
+  ];
+  function tagCodes(s, fg, bg){
+    return s.replace(/\b([DMR]\d{2}|LT\d{3})\b/g, function(m){
+      return '<span style="background:'+bg+';color:'+fg+';font-weight:600;padding:1px 5px;border-radius:4px;font-size:11px">'+m+'</span>';
+    });
+  }
+  var lines = text.split('\n').filter(function(l){return l.trim();});
+  var cards = [];
+  var cur = null;
+
+  lines.forEach(function(line){
+    var t = line.trim();
+    var mMatch = t.match(/^(\d+)[\.、]\s*(.+)$/);
+    var isChild = /^[・‧•·]/.test(t);
+    if(mMatch && !isChild){
+      if(cur) cards.push(cur);
+      var idx = parseInt(mMatch[1]) - 1;
+      cur = {
+        idx: idx,
+        color: sc[idx] || sc[0],
+        title: mMatch[2].replace(/^[：:]\s*/,''),
+        children: []
+      };
+    } else if(cur){
+      cur.children.push(t.replace(/^[・‧•·]\s*/,''));
+    }
+  });
+  if(cur) cards.push(cur);
+
+  var html = '<div style="display:flex;flex-direction:column;gap:12px">';
+  cards.forEach(function(c){
+    var num = String(c.idx + 1).padStart(2,'0');
+    html += '<div style="background:'+c.color.bg+';border-left:3px solid '+c.color.bar+';border-radius:0 8px 8px 0;padding:13px 16px">';
+    html += '<div style="font-size:11px;font-weight:700;color:'+c.color.fg+';letter-spacing:.5px;margin-bottom:9px">'+num+' '+c.title+'</div>';
+    html += '<div style="display:flex;flex-direction:column;gap:6px">';
+    c.children.forEach(function(ch){
+      var content = tagCodes(ch, c.color.fg, c.color.tag);
+      html += '<div style="display:flex;gap:7px;font-size:12.5px;color:var(--cha);line-height:1.55">'+
+        '<span style="color:'+c.color.bar+';flex-shrink:0">▸</span>'+
+        '<span>'+content+'</span>'+
+        '</div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  return html;
+}
+
 function getStatus(m){
   var live = (D.milestones && D.milestones.length);
   return live ? m.status : autoStatus(m);
@@ -621,8 +679,7 @@ function init(){
     var btn = document.getElementById('vp-more-btn');
     if(btn){
       btn.onclick = function(){
-        var body = sec('本週完整週報', '<div style="font-size:13px;line-height:1.7;white-space:pre-line;color:var(--blk)">'+D.vpSummaryFull+'</div>');
-        od('本週狀態摘要（完整版）', '更新於 '+D.updated, body, 'var(--red)');
+        od('本週狀態摘要（完整版）', '更新於 '+D.updated, formatFullReport(D.vpSummaryFull), 'var(--red)');
       };
     }
   })();
