@@ -186,6 +186,9 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 .atbl tr:last-child td{border-bottom:none}
 .atbl tr:hover td{background:var(--red-l);cursor:pointer}
 .atbl tr.hn td{background:rgba(231,26,40,.035)}
+.atbl tr.zone-overdue td{background:rgba(217,83,79,.06)}
+.atbl tr.azone td{cursor:default}
+.atbl .adate.danger{color:#D9534F;font-weight:700}
 .adate{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--cha)}
 .adate.hn{color:var(--red);font-weight:700}
 .atask{font-weight:500;line-height:1.4}
@@ -345,6 +348,7 @@ let D = {
   },
   modPct: { org:0, per:0, att:0, pay:0, ins:0 },
   visits: [],
+  actions: { overdue:[], hardnode:[], current:[] },
 }; // ← END CONFIG
 
 // 從 GitHub 讀取最新資料
@@ -941,10 +945,49 @@ function init(){
     }).join('');
   })();
 
-  // Actions
-  const sm={done:'done',active:'active',pending:'pending'};
-  const st={done:'✔ 已完成',active:'▶ 進行中',pending:'— 待啟動'};
-  $('abody').innerHTML=STATIC.actions.map((a,i)=>`<tr class="${a.hard?'hn':''}" onclick="oAct(${i})"><td><div class="adate ${a.hard?'hn':''}">${a.date}</div></td><td><div class="atask">${a.task}</div></td><td class="aown">${a.owner}</td><td class="apre">${a.pre}</td><td><span class="bdg ${sm[a.status]||'pending'}">${st[a.status]||a.status}</span></td></tr>`).join('');
+  // Actions - PMO 三區視角，優先用 S2 連動資料
+  const sm={done:'done',active:'active',pending:'pending',warning:'warning',danger:'danger'};
+  const st={done:'✔ 已完成',active:'▶ 進行中',pending:'— 待進行',warning:'⚠ 風險',danger:'🔴 逾期'};
+  (function(){
+    var live = D.actions && (D.actions.overdue || D.actions.hardnode || D.actions.current);
+    if(live){
+      var html = '';
+      function rowHtml(a, zone){
+        var dateCls = zone==='overdue' ? 'danger' : (a.hard ? 'hn' : '');
+        var trCls = zone==='overdue' ? 'zone-overdue' : (a.hard ? 'hn' : '');
+        return '<tr class="'+trCls+'">'+
+          '<td><div class="adate '+dateCls+'">'+(a.date||'')+'</div></td>'+
+          '<td><div class="atask">'+a.task+'</div></td>'+
+          '<td class="aown">'+(a.owner||'')+'</td>'+
+          '<td class="apre">'+(a.pre||'')+'</td>'+
+          '<td><span class="bdg '+(sm[a.status]||'pending')+'">'+(st[a.status]||a.status)+'</span></td>'+
+          '</tr>';
+      }
+      function zoneHeader(icon, label, color, count){
+        if(!count) return '';
+        return '<tr class="azone"><td colspan="5" style="padding:10px 14px;background:'+color+';font-size:11px;font-weight:700;letter-spacing:.5px;border-bottom:1px solid var(--bdr)">'+icon+' '+label+'（'+count+'）</td></tr>';
+      }
+      var ov = D.actions.overdue || [];
+      var hn = D.actions.hardnode || [];
+      var cu = D.actions.current || [];
+      // 逾期區
+      html += zoneHeader('🔴', '逾期未完成・需立即處理', 'rgba(217,83,79,.12)', ov.length);
+      ov.forEach(function(a){ html += rowHtml(a,'overdue'); });
+      // 硬節點區
+      html += zoneHeader('🟡', '硬節點・不可延誤', 'rgba(224,146,47,.12)', hn.length);
+      hn.forEach(function(a){ html += rowHtml(a,'hard'); });
+      // 本期區
+      html += zoneHeader('⚪', '本期行動・14天內', 'var(--bg)', cu.length);
+      cu.forEach(function(a){ html += rowHtml(a,'current'); });
+      if(!ov.length && !hn.length && !cu.length){
+        html = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--gray);font-size:12px">本期暫無待辦行動</td></tr>';
+      }
+      $('abody').innerHTML = html;
+    } else {
+      // fallback 靜態
+      $('abody').innerHTML=STATIC.actions.map(function(a,i){return '<tr class="'+(a.hard?'hn':'')+'" onclick="oAct('+i+')"><td><div class="adate '+(a.hard?'hn':'')+'">'+a.date+'</div></td><td><div class="atask">'+a.task+'</div></td><td class="aown">'+a.owner+'</td><td class="apre">'+a.pre+'</td><td><span class="bdg '+(sm[a.status]||'pending')+'">'+(st[a.status]||a.status)+'</span></td></tr>';}).join('');
+    }
+  })();
 }
 
 function oPay(code){
