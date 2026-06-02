@@ -793,7 +793,20 @@ function init(){
 
   // Phase
   $('phcur').textContent=D.phase;
-  $('phstrip').innerHTML=STATIC.phases.map(p=>`<div class="ph ${p.status}"><div class="phc">${p.code}</div><div class="phn">${p.name}</div><div class="phd">${p.date}</div></div>`).join('');
+  (function(){
+    // 依 D.phase 動態判斷每個階段狀態：當前=active、之前=done、之後=pending
+    var curNum = parseInt((D.phase||'P0').replace('P','')) || 0;
+    $('phstrip').innerHTML = STATIC.phases.map(function(p){
+      var pNum = parseInt(p.code.replace('P',''));
+      // 非 P 開頭的（理論上不會有）就用原本 status
+      var st;
+      if(isNaN(pNum)){ st = p.status; }
+      else if(pNum < curNum) st = 'done';
+      else if(pNum === curNum) st = 'active';
+      else st = 'pending';
+      return '<div class="ph '+st+'"><div class="phc">'+p.code+'</div><div class="phn">'+p.name+'</div><div class="phd">'+p.date+'</div></div>';
+    }).join('');
+  })();
 
   // Payments
   $('pgrid').innerHTML='';
