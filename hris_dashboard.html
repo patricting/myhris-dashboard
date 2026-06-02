@@ -952,14 +952,22 @@ function init(){
     var live = D.actions && (D.actions.overdue || D.actions.hardnode || D.actions.current);
     if(live){
       var html = '';
+      var actIdx = 0;
+      window._actFull = window._actFull || {};
       function rowHtml(a, zone){
         var dateCls = zone==='overdue' ? 'danger' : (a.hard ? 'hn' : '');
         var trCls = zone==='overdue' ? 'zone-overdue' : (a.hard ? 'hn' : '');
-        return '<tr class="'+trCls+'">'+
+        // 前提說明截斷
+        var pre = a.pre || '';
+        var preShort = pre.length > 36 ? pre.substring(0,36) + '⋯' : pre;
+        var rid = 'act_' + (actIdx++);
+        window._actFull[rid] = {task:a.task, pre:pre, owner:a.owner, date:a.date, status:(st[a.status]||a.status)};
+        var clickable = pre.length > 36;
+        return '<tr class="'+trCls+'"'+(clickable?' style="cursor:pointer" onclick="oActLive(\''+rid+'\')"':'')+'>'+
           '<td><div class="adate '+dateCls+'">'+(a.date||'')+'</div></td>'+
           '<td><div class="atask">'+a.task+'</div></td>'+
           '<td class="aown">'+(a.owner||'')+'</td>'+
-          '<td class="apre">'+(a.pre||'')+'</td>'+
+          '<td class="apre">'+preShort+(clickable?' <span style="color:var(--red);font-size:11px">詳</span>':'')+'</td>'+
           '<td><span class="bdg '+(sm[a.status]||'pending')+'">'+(st[a.status]||a.status)+'</span></td>'+
           '</tr>';
       }
@@ -1056,6 +1064,22 @@ function oAct(i){
     (a.pre?sec('依賴前提',`<div class="dflag amb">${a.pre}</div>`):'')+(a.hard?`<div class="dflag red" style="${a.pre?'margin-top:12px':''}">⚠ 此為硬節點，不可延誤</div>`:'')+
     sec('資訊',dm([['負責人',a.owner],['截止日',a.date],['狀態',a.status==='done'?'✔ 已完成':a.status==='active'?'▶ 進行中':'— 待啟動']])),
     a.hard?'var(--red)':'var(--cha)');
+}
+function oActLive(rid){
+  var a = window._actFull && window._actFull[rid];
+  if(!a) return;
+  // 前提內容若含編號（1. 2. 3.）自動轉成條列
+  var preHtml = a.pre;
+  if(/\d+[\.、]/.test(a.pre)){
+    var items = a.pre.split(/\s*\d+[\.、]\s*/).filter(function(s){return s.trim();});
+    preHtml = '<ul class="dlist">' + items.map(function(s){return '<li>'+s.trim()+'</li>';}).join('') + '</ul>';
+  } else {
+    preHtml = '<div class="dflag amb">'+a.pre+'</div>';
+  }
+  od(a.task, '截止：'+a.date+' ｜ 負責：'+a.owner,
+    sec('前提說明 / 待確認事項', preHtml) +
+    sec('資訊', dm([['負責人',a.owner],['截止日',a.date],['狀態',a.status]])),
+    'var(--red)');
 }
 function gp(n,b){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
