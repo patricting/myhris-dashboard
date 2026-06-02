@@ -192,7 +192,7 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 .aown{font-size:11.5px;color:var(--cha)}.apre{font-size:11px;color:var(--gray);line-height:1.35}
 
 /* VISIT CARDS */
-.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:24px}
 .vc{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:16px;border-top:3px solid var(--bdr)}
 .vc.urg{border-top-color:var(--red)}.vc.nrm{border-top-color:var(--blu)}
 .vdate{font-size:13.5px;font-weight:700;margin-bottom:1px}
@@ -929,7 +929,7 @@ function init(){
           '<div class="vdate">'+(v.date||'')+'</div>'+
           (v.time?'<div class="vtime">'+v.time+'</div>':'')+
           (v.loc?'<div class="vloc">'+v.loc+'</div>':'')+
-          '<div class="vmod">'+(v.moduleFull||v.module)+'</div>'+
+          '<div class="vmod">'+(v.module||v.moduleFull)+'</div>'+
           '<div class="vpm">PM：'+(v.pm||'')+'</div>'+
           '<div class="vstaff">'+pre+'</div>'+
           '<div style="margin-top:8px"><span class="bdg '+stCls+'">'+st+'</span></div>'+
