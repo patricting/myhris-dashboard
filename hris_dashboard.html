@@ -344,6 +344,7 @@ let D = {
     consult: "", issue: "無", next: "",
   },
   modPct: { org:0, per:0, att:0, pay:0, ins:0 },
+  visits: [],
 }; // ← END CONFIG
 
 // 從 GitHub 讀取最新資料
@@ -912,8 +913,33 @@ function init(){
     $('declist').appendChild(div);
   });
 
-  // Visits
-  $('vgrid').innerHTML=STATIC.visits.map(v=>`<div class="vc ${v.urg?'urg':'nrm'}"><div class="vdate">${v.date}</div><div class="vtime">${v.time}</div><div class="vloc">${v.loc}</div><div class="vmod">${v.module}</div><div class="vpm">PM：${v.pm}</div><div class="vstaff">主責：${v.staff}</div><div class="vpre ${v.urg?'urg':'nrm'}">前提：${v.pre}回傳</div></div>`).join('');
+  // Visits - 優先讀 S2 連動資料，無則用 STATIC
+  (function(){
+    var vdata = (D.visits && D.visits.length) ? D.visits : STATIC.visits;
+    var useLive = (D.visits && D.visits.length) ? true : false;
+    $('vgrid').innerHTML = vdata.map(function(v){
+      var st, stCls, urgCls;
+      if(useLive){
+        // 連動版：依 status 顯示徽章
+        st = v.status==='done' ? '✔ 已完成' : v.status==='active' ? '▶ 訪談中' : '— 待進行';
+        stCls = v.status==='done' ? 'done' : v.status==='active' ? 'active' : 'pending';
+        urgCls = v.status==='done' ? 'nrm' : 'urg';
+        var pre = v.staff ? ('主責：'+v.staff) : '';
+        return '<div class="vc '+urgCls+'">'+
+          '<div class="vdate">'+(v.date||'')+'</div>'+
+          (v.time?'<div class="vtime">'+v.time+'</div>':'')+
+          (v.loc?'<div class="vloc">'+v.loc+'</div>':'')+
+          '<div class="vmod">'+(v.moduleFull||v.module)+'</div>'+
+          '<div class="vpm">PM：'+(v.pm||'')+'</div>'+
+          '<div class="vstaff">'+pre+'</div>'+
+          '<div style="margin-top:8px"><span class="bdg '+stCls+'">'+st+'</span></div>'+
+          '</div>';
+      } else {
+        // 靜態 fallback
+        return '<div class="vc '+(v.urg?'urg':'nrm')+'"><div class="vdate">'+v.date+'</div><div class="vtime">'+v.time+'</div><div class="vloc">'+v.loc+'</div><div class="vmod">'+v.module+'</div><div class="vpm">PM：'+v.pm+'</div><div class="vstaff">主責：'+v.staff+'</div><div class="vpre '+(v.urg?'urg':'nrm')+'">前提：'+v.pre+'回傳</div></div>';
+      }
+    }).join('');
+  })();
 
   // Actions
   const sm={done:'done',active:'active',pending:'pending'};
