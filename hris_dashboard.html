@@ -837,9 +837,10 @@ function init(){
 
   // Modules - auto status based on interview dates
   (function(){
+    // 用 [年,月,日] 建立本地時間，避免字串被解析成 UTC 造成 8 小時位移
     var interviewDates = {
-      org:'2026-05-26', per:'2026-05-28',
-      pay:'2026-06-02', ins:'2026-06-02', att:'2026-06-04'
+      org:[2026,5,26], per:[2026,5,28],
+      pay:[2026,6,2], ins:[2026,6,2], att:[2026,6,4]
     };
     var today = new Date(); today.setHours(0,0,0,0);
     $('mgrid').innerHTML = '';
@@ -849,8 +850,10 @@ function init(){
       var total = D.modTasks&&D.modTasks[m.id] ? D.modTasks[m.id].total : 0;
       // Auto status
       var ms = 'pending';
+      var iv = interviewDates[m.id];
+      var ivDate = iv ? new Date(iv[0], iv[1]-1, iv[2]) : null;
       if(pct >= 100) ms = 'done';
-      else if(interviewDates[m.id] && today >= new Date(interviewDates[m.id])) ms = 'active';
+      else if(ivDate && today >= ivDate) ms = 'active';
       var cls = ms==='done'?'dn':ms==='active'?'act':'';
       var fc  = ms==='done'?'dn':pct>0?'':'pd';
       var chip= ms==='done'?'dn':ms==='active'?'act':'pd';
