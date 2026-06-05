@@ -254,6 +254,21 @@ body{background:var(--bg);color:var(--blk);font-family:'Noto Sans TC',sans-serif
 .kd-decider{font-size:11px;color:rgba(255,255,255,.5);background:rgba(255,255,255,.07);padding:3px 10px;border-radius:4px}
 .kd-more{font-size:11px;color:var(--red);margin-left:auto;display:flex;align-items:center;gap:4px}
 
+/* 待裁示區塊 */
+.pd-block{background:#FEF6F6;border:1.5px solid #F3C5C3;border-left:4px solid var(--red);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.pd-head{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+.pd-label{font-size:11px;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.pd-label::before{content:'';width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.6s infinite}
+.pd-count{margin-left:auto;font-size:11px;color:var(--red);background:rgba(231,26,40,.1);padding:2px 9px;border-radius:10px;font-weight:600}
+.pd-item{display:flex;align-items:flex-start;gap:11px;padding:9px 0;cursor:pointer;border-top:1px solid rgba(231,26,40,.1)}
+.pd-item:first-of-type{border-top:none}
+.pd-item:hover .pd-itxt{color:var(--red)}
+.pd-iid{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--red);background:#fff;border:1px solid #F3C5C3;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.pd-info{flex:1}
+.pd-itxt{font-size:13.5px;font-weight:600;color:var(--blk);line-height:1.4;transition:color .15s}
+.pd-imeta{font-size:11px;color:var(--gray);margin-top:2px}
+.pd-arrow{font-size:12px;color:var(--red);flex-shrink:0;margin-top:3px}
+
 /* RESPONSIVE */
 @media(max-width:1000px){.mgrid{grid-template-columns:repeat(3,1fr)}.pgrid{grid-template-columns:repeat(2,1fr)}.vrow{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){
@@ -495,6 +510,7 @@ const STATIC = {
 <div class="page active" id="page-overview"><div class="pb">
   <div class="vp-card" id="vp-card"></div>
 
+  <div id="pd-section" style="display:none"><div class="pd-block" id="pd-block"></div></div>
   <div id="kd-section" style="display:none"><div class="kd-block" id="kd-block"></div></div>
   <div class="sh"><div class="shbar"></div><div class="shtxt">專案健康指標</div><div class="shnote">點擊查看說明</div></div>
   <div class="krow" id="krow"></div>
@@ -693,6 +709,38 @@ function init(){
   const paid=STATIC.payments.filter(p=>p.status==='triggered').reduce((s,p)=>s+p.amount,0);
   const tot=STATIC.payments.reduce((s,p)=>s+p.amount,0);
   const hn=STATIC.risks.filter(r=>r.level==='high').length;
+
+  // 待裁示區塊（status 為待確認的決策，需高層裁示）
+  (function(){
+    var decAll = D.decisions&&D.decisions.length ? D.decisions : STATIC.decisions;
+    var pending = [];
+    decAll.forEach(function(d){
+      // 待確認狀態，且非已關閉
+      if(d.status !== 'decided' && d.status !== 'closed') pending.push(d);
+    });
+    // 依截止日排序，最急的在前
+    pending.sort(function(a,b){
+      return new Date(a.deadline||a.date) - new Date(b.deadline||b.date);
+    });
+    if(!pending.length){ $('pd-section').style.display='none'; return; }
+    $('pd-section').style.display='block';
+    var html = '<div class="pd-head"><div class="pd-label">⏳ 待裁示事項</div>'+
+      '<div class="pd-count">'+pending.length+' 項待決策</div></div>';
+    pending.forEach(function(d){
+      var deciderTxt = (d.decider && d.decider !== '待確認') ? ('決策人：'+d.decider) : '需高層裁示';
+      var dline = (function(s){ if(!s) return ''; var dt=new Date(s); return isNaN(dt.getTime())?'':('截止 '+(dt.getMonth()+1)+'/'+dt.getDate()); })(d.deadline);
+      html += '<div class="pd-item" onclick="oDec(\''+d.id+'\')">'+
+        '<div class="pd-iid">'+d.id+'</div>'+
+        '<div class="pd-info">'+
+        '<div class="pd-itxt">'+d.title+'</div>'+
+        '<div class="pd-imeta">'+d.module+(dline?' ｜ '+dline:'')+'</div>'+
+        '</div>'+
+        '<div class="pd-arrow">→</div>'+
+        '</div>';
+    });
+    $('pd-block').innerHTML = html;
+  })();
+
   // 本週關鍵決策區塊
   (function(){
     var decAll = D.decisions&&D.decisions.length ? D.decisions : STATIC.decisions;
