@@ -1109,6 +1109,11 @@ function oDec(id){
   var dAll = D.decisions&&D.decisions.length ? D.decisions : STATIC.decisions;
   var d = dAll.find(function(x){return x.id===id;});
   if(!d) return;
+  function fmtDate(s){
+    if(!s) return '—';
+    var dt = new Date(s);
+    return isNaN(dt.getTime()) ? s : (dt.getFullYear()+'/'+(dt.getMonth()+1)+'/'+dt.getDate());
+  }
   var stTxt = d.status==='decided'?'✔ 已決策':'⏳ 待確認';
   var stColor = d.status==='decided'?'var(--grn)':'#E8A030';
   var body = sec('決策內容','<p class="dtxt">'+d.content+'</p>');
@@ -1116,8 +1121,8 @@ function oDec(id){
   body += sec('執行資訊',dm([
     ['決策人',d.decider],
     ['執行人',d.executor],
-    ['截止日',d.deadline],
-    ['記錄日',d.date],
+    ['截止日',fmtDate(d.deadline)],
+    ['記錄日',fmtDate(d.date)],
     ['狀態',stTxt]
   ]));
   od(d.title, d.id+' ｜ '+d.module, body, stColor);
