@@ -1,16 +1,16 @@
 {
-  "schemaVersion": "HRIS_DASHBOARD_MASTER_V3_4_1_UAT_20260815",
+  "schemaVersion": "HRIS_DASHBOARD_MASTER_V3_4_4_MANAGEMENT_SEMANTIC_20260815",
   "updated": "2026/08/15",
   "updatedDate": "2026/08/15",
-  "updatedAt": "2026/08/15 18:16",
+  "updatedAt": "2026/08/15 18:46",
   "project": {
     "start": "2026/05/05",
     "goLive": "2027/01/01",
     "daysToGo": 139,
     "health": "amber",
-    "healthText": "主計畫目前仍可依既定時程推進；有逾期里程碑待完成，近期有關鍵節點需完成，有待裁示決策。",
+    "healthText": "主計畫目前仍可依既定時程推進；有逾期里程碑待完成，近期有關鍵節點需完成，有高風險事項待處理，有待裁示決策。",
     "healthSource": "semantic_auto",
-    "currentPhase": "規則確認／系統Demo",
+    "currentPhase": "核心規則確認／組織簽核準備",
     "s5LastUpdate": "2026/06/04"
   },
   "kpis": {
@@ -40,6 +40,327 @@
     "coordinationCandidates": 13,
     "managementCriticalOpen": 12,
     "managementCriticalOverdue": 0
+  },
+  "commandCenter": {
+    "currentPhase": "核心規則確認／組織簽核準備",
+    "spine": [
+      {
+        "id": "CMD-KICKOFF",
+        "label": "開工",
+        "name": "專案開工 Kick-off",
+        "date": "2026/05/05",
+        "actual": "2026/05/05",
+        "status": "done",
+        "delayDays": 0,
+        "owner": "Kate",
+        "note": "",
+        "gateId": "M01",
+        "row": null,
+        "star": false,
+        "managementCritical": false,
+        "labelPosition": "below"
+      },
+      {
+        "id": "CMD-BASELINE",
+        "label": "基礎定案",
+        "name": "基礎訪談定案（全模組簽回）",
+        "date": "2026/06/30",
+        "actual": "2026/07/31",
+        "status": "done",
+        "delayDays": 31,
+        "owner": "各功能PM",
+        "note": "",
+        "gateId": "M09",
+        "row": null,
+        "star": false,
+        "managementCritical": false,
+        "labelPosition": "below"
+      },
+      {
+        "id": "CMD-ATTENDANCE",
+        "label": "考勤核心規則",
+        "name": "考勤核心規則確認",
+        "date": "2026/08/28",
+        "actual": "",
+        "status": "active",
+        "delayDays": 0,
+        "owner": "Ken",
+        "note": "核心規則未定將直接影響後續考勤與薪資測試",
+        "gateId": "S2-R101",
+        "row": 101,
+        "star": false,
+        "managementCritical": true,
+        "labelPosition": "below"
+      },
+      {
+        "id": "CMD-ORG-SIGN",
+        "label": "組織／簽核治理",
+        "name": "組織圖＆簽核邏輯確認",
+        "date": "2026/09/11",
+        "actual": "",
+        "status": "pending",
+        "delayDays": 0,
+        "owner": "義峰",
+        "note": "• 以目前已匯入系統之組織資料為初版，逐一與各AO確認組織線、主管配置與簽核需求。\n• 驗證多主管、兼任、虛擬組織及例外簽核情境，不以空白討論取代系統畫面驗證。\n• 完成標準：各AO差異、共通規則及待調整清單完成確認，可交付後續系統設定。",
+        "gateId": "",
+        "row": 58,
+        "star": false,
+        "managementCritical": true,
+        "labelPosition": "above"
+      },
+      {
+        "id": "CMD-DATA1",
+        "label": "首次完整資料匯入",
+        "name": "第一次完整資料匯入",
+        "date": "2026/10/30",
+        "actual": "",
+        "status": "pending",
+        "delayDays": 0,
+        "owner": "Kate／逐鹿Vivian",
+        "note": "第一次全量模擬匯入，不是最終上線資料",
+        "gateId": "S2-R254",
+        "row": 254,
+        "star": false,
+        "managementCritical": true,
+        "labelPosition": "below"
+      },
+      {
+        "id": "CMD-PREPARALLEL",
+        "label": "平測前整合 Gate",
+        "name": "平測前作業確認",
+        "date": "2026/11/27",
+        "actual": "",
+        "status": "pending",
+        "delayDays": 0,
+        "owner": "Kate",
+        "note": "",
+        "gateId": "S2-R305",
+        "row": 305,
+        "star": false,
+        "managementCritical": true,
+        "labelPosition": "above"
+      },
+      {
+        "id": "CMD-GONOGO",
+        "label": "上線判定",
+        "name": "正式上線條件確認",
+        "date": "2026/12/18",
+        "actual": "",
+        "status": "pending",
+        "delayDays": 0,
+        "owner": "Kate",
+        "note": "若關鍵項目未達標，評估轉2027/4/1",
+        "gateId": "S2-R322",
+        "row": 322,
+        "star": false,
+        "managementCritical": true,
+        "labelPosition": "below"
+      },
+      {
+        "id": "CMD-GOLIVE",
+        "label": "正式上線",
+        "name": "🎯 正式上線 Go-Live",
+        "date": "2027/01/01",
+        "actual": "",
+        "status": "pending",
+        "delayDays": 0,
+        "owner": "全體",
+        "note": "湯副總確認基準",
+        "gateId": "M16",
+        "row": null,
+        "star": true,
+        "managementCritical": true,
+        "labelPosition": "below"
+      }
+    ],
+    "management": {
+      "health": "amber",
+      "healthText": "管理焦點：組織／簽核架構定版、考勤核心制度定案。",
+      "openRisk": 13,
+      "highRisk": 1,
+      "pendingDecision": 5,
+      "coordination": 13
+    },
+    "progress": {
+      "scopeProgressPct": 14,
+      "scopeProgressDenominator": 309,
+      "doneTasks": 42,
+      "totalTasks": 309,
+      "dueToDatePct": 100,
+      "dueDoneCount": 41,
+      "dueTotalCount": 41,
+      "activeTasks": 4
+    },
+    "schedule": {
+      "criticalGatesDone": 9,
+      "criticalGatesDue": 10,
+      "overdueTasks": 0,
+      "daysToGo": 139,
+      "nextGate": {
+        "id": "CMD-ATTENDANCE",
+        "date": "2026/08/28",
+        "name": "考勤核心規則",
+        "status": "active"
+      }
+    },
+    "focus": {
+      "items": [
+        {
+          "title": "組織／簽核架構定版",
+          "meta": "9/11 ｜ 牽動電子簽核、角色權限、跨法人流程與後續整合測試；規則未凍結前，不宜進入表單與權限定版。",
+          "level": "red"
+        },
+        {
+          "title": "考勤核心制度定案",
+          "meta": "8/28 ｜ 牽動9月考勤測試與後續薪資驗證；未定案規則不得直接帶入薪資測試。",
+          "level": "amber"
+        },
+        {
+          "title": "AD／權限與IT技轉交付",
+          "meta": "9/11 ｜ 郵件、報表、View與部分介接由雄獅IT承接；需鎖定必要Backlog與資源，避免形成非逐鹿端瓶頸。",
+          "level": "amber"
+        },
+        {
+          "title": "客製需求定案",
+          "meta": "計畫 7/31 ｜ 逾期 +15 天 ｜ 觸發C期付款 NT$1,968,000",
+          "level": "amber"
+        }
+      ],
+      "count": 8
+    }
+  },
+  "managementThemes": [
+    {
+      "id": "ORG_SIGN",
+      "title": "組織／簽核架構定版",
+      "module": "組織",
+      "deadline": "2026/09/11",
+      "status": "red",
+      "rank": 1,
+      "taskRow": 58,
+      "impact": "牽動電子簽核、角色權限、跨法人流程與後續整合測試；規則未凍結前，不宜進入表單與權限定版。",
+      "relatedRiskIds": [
+        "R15"
+      ],
+      "relatedDecisionIds": [
+        "D12"
+      ]
+    },
+    {
+      "id": "ATT_RULE",
+      "title": "考勤核心制度定案",
+      "module": "考勤",
+      "deadline": "2026/08/28",
+      "status": "amber",
+      "rank": 2,
+      "taskRow": 101,
+      "impact": "牽動9月考勤測試與後續薪資驗證；未定案規則不得直接帶入薪資測試。",
+      "relatedRiskIds": [
+        "R13"
+      ],
+      "relatedDecisionIds": [
+        "D10",
+        "D09"
+      ]
+    },
+    {
+      "id": "IT_DELIVERY",
+      "title": "AD／權限與IT技轉交付",
+      "module": "IT／介接",
+      "deadline": "2026/09/11",
+      "status": "amber",
+      "rank": 3,
+      "taskRow": 203,
+      "impact": "郵件、報表、View與部分介接由雄獅IT承接；需鎖定必要Backlog與資源，避免形成非逐鹿端瓶頸。",
+      "relatedRiskIds": [
+        "R18"
+      ],
+      "relatedDecisionIds": []
+    },
+    {
+      "id": "CUSTOM",
+      "title": "必要客製與表單範圍收斂",
+      "module": "範疇／商務",
+      "deadline": "2026/09/16",
+      "status": "amber",
+      "rank": 4,
+      "taskRow": 198,
+      "impact": "客製範圍同時影響C期條件、設定時程與開發量；應以標準功能優先並凍結必要範圍。",
+      "relatedRiskIds": [
+        "R05"
+      ],
+      "relatedDecisionIds": []
+    },
+    {
+      "id": "DATA",
+      "title": "資料完整性與兩次匯入",
+      "module": "資料",
+      "deadline": "2026/10/30",
+      "status": "amber",
+      "rank": 5,
+      "taskRow": 254,
+      "impact": "資料品質直接影響11月整合驗證與12/18上線判定；兩次完整匯入是主要控制點。",
+      "relatedRiskIds": [
+        "R09"
+      ],
+      "relatedDecisionIds": []
+    },
+    {
+      "id": "GOLIVE",
+      "title": "1/1上線準備與12/18判定",
+      "module": "上線",
+      "deadline": "2026/11/27",
+      "status": "amber",
+      "rank": 6,
+      "taskRow": 305,
+      "impact": "11/27未達先標記1/1風險並啟動復原；12/18才做最終Go / No-Go，未通過才正式啟動4/1。",
+      "relatedRiskIds": [
+        "R19"
+      ],
+      "relatedDecisionIds": [
+        "D11"
+      ]
+    }
+  ],
+  "pageSummary": {
+    "timeline": {
+      "headline": "現階段先守住「組織／簽核架構」與「考勤核心規則」兩個上游 Gate；未達時先升級與復原，再依序進入設定、資料匯入、整合測試與平測。",
+      "focus": "組織／簽核架構定版"
+    },
+    "workstreams": {
+      "headline": "目前應優先完成「組織／簽核架構定版」與「考勤核心制度定案」。組織／簽核是電子表單、角色權限與跨法人流程的共同基準；考勤規則則直接影響9月功能測試與後續薪資驗證。",
+      "priorityLabel": "組織／簽核架構定版",
+      "priorityDetail": "9/11 前完成｜牽動電子簽核、角色權限、跨法人流程與後續整合測試；規則未凍結前，不宜進入表單與權限定版。",
+      "priorityTheme": {
+        "id": "ORG_SIGN",
+        "title": "組織／簽核架構定版",
+        "module": "組織",
+        "deadline": "2026/09/11",
+        "status": "red",
+        "rank": 1,
+        "taskRow": 58,
+        "impact": "牽動電子簽核、角色權限、跨法人流程與後續整合測試；規則未凍結前，不宜進入表單與權限定版。",
+        "relatedRiskIds": [
+          "R15"
+        ],
+        "relatedDecisionIds": [
+          "D12"
+        ]
+      },
+      "red": 1,
+      "amber": 4,
+      "green": 5,
+      "gray": 4
+    },
+    "execution": {
+      "headline": "目前無執行逾期；進行中工作應優先服務「考勤核心制度定案」與「組織／簽核架構定版」，避免後續設定與測試建立在未凍結基準上。",
+      "active": 4
+    },
+    "governance": {
+      "headline": "目前先守住組織／簽核架構與考勤核心制度兩個上游基準；10–11月再以核心設定穩定、兩次完整資料匯入與11/27平測前整合 Gate 逐關確認。各前置 Gate 未達時立即升級與復原，12/18才做1/1最終 Go / No-Go，未通過才正式啟動4/1備援。",
+      "primaryFocus": "組織／簽核架構定版",
+      "secondaryFocus": "考勤核心制度定案"
+    }
   },
   "commercial": {
     "title": "合約付款進度",
@@ -220,6 +541,78 @@
       ],
       "row": 322
     },
+    "checkpoints": [
+      {
+        "id": "CP-ATT",
+        "label": "考勤核心規則",
+        "date": "2026/08/28",
+        "status": "active",
+        "delayDays": 0,
+        "level": "control",
+        "row": 101,
+        "action": "未達時立即升級主管並提出復原計畫；未定案規則不得直接帶入9月測試與薪資驗證。"
+      },
+      {
+        "id": "CP-ORG",
+        "label": "組織／簽核架構",
+        "date": "2026/09/11",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "control",
+        "row": 58,
+        "action": "未達時凍結例外清單並升級處理；電子簽核、權限與表單定版不得在基準不明下前推。"
+      },
+      {
+        "id": "CP-STABLE",
+        "label": "核心設定穩定",
+        "date": "2026/10/16",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "control",
+        "row": 67,
+        "action": "未達時停止新增非必要變更，集中修正與複測，避免把設計問題帶入資料與整合驗證。"
+      },
+      {
+        "id": "CP-DATA1",
+        "label": "第一次完整資料匯入",
+        "date": "2026/10/30",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "control",
+        "row": 254,
+        "action": "未達時啟動資料補正與責任追蹤，並檢查是否壓縮第二次匯入與11月測試。"
+      },
+      {
+        "id": "CP-DATA2",
+        "label": "第二次完整資料匯入",
+        "date": "2026/11/20",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "control",
+        "row": 270,
+        "action": "未達時視為1/1風險升高；資料完整性未確認前，11/27平測前 Gate 不應判定通過。"
+      },
+      {
+        "id": "CP-PRE",
+        "label": "平測前整合 Gate",
+        "date": "2026/11/27",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "readiness",
+        "row": 305,
+        "action": "未達時正式標記「1/1 上線風險」，由主管層確認復原資源、範圍與時程；此時仍不自動啟動4/1。"
+      },
+      {
+        "id": "CP-GNG",
+        "label": "最終 Go / No-Go",
+        "date": "2026/12/18",
+        "status": "pending",
+        "delayDays": 0,
+        "level": "decision",
+        "row": 322,
+        "action": "依平測結果、重大缺陷、資料完整性與教育訓練完成度作最終判定；僅本 Gate 未通過時正式啟動4/1備援。"
+      }
+    ],
     "fallback": {
       "date": "2027/04/01",
       "status": "conditional",
@@ -495,7 +888,7 @@
         "memo": ""
       }
     ],
-    "governanceText": "1/1 為正式主計畫；12/18 依上線條件進行 Go / No-Go 判定，僅在條件未達時啟動 4/1 備援方案。"
+    "governanceText": "1/1仍為正式主計畫。8/28考勤核心規則、9/11組織／簽核架構、10/16核心設定穩定、10/30與11/20兩次完整資料匯入、11/27平測前整合，構成前置控制鏈；任一 Gate 未達即啟動主管升級、範圍凍結、資源調整與復原措施。12/18才進行最終 Go / No-Go，僅判定未通過時正式啟動4/1備援。"
   },
   "contingency": [
     {
@@ -757,13 +1150,28 @@
     ],
     "currentFocus": [
       {
-        "title": "考勤核心規則確認",
-        "meta": "截止 8/28 ｜ 管理型關鍵路徑 ｜ 核心規則未定將直接影響後續考勤與薪資測試",
+        "title": "組織／簽核架構定版",
+        "meta": "9/11 ｜ 牽動電子簽核、角色權限、跨法人流程與後續整合測試；規則未凍結前，不宜進入表單與權限定版。",
         "level": "red"
+      },
+      {
+        "title": "考勤核心制度定案",
+        "meta": "8/28 ｜ 牽動9月考勤測試與後續薪資驗證；未定案規則不得直接帶入薪資測試。",
+        "level": "amber"
+      },
+      {
+        "title": "AD／權限與IT技轉交付",
+        "meta": "9/11 ｜ 郵件、報表、View與部分介接由雄獅IT承接；需鎖定必要Backlog與資源，避免形成非逐鹿端瓶頸。",
+        "level": "amber"
       },
       {
         "title": "客製需求定案",
         "meta": "計畫 7/31 ｜ 逾期 +15 天 ｜ 觸發C期付款 NT$1,968,000",
+        "level": "amber"
+      },
+      {
+        "title": "必要客製與表單範圍收斂",
+        "meta": "9/16 ｜ 客製範圍同時影響C期條件、設定時程與開發量；應以標準功能優先並凍結必要範圍。",
         "level": "amber"
       },
       {
@@ -772,23 +1180,8 @@
         "level": "amber"
       },
       {
-        "title": "年假制度：混合制改週年制",
-        "meta": "考勤 ｜ 待裁示 ｜ Due 8/20",
-        "level": "amber"
-      },
-      {
-        "title": "考勤核心制度與計算規則",
-        "meta": "考勤 ｜ 待裁示 ｜ Due 8/28",
-        "level": "amber"
-      },
-      {
-        "title": "1/1主計畫與4/1條件式備援治理基準",
-        "meta": "上線 ｜ 待裁示 ｜ Due 8/31",
-        "level": "amber"
-      },
-      {
-        "title": "單一組織樹下之簽核治理與例外處理原則",
-        "meta": "組織／簽核 ｜ 待裁示 ｜ Due 9/11",
+        "title": "資料完整性與兩次匯入",
+        "meta": "10/30 ｜ 資料品質直接影響11月整合驗證與12/18上線判定；兩次完整匯入是主要控制點。",
         "level": "amber"
       },
       {
@@ -1078,7 +1471,7 @@
       "activePackages": 3,
       "category": "core_hr",
       "nextGate": "8/28 考勤核心規則確認",
-      "managerNote": "近期關鍵節點：8/28 考勤核心規則確認"
+      "managerNote": "考勤核心制度定案｜8/28 前完成核心規則，避免壓縮 9 月測試與後續薪資驗證。"
     },
     {
       "name": "IT／介接",
@@ -1100,7 +1493,7 @@
       "activePackages": 1,
       "category": "cross_workstream",
       "nextGate": "8/21 AD登入整合測試",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "AD／權限與 IT 技轉交付｜9 月鎖定必要開發 Backlog，11/27 前完成上線必要項端到端驗證。"
     },
     {
       "name": "資料",
@@ -1122,7 +1515,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "10/30 第一次完整資料匯入",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "資料完整性治理｜10/30、11/20 完成兩次完整匯入，11/27 前完成資料完整性確認。"
     },
     {
       "name": "跨模組",
@@ -1144,7 +1537,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "9/30 9月逐鹿顧問每週三固定駐點工作排程",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "跨模組收斂｜以顧問駐點與月度收斂節點整合規則、設定、測試及責任分工。"
     },
     {
       "name": "上線",
@@ -1166,7 +1559,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/27 平測前作業確認",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "上線治理｜11/27 為平測前整合 Gate；12/18 才進行 1/1 Go / No-Go 最終判定。"
     },
     {
       "name": "人事",
@@ -1188,7 +1581,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "8/26 集團必填／選填欄位確認",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "角色與資料權限治理｜完成 HR、主管與關係企業 Role × Data Scope 驗證，確保共同上線下的資料隔離。"
     },
     {
       "name": "組織",
@@ -1204,13 +1597,13 @@
       "scopeProgressPct": 33,
       "doneRatioPct": 33,
       "dueToDatePct": 100,
-      "health": "amber",
+      "health": "red",
       "pm": "俊翔",
       "owner": "義峰",
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/11 各事業群問題整理與待確認事項收斂",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "組織／簽核架構定版｜9/11 前完成 AO 差異、管理線／簽核線與例外規則收斂，作為表單、權限與整合測試基準。"
     },
     {
       "name": "電子簽核",
@@ -1226,13 +1619,13 @@
       "scopeProgressPct": 0,
       "doneRatioPct": 0,
       "dueToDatePct": 100,
-      "health": "gray",
+      "health": "amber",
       "pm": "全PM",
       "owner": "全經辦",
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "9/11 電子簽核單流程建置",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "表單與簽核流程定版｜需以上游組織／簽核治理結果為基準，再完成表單設定、客製判斷與情境測試。"
     },
     {
       "name": "薪酬",
@@ -1254,7 +1647,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/30 薪資保險配置完成",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "薪資規則與追溯政策｜9 月完成規則確認，11 月以兩輪薪資測試驗證正式計算結果。"
     },
     {
       "name": "測試",
@@ -1276,7 +1669,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/30 整合測試完成（含表單）",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "端到端整合驗證｜11/27 前完成主要整合情境；12 月平測只做正式結果驗證，不承接未完成設計。"
     },
     {
       "name": "保險",
@@ -1298,7 +1691,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/30 薪資保險配置完成",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "保險設定與驗證｜配合薪資設定完成規則確認、測試與平行驗證。"
     },
     {
       "name": "教育訓練",
@@ -1320,7 +1713,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/20 HR內部SOP撰寫",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "分層訓練與上線準備｜11/27 前完成教材與場次安排，12/18 前完成必要使用者訓練。"
     },
     {
       "name": "專案總控",
@@ -1342,7 +1735,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "8/31 8月任務目標",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "PMO 治理｜維持 S2_V2 更新、S4 風險決策治理與跨模組節點追蹤，確保 1/1 路徑可追溯。"
     },
     {
       "name": "結案",
@@ -1364,7 +1757,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "2/26 專案結案",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "維運移交與結案｜上線後完成成效、問題與第二階段需求整理。"
     }
   ],
   "workstreams": [
@@ -1388,7 +1781,7 @@
       "activePackages": 3,
       "category": "core_hr",
       "nextGate": "8/28 考勤核心規則確認",
-      "managerNote": "近期關鍵節點：8/28 考勤核心規則確認"
+      "managerNote": "考勤核心制度定案｜8/28 前完成核心規則，避免壓縮 9 月測試與後續薪資驗證。"
     },
     {
       "name": "IT／介接",
@@ -1410,7 +1803,7 @@
       "activePackages": 1,
       "category": "cross_workstream",
       "nextGate": "8/21 AD登入整合測試",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "AD／權限與 IT 技轉交付｜9 月鎖定必要開發 Backlog，11/27 前完成上線必要項端到端驗證。"
     },
     {
       "name": "資料",
@@ -1432,7 +1825,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "10/30 第一次完整資料匯入",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "資料完整性治理｜10/30、11/20 完成兩次完整匯入，11/27 前完成資料完整性確認。"
     },
     {
       "name": "跨模組",
@@ -1454,7 +1847,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "9/30 9月逐鹿顧問每週三固定駐點工作排程",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "跨模組收斂｜以顧問駐點與月度收斂節點整合規則、設定、測試及責任分工。"
     },
     {
       "name": "上線",
@@ -1476,7 +1869,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/27 平測前作業確認",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "上線治理｜11/27 為平測前整合 Gate；12/18 才進行 1/1 Go / No-Go 最終判定。"
     },
     {
       "name": "人事",
@@ -1498,7 +1891,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "8/26 集團必填／選填欄位確認",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "角色與資料權限治理｜完成 HR、主管與關係企業 Role × Data Scope 驗證，確保共同上線下的資料隔離。"
     },
     {
       "name": "組織",
@@ -1514,13 +1907,13 @@
       "scopeProgressPct": 33,
       "doneRatioPct": 33,
       "dueToDatePct": 100,
-      "health": "amber",
+      "health": "red",
       "pm": "俊翔",
       "owner": "義峰",
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/11 各事業群問題整理與待確認事項收斂",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "組織／簽核架構定版｜9/11 前完成 AO 差異、管理線／簽核線與例外規則收斂，作為表單、權限與整合測試基準。"
     },
     {
       "name": "電子簽核",
@@ -1536,13 +1929,13 @@
       "scopeProgressPct": 0,
       "doneRatioPct": 0,
       "dueToDatePct": 100,
-      "health": "gray",
+      "health": "amber",
       "pm": "全PM",
       "owner": "全經辦",
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "9/11 電子簽核單流程建置",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "表單與簽核流程定版｜需以上游組織／簽核治理結果為基準，再完成表單設定、客製判斷與情境測試。"
     },
     {
       "name": "薪酬",
@@ -1564,7 +1957,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/30 薪資保險配置完成",
-      "managerNote": "有正式待裁示事項需收斂。"
+      "managerNote": "薪資規則與追溯政策｜9 月完成規則確認，11 月以兩輪薪資測試驗證正式計算結果。"
     },
     {
       "name": "測試",
@@ -1586,7 +1979,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/30 整合測試完成（含表單）",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "端到端整合驗證｜11/27 前完成主要整合情境；12 月平測只做正式結果驗證，不承接未完成設計。"
     },
     {
       "name": "保險",
@@ -1608,7 +2001,7 @@
       "activePackages": 0,
       "category": "core_hr",
       "nextGate": "9/30 薪資保險配置完成",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "保險設定與驗證｜配合薪資設定完成規則確認、測試與平行驗證。"
     },
     {
       "name": "教育訓練",
@@ -1630,7 +2023,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "11/20 HR內部SOP撰寫",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "分層訓練與上線準備｜11/27 前完成教材與場次安排，12/18 前完成必要使用者訓練。"
     },
     {
       "name": "專案總控",
@@ -1652,7 +2045,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "8/31 8月任務目標",
-      "managerNote": "目前依計畫推進。"
+      "managerNote": "PMO 治理｜維持 S2_V2 更新、S4 風險決策治理與跨模組節點追蹤，確保 1/1 路徑可追溯。"
     },
     {
       "name": "結案",
@@ -1674,7 +2067,7 @@
       "activePackages": 0,
       "category": "cross_workstream",
       "nextGate": "2/26 專案結案",
-      "managerNote": "尚未進入主要執行期。"
+      "managerNote": "維運移交與結案｜上線後完成成效、問題與第二階段需求整理。"
     }
   ],
   "timeline": {
@@ -1700,10 +2093,10 @@
     "workstreamLanes": [
       {
         "module": "組織",
-        "health": "amber",
+        "health": "red",
         "scopeProgressPct": 33,
         "dueToDatePct": 100,
-        "managementCritical": false,
+        "managementCritical": true,
         "segments": [
           {
             "id": "SEG-58",
@@ -2163,7 +2556,7 @@
       },
       {
         "module": "電子簽核",
-        "health": "gray",
+        "health": "amber",
         "scopeProgressPct": 0,
         "dueToDatePct": 100,
         "managementCritical": false,
@@ -2410,41 +2803,9 @@
     ],
     "gateGroups": [
       {
-        "id": "GATE-20260817",
-        "date": "2026/08/17",
-        "label": "後續工作、時程、負責人與關鍵節點說明",
-        "status": "done",
-        "count": 1,
-        "managementCritical": false,
-        "decision": false,
-        "star": false,
-        "importance": "normal",
-        "items": [
-          {
-            "id": "S2-R47",
-            "source": "S2_V2",
-            "name": "後續工作、時程、負責人與關鍵節點說明",
-            "module": "專案總控",
-            "date": "2026/08/17",
-            "actual": "",
-            "status": "done",
-            "owner": "冠元／Kate",
-            "note": "完成8/17至1/1整合計畫",
-            "row": 47,
-            "completionPct": 100,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          }
-        ]
-      },
-      {
         "id": "GATE-20260828",
         "date": "2026/08/28",
-        "label": "考勤核心規則確認",
+        "label": "考勤核心規則",
         "status": "active",
         "count": 1,
         "managementCritical": true,
@@ -2468,57 +2829,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
-            "decision": false,
-            "star": false
-          }
-        ]
-      },
-      {
-        "id": "GATE-20260831",
-        "date": "2026/08/31",
-        "label": "整合關鍵節點（2項）",
-        "status": "active",
-        "count": 2,
-        "managementCritical": false,
-        "decision": false,
-        "star": false,
-        "importance": "major",
-        "items": [
-          {
-            "id": "M11",
-            "source": "S1",
-            "name": "考勤配置完成",
-            "module": "",
-            "date": "2026/08/31",
-            "actual": "",
-            "status": "pending",
-            "owner": "逐鹿",
-            "note": "",
-            "row": null,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R56",
-            "source": "S2_V2",
-            "name": "8月任務目標",
-            "module": "專案總控",
-            "date": "2026/08/31",
-            "actual": "",
-            "status": "active",
-            "owner": "冠元／Kate",
-            "note": "考勤核心規則若未於8月底前收斂，將壓縮9月測試及後續薪資驗證時程。",
-            "row": 56,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2527,13 +2838,13 @@
       {
         "id": "GATE-20260911",
         "date": "2026/09/11",
-        "label": "各事業群問題整理與待確認事項收斂",
+        "label": "組織／簽核治理",
         "status": "pending",
         "count": 1,
-        "managementCritical": false,
+        "managementCritical": true,
         "decision": false,
         "star": false,
-        "importance": "normal",
+        "importance": "major",
         "items": [
           {
             "id": "S2-R66",
@@ -2549,97 +2860,9 @@
             "completionPct": 0,
             "delayDays": 0,
             "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          }
-        ]
-      },
-      {
-        "id": "GATE-20260930",
-        "date": "2026/09/30",
-        "label": "整合關鍵節點（4項）",
-        "status": "pending",
-        "count": 4,
-        "managementCritical": false,
-        "decision": false,
-        "star": false,
-        "importance": "major",
-        "items": [
-          {
-            "id": "M12",
-            "source": "S1",
-            "name": "薪資保險配置完成",
-            "module": "",
-            "date": "2026/09/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "逐鹿",
-            "note": "",
-            "row": null,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R50",
-            "source": "S2_V2",
-            "name": "9月逐鹿顧問每週三固定駐點工作排程",
-            "module": "跨模組",
-            "date": "2026/09/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "Kate／逐鹿Vivian",
-            "note": "若顧問駐點未事前排定議題，容易再次回到且戰且走、問題零散處理。",
-            "row": 50,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R55",
-            "source": "S2_V2",
-            "name": "9/30（三）顧問駐點／9月收斂檢核",
-            "module": "跨模組",
-            "date": "2026/09/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "Kate／逐鹿Vivian",
-            "note": "9月底進行月度收斂，作為10月設定／測試與資料匯入之基準。",
-            "row": 55,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R57",
-            "source": "S2_V2",
-            "name": "9月任務目標",
-            "module": "專案總控",
-            "date": "2026/09/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "冠元／Kate",
-            "note": "若9月底仍有大量規則／介接需求未確認，將壓縮10月設定與測試時間。",
-            "row": 57,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
+            "managementCritical": true,
+            "critical": true,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2648,9 +2871,9 @@
       {
         "id": "GATE-20261016",
         "date": "2026/10/16",
-        "label": "整合關鍵節點（2項）",
+        "label": "核心設定穩定",
         "status": "pending",
-        "count": 2,
+        "count": 1,
         "managementCritical": true,
         "decision": false,
         "star": false,
@@ -2672,25 +2895,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R75",
-            "source": "S2_V2",
-            "name": "修正後確認完成",
-            "module": "組織",
-            "date": "2026/10/16",
-            "actual": "",
-            "status": "pending",
-            "owner": "俊翔／逐鹿Vivian",
-            "note": "",
-            "row": 75,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2723,6 +2928,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2755,6 +2961,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2763,52 +2970,14 @@
       {
         "id": "GATE-20261127",
         "date": "2026/11/27",
-        "label": "整合關鍵節點（3項）",
+        "label": "平測前整合 Gate",
         "status": "pending",
-        "count": 3,
+        "count": 1,
         "managementCritical": true,
         "decision": false,
         "star": false,
         "importance": "major",
         "items": [
-          {
-            "id": "S2-R161",
-            "source": "S2_V2",
-            "name": "第二次薪資測試差異確認完成",
-            "module": "跨模組",
-            "date": "2026/11/27",
-            "actual": "",
-            "status": "pending",
-            "owner": "智翔／逐鹿Vivian",
-            "note": "",
-            "row": 161,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": true,
-            "critical": true,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "S2-R238",
-            "source": "S2_V2",
-            "name": "IT整合測試確認完成",
-            "module": "跨模組",
-            "date": "2026/11/27",
-            "actual": "",
-            "status": "pending",
-            "owner": "慈琬",
-            "note": "",
-            "row": 238,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": true,
-            "critical": true,
-            "decision": false,
-            "star": false
-          },
           {
             "id": "S2-R305",
             "source": "S2_V2",
@@ -2825,89 +2994,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
-            "decision": false,
-            "star": false
-          }
-        ]
-      },
-      {
-        "id": "GATE-20261130",
-        "date": "2026/11/30",
-        "label": "整合關鍵節點（2項）",
-        "status": "pending",
-        "count": 2,
-        "managementCritical": false,
-        "decision": false,
-        "star": false,
-        "importance": "major",
-        "items": [
-          {
-            "id": "M13",
-            "source": "S1",
-            "name": "整合測試完成（含表單）",
-            "module": "",
-            "date": "2026/11/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "雙方",
-            "note": "",
-            "row": null,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          },
-          {
-            "id": "M14",
-            "source": "S1",
-            "name": "上線前置作業完成",
-            "module": "",
-            "date": "2026/11/30",
-            "actual": "",
-            "status": "pending",
-            "owner": "雙方",
-            "note": "資料匯入、確認清單",
-            "row": null,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
-            "decision": false,
-            "star": false
-          }
-        ]
-      },
-      {
-        "id": "GATE-20261201",
-        "date": "2026/12/01",
-        "label": "平測開始（薪資第一個月）",
-        "status": "pending",
-        "count": 1,
-        "managementCritical": false,
-        "decision": false,
-        "star": false,
-        "importance": "normal",
-        "items": [
-          {
-            "id": "M15",
-            "source": "S1",
-            "name": "平測開始（薪資第一個月）",
-            "module": "",
-            "date": "2026/12/01",
-            "actual": "",
-            "status": "pending",
-            "owner": "智翔/逐鹿",
-            "note": "",
-            "row": null,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": false,
-            "critical": false,
+            "executiveGate": true,
             "decision": false,
             "star": false
           }
@@ -2940,6 +3027,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": true,
             "star": false
           },
@@ -2959,39 +3047,8 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": true,
-            "star": false
-          }
-        ]
-      },
-      {
-        "id": "GATE-20261231",
-        "date": "2026/12/31",
-        "label": "正式平行測試",
-        "status": "pending",
-        "count": 1,
-        "managementCritical": true,
-        "decision": false,
-        "star": false,
-        "importance": "major",
-        "items": [
-          {
-            "id": "S2-R314",
-            "source": "S2_V2",
-            "name": "正式平行測試",
-            "module": "測試",
-            "date": "2026/12/31",
-            "actual": "",
-            "status": "pending",
-            "owner": "Kate／逐鹿Vivian",
-            "note": "重大差異未解決不得正式切換",
-            "row": 314,
-            "completionPct": 0,
-            "delayDays": 0,
-            "isOverdue": false,
-            "managementCritical": true,
-            "critical": true,
-            "decision": false,
             "star": false
           }
         ]
@@ -3023,6 +3080,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": false,
             "star": true
           },
@@ -3042,6 +3100,7 @@
             "isOverdue": false,
             "managementCritical": true,
             "critical": true,
+            "executiveGate": true,
             "decision": false,
             "star": true
           }
@@ -3117,6 +3176,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3136,6 +3196,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3155,6 +3216,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3174,6 +3236,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3193,6 +3256,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3212,6 +3276,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3231,6 +3296,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3250,6 +3316,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3269,6 +3336,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3288,6 +3356,7 @@
         "isOverdue": true,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3307,6 +3376,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3326,6 +3396,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3345,6 +3416,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3364,6 +3436,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3381,8 +3454,9 @@
         "completionPct": 0,
         "delayDays": 0,
         "isOverdue": false,
-        "managementCritical": false,
-        "critical": false,
+        "managementCritical": true,
+        "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3402,6 +3476,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3421,6 +3496,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3440,6 +3516,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3459,6 +3536,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3478,6 +3556,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3497,6 +3576,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3516,6 +3596,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3535,6 +3616,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3554,6 +3636,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3573,6 +3656,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3592,6 +3676,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -3611,6 +3696,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3630,6 +3716,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3649,6 +3736,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3668,6 +3756,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": true,
         "star": false
       },
@@ -3687,6 +3776,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": true,
         "star": false
       },
@@ -3704,8 +3794,9 @@
         "completionPct": 0,
         "delayDays": 0,
         "isOverdue": false,
-        "managementCritical": true,
-        "critical": true,
+        "managementCritical": false,
+        "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3725,6 +3816,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": true
       },
@@ -3744,6 +3836,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": true
       },
@@ -3763,6 +3856,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3782,6 +3876,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3801,6 +3896,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3820,6 +3916,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       }
@@ -3841,6 +3938,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3860,6 +3958,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3879,6 +3978,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3898,6 +3998,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3917,6 +4018,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3936,6 +4038,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3955,6 +4058,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3974,6 +4078,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -3993,6 +4098,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4012,6 +4118,7 @@
         "isOverdue": true,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4031,6 +4138,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4050,6 +4158,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4069,6 +4178,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4088,6 +4198,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4107,6 +4218,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4126,6 +4238,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": true
       }
@@ -4147,6 +4260,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4166,6 +4280,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4185,6 +4300,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4202,8 +4318,9 @@
         "completionPct": 0,
         "delayDays": 0,
         "isOverdue": false,
-        "managementCritical": false,
-        "critical": false,
+        "managementCritical": true,
+        "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4223,6 +4340,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4242,6 +4360,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4261,6 +4380,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4280,6 +4400,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4299,6 +4420,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4318,6 +4440,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4337,6 +4460,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4356,6 +4480,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4375,6 +4500,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4394,6 +4520,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": false
       },
@@ -4413,6 +4540,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": true,
         "star": false
       },
@@ -4432,6 +4560,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": true,
         "star": false
       },
@@ -4449,8 +4578,9 @@
         "completionPct": 0,
         "delayDays": 0,
         "isOverdue": false,
-        "managementCritical": true,
-        "critical": true,
+        "managementCritical": false,
+        "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4470,6 +4600,7 @@
         "isOverdue": false,
         "managementCritical": true,
         "critical": true,
+        "executiveGate": true,
         "decision": false,
         "star": true
       },
@@ -4489,6 +4620,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4508,6 +4640,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4527,6 +4660,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       },
@@ -4546,6 +4680,7 @@
         "isOverdue": false,
         "managementCritical": false,
         "critical": false,
+        "executiveGate": false,
         "decision": false,
         "star": false
       }
@@ -35423,6 +35558,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35442,6 +35578,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35461,6 +35598,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35478,8 +35616,9 @@
       "completionPct": 0,
       "delayDays": 0,
       "isOverdue": false,
-      "managementCritical": false,
-      "critical": false,
+      "managementCritical": true,
+      "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35499,6 +35638,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35518,6 +35658,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35537,6 +35678,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35556,6 +35698,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35575,6 +35718,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35594,6 +35738,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35613,6 +35758,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35632,6 +35778,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35651,6 +35798,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35670,6 +35818,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": false
     },
@@ -35689,6 +35838,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": true,
       "star": false
     },
@@ -35708,6 +35858,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": true,
       "star": false
     },
@@ -35725,8 +35876,9 @@
       "completionPct": 0,
       "delayDays": 0,
       "isOverdue": false,
-      "managementCritical": true,
-      "critical": true,
+      "managementCritical": false,
+      "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35746,6 +35898,7 @@
       "isOverdue": false,
       "managementCritical": true,
       "critical": true,
+      "executiveGate": true,
       "decision": false,
       "star": true
     },
@@ -35765,6 +35918,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35784,6 +35938,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35803,6 +35958,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     },
@@ -35822,6 +35978,7 @@
       "isOverdue": false,
       "managementCritical": false,
       "critical": false,
+      "executiveGate": false,
       "decision": false,
       "star": false
     }
@@ -36795,7 +36952,445 @@
     "s2OnlyGateCount": 22
   },
   "formal": {
-    "risks": [],
+    "risks": [
+      {
+        "id": "R01",
+        "date": "2026/05/22",
+        "module": "商務合約",
+        "desc": "C期付款條件「必要客製規格」文字認知落差",
+        "description": "C期付款條件「必要客製規格」文字認知落差",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "C期付款文字已完成共識；後續客製範圍改由R05及S2_V2客製／表單規格工作追蹤。",
+        "response": "C期付款文字已完成共識；後續客製範圍改由R05及S2_V2客製／表單規格工作追蹤。",
+        "owner": "Kate/採購",
+        "deadline": "2026/05/26",
+        "target": "2026/05/26",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "原風險為雙方對C期付款文字認知不同。後續文字已完成共識，原爭議已解除；必要客製的實際範圍仍屬後續執行議題，另由R05追蹤。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "上線條件／時程",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「上線條件／時程」判定。"
+      },
+      {
+        "id": "R02",
+        "date": "2026/05/22",
+        "module": "商務合約",
+        "desc": "合約未完成用印，可能阻斷系統安裝與授權作業",
+        "description": "合約未完成用印，可能阻斷系統安裝與授權作業",
+        "severity": "高",
+        "impact": "高",
+        "probability": "高",
+        "level": "high",
+        "rawLevel": "🔴 高",
+        "mit": "合約已完成簽署，系統環境、安裝與License申請均已進入執行，原阻斷條件解除。",
+        "response": "合約已完成簽署，系統環境、安裝與License申請均已進入執行，原阻斷條件解除。",
+        "owner": "Kate/採購",
+        "deadline": "2026/06/15",
+        "target": "2026/06/15",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "原風險發生於開工初期；依S2_V2與S1現況，合約簽署與前置環境已完成，後續付款條件改由商務付款節點追蹤。",
+        "affectsGoNoGo": false,
+        "goLiveImpactArea": "",
+        "goLiveImpactText": ""
+      },
+      {
+        "id": "R03",
+        "date": "2026/05/22",
+        "module": "時程",
+        "desc": "訪談與基礎定案延遲，壓縮後續配置與測試時間",
+        "description": "訪談與基礎定案延遲，壓縮後續配置與測試時間",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "訪談與基礎定案已完成；後續改由S2_V2月度任務、關鍵節點與具體時程風險逐項控管。",
+        "response": "訪談與基礎定案已完成；後續改由S2_V2月度任務、關鍵節點與具體時程風險逐項控管。",
+        "owner": "Kate",
+        "deadline": "2026/07/31",
+        "target": "2026/07/31",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "原風險已發生並被吸收進新版整合執行計畫。8/17後不再以「訪談延遲」作為現行風險，改追蹤8/28考勤、9月底收斂、10月測試等具體Gate。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R04",
+        "date": "2026/05/22",
+        "module": "範疇",
+        "desc": "旅天下／欣食旅等關係企業之組織、簽核與角色差異若無法收斂，可能影響單一組織樹／單套規則前提",
+        "description": "旅天下／欣食旅等關係企業之組織、簽核與角色差異若無法收斂，可能影響單一組織樹／單套規則前提",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "依S2_V2逐一完成各AO、旅天下、欣食旅與海外差異確認，9/11收斂共通規則與例外；超出共通範圍者轉第二階段。",
+        "response": "依S2_V2逐一完成各AO、旅天下、欣食旅與海外差異確認，9/11收斂共通規則與例外；超出共通範圍者轉第二階段。",
+        "owner": "Kate/俊翔",
+        "deadline": "2026/09/11",
+        "target": "2026/09/11",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "S2_V2已將旅天下、欣食旅及海外納入8–9月組織／簽核確認；此風險不再是抽象多法人風險，而是9/11前能否完成差異收斂。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "上線條件／時程",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「上線條件／時程」判定。"
+      },
+      {
+        "id": "R05",
+        "date": "2026/05/22",
+        "module": "範疇／商務",
+        "desc": "必要客製與表單調整範圍尚未完全收斂，可能影響C期條件、系統設定與9月執行時程",
+        "description": "必要客製與表單調整範圍尚未完全收斂，可能影響C期條件、系統設定與9月執行時程",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "以標準功能優先；8/25 Demo後盤點差異，9/16前完成需調整／客製表單規格確認；新增客製須同步評估時程與費用。",
+        "response": "以標準功能優先；8/25 Demo後盤點差異，9/16前完成需調整／客製表單規格確認；新增客製須同步評估時程與費用。",
+        "owner": "Kate/各PM/逐鹿",
+        "deadline": "2026/09/16",
+        "target": "2026/09/16",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "S1 M10雖已逾原7/31基準，但S2_V2顯示實際客製／表單需求仍將於8/25 Demo至9/16持續收斂，故此風險仍有效。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "上線條件／時程",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「上線條件／時程」判定。"
+      },
+      {
+        "id": "R06",
+        "date": "2026/05/22",
+        "module": "考勤／介接",
+        "desc": "刷卡與考勤資料格式、介接驗證若不穩定，可能影響考勤結算與後續薪資測試",
+        "description": "刷卡與考勤資料格式、介接驗證若不穩定，可能影響考勤結算與後續薪資測試",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "依S2_V2完成刷卡資料、出勤異常、補刷、核定工時及車公司上傳流程測試；9/11前完成第一輪驗證與問題清單。",
+        "response": "依S2_V2完成刷卡資料、出勤異常、補刷、核定工時及車公司上傳流程測試；9/11前完成第一輪驗證與問題清單。",
+        "owner": "Ken/慈琬",
+        "deadline": "2026/09/11",
+        "target": "2026/09/11",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "原R06與R11之考勤DB／刷卡對接風險已整併。本風險以S2_V2 9月考勤第一輪測試與介接驗證作為主要關閉依據。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      },
+      {
+        "id": "R07",
+        "date": "2026/05/22",
+        "module": "薪酬",
+        "desc": "薪資規則與加扣項設定複雜，若設定或追溯邏輯錯誤，可能造成薪資差異與法遵風險",
+        "description": "薪資規則與加扣項設定複雜，若設定或追溯邏輯錯誤，可能造成薪資差異與法遵風險",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "9月完成薪資Demo與規則確認，11月以兩輪薪資測試比對現行結果；重大差異需於平測前關閉或有明確處理方案。",
+        "response": "9月完成薪資Demo與規則確認，11月以兩輪薪資測試比對現行結果；重大差異需於平測前關閉或有明確處理方案。",
+        "owner": "智翔/逐鹿",
+        "deadline": "2026/11/27",
+        "target": "2026/11/27",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "此風險與D08薪資追溯政策及11月薪資測試直接相關；最終需支撐12/18 Go/No-Go。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R08",
+        "date": "2026/05/22",
+        "module": "IT／介接",
+        "desc": "ERP／SERP／API與異系統介接規格或開發若延遲，將壓縮11月整合測試與上線前驗證",
+        "description": "ERP／SERP／API與異系統介接規格或開發若延遲，將壓縮11月整合測試與上線前驗證",
+        "severity": "中",
+        "impact": "中",
+        "probability": "中",
+        "level": "low",
+        "rawLevel": "🟢 低",
+        "mit": "9月底前完成主要介接需求第一輪收斂，10–11月依技轉成果完成開發與測試，11/30前完成整合測試。",
+        "response": "9月底前完成主要介接需求第一輪收斂，10–11月依技轉成果完成開發與測試，11/30前完成整合測試。",
+        "owner": "慈琬/逐鹿",
+        "deadline": "2026/11/30",
+        "target": "2026/11/30",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "S2_V2已將IT／介接、AD、報表、View、Mail及異質系統串接拆成具體工作；風險仍有效，但已由抽象未知轉為可追蹤執行項。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R09",
+        "date": "2026/05/22",
+        "module": "資料品質",
+        "desc": "多模組資料清理與兩次完整匯入若未達品質，將影響平測與12/18上線判定",
+        "description": "多模組資料清理與兩次完整匯入若未達品質，將影響平測與12/18上線判定",
+        "severity": "中",
+        "impact": "中",
+        "probability": "高",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "9–10月完成各模組資料整理與清理，10/30完成第一次完整匯入、11/20完成第二次完整匯入，11/27完成資料完整性確認。",
+        "response": "9–10月完成各模組資料整理與清理，10/30完成第一次完整匯入、11/20完成第二次完整匯入，11/27完成資料完整性確認。",
+        "owner": "Kate/全體經辦",
+        "deadline": "2026/11/27",
+        "target": "2026/11/27",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "資料完整性已被S2_V2明列為12/18 Go/No-Go判定條件之一；本風險應持續至第二次匯入與11/27完整性確認完成。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      },
+      {
+        "id": "R10",
+        "date": "2026/05/22",
+        "module": "系統技術",
+        "desc": "根組織節點代碼設定錯誤，系統建置後難以修改",
+        "description": "根組織節點代碼設定錯誤，系統建置後難以修改",
+        "severity": "高",
+        "impact": "高",
+        "probability": "低",
+        "level": "low",
+        "rawLevel": "🟢 低",
+        "mit": "由HR主管確認根節點代碼後回傳逐鹿，不由IT自行決定。",
+        "response": "由HR主管確認根節點代碼後回傳逐鹿，不由IT自行決定。",
+        "owner": "Kate",
+        "deadline": "2026/05/18",
+        "target": "2026/05/18",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "已於2026/05/18由主管確認並回傳逐鹿；D05同步更新為已決策。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R11",
+        "date": "2026/06/04",
+        "module": "考勤／介接",
+        "desc": "考勤DB對接方式與刷卡機廠商協調未定，影響考勤上線",
+        "description": "考勤DB對接方式與刷卡機廠商協調未定，影響考勤上線",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "原議題已整併至R06與S2_V2考勤／刷卡資料測試，不再以獨立風險重複追蹤。",
+        "response": "原議題已整併至R06與S2_V2考勤／刷卡資料測試，不再以獨立風險重複追蹤。",
+        "owner": "Ken/慈琬",
+        "deadline": "2026/08/15",
+        "target": "2026/08/15",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "保留歷史紀錄；後續介接與刷卡資料風險統一由R06追蹤，避免S4重複計算同一風險。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      },
+      {
+        "id": "R12",
+        "date": "2026/06/04",
+        "module": "考勤／制度",
+        "desc": "曆年／混合制轉週年制涉及天數差異、補償成本、員工權益與勞資程序，若未收斂將影響制度與系統切換",
+        "description": "曆年／混合制轉週年制涉及天數差異、補償成本、員工權益與勞資程序，若未收斂將影響制度與系統切換",
+        "severity": "中",
+        "impact": "中",
+        "probability": "中",
+        "level": "low",
+        "rawLevel": "🟢 低",
+        "mit": "先完成D09方向決策，再依S2_V2完成受影響人員盤點、天數試算、辦法調整、員工／主管溝通與必要勞資程序。",
+        "response": "先完成D09方向決策，再依S2_V2完成受影響人員盤點、天數試算、辦法調整、員工／主管溝通與必要勞資程序。",
+        "owner": "Ken/Kate",
+        "deadline": "2026/10/02",
+        "target": "2026/10/02",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "S2_V2已將週年制轉換拆為8/19–10/2完整工作包；本風險與D09直接連動。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R13",
+        "date": "2026/08/15",
+        "module": "考勤／時程",
+        "desc": "考勤核心規則若未於8/28前完成主管定案，將直接壓縮9月考勤測試與後續薪資驗證",
+        "description": "考勤核心規則若未於8/28前完成主管定案，將直接壓縮9月考勤測試與後續薪資驗證",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "8/20前先收斂主要制度方向，8/28前完成核心規則確認並交逐鹿設定；未定案項目不得帶入薪資測試。",
+        "response": "8/20前先收斂主要制度方向，8/28前完成核心規則確認並交逐鹿設定；未定案項目不得帶入薪資測試。",
+        "owner": "Ken/Kate",
+        "deadline": "2026/08/28",
+        "target": "2026/08/28",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "新風險，直接源自S2_V2 row101與8月任務目標；與D10連動，屬目前1/1主計畫近期最重要管理風險之一。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R14",
+        "date": "2026/08/15",
+        "module": "考勤／IT",
+        "desc": "海外APP時區技術方案若無法穩定反映當地時間，海外打卡可能無法依主方案上線",
+        "description": "海外APP時區技術方案若無法穩定反映當地時間，海外打卡可能無法依主方案上線",
+        "severity": "中",
+        "impact": "中",
+        "probability": "中",
+        "level": "low",
+        "rawLevel": "🟢 低",
+        "mit": "8月底前確認Server／站點時區技術可行性，9月完成海外實測；若主方案不可行，啟用Web或卡機備援。",
+        "response": "8月底前確認Server／站點時區技術可行性，9月完成海外實測；若主方案不可行，啟用Web或卡機備援。",
+        "owner": "Ken/慈琬",
+        "deadline": "2026/09/25",
+        "target": "2026/09/25",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "新風險，直接源自S2_V2海外APP打卡時區工作包；因已有Web／卡機備援，風險可控，但仍需於9/25前確認正式方案。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R15",
+        "date": "2026/08/15",
+        "module": "組織／簽核",
+        "desc": "單一組織樹／單套規則若無法承載多主管、兼任／代理、虛擬組織與屬性式簽核，將造成核心流程失真或大量客製",
+        "description": "單一組織樹／單套規則若無法承載多主管、兼任／代理、虛擬組織與屬性式簽核，將造成核心流程失真或大量客製",
+        "severity": "高",
+        "impact": "高",
+        "probability": "高",
+        "level": "high",
+        "rawLevel": "🔴 高",
+        "mit": "以產品群作共通樣板，逐一完成AO差異驗證；建立「組織線×管理線×簽核線」規則矩陣與特殊例外清單，9/11前區分標準設定／可配置／需客製，未收斂不得進入表單與權限定版。",
+        "response": "以產品群作共通樣板，逐一完成AO差異驗證；建立「組織線×管理線×簽核線」規則矩陣與特殊例外清單，9/11前區分標準設定／可配置／需客製，未收斂不得進入表單與權限定版。",
+        "owner": "俊翔/Kate/逐鹿",
+        "deadline": "2026/09/11",
+        "target": "2026/09/11",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "開工即確認Gaia僅一套HCM、不可拆DB／管理單元，全部在同一組織樹；同時因雄獅特殊簽核，逐鹿明確保留客製可能。此為架構適配風險，不等同R04法人範疇或R05一般客製範圍。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "上線條件／時程",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「上線條件／時程」判定。"
+      },
+      {
+        "id": "R16",
+        "date": "2026/08/15",
+        "module": "組織／資料介接",
+        "desc": "HRIS組織資料已確定以既有欄位與資料為基礎導入與映射，不調整現行組織代碼、權限邏輯及ERP／SERP／訂單等既有系統運作；原下游系統受影響風險已解除。",
+        "description": "HRIS組織資料已確定以既有欄位與資料為基礎導入與映射，不調整現行組織代碼、權限邏輯及ERP／SERP／訂單等既有系統運作；原下游系統受影響風險已解除。",
+        "severity": "低",
+        "impact": "低",
+        "probability": "低",
+        "level": "low",
+        "rawLevel": "🟢 低",
+        "mit": "維持既有主檔、欄位與權限邏輯；HRIS以資料映射／介接承接現況，不反向改動既有營運系統。上線前仍執行欄位完整性與資料一致性驗證。",
+        "response": "維持既有主檔、欄位與權限邏輯；HRIS以資料映射／介接承接現況，不反向改動既有營運系統。上線前仍執行欄位完整性與資料一致性驗證。",
+        "owner": "俊翔/慈琬/IT",
+        "deadline": "2026/08/15",
+        "target": "2026/08/15",
+        "status": "closed",
+        "rawStatus": "🔒 已關閉",
+        "background": "依現行導入方向，HRIS不進行組織代碼或既有系統權限重構，因此R16原假設不再成立；後續僅以資料映射與介接驗證作為一般執行工作追蹤。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      },
+      {
+        "id": "R17",
+        "date": "2026/08/15",
+        "module": "法人／權限",
+        "desc": "旅天下、欣食旅等法人已確定與主體共同上線；若共同上線前未完成角色、資料範圍與跨法人例外驗證，仍可能發生資料誤曝、越權或操作錯誤。",
+        "description": "旅天下、欣食旅等法人已確定與主體共同上線；若共同上線前未完成角色、資料範圍與跨法人例外驗證，仍可能發生資料誤曝、越權或操作錯誤。",
+        "severity": "高",
+        "impact": "高",
+        "probability": "低",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "共同上線方向已定；9/11前完成Role×Data Scope治理矩陣，9–10月以實際帳號驗證HR、主管、兼任／跨法人調任、最高管理者與系統管理員權限；異常於上線前修正。",
+        "response": "共同上線方向已定；9/11前完成Role×Data Scope治理矩陣，9–10月以實際帳號驗證HR、主管、兼任／跨法人調任、最高管理者與系統管理員權限；異常於上線前修正。",
+        "owner": "Kate/Nancy/IT",
+        "deadline": "2026/10/09",
+        "target": "2026/10/09",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "是否共同上線已不是待決策事項；本風險只管理共同上線前的權限隔離與資料範圍驗證。D13已改為已決策，後續依既定治理原則執行。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      },
+      {
+        "id": "R18",
+        "date": "2026/08/15",
+        "module": "IT／技轉",
+        "desc": "郵件、報表、View／查詢中心及部分介接由雄獅IT承接開發，若技轉後內部開發量或資源不足，可能形成非逐鹿端的上線瓶頸",
+        "description": "郵件、報表、View／查詢中心及部分介接由雄獅IT承接開發，若技轉後內部開發量或資源不足，可能形成非逐鹿端的上線瓶頸",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "9月底前完成IT交付物Backlog、來源／輸出／欄位／責任人與估工；10月起按上線必要性排序開發並週週追蹤，11/27前完成必要項端到端測試，非必要需求移至第二階段。",
+        "response": "9月底前完成IT交付物Backlog、來源／輸出／欄位／責任人與估工；10月起按上線必要性排序開發並週週追蹤，11/27前完成必要項端到端測試，非必要需求移至第二階段。",
+        "owner": "慈琬/Kate/IT",
+        "deadline": "2026/11/27",
+        "target": "2026/11/27",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "開工決議即明確：郵件通知、報表、查詢View技轉後由雄獅團隊開發；S2_V2亦將10/1–11/27列為IT開發與測試期，因此這是一條獨立Critical Path。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "重大缺陷／整合驗證",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「重大缺陷／整合驗證」判定。"
+      },
+      {
+        "id": "R19",
+        "date": "2026/08/15",
+        "module": "上線／整合測試",
+        "desc": "12/1才進一個月平測且1/1即上線，若組織簽核、考勤、薪資、資料或介接重大問題延至11月底／12月才暴露，主計畫幾乎沒有修復緩衝",
+        "description": "12/1才進一個月平測且1/1即上線，若組織簽核、考勤、薪資、資料或介接重大問題延至11月底／12月才暴露，主計畫幾乎沒有修復緩衝",
+        "severity": "高",
+        "impact": "高",
+        "probability": "中",
+        "level": "medium",
+        "rawLevel": "🟡 中",
+        "mit": "採Shift-left：9–10月完成規則收斂與模組單測，11/27前完成端到端整測與資料完整性確認；12月平測只驗證正式結果，不承接尚未完成設計；12/18依D11執行Go/No-Go。",
+        "response": "採Shift-left：9–10月完成規則收斂與模組單測，11/27前完成端到端整測與資料完整性確認；12月平測只驗證正式結果，不承接尚未完成設計；12/18依D11執行Go/No-Go。",
+        "owner": "Kate/各PM/IT/逐鹿",
+        "deadline": "2026/12/18",
+        "target": "2026/12/18",
+        "status": "active",
+        "rawStatus": "🔄 處理中",
+        "background": "逐鹿在開工時即因時程緊湊要求鎖定一套規則；S2_V2現行設計亦以11/27平測前Gate、12/18 Go/No-Go控制此風險。",
+        "affectsGoNoGo": true,
+        "goLiveImpactArea": "資料完整性",
+        "goLiveImpactText": "可能影響 12/18 Go / No-Go 的「資料完整性」判定。"
+      }
+    ],
     "decisions": [
       {
         "id": "D01",
@@ -37045,7 +37640,7 @@
         "goLiveRelation": "直接關聯 1/1 主計畫、12/18 Go / No-Go 與條件式備援治理。"
       }
     ],
-    "riskFreshness": "",
+    "riskFreshness": "2026/08/15",
     "decisionFreshness": "2026/08/15"
   },
   "milestones": [
