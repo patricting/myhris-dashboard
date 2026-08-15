@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "HRIS_DASHBOARD_MASTER_V3_5_UX_GOVERNANCE_20260815",
+  "schemaVersion": "HRIS_DASHBOARD_MASTER_V3_5_1_TIMELINE_HIERARCHY_20260815",
   "updated": "2026/08/15",
   "updatedDate": "2026/08/15",
-  "updatedAt": "2026/08/15 19:31",
+  "updatedAt": "2026/08/15 19:50",
   "project": {
     "start": "2026/05/05",
     "goLive": "2027/01/01",
@@ -2104,7 +2104,9 @@
         "segments": [
           {
             "id": "SEG-58",
-            "label": "組織圖＆簽核邏輯確認",
+            "label": "組織／簽核架構定版",
+            "sourceTask": "組織圖＆簽核邏輯確認",
+            "sourceRow": 58,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/17",
@@ -2112,15 +2114,32 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              58
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66
             ],
             "taskCount": 8,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 以目前已匯入系統之組織資料為初版，逐一與各AO確認組織線、主管配置與簽核需求。\n• 驗證多主管、兼任、虛擬組織及例外簽核情境，不以空白討論取代系統畫面驗證。\n• 完成標準：各AO差異、共通規則及待調整清單完成確認，可交付後續系統設定。",
+            "progress": "以目前已匯入系統的組織資料為初版，逐一與AO確認差異",
+            "coordination": "",
+            "memo": "",
+            "pm": "俊翔",
+            "owner": "義峰",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-67",
-            "label": "組織及簽核設定調整",
+            "label": "組織／簽核設定與驗證",
+            "sourceTask": "組織及簽核設定調整",
+            "sourceRow": 67,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/14",
@@ -2128,9 +2147,24 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              67
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75
             ],
             "taskCount": 8,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依AO確認結果調整組織樹、主管、虛擬組織、職稱／職務／職位及簽核規則。\n• 以實際簽核情境進行驗證並完成問題修正。\n• 完成標準：10月中前主要組織與簽核邏輯可穩定運作，不影響表單與整合測試。",
+            "progress": "",
+            "coordination": "若10月中仍有重大組織／簽核問題，將影響表單與整合測試",
+            "memo": "",
+            "pm": "俊翔／逐鹿Vivian",
+            "owner": "義峰",
             "managementCritical": false,
             "track": 0
           }
@@ -2146,6 +2180,8 @@
           {
             "id": "SEG-76",
             "label": "人事主檔與欄位確認",
+            "sourceTask": "人事主檔與欄位確認",
+            "sourceRow": 76,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/24",
@@ -2153,15 +2189,33 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              76
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85
             ],
             "taskCount": 9,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 盤點集團人事主檔欄位、必選填、畫面順序及特殊人員資料管理方式。\n• 納入留停／復職、回任、異動、證照與資料保存等實務規則。\n• 完成標準：欄位定義與規則可直接作為系統設定、資料整理與後續測試依據。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "Lisa、義峰、Nancy",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-86",
             "label": "系統角色與權限確認",
+            "sourceTask": "系統角色與權限確認",
+            "sourceRow": 86,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/31",
@@ -2169,15 +2223,29 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              86
+              87,
+              88,
+              89,
+              90,
+              91
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 確認最高管理者、HR各功能角色、關係企業與主責經辦之功能／資料權限。\n• 建立管理員設定變更控管，避免測試或正式環境因誤操作受到影響。\n• 完成標準：角色、權限與主責經辦對應清楚，可進行正式設定與驗證。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "Nancy、各PM",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-92",
             "label": "人事功能測試",
+            "sourceTask": "人事功能測試",
+            "sourceRow": 92,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/14",
@@ -2185,9 +2253,24 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              92
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100
             ],
             "taskCount": 8,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 以新進、異動、離職、留停／復職、證照更新與報表等主要情境進行實際操作測試。\n• 記錄預期結果與實際結果差異，完成問題修正與複測。\n• 完成標準：主要人事流程無重大阻斷問題，可進入整合測試與資料切換。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate／逐鹿Vivian",
+            "owner": "Lisa、義峰、Nancy",
             "managementCritical": false,
             "track": 1
           }
@@ -2202,7 +2285,9 @@
         "segments": [
           {
             "id": "SEG-101",
-            "label": "考勤核心規則確認",
+            "label": "考勤核心制度定案",
+            "sourceTask": "考勤核心規則確認",
+            "sourceRow": 101,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/17",
@@ -2210,15 +2295,31 @@
             "status": "active",
             "completionPct": 0,
             "taskRows": [
-              101
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
             ],
             "taskCount": 7,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 釐清彈性工時、核定出勤、表態、加班、請假與補刷等核心制度及系統判斷邏輯。\n• 將制度決策轉成逐鹿可設定、HR可操作、薪資可取用的規則。\n• 完成標準：核心規則完成主管確認並可交付系統設定；未定案項目不得帶入薪資測試。",
+            "progress": "下週與副總確認核心制度方向，定案後提供逐鹿調整設定",
+            "coordination": "核心規則未定將直接影響後續考勤與薪資測試",
+            "memo": "",
+            "pm": "Ken",
+            "owner": "欣穎、Nancy",
             "managementCritical": true,
             "track": 0
           },
           {
             "id": "SEG-132",
             "label": "海外APP打卡時區處理",
+            "sourceTask": "海外APP打卡時區處理",
+            "sourceRow": 132,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/17",
@@ -2226,15 +2327,29 @@
             "status": "active",
             "completionPct": 0,
             "taskRows": [
-              132
+              133,
+              134,
+              135,
+              136,
+              137
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 確認APP取用Server／站點時區的技術機制，評估總部或海外站點建置方式。\n• 完成測試環境與海外實測，同時保留Web／卡機備援方案。\n• 完成標準：正式方案可正確反映當地時間；若無法上線，備援方式已確認並可執行。",
+            "progress": "",
+            "coordination": "若正式方案無法於上線前完成，需保留Web或卡機備援",
+            "memo": "",
+            "pm": "Ken",
+            "owner": "欣穎、IT",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-109",
             "label": "曆年制改週年制",
+            "sourceTask": "曆年制改週年制",
+            "sourceRow": 109,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/19",
@@ -2242,15 +2357,27 @@
             "status": "active",
             "completionPct": 0,
             "taskRows": [
-              109
+              110,
+              111,
+              112
             ],
             "taskCount": 3,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 盤點現行曆年制／週年制／混合制現況、受影響人員及過渡差額，並以不同角色完成情境與天數試算。\n• 完成轉制原則、管理辦法、HRM／考勤系統設定調整、必要勞資程序及員工／主管溝通。\n• 規劃過渡期結算與新制正式切換方式，確保資料與制度可同步上路。\n• 完成標準：轉制原則、資料、制度、系統設定與切換方案均可支撐週年制正式上線。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Ken",
+            "owner": "欣穎、Nancy",
             "managementCritical": false,
             "track": 2
           },
           {
             "id": "SEG-139",
             "label": "車公司上傳工時新流程",
+            "sourceTask": "車公司上傳工時新流程",
+            "sourceRow": 139,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/24",
@@ -2258,15 +2385,27 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              139
+              140,
+              141,
+              142
             ],
             "taskCount": 3,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 與車公司確認工時資料來源、上傳格式、欄位及新流程責任分工。\n• 依「實際出勤時數含加班」等規則進行系統設定與測試。\n• 完成標準：資料可穩定提供逐鹿計算，並有明確異常處理方式。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Ken",
+            "owner": "欣穎、Nancy",
             "managementCritical": false,
             "track": 2
           },
           {
             "id": "SEG-116",
-            "label": "考勤管理模組功能展示（Demo）",
+            "label": "考勤模組功能確認",
+            "sourceTask": "考勤管理模組功能展示（Demo）",
+            "sourceRow": 116,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/25",
@@ -2274,15 +2413,28 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              116
+              117,
+              118,
+              119,
+              120
             ],
             "taskCount": 4,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 由逐鹿展示考勤模組主要功能與操作流程，讓HR理解系統邏輯並辨識與現行規則的差異。\n• 此階段為Demo／需求確認，不以參與者能獨立操作作為完成標準。\n• 完成標準：展示完成，Q&A與待確認事項納入後續規則收斂及測試清單。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Ken／逐鹿Vivian",
+            "owner": "欣穎、Nancy",
             "managementCritical": false,
             "track": 2
           },
           {
             "id": "SEG-121",
             "label": "考勤功能測試",
+            "sourceTask": "考勤功能測試",
+            "sourceRow": 121,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/02",
@@ -2290,9 +2442,26 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              121
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131
             ],
             "taskCount": 10,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依已定案規則測試排班、刷卡、異常、請假、加班、表態、補刷與核定出勤結果。\n• 逐項比對預期與實際結果，完成修正、複測與穩定版確認。\n• 完成標準：10月中前主要考勤情境可穩定結算，支撐11月薪資測試。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Ken／逐鹿Vivian",
+            "owner": "欣穎、Nancy",
             "managementCritical": false,
             "track": 0
           }
@@ -2308,6 +2477,8 @@
           {
             "id": "SEG-143",
             "label": "薪資管理模組功能展示（Demo）",
+            "sourceTask": "薪資管理模組功能展示（Demo）",
+            "sourceRow": 143,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/09/02",
@@ -2315,15 +2486,26 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              143
+              144,
+              145
             ],
             "taskCount": 2,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 由逐鹿展示薪資模組標準功能、計薪流程與主要設定邏輯。\n• 目的為讓薪酬主責了解系統能力並確認與現行規則的差異，不屬正式操作訓練。\n• 完成標準：規則差異、疑義及待確認事項完成紀錄。",
+            "progress": "",
+            "coordination": "",
+            "memo": "實際日期待Kate與Vivian敲定；承辦結薪後安排",
+            "pm": "智翔／逐鹿Vivian",
+            "owner": "Betty、伊雯",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-146",
             "label": "薪資規則與參數確認",
+            "sourceTask": "薪資規則與參數確認",
+            "sourceRow": 146,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/09/02",
@@ -2331,15 +2513,31 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              146
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153
             ],
             "taskCount": 7,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依雄獅各法人現況確認薪資科目、多包計薪、稅務、保障薪資、跨法人與特殊加扣項規則。\n• 同步確認銀行媒體檔、薪資報表及考勤勾稽需求。\n• 完成標準：主要計薪規則可設定、資料來源明確，10月可進入系統設定。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "智翔",
+            "owner": "Betty、伊雯",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-154",
             "label": "薪資系統設定與測試",
+            "sourceTask": "薪資系統設定與測試",
+            "sourceRow": 154,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/10/01",
@@ -2347,9 +2545,18 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              154
+              155,
+              156
             ],
             "taskCount": 2,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 10月完成薪資系統設定，11月以現行正式薪資結果進行兩輪比對測試。\n• 第一輪以找出差異與問題為主；修正後執行第二輪複測。\n• 完成標準：第二輪主要差異已關閉，具備12月平行測試條件。",
+            "progress": "",
+            "coordination": "兩次薪資測試未通過不得進入12月平測",
+            "memo": "",
+            "pm": "智翔／逐鹿Vivian",
+            "owner": "Betty、伊雯",
             "managementCritical": false,
             "track": 0
           }
@@ -2365,6 +2572,8 @@
           {
             "id": "SEG-162",
             "label": "保險規則、設定與測試",
+            "sourceTask": "保險規則、設定與測試",
+            "sourceRow": 162,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/09/02",
@@ -2372,9 +2581,25 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              162
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171
             ],
             "taskCount": 9,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 確認勞保、健保、勞退、眷屬、調保、二代健保、外籍及跨法人等規則。\n• 完成系統設定與功能測試，並於兩次薪資測試中驗證保費與補充保費結果。\n• 完成標準：保險計算與申報邏輯可穩定支撐薪資與12月平測。",
+            "progress": "",
+            "coordination": "",
+            "memo": "智翔(?)涉及薪酬連動項目協作",
+            "pm": "Ken",
+            "owner": "妍雅、皓宇",
             "managementCritical": false,
             "track": 0
           }
@@ -2390,6 +2615,8 @@
           {
             "id": "SEG-203",
             "label": "AD登入與系統管理權限",
+            "sourceTask": "AD登入與系統管理權限",
+            "sourceRow": 203,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/13",
@@ -2397,15 +2624,28 @@
             "status": "active",
             "completionPct": 0,
             "taskRows": [
-              203
+              204,
+              205,
+              206,
+              207
             ],
             "taskCount": 4,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 驗證AD登入、整合驗證帳號更新邏輯與管理員權限。\n• 明確控管設定變更，避免測試環境因高權限操作影響顧問與其他測試。\n• 完成標準：登入及管理權限運作穩定，變更流程與責任清楚。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "慈琬",
+            "owner": "IT、義峰",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-208",
             "label": "標準報表下載功能（Raw Data）",
+            "sourceTask": "標準報表下載功能（Raw Data）",
+            "sourceRow": 208,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/14",
@@ -2413,15 +2653,29 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              208
+              209,
+              210,
+              211,
+              212,
+              213
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 各模組盤點日常管理、分析與對外作業所需Raw Data／標準報表。\n• 依實際使用頻率與必要性排序，確認可由系統直接下載的欄位與格式。\n• 完成標準：各模組必要報表清單與欄位需求完成確認。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "全PM",
+            "owner": "全經辦、IT",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-214",
             "label": "人資常用表單需求提給IT",
+            "sourceTask": "人資常用表單需求提給IT",
+            "sourceRow": 214,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/14",
@@ -2429,15 +2683,29 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              214
+              215,
+              216,
+              217,
+              218,
+              219
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 盤點非電子簽核文件之常用表單，如勞檢、ESG、在離職證明等。\n• 釐清哪些由逐鹿提供、哪些需IT產製或資料串接。\n• 完成標準：需求清單、資料來源、產出方式與主責單位明確。",
+            "progress": "",
+            "coordination": "",
+            "memo": "非電子簽核文件，例如勞檢包、ESG、在離職證明等",
+            "pm": "全PM",
+            "owner": "全經辦、IT",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-220",
             "label": "系統串接需求確認",
+            "sourceTask": "系統串接需求確認",
+            "sourceRow": 220,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/21",
@@ -2445,15 +2713,33 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              220
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229
             ],
             "taskCount": 9,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 逐項確認新HCM與ERP、SERP、會計、門禁及其他平台之資料來源、欄位與交換方式。\n• 釐清API、View、報表匯入／匯出及排程方式。\n• 完成標準：每項串接均有來源／目的系統、欄位、責任與開發方式，可交付IT執行。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "全PM、IT",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-230",
             "label": "IT開發與測試",
+            "sourceTask": "IT開發與測試",
+            "sourceRow": 230,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/10/01",
@@ -2461,9 +2747,20 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              230
+              231,
+              232,
+              233,
+              234
             ],
             "taskCount": 4,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依已確認需求完成查詢中心、郵件中心、報表中心及API／介接開發。\n• 完成功能測試、問題修正與端到端整合驗證。\n• 完成標準：11/27前主要IT介接通過整合測試，不阻擋12月平測。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "慈琬",
+            "owner": "IT",
             "managementCritical": false,
             "track": 0
           }
@@ -2479,6 +2776,8 @@
           {
             "id": "SEG-239",
             "label": "資料匯入項目、格式與主責經辦確認",
+            "sourceTask": "資料匯入項目、格式與主責經辦確認",
+            "sourceRow": 239,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/24",
@@ -2486,15 +2785,31 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              239
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246
             ],
             "taskCount": 7,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 明確列出各模組需匯入資料、欄位定義、模板與歷史範圍。\n• 落實「主責經辦整理／匯入，小PM確認正確」之責任分工。\n• 完成標準：每一資料集均有主責、格式與檢核方式，可開始正式清理。",
+            "progress": "",
+            "coordination": "",
+            "memo": "主責經辦整理與匯入，小PM確認資料正確",
+            "pm": "Kate",
+            "owner": "全PM、全經辦",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-247",
             "label": "各模組資料整理、欄位定義與清理",
+            "sourceTask": "各模組資料整理、欄位定義與清理",
+            "sourceRow": 247,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/01",
@@ -2502,15 +2817,30 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              247
+              248,
+              249,
+              250,
+              251,
+              252,
+              253
             ],
             "taskCount": 6,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 各模組依正式匯入格式整理來源資料，處理缺漏、重複、代碼與欄位定義不一致。\n• 需與ERP／SERP等外部系統對應之欄位同步校準。\n• 完成標準：10月第一次完整匯入前，主要資料達可匯入與可驗證狀態。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "各PM",
+            "owner": "各主責經辦",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-254",
             "label": "第一次完整資料匯入",
+            "sourceTask": "第一次完整資料匯入",
+            "sourceRow": 254,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/10/12",
@@ -2518,15 +2848,35 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              254
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265
             ],
             "taskCount": 11,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 以接近正式資料的全量資料執行第一次完整模擬匯入。\n• 逐模組核對筆數、關鍵欄位、關聯與異常，完成問題修正。\n• 完成標準：不是最終上線資料，但需驗證完整匯入流程與資料品質。",
+            "progress": "",
+            "coordination": "",
+            "memo": "第一次全量模擬匯入，不是最終上線資料",
+            "pm": "Kate／逐鹿Vivian",
+            "owner": "各主責經辦",
             "managementCritical": true,
             "track": 0
           },
           {
             "id": "SEG-266",
             "label": "全公司同仁最新資料蒐集與確認",
+            "sourceTask": "全公司同仁最新資料蒐集與確認",
+            "sourceRow": 266,
             "stage": "validate",
             "stageLabel": "整合驗證",
             "start": "2026/10/19",
@@ -2534,15 +2884,27 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              266
+              267,
+              268,
+              269
             ],
             "taskCount": 3,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 確認需由全公司同仁再次補正／確認的資料欄位並進行資料蒐集。\n• 追蹤缺漏與異常，形成上線前最新員工資料來源。\n• 完成標準：第二次完整資料匯入前取得可作為正式基礎的最新資料。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "各主責經辦",
             "managementCritical": false,
             "track": 1
           },
           {
             "id": "SEG-270",
             "label": "第二次完整資料匯入",
+            "sourceTask": "第二次完整資料匯入",
+            "sourceRow": 270,
             "stage": "validate",
             "stageLabel": "整合驗證",
             "start": "2026/11/09",
@@ -2550,9 +2912,22 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              270
+              271,
+              272,
+              273,
+              274,
+              275,
+              276
             ],
             "taskCount": 6,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 使用全員確認後的最新資料執行第二次完整匯入。\n• 再次核對模組間關聯與資料正確性，完成剩餘修正。\n• 完成標準：資料品質足以支撐11月薪資／整合測試與12月平測。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate／逐鹿Vivian",
+            "owner": "各主責經辦",
             "managementCritical": true,
             "track": 0
           }
@@ -2567,7 +2942,9 @@
         "segments": [
           {
             "id": "SEG-177",
-            "label": "電子簽核單流程建置",
+            "label": "電子表單／簽核流程定版",
+            "sourceTask": "電子簽核單流程建置",
+            "sourceRow": 177,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/26",
@@ -2575,15 +2952,42 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              177
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188,
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195
             ],
             "taskCount": 18,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 逐張盤點現況流程、欄位、簽核角色與例外情境。\n• 判斷可直接使用逐鹿標準功能、雄獅自行設定，或需IT／逐鹿調整客製。\n• 完成標準：每張表單均有明確流程版本、責任人與後續處理方式。",
+            "progress": "逐張確認現況流程、欄位、簽核需求及是否需調整／客製",
+            "coordination": "",
+            "memo": "",
+            "pm": "全PM",
+            "owner": "全經辦",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-196",
             "label": "電子簽核單設定與測試",
+            "sourceTask": "電子簽核單設定與測試",
+            "sourceRow": 196,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/09/09",
@@ -2591,9 +2995,20 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              196
+              197,
+              198,
+              199,
+              200
             ],
             "taskCount": 4,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依流程確認結果完成標準表單設定、必要調整／開發及簽核規則配置。\n• 使用實際申請與簽核情境測試並完成問題複測。\n• 完成標準：主要表單可在正式組織與簽核邏輯下穩定流轉。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "全PM／逐鹿Vivian",
+            "owner": "全經辦、IT",
             "managementCritical": false,
             "track": 1
           }
@@ -2609,6 +3024,8 @@
           {
             "id": "SEG-297",
             "label": "上線前整合測試",
+            "sourceTask": "上線前整合測試",
+            "sourceRow": 297,
             "stage": "validate",
             "stageLabel": "整合驗證",
             "start": "2026/11/16",
@@ -2616,15 +3033,31 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              297
+              298,
+              299,
+              300,
+              301,
+              302,
+              303,
+              304
             ],
             "taskCount": 7,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 將組織、人事、考勤、薪酬、保險、電子簽核、APP及IT介接串成端到端情境測試。\n• 驗證跨模組資料傳遞與流程結果，不只測單一功能。\n• 完成標準：11/27前主要整合情境通過，重大問題已有處理方案。",
+            "progress": "",
+            "coordination": "主要整合測試未通過將影響12/1平測",
+            "memo": "",
+            "pm": "Kate／慈琬",
+            "owner": "全PM、IT",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-314",
             "label": "正式平行測試",
+            "sourceTask": "正式平行測試",
+            "sourceRow": 314,
             "stage": "parallel",
             "stageLabel": "平測／切換",
             "start": "2026/12/01",
@@ -2632,9 +3065,23 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              314
+              315,
+              316,
+              317,
+              318,
+              319,
+              320,
+              321
             ],
             "taskCount": 7,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 12月以舊系統與Gaia HCM同步執行主要作業並持續比對結果。\n• 追蹤所有重大差異、缺陷與資料問題至關閉或具備可接受方案。\n• 完成標準：正式切換前主要功能與計算結果達可接受穩定度。",
+            "progress": "",
+            "coordination": "重大差異未解決不得正式切換",
+            "memo": "12/1開始，1/1上線",
+            "pm": "Kate／逐鹿Vivian",
+            "owner": "全PM、全經辦、IT",
             "managementCritical": true,
             "track": 0
           }
@@ -2650,6 +3097,8 @@
           {
             "id": "SEG-282",
             "label": "HR內部SOP撰寫",
+            "sourceTask": "HR內部SOP撰寫",
+            "sourceRow": 282,
             "stage": "configure",
             "stageLabel": "設定／測試",
             "start": "2026/10/01",
@@ -2657,15 +3106,30 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              282
+              283,
+              284,
+              285,
+              286,
+              287,
+              288
             ],
             "taskCount": 6,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 各模組依定案流程與實際測試結果撰寫HR內部操作SOP。\n• SOP需涵蓋日常作業、例外處理、責任分工及必要檢核。\n• 完成標準：主要模組SOP可供接手、訓練與正式上線使用。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "各PM",
+            "owner": "各主責經辦",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-289",
             "label": "上線教育訓練準備與執行",
+            "sourceTask": "上線教育訓練準備與執行",
+            "sourceRow": 289,
             "stage": "validate",
             "stageLabel": "整合驗證",
             "start": "2026/11/16",
@@ -2673,9 +3137,22 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              289
+              290,
+              291,
+              292,
+              293,
+              294,
+              295
             ],
             "taskCount": 6,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 正式上線訓練僅在主要規則、設定與測試結果已趨穩定後啟動，不與前期系統Demo混用。\n• 對象依序為：種子／主責經辦 → 人資全體 → 企二 → 各級主管 → 全體員工；依不同角色設計操作情境與教材深度。\n• 完成教材、排程、公告、授課與Q&A，並由種子／企二成為後續上線協助節點。\n• 完成標準：12/18前各層對象完成必要訓練，且清楚知道上線後實際操作方式與問題回報管道。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "各PM、種子人員",
             "managementCritical": false,
             "track": 1
           }
@@ -2691,6 +3168,8 @@
           {
             "id": "SEG-305",
             "label": "平測前作業確認",
+            "sourceTask": "平測前作業確認",
+            "sourceRow": 305,
             "stage": "validate",
             "stageLabel": "整合驗證",
             "start": "2026/11/16",
@@ -2698,15 +3177,32 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              305
+              306,
+              307,
+              308,
+              309,
+              310,
+              311,
+              312,
+              313
             ],
             "taskCount": 8,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 於12/1平測前確認考勤、薪資、保險、電子簽核、IT介接與資料均達可平測條件。\n• 同步確認舊表單停止、新系統起單與切換規則。\n• 完成標準：上線關卡項目均可明確判定通過／不通過。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "全PM、IT",
             "managementCritical": true,
             "track": 0
           },
           {
             "id": "SEG-322",
             "label": "正式上線條件確認",
+            "sourceTask": "正式上線條件確認",
+            "sourceRow": 322,
             "stage": "parallel",
             "stageLabel": "平測／切換",
             "start": "2026/12/14",
@@ -2714,15 +3210,29 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              322
+              323,
+              324,
+              325,
+              326,
+              327
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 彙整平測重大差異、重大缺陷、資料完整性及訓練完成度。　• 由主管層依實際風險判斷1/1正式上線或啟動4/1備援方案。　• 完成標準：上線／延後上線決策有明確依據與責任承擔。",
+            "progress": "",
+            "coordination": "若關鍵項目未達標，評估轉2027/4/1",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "全PM、IT",
             "managementCritical": true,
             "track": 0
           },
           {
             "id": "SEG-334",
             "label": "上線前異動資料更新與正式切換準備",
+            "sourceTask": "上線前異動資料更新與正式切換準備",
+            "sourceRow": 334,
             "stage": "parallel",
             "stageLabel": "平測／切換",
             "start": "2026/12/21",
@@ -2730,15 +3240,29 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              334
+              335,
+              336,
+              337,
+              338,
+              339
             ],
             "taskCount": 5,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 正式上線前完成新進、離職、人事、組織、薪酬與保險等異動資料更新。　• 完成資料凍結、最終檢核與正式切換準備。　• 完成標準：12/31前完成上線前資料與正式切換就緒；1/1起由「正式上線／穩定化支援」承接。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate",
+            "owner": "全PM、全經辦、IT",
             "managementCritical": false,
             "track": 0
           },
           {
             "id": "SEG-341",
             "label": "上線初期支援與問題收斂",
+            "sourceTask": "上線初期支援與問題收斂",
+            "sourceRow": 341,
             "stage": "hypercare",
             "stageLabel": "上線支援",
             "start": "2027/01/01",
@@ -2746,9 +3270,26 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              341
+              342,
+              343,
+              344,
+              345,
+              346,
+              347,
+              348,
+              349,
+              350,
+              351
             ],
             "taskCount": 10,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 正式上線後集中處理操作、資料、權限、介接與流程問題。　• AO搭配各模組PM與主責經辦，協助各單位問題蒐集、初步協助與轉介；專業問題由各模組及專案團隊承接。　• 完成標準：重大上線問題完成分流與處理，首月核心作業可穩定運作。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "Kate／逐鹿Vivian",
+            "owner": "全PM、全經辦、IT、AO",
             "managementCritical": true,
             "track": 0
           }
@@ -2764,6 +3305,8 @@
           {
             "id": "SEG-277",
             "label": "主責經辦／測試人員功能展示與測試說明",
+            "sourceTask": "主責經辦／測試人員功能展示與測試說明",
+            "sourceRow": 277,
             "stage": "define",
             "stageLabel": "規則／需求",
             "start": "2026/08/25",
@@ -2771,9 +3314,20 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              277
+              278,
+              279,
+              280,
+              281
             ],
             "taskCount": 4,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 依模組對主責經辦與後續測試人員進行功能展示及測試方式說明；9月起視各功能需求安排AO專場說明，必要時區分AO視角與經辦視角。\n• 目的為建立系統理解、確認需求差異並準備後續測試，不以可獨立操作或可內訓為完成標準；必要時可搭配錄影作為後續補充。\n• 正式操作訓練另於上線訓練階段依對象分層執行。\n• 完成標準：各功能主要使用者、AO及測試人員均已取得必要說明，待確認事項可回到後續規則／測試清單追蹤。",
+            "progress": "",
+            "coordination": "",
+            "memo": "主責經辦／測試人員Demo，不是正式操作訓練",
+            "pm": "各PM／逐鹿Vivian",
+            "owner": "各主責經辦",
             "managementCritical": false,
             "track": 0
           }
@@ -2789,6 +3343,8 @@
           {
             "id": "SEG-352",
             "label": "維運移交與專案結案",
+            "sourceTask": "維運移交與專案結案",
+            "sourceRow": 352,
             "stage": "hypercare",
             "stageLabel": "上線支援",
             "start": "2027/01/18",
@@ -2796,9 +3352,22 @@
             "status": "pending",
             "completionPct": null,
             "taskRows": [
-              352
+              353,
+              354,
+              355,
+              356,
+              357,
+              358
             ],
             "taskCount": 6,
+            "childDone": 0,
+            "childActive": 0,
+            "description": "• 彙整上線後問題、成效、使用回饋與未完成事項。　• 確認後續維運分工、問題處理機制及第二階段需求清單。　• 完成標準：專案責任正式移交維運，完成結案與後續規劃。",
+            "progress": "",
+            "coordination": "",
+            "memo": "",
+            "pm": "冠元／Kate",
+            "owner": "全PM、全經辦、IT",
             "managementCritical": false,
             "track": 0
           }
