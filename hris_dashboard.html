@@ -274,6 +274,7 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,.app-dra
 
 
 
+\n/* ── V3.6 MANAGEMENT SCHEDULE / READABLE GANTT ── */\n.g-detail-controls{display:none;align-items:center;gap:7px;flex-wrap:wrap}.timeline-tools.detail-mode .g-detail-controls{display:flex}.timeline-view-note{margin-left:auto;font-size:9px;color:var(--gray);line-height:1.4}.timeline-tools.detail-mode .timeline-view-note{margin-left:0}.gantt-grid{min-width:1280px}.mg-row{display:grid;grid-template-columns:142px 278px minmax(760px,1fr);border-bottom:1px solid var(--bdrl);min-height:34px;background:#fff}.mg-row:hover{background:#FFFDFD}.mg-row.mg-head{position:sticky;top:0;z-index:25;min-height:54px;background:var(--bg);border-bottom:2px solid var(--bdr)}.mg-phase,.mg-item{display:flex;align-items:center;min-width:0;padding:6px 9px;border-right:1px solid var(--bdr);background:inherit}.mg-phase{position:sticky;left:0;z-index:18;font-size:9.5px;color:var(--gray);font-weight:750}.mg-item{position:sticky;left:142px;z-index:17;font-size:10.5px;color:var(--ink)}.mg-head .mg-phase,.mg-head .mg-item{background:var(--bg);z-index:28;font-size:9px;font-weight:850;color:var(--gray);letter-spacing:.35px}.mg-item-main{min-width:0;display:flex;align-items:center;gap:6px;width:100%}.mg-item-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mg-owner{font-size:8px;color:var(--gray);margin-left:auto;white-space:nowrap}.mg-type-icon{width:7px;height:7px;border-radius:50%;flex:0 0 7px;background:#AEB8C2}.mg-type-icon.gate{border-radius:1px;transform:rotate(45deg);background:var(--red)}.mg-type-icon.star{border-radius:2px;background:var(--blk)}.mg-phase-row .mg-phase,.mg-phase-row .mg-item{font-weight:800}.mg-phase-row .mg-item-name{font-weight:800}.mg-time{position:relative;min-height:34px;background:#fff}.mg-head .mg-time{height:54px;background:var(--bg)}.mg-month{position:absolute;top:0;height:24px;border-left:1px solid #D7D7D4;padding:5px 0 0 6px;font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:9.3px;color:var(--gray);font-weight:650}.mg-week{position:absolute;top:24px;bottom:0;border-left:1px solid #E7E7E4}.mg-week-label{position:absolute;top:29px;transform:translateX(4px);font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:8px;color:#7C7C78;white-space:nowrap}.mg-today{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:6}.mg-today::before{content:'TODAY';position:absolute;top:2px;left:4px;font-family:var(--font-num);font-size:7px;color:var(--red);background:#fff;padding:1px 3px;border-radius:3px}.mg-bar{position:absolute;top:11px;height:12px;border-radius:3px;min-width:3px;cursor:pointer}.mg-bar:hover{filter:brightness(.95)}.mg-bar.phase-pmo{background:#8EA0B4}.mg-bar.phase-requirement{background:#82B8ED}.mg-bar.phase-setting{background:#52D4C4}.mg-bar.phase-validation{background:#F1C84B}.mg-bar.phase-parallel{background:#F6933A}.mg-bar.phase-golive{background:#45C96B}.mg-bar.phase-backup{background:#F5D97C;border:1px dashed #B26A00}.mg-bar.phase-expansion{background:#D3D8DE}.mg-bar.done{opacity:.72}.mg-bar.active{box-shadow:0 0 0 2px rgba(231,26,40,.22)}.mg-bar.overdue{outline:2px solid var(--red);outline-offset:1px}.mg-marker{position:absolute;top:9px;width:12px;height:12px;transform:translateX(-50%) rotate(45deg);background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(231,26,40,.25);cursor:pointer}.mg-marker.done{background:var(--grn)}.mg-marker.star{background:var(--blk);border-radius:2px}.mg-row.mg-gate .mg-item-name{font-weight:800}.mg-row.mg-gate .mg-phase{color:var(--red-d)}.mg-row.mg-detail-group{background:#FAF9F7}.mg-row.mg-detail-group .mg-phase,.mg-row.mg-detail-group .mg-item{font-weight:850}.mg-row.mg-child .mg-item{padding-left:22px}.mg-row.mg-child .mg-item-name{font-weight:600}.mg-empty{padding:26px;text-align:center;color:var(--gray);font-size:10.5px}.gantt-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:8.5px;color:var(--gray);margin:4px 0 9px}.gantt-legend span{display:inline-flex;align-items:center;gap:4px}.gantt-legend i{width:12px;height:6px;border-radius:2px;display:inline-block}.gantt-legend .gate{width:7px;height:7px;transform:rotate(45deg);background:var(--red)}\n@media(max-width:760px){.mg-row{grid-template-columns:96px 190px minmax(700px,1fr)}.mg-item{left:96px}.mg-phase{font-size:8.5px;padding:5px 6px}.mg-item{font-size:9.5px;padding:5px 7px}.mg-owner{display:none}.timeline-view-note{display:none}.g-detail-controls{width:100%}.timeline-tools.detail-mode .g-detail-controls{display:flex}.g-detail-controls .tool-select{max-width:none;flex:1 1 140px}}\n
 /* ── MOBILE / PHONE FIRST INTERACTION ── */
 @media(max-width:640px){
   .wrap{padding:0 12px}.top-in{padding-left:12px;padding-right:12px}.brand-t{font-size:12.5px}
@@ -294,7 +295,7 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,.app-dra
   .ov-grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.thesis{padding:10px 11px;align-items:flex-start}.thesis .txt{font-size:10.5px}
 }
 
-body.presentation .appnav{display:none}body.presentation .top{position:relative}body.presentation .wrap{max-width:1360px}body.presentation .foot,body.presentation .banner{display:none}
+body.presentation .appnav{display:none}body.presentation .top{position:relative}body.presentation .wrap{max-width:1360px}body.presentation .foot,body.presentation .banner{display:none}.presentation-exit{display:none;position:fixed;right:18px;top:18px;z-index:900;border:1px solid var(--red-m);background:#fff;color:var(--red-d);border-radius:9px;height:34px;padding:0 12px;font-size:11px;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.14);cursor:pointer}body.presentation .presentation-exit{display:block}.presentation-exit:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
 
 /* ══ V3.3｜Go-Live Governance & clearer hierarchy ══ */
@@ -402,8 +403,9 @@ body.presentation .appnav{display:none}body.presentation .top{position:relative}
   <button class="navbtn" data-page="workstreams" onclick="switchPage('workstreams',this)"><span class="navnum">03</span>模組進度</button>
   <button class="navbtn" data-page="execution" onclick="switchPage('execution',this)"><span class="navnum">04</span>進度追蹤</button>
   <button class="navbtn" data-page="risk" onclick="switchPage('risk',this)"><span class="navnum">05</span>風險與決策</button>
-  <span class="navspacer"></span><button class="present-btn" onclick="togglePresentation()">▣ 簡報模式</button>
+  <span class="navspacer"></span><button class="present-btn" id="presentationToggle" onclick="togglePresentation()">▣ 簡報模式</button>
 </div></div>
+<button class="presentation-exit" id="presentationExit" onclick="togglePresentation(false)">× 退出簡報模式</button>
 <main>
 <section class="app-page active" id="app-command">
 <div class="wrap">
@@ -459,11 +461,15 @@ body.presentation .appnav{display:none}body.presentation .top{position:relative}
   <div class="status-strip" id="timelineKpis"></div>
   <div class="timeline-tools">
     <span class="tool-label">視圖</span>
-    <span class="seg"><button class="active" data-gmode="executive" onclick="setGanttMode('executive',this)">主管總覽</button><button data-gmode="detail" onclick="setGanttMode('detail',this)">展開細項</button></span>
-    <select class="tool-select" id="gModule" onchange="renderGantt()"><option value="">全部模組／跨域工作</option></select>
-    <select class="tool-select" id="gStatus" onchange="renderGantt()"><option value="">全部狀態</option><option value="active">進行中</option><option value="pending">未開始</option><option value="done">已完成</option><option value="overdue">逾期</option></select>
-    <label class="check"><input type="checkbox" id="gCritical" onchange="renderGantt()">只看管理型關鍵路徑</label>
+    <span class="seg"><button class="active" data-gmode="executive" onclick="setGanttMode('executive',this)">管理時程</button><button data-gmode="detail" onclick="setGanttMode('detail',this)">工作明細</button></span>
+    <span class="g-detail-controls" id="gDetailControls">
+      <select class="tool-select" id="gModule" onchange="renderGantt()"><option value="">全部模組／跨域工作</option></select>
+      <select class="tool-select" id="gStatus" onchange="renderGantt()"><option value="">全部狀態</option><option value="active">進行中</option><option value="pending">未開始</option><option value="done">已完成</option><option value="overdue">逾期</option></select>
+      <label class="check"><input type="checkbox" id="gCritical" onchange="renderGantt()">只看關鍵工作</label>
+    </span>
+    <span class="timeline-view-note" id="timelineViewNote">管理時程依專案階段與主管關卡呈現；點擊任一列可下鑽工作內容。</span>
   </div>
+  <div class="gantt-legend"><span><i style="background:#8EA0B4"></i>專案治理</span><span><i style="background:#82B8ED"></i>需求／規則</span><span><i style="background:#52D4C4"></i>系統設定</span><span><i style="background:#F1C84B"></i>資料／整合</span><span><i style="background:#F6933A"></i>平測／切換</span><span><i style="background:#45C96B"></i>上線／穩定</span><span><i class="gate"></i>主管關卡</span></div>
   <div class="gantt-shell"><div class="gantt-scroll"><div class="gantt-grid" id="ganttGrid"></div></div></div>
   <div class="backup-branch" id="backupBranch"></div>
   <div class="subhead"><span class="bar"></span><span class="title">階段重點</span><span class="note">8月規則確認｜9–10月設定驗證｜11–12月整合、平測與上線</span></div>
@@ -733,7 +739,7 @@ function renderCommandOverview(){
   document.getElementById('commandOverview').innerHTML=
     '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理 GOVERNANCE</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前治理狀態依執行、關鍵節點與正式風險綜合判斷')+'</div></div>'+ 
     '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度 PROGRESS</div><div class="ov-main"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span><span class="ov-big green" style="margin-left:auto">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成達成率</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</span><span>應完成達成率 <b>'+Number(p.dueDoneCount??p.dueTotalCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</span></div><div class="ov-note">已完成 '+Number(p.doneTasks||0)+' / '+Number(p.totalTasks||0)+' 項；應完成 '+Number(p.dueDoneCount??0)+' / '+Number(p.dueTotalCount??0)+' 項</div></div>'+ 
-    '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程 SCHEDULE</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+'/'+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">關鍵節點</span></div><div class="ov-pairs"><span>執行逾期 <b class="'+((s.overdueTasks||0)>0?'red':'')+'">'+Number(s.overdueTasks||0)+'</b></span><span>距上線 <b>'+Number(s.daysToGo||0)+' 天</b></span></div><div class="ov-note">下一關鍵節點｜'+esc(next)+'</div></div>'+ 
+    '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程 SCHEDULE</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+'/'+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至今日里程碑</span></div><div class="ov-pairs"><span>執行逾期 <b class="'+((s.overdueTasks||0)>0?'red':'')+'">'+Number(s.overdueTasks||0)+'</b></span><span>距上線 <b>'+Number(s.daysToGo||0)+' 天</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'</div></div>'+ 
     '<div class="ov-card focus" onclick="openOverviewDrawer(\'focus\')"><span class="ov-arrow">›</span><div class="ov-kicker">重點 FOCUS</div><div class="ov-main"><span class="ov-big amber">'+Number(f.count||focus.length)+'</span><span class="ov-label">管理主題</span></div>'+(focus.length?focus.map(x=>'<div class="ov-focus-line">'+esc(x.title)+'</div>').join(''):'<div class="ov-note">目前無需特別關注事項</div>')+'</div>';
 }
 function openOverviewDrawer(type){
@@ -755,9 +761,10 @@ function openOverviewDrawer(type){
   }
   if(type==='schedule'){
     setDrawerHeader('專案時程總覽','專案總覽 · 時程',(s.overdueTasks||0)>0?'overdue':'active');
-    let b='<div class="ad-quant">'+qBox('關鍵節點',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('執行逾期',s.overdueTasks||0)+qBox('距上線',(s.daysToGo||0)+' 天')+qBox('下一管理節點',s.nextGate?fmtMD(s.nextGate.date)+' '+s.nextGate.name:'—')+'</div>';
-    const overdue=(D.timeline?.masterGates||[]).filter(g=>g.status==='overdue'||g.isOverdue);if(overdue.length)b+=secHtml('需處理的時程異常',gateItemsHtml(overdue.slice(0,6)));
-    const exec=gateGroups().filter(g=>g.status!=='done');if(exec.length)b+=secHtml('主管關鍵節點',gateGroupItemsHtml(exec.slice(0,10)));
+    let b='<div class="ad-quant">'+qBox('截至今日里程碑',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('執行逾期',s.overdueTasks||0)+qBox('距正式上線',(s.daysToGo||0)+' 天')+qBox('下一控制點',s.nextGate?fmtMD(s.nextGate.date)+' '+managementGateText('',s.nextGate.name):'—')+'</div>';
+    const overdue=(D.timeline?.masterGates||[]).filter(g=>g.status==='overdue'||g.isOverdue);if(overdue.length)b+=secHtml('未完成／逾期里程碑',gateItemsHtml(overdue.slice(0,6)));
+    const exec=gateGroups().filter(g=>g.status!=='done');if(exec.length)b+=secHtml('後續管理關卡',gateGroupItemsHtml(exec.slice(0,10)));
+    b+=secHtml('時程結構','<div class="ad-text">管理時程以專案階段、主管關卡與主要工作包呈現；一般月度節奏與細項工作保留於工作明細，不與主管關卡混列。</div>');
     openDrawer(b);return;
   }
   setDrawerHeader('目前管理重點','專案總覽 · 重點','active');
@@ -780,7 +787,7 @@ function renderKpis(k, p){
   // Critical Gates
   const gc=el('div','kpi gate');
   const gWarn = k.criticalGatesDone < k.criticalGatesDue;
-  gc.innerHTML='<div class="k-l">關鍵節點</div><div class="k-v">'+k.criticalGatesDone+'<span class="slash"> / </span>'+k.criticalGatesDue+'</div><div class="k-sub '+(gWarn?'bad':'ok')+'">'+(gWarn?'已有應完成節點未完成':'全數守住')+'</div>';
+  gc.innerHTML='<div class="k-l">截至今日里程碑</div><div class="k-v">'+k.criticalGatesDone+'<span class="slash"> / </span>'+k.criticalGatesDue+'</div><div class="k-sub '+(gWarn?'bad':'ok')+'">'+(gWarn?'已有應完成節點未完成':'全數守住')+'</div>';
   gc.classList.add('clickable');gc.onclick=()=>openOverviewDrawer('schedule');box.appendChild(gc);
   // In Progress
   const ki=kpiCell('plain','進行中 In Progress', k.activeTasks, ' 件', '正在動的有效工作', '');ki.classList.add('clickable');ki.onclick=()=>openOverviewDrawer('progress');box.appendChild(ki);
@@ -880,7 +887,13 @@ function switchPage(name,btn){
   if(name==='execution') renderExecutionPage();
   if(name==='risk') renderRiskPage();
 }
-function togglePresentation(){ document.body.classList.toggle('presentation'); }
+function togglePresentation(force){
+  const on=(typeof force==='boolean')?force:!document.body.classList.contains('presentation');
+  document.body.classList.toggle('presentation',on);
+  const b=document.getElementById('presentationToggle'); if(b)b.textContent=on?'× 退出簡報模式':'▣ 簡報模式';
+  const e=document.getElementById('presentationExit'); if(e)e.setAttribute('aria-hidden',on?'false':'true');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('presentation'))togglePresentation(false);});
 function tasksData(){ return (D.execution&&Array.isArray(D.execution.items)&&D.execution.items.length)?D.execution.items:FALLBACK_TASKS; }
 function contingencyData(){ const live=Array.isArray(D.contingency)?D.contingency:[]; return live.length?live:(goLiveGovData().fallback?.tasks||[]); }
 function allTaskData(){ const a=tasksData(),b=contingencyData(); const seen=new Set(); return a.concat(b).filter(t=>{const k=String(t.row||'')+'|'+String(t.task||'');if(seen.has(k))return false;seen.add(k);return true;}); }
@@ -964,9 +977,10 @@ function renderTimelinePage(){
   const k=D.kpis||{},g=gateGroups(),today=timelineDomain().today,gov=goLiveGovData();
   const next=g.filter(x=>x.status!=='done'&&dateObj(x.date)>=dateObj(today)).sort((a,b)=>dateObj(a.date)-dateObj(b.date))[0];
   const ps=pageSummaryData().timeline||{};
-  const meta=document.getElementById('timelineMeta');if(meta)meta.textContent='主計畫顯示 '+fmtMD(timelineDomain().start)+' → '+fmtMD(timelineDomain().end)+' ｜ 今日 '+fmtMD(today);
-  const headline=ps.headline||((k.overdueTasks||0)>0?'目前有 '+k.overdueTasks+' 項工作逾期，需先處理時程偏差。':(next?'目前主計畫未見執行逾期；下一關鍵節點為 '+fmtMD(next.date)+' '+next.label+'。':'目前主計畫未見重大時程異常。'));
-  renderPageBrief('timelineBrief','時程摘要',headline,'2026/11/27 Readiness｜2026/12/18 Final Decision',()=>openGoLiveGovernanceDrawer());
+  const meta=document.getElementById('timelineMeta');if(meta)meta.textContent='管理時程 '+fmtMD(mgmtDomainV36().start)+' → '+fmtMD(mgmtDomainV36().end)+' ｜ 今日 '+fmtMD(today);
+  const topThemes=managementThemesData().filter(x=>['red','amber'].includes(x.status)).slice(0,2);
+  const headline=topThemes.length?'目前管理焦點：'+topThemes.map(x=>x.title).join('、')+'。'+(next?'下一控制點：'+fmtMD(next.date)+' '+next.label+'。':''):(next?'下一控制點：'+fmtMD(next.date)+' '+next.label+'。':'目前主計畫未見重大時程異常。');
+  renderPageBrief('timelineBrief','時程摘要',headline,'管理時程｜工作明細',()=>openOverviewDrawer('schedule'));
   const strip=document.getElementById('timelineKpis');if(strip)strip.innerHTML=[
     ['目前階段',ps.currentPhase||D.project?.currentPhase||'—',''],
     ['進行中',ps.active??k.activeTasks??0,''],
@@ -981,6 +995,7 @@ function renderTimelinePage(){
     {label:'2026/11–12',title:'驗證、平測與上線決策',text:'薪資驗證、整合測試、平測與 2026/12/18 最終上線決策。'}
   ];
   const sum=document.getElementById('timelineSummary');if(sum)sum.innerHTML=bands.map(b=>'<div class="ts-card"><div class="ts-k">'+esc(b.label)+'</div><div class="ts-t">'+esc(b.title||'')+'</div><div class="ts-d">'+esc(b.text)+'</div></div>').join('');
+  const tools=document.querySelector('.timeline-tools');if(tools)tools.classList.toggle('detail-mode',APP_STATE.ganttMode==='detail');
   renderGantt();
   renderBackupBranch();
   scheduleGanttViewport_();
@@ -1006,21 +1021,72 @@ function renderBackupBranch(){
 }
 
 function scheduleGanttViewport_(){requestAnimationFrame(()=>{const sc=document.querySelector('#app-timeline .gantt-scroll');if(!sc||sc.dataset.userScrolled==='1')return;const today=dxDate(timelineDomain().today)/100;const target=Math.max(0,(sc.scrollWidth-sc.clientWidth)*Math.max(0,Math.min(1,today-.18)));sc.scrollLeft=target;sc.addEventListener('scroll',()=>{sc.dataset.userScrolled='1';},{once:true,passive:true});});}
-function setGanttMode(m,b){APP_STATE.ganttMode=m;document.querySelectorAll('[data-gmode]').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');renderGantt();}
+function setGanttMode(m,b){
+  APP_STATE.ganttMode=m;
+  document.querySelectorAll('[data-gmode]').forEach(x=>x.classList.remove('active'));
+  if(b)b.classList.add('active');
+  const tools=document.querySelector('.timeline-tools'); if(tools)tools.classList.toggle('detail-mode',m==='detail');
+  const note=document.getElementById('timelineViewNote'); if(note)note.textContent=m==='detail'?'工作明細以「一列一個工作包」呈現；可用模組與狀態篩選，點擊任一列查看細項。':'管理時程以「階段＋主管關卡」呈現，不在同一列堆疊多個工作。';
+  renderGantt();
+}
+function mgmtDomainV36(){return{start:'2026/08/17',end:'2027/02/28',today:timelineDomain().today||'2026/08/15'};}
+function mgDxV36(iso){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),x=dateObj(iso);if(!a||!b||!x)return 0;return Math.max(0,Math.min(100,(x-a)/(b-a)*100));}
+function mgWeekAnchorsV36(){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),out=[];let x=new Date(a.getTime());x.setHours(0,0,0,0);while(x<=b){out.push(new Date(x));x.setDate(x.getDate()+7);}return out;}
+function mgMonthAnchorsV36(){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),out=[];let y=a.getFullYear(),m=a.getMonth();while(true){const x=new Date(y,m,1);if(x>b)break;if(x>=a||out.length===0)out.push({date:x,label:x.getFullYear()+'/'+String(x.getMonth()+1).padStart(2,'0')});m++;if(m>11){m=0;y++;}}return out;}
+function phaseClassV36(stage){const s=String(stage||'');if(s.includes('專案治理'))return'phase-pmo';if(s.includes('需求收斂'))return'phase-requirement';if(s.includes('系統設定'))return'phase-setting';if(s.includes('資料驗證'))return'phase-validation';if(s.includes('平行驗證'))return'phase-parallel';if(s.includes('正式上線'))return'phase-golive';if(s.includes('備援'))return'phase-backup';return'phase-expansion';}
+function rangeStatusV36(start,end){const t=dateObj(mgmtDomainV36().today),a=dateObj(start),b=dateObj(end);if(!a||!b)return'pending';if(t>b)return'done';if(t>=a&&t<=b)return'active';return'pending';}
+function taskFindV36(pattern){return tasksData().find(t=>pattern.test(String(t.task||'')));}
+function gateFindV36(pattern){return (D.timeline?.masterGates||[]).find(g=>pattern.test(String(g.name||'')))||null;}
+function stageRangeV36(stage){const arr=tasksData().filter(t=>t.isCore!==false&&t.scopeType!=='contingency'&&t.stage===stage&&t.plannedStart&&t.plannedEnd);if(!arr.length)return null;arr.sort((a,b)=>dateObj(a.plannedStart)-dateObj(b.plannedStart));const ends=arr.map(x=>x.plannedEnd).filter(Boolean).sort((a,b)=>dateObj(a)-dateObj(b));return{start:arr[0].plannedStart,end:ends[ends.length-1],status:rangeStatusV36(arr[0].plannedStart,ends[ends.length-1])};}
+function managementRowsV36(){
+  const rows=[];
+  const addPhase=(stage,label)=>{const r=stageRangeV36(stage);if(r)rows.push({id:'PH-'+rows.length,stage,label,owner:'',start:r.start,end:r.end,type:'phase',status:r.status,phaseClass:phaseClassV36(stage)});};
+  const addTask=(stage,label,pattern,type='bar')=>{const t=taskFindV36(pattern);if(t)rows.push({id:'T-'+t.row,stage,label,owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type,status:t.status||rangeStatusV36(t.plannedStart,t.plannedEnd),phaseClass:phaseClassV36(stage),row:t.row,module:t.module});};
+  const addGate=(stage,label,pattern,kind='gate')=>{const t=taskFindV36(pattern),g=gateFindV36(pattern);const x=t||g;if(x){const date=t?.plannedEnd||g?.date;rows.push({id:'G-'+(t?.row||g?.id||rows.length),stage,label,owner:t?.pm||g?.owner||'',start:date,end:date,type:kind,status:t?.status||g?.status||'pending',phaseClass:phaseClassV36(stage),row:t?.row||null,gateId:g?.id||null,module:t?.module||g?.module||''});}};
+  addPhase('專案治理／進度控管','專案全期治理與進度控管');
+  addPhase('需求收斂／規則確認／系統Demo','需求／規則收斂／系統 Demo');
+  addTask('需求收斂／規則確認／系統Demo','考勤管理模組 Demo',/考勤管理模組功能展示/,'gate');
+  addTask('專案治理／進度控管','9月顧問固定駐點',/9月逐鹿顧問每週三固定駐點工作排程/,'bar');
+  addGate('需求收斂／規則確認／系統Demo','考勤核心制度定案',/考勤核心規則確認/);
+  addGate('需求收斂／規則確認／系統Demo','組織／簽核架構定版',/組織圖＆簽核邏輯確認/);
+  addPhase('系統設定／單元測試／修正','系統設定／單元測試／修正');
+  {const g=(gateGroups().find(x=>x.label==='核心設定穩定'));if(g)rows.push({id:g.id,stage:'系統設定／單元測試／修正',label:'核心設定穩定',owner:'俊翔／Ken',start:g.date,end:g.date,type:'gate',status:g.status,phaseClass:'phase-setting',gateGroupId:g.id});}
+  addPhase('資料驗證／整合測試／上線訓練','資料驗證／整合測試／上線訓練');
+  addGate('資料驗證／整合測試／上線訓練','第一次完整資料匯入',/第一次完整資料匯入/);
+  addGate('資料驗證／整合測試／上線訓練','第二次完整資料匯入',/第二次完整資料匯入/);
+  addTask('資料驗證／整合測試／上線訓練','端到端整合測試',/上線前整合測試/,'bar');
+  addGate('資料驗證／整合測試／上線訓練','平測前整合 Gate',/平測前作業確認/,'gate');
+  addTask('資料驗證／整合測試／上線訓練','上線前分層教育訓練',/上線教育訓練準備與執行/,'bar');
+  addPhase('平行驗證／上線決策／切換準備','平行驗證／上線決策／切換準備');
+  addTask('平行驗證／上線決策／切換準備','正式平行驗證',/正式平行測試/,'bar');
+  addGate('平行驗證／上線決策／切換準備','Final Go / No-Go',/正式上線條件確認/,'gate');
+  {const g=gateFindV36(/上線前資料凍結|正式切換就緒/);if(g)rows.push({id:'G-'+g.id,stage:'平行驗證／上線決策／切換準備',label:'上線切換就緒',owner:g.owner||'Kate',start:g.date,end:g.date,type:'gate',status:g.status,phaseClass:'phase-parallel',gateId:g.id});}
+  addPhase('正式上線／穩定化支援','正式上線／穩定化支援');
+  {const g=gateGroups().find(x=>x.label==='正式上線');if(g)rows.push({id:g.id,stage:'正式上線／穩定化支援',label:'2027/01/01 正式上線',owner:'Kate',start:g.date,end:g.date,type:'star',status:g.status,phaseClass:'phase-golive',gateGroupId:g.id});}
+  addTask('正式上線／穩定化支援','上線初期密集支援／問題收斂',/上線初期密集支援/,'bar');
+  addTask('正式上線／穩定化支援','首月考勤結算驗證',/首月考勤結算驗證/,'bar');
+  addTask('正式上線／穩定化支援','首月薪資正式運算驗證',/首月薪資正式運算驗證/,'bar');
+  addGate('正式上線／穩定化支援','維運移交／專案結案',/維運移交.*專案結案/,'gate');
+  return rows.filter(x=>x.start&&x.end);
+}
+function mgGridV36(){const weeks=mgWeekAnchorsV36();return weeks.map(w=>'<span class="mg-week" style="left:'+mgDxV36(w).toFixed(2)+'%"></span>').join('');}
+function mgHeaderV36(){const months=mgMonthAnchorsV36(),weeks=mgWeekAnchorsV36();return'<div class="mg-row mg-head"><div class="mg-phase">執行階段</div><div class="mg-item">管理項目／關鍵節點</div><div class="mg-time">'+months.map(m=>'<span class="mg-month" style="left:'+mgDxV36(m.date).toFixed(2)+'%">'+esc(m.label)+'</span>').join('')+weeks.map(w=>'<span class="mg-week" style="left:'+mgDxV36(w).toFixed(2)+'%"></span><span class="mg-week-label" style="left:'+mgDxV36(w).toFixed(2)+'%">'+String(w.getMonth()+1).padStart(2,'0')+'/'+String(w.getDate()).padStart(2,'0')+'</span>').join('')+'</div></div>';}
+function mgRowHtmlV36(r,child=false){const left=mgDxV36(r.start),right=mgDxV36(r.end),w=Math.max(.35,right-left+.35),today=mgDxV36(mgmtDomainV36().today).toFixed(2);const clickable=r.row?'openTaskByRow('+Number(r.row)+')':r.gateGroupId?'openGateGroup(\''+esc(r.gateGroupId)+'\')':r.gateId?'openGateById(\''+esc(r.gateId)+'\')':'';const ic=r.type==='star'?'star':r.type==='gate'?'gate':'';const cls=(r.type==='phase'?' mg-phase-row':'')+(r.type==='gate'||r.type==='star'?' mg-gate':'')+(child?' mg-child':'');let visual='';if(r.type==='gate'||r.type==='star')visual='<span class="mg-marker '+(r.type==='star'?'star ':'')+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%"></span>';else visual='<span class="mg-bar '+(r.phaseClass||'')+' '+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%;width:'+w.toFixed(2)+'%"></span>';return'<div class="mg-row'+cls+'"'+(clickable?' onclick="'+clickable+'"':'')+'><div class="mg-phase">'+esc(r.stage||'')+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-type-icon '+ic+'"></span><span class="mg-item-name">'+esc(r.label||'')+'</span>'+(r.owner?'<span class="mg-owner">'+esc(r.owner)+'</span>':'')+'</div></div><div class="mg-time">'+mgGridV36()+'<span class="mg-today" style="left:'+today+'%"></span>'+visual+'</div></div>';}
+function detailRowsV36(){const mod=document.getElementById('gModule')?.value||'',st=document.getElementById('gStatus')?.value||'',crit=document.getElementById('gCritical')?.checked;let arr=tasksData().filter(t=>t.isCore!==false&&t.role==='parent'&&t.plannedStart&&t.plannedEnd);if(mod)arr=arr.filter(t=>t.module===mod);if(st)arr=arr.filter(t=>t.status===st);if(crit)arr=arr.filter(t=>t.isGate||t.keyNode||managementThemesData().some(x=>Number(x.taskRow)===Number(t.row)));const order=D.timeline?.workstreamOrder||WS_ORDER;arr.sort((a,b)=>{const ai=order.indexOf(a.module),bi=order.indexOf(b.module);if(ai!==bi)return(ai<0?99:ai)-(bi<0?99:bi);return dateObj(a.plannedStart)-dateObj(b.plannedStart);});return arr;}
 function renderGantt(){
-  const box=document.getElementById('ganttGrid');if(!box)return;const mod=document.getElementById('gModule')?.value||'',st=document.getElementById('gStatus')?.value||'',crit=document.getElementById('gCritical')?.checked;
-  const months=monthAnchors(),grid=months.map(m=>'<span class="gl-line" style="left:'+dxDate(m.date).toFixed(2)+'%"></span>').join(''),mlab=months.map((m,i)=>'<span class="gm '+(m.year===2027?'y':'')+'" style="left:'+dxDate(m.date).toFixed(2)+'%">'+esc(m.label)+'</span>').join(''),todayX=dxDate(timelineDomain().today).toFixed(2);
-  let html='<div class="grow hd"><div class="gl2">跨域工作</div><div class="gmonths hdm">'+mlab+'<span class="gtoday-lbl" style="left:'+todayX+'%">今日</span></div></div>';
-  const gg=gateGroups().filter(g=>inTimelineDomain(g.date));html+='<div class="grow ms"><div class="gl2">◆ 管理關鍵節點</div><div class="gmonths"><div class="mstrack">'+grid+'<span class="gtoday" style="left:'+todayX+'%"></span>'+gg.map((g,i)=>{const x=dxDate(g.date);const edge=x<5?'edge-left':x>95?'edge-right':'';const lane='lane'+(i%3);return '<div class="dia '+(g.importance==='major'?'major ':'')+(g.star?'star ':'')+(g.status||'')+' '+lane+' '+edge+'" style="left:'+x.toFixed(2)+'%" onclick="openGateGroup(\''+esc(g.id)+'\')" title="'+esc(g.label)+'"><span class="d"></span><span class="dd">'+fmtMD(g.date)+'</span><span class="dl">'+esc(g.label)+'</span></div>';}).join('')+'</div></div></div>';
-  if(APP_STATE.ganttMode==='detail'&&mod){
-    let arr=tasksData().filter(t=>t.isCore!==false&&t.module===mod&&t.role==='parent'&&t.plannedStart&&t.plannedEnd);if(st)arr=arr.filter(t=>t.status===st);if(crit)arr=arr.filter(t=>t.isGate||t.keyNode);arr.sort((a,b)=>dateObj(a.plannedStart)-dateObj(b.plannedStart));
-    if(!arr.length){html+='<div class="g-empty">此模組／跨域工作目前沒有符合條件的主要工作</div>';box.innerHTML=html;return;}
-    html+=arr.map(t=>{const l=dxDate(t.plannedStart),r=dxDate(t.plannedEnd),w=Math.max(.5,r-l+.5),cls=['overdue','blocked','risk'].includes(t.status)?'overdue':t.status;return'<div class="grow detail" onclick="openTaskByRow('+Number(t.row||0)+')"><div class="gl2"><div class="gdetail-name"><span class="gdetail-dot '+cls+'"></span><span class="gname">'+esc(t.task)+'</span></div><span class="gdetail-meta">'+fmtMD(t.plannedStart)+'–'+fmtMD(t.plannedEnd)+'</span></div><div class="gmonths"><div class="gtrack">'+grid+'<span class="gtoday" style="left:'+todayX+'%"></span><span class="gdetail-bar '+cls+'" style="left:'+l.toFixed(2)+'%;width:'+w.toFixed(2)+'%"></span></div></div></div>';}).join('');box.innerHTML=html;return;
+  const box=document.getElementById('ganttGrid');if(!box)return;
+  let html=mgHeaderV36();
+  if(APP_STATE.ganttMode==='executive'){
+    const rows=managementRowsV36();
+    html+=rows.length?rows.map(r=>mgRowHtmlV36(r)).join(''):'<div class="mg-empty">目前沒有可呈現的管理時程</div>';
+  }else{
+    const arr=detailRowsV36();
+    if(!arr.length){html+='<div class="mg-empty">此條件目前沒有工作包</div>';box.innerHTML=html;return;}
+    let last='';
+    arr.forEach(t=>{if(t.module!==last){html+='<div class="mg-row mg-detail-group"><div class="mg-phase">'+esc(moduleDisplayName(t.module))+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-item-name">工作包</span></div></div><div class="mg-time">'+mgGridV36()+'</div></div>';last=t.module;}html+=mgRowHtmlV36({stage:t.stage,label:taskManagementTitle(t),owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type:'bar',status:t.status,phaseClass:phaseClassV36(t.stage),row:t.row},true);});
   }
-  let lanes=timelineLanes();if(mod)lanes=lanes.filter(l=>l.module===mod);if(crit)lanes=lanes.filter(l=>l.managementCritical);if(st)lanes=lanes.filter(l=>l.segments.some(s=>s.status===st));
-  if(!lanes.length){html+='<div class="g-empty">此篩選條件沒有模組／跨域工作</div>';box.innerHTML=html;return;}
-  html+=lanes.map(l=>{let segs=l.segments||[];if(st)segs=segs.filter(s=>s.status===st);return'<div class="grow lane" onclick="openWorkstreamDrawer(\''+esc(l.module)+'\')"><div class="gl2"><span class="gname">'+esc(l.module)+'</span><span class="gscope">'+(l.scopeProgressPct??0)+'%</span></div><div class="gmonths"><div class="gtrack">'+grid+'<span class="gtoday" style="left:'+todayX+'%"></span>'+segs.map(s=>{const left=dxDate(s.start),right=dxDate(s.end),width=Math.max(.5,right-left+.5),top=7+(Number(s.track||0)*9),pct=(s.completionPct!=null&&s.status==='active')?'<span class="gseg-fill" style="display:block;width:'+Math.max(0,Math.min(100,s.completionPct))+'%"></span>':'';return'<span class="gseg '+(s.status||'pending')+' '+(s.managementCritical?'critical':'')+'" style="left:'+left.toFixed(2)+'%;width:'+width.toFixed(2)+'%;top:'+top+'px" onclick="openTimelineSegment(\''+esc(l.module)+'\',\''+esc(s.id)+'\');event.stopPropagation()" title="'+esc(s.label)+' · '+fmtMD(s.start)+'–'+fmtMD(s.end)+'">'+pct+'</span>';}).join('')+'</div></div></div>';}).join('');
   box.innerHTML=html;
+  scheduleGanttViewport_();
 }
 function openTimelineSegment(module,id){
   const lane=timelineLanes().find(l=>l.module===module),seg=lane?.segments?.find(s=>String(s.id)===String(id));if(!seg)return;
