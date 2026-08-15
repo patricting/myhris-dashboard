@@ -274,7 +274,23 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,.app-dra
 
 
 
-\n/* ── V3.6 MANAGEMENT SCHEDULE / READABLE GANTT ── */\n.g-detail-controls{display:none;align-items:center;gap:7px;flex-wrap:wrap}.timeline-tools.detail-mode .g-detail-controls{display:flex}.timeline-view-note{margin-left:auto;font-size:9px;color:var(--gray);line-height:1.4}.timeline-tools.detail-mode .timeline-view-note{margin-left:0}.gantt-grid{min-width:1280px}.mg-row{display:grid;grid-template-columns:142px 278px minmax(760px,1fr);border-bottom:1px solid var(--bdrl);min-height:34px;background:#fff}.mg-row:hover{background:#FFFDFD}.mg-row.mg-head{position:sticky;top:0;z-index:25;min-height:54px;background:var(--bg);border-bottom:2px solid var(--bdr)}.mg-phase,.mg-item{display:flex;align-items:center;min-width:0;padding:6px 9px;border-right:1px solid var(--bdr);background:inherit}.mg-phase{position:sticky;left:0;z-index:18;font-size:9.5px;color:var(--gray);font-weight:750}.mg-item{position:sticky;left:142px;z-index:17;font-size:10.5px;color:var(--ink)}.mg-head .mg-phase,.mg-head .mg-item{background:var(--bg);z-index:28;font-size:9px;font-weight:850;color:var(--gray);letter-spacing:.35px}.mg-item-main{min-width:0;display:flex;align-items:center;gap:6px;width:100%}.mg-item-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mg-owner{font-size:8px;color:var(--gray);margin-left:auto;white-space:nowrap}.mg-type-icon{width:7px;height:7px;border-radius:50%;flex:0 0 7px;background:#AEB8C2}.mg-type-icon.gate{border-radius:1px;transform:rotate(45deg);background:var(--red)}.mg-type-icon.star{border-radius:2px;background:var(--blk)}.mg-phase-row .mg-phase,.mg-phase-row .mg-item{font-weight:800}.mg-phase-row .mg-item-name{font-weight:800}.mg-time{position:relative;min-height:34px;background:#fff}.mg-head .mg-time{height:54px;background:var(--bg)}.mg-month{position:absolute;top:0;height:24px;border-left:1px solid #D7D7D4;padding:5px 0 0 6px;font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:9.3px;color:var(--gray);font-weight:650}.mg-week{position:absolute;top:24px;bottom:0;border-left:1px solid #E7E7E4}.mg-week-label{position:absolute;top:29px;transform:translateX(4px);font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:8px;color:#7C7C78;white-space:nowrap}.mg-today{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:6}.mg-today::before{content:'TODAY';position:absolute;top:2px;left:4px;font-family:var(--font-num);font-size:7px;color:var(--red);background:#fff;padding:1px 3px;border-radius:3px}.mg-bar{position:absolute;top:11px;height:12px;border-radius:3px;min-width:3px;cursor:pointer}.mg-bar:hover{filter:brightness(.95)}.mg-bar.phase-pmo{background:#8EA0B4}.mg-bar.phase-requirement{background:#82B8ED}.mg-bar.phase-setting{background:#52D4C4}.mg-bar.phase-validation{background:#F1C84B}.mg-bar.phase-parallel{background:#F6933A}.mg-bar.phase-golive{background:#45C96B}.mg-bar.phase-backup{background:#F5D97C;border:1px dashed #B26A00}.mg-bar.phase-expansion{background:#D3D8DE}.mg-bar.done{opacity:.72}.mg-bar.active{box-shadow:0 0 0 2px rgba(231,26,40,.22)}.mg-bar.overdue{outline:2px solid var(--red);outline-offset:1px}.mg-marker{position:absolute;top:9px;width:12px;height:12px;transform:translateX(-50%) rotate(45deg);background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(231,26,40,.25);cursor:pointer}.mg-marker.done{background:var(--grn)}.mg-marker.star{background:var(--blk);border-radius:2px}.mg-row.mg-gate .mg-item-name{font-weight:800}.mg-row.mg-gate .mg-phase{color:var(--red-d)}.mg-row.mg-detail-group{background:#FAF9F7}.mg-row.mg-detail-group .mg-phase,.mg-row.mg-detail-group .mg-item{font-weight:850}.mg-row.mg-child .mg-item{padding-left:22px}.mg-row.mg-child .mg-item-name{font-weight:600}.mg-empty{padding:26px;text-align:center;color:var(--gray);font-size:10.5px}.gantt-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:8.5px;color:var(--gray);margin:4px 0 9px}.gantt-legend span{display:inline-flex;align-items:center;gap:4px}.gantt-legend i{width:12px;height:6px;border-radius:2px;display:inline-block}.gantt-legend .gate{width:7px;height:7px;transform:rotate(45deg);background:var(--red)}\n@media(max-width:760px){.mg-row{grid-template-columns:96px 190px minmax(700px,1fr)}.mg-item{left:96px}.mg-phase{font-size:8.5px;padding:5px 6px}.mg-item{font-size:9.5px;padding:5px 7px}.mg-owner{display:none}.timeline-view-note{display:none}.g-detail-controls{width:100%}.timeline-tools.detail-mode .g-detail-controls{display:flex}.g-detail-controls .tool-select{max-width:none;flex:1 1 140px}}\n
+\n/* ── V3.6.1 MANAGEMENT SCHEDULE HOTFIX ── */\n.g-detail-controls{display:none;align-items:center;gap:7px;flex-wrap:wrap}.timeline-tools.detail-mode .g-detail-controls{display:flex}.timeline-view-note{margin-left:auto;font-size:9px;color:var(--gray);line-height:1.4}.timeline-tools.detail-mode .timeline-view-note{margin-left:0}.gantt-grid{min-width:1280px}.mg-row{display:grid;grid-template-columns:142px 278px minmax(760px,1fr);border-bottom:1px solid var(--bdrl);min-height:34px;background:#fff}.mg-row:hover{background:#FFFDFD}.mg-row.mg-head{position:sticky;top:0;z-index:25;min-height:54px;background:var(--bg);border-bottom:2px solid var(--bdr)}.mg-phase,.mg-item{display:flex;align-items:center;min-width:0;padding:6px 9px;border-right:1px solid var(--bdr);background:inherit}.mg-phase{position:sticky;left:0;z-index:18;font-size:9.5px;color:var(--gray);font-weight:750}.mg-item{position:sticky;left:142px;z-index:17;font-size:10.5px;color:var(--ink)}.mg-head .mg-phase,.mg-head .mg-item{background:var(--bg);z-index:28;font-size:9px;font-weight:850;color:var(--gray);letter-spacing:.35px}.mg-item-main{min-width:0;display:flex;align-items:center;gap:6px;width:100%}.mg-item-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mg-owner{font-size:8px;color:var(--gray);margin-left:auto;white-space:nowrap}.mg-type-icon{width:7px;height:7px;border-radius:50%;flex:0 0 7px;background:#AEB8C2}.mg-type-icon.gate{border-radius:1px;transform:rotate(45deg);background:var(--red)}.mg-type-icon.star{border-radius:2px;background:var(--blk)}.mg-phase-row .mg-phase,.mg-phase-row .mg-item{font-weight:800}.mg-phase-row .mg-item-name{font-weight:800}.mg-time{position:relative;min-height:34px;background:#fff}.mg-head .mg-time{height:54px;background:var(--bg)}.mg-month{position:absolute;top:0;height:24px;border-left:1px solid #D7D7D4;padding:5px 0 0 6px;font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:9.3px;color:var(--gray);font-weight:650}.mg-week{position:absolute;top:24px;bottom:0;border-left:1px solid #E7E7E4}.mg-week-label{position:absolute;top:29px;transform:translateX(4px);font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:8px;color:#7C7C78;white-space:nowrap}.mg-today{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:6}.mg-today::before{content:'TODAY';position:absolute;top:2px;left:4px;font-family:var(--font-num);font-size:7px;color:var(--red);background:#fff;padding:1px 3px;border-radius:3px}.mg-bar{position:absolute;top:11px;height:12px;border-radius:3px;min-width:3px;cursor:pointer}.mg-bar:hover{filter:brightness(.95)}.mg-bar.phase-pmo{background:#8EA0B4}.mg-bar.phase-requirement{background:#82B8ED}.mg-bar.phase-setting{background:#52D4C4}.mg-bar.phase-validation{background:#F1C84B}.mg-bar.phase-parallel{background:#F6933A}.mg-bar.phase-golive{background:#45C96B}.mg-bar.phase-backup{background:#F5D97C;border:1px dashed #B26A00}.mg-bar.phase-expansion{background:#D3D8DE}.mg-bar.done{opacity:.72}.mg-bar.active{box-shadow:0 0 0 2px rgba(231,26,40,.22)}.mg-bar.overdue{outline:2px solid var(--red);outline-offset:1px}.mg-marker{position:absolute;top:9px;width:12px;height:12px;transform:translateX(-50%) rotate(45deg);background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(231,26,40,.25);cursor:pointer}.mg-marker.done{background:var(--grn)}.mg-marker.star{background:var(--blk);border-radius:2px}.mg-row.mg-gate .mg-item-name{font-weight:800}.mg-row.mg-gate .mg-phase{color:var(--red-d)}.mg-row.mg-detail-group{background:#FAF9F7}.mg-row.mg-detail-group .mg-phase,.mg-row.mg-detail-group .mg-item{font-weight:850}.mg-row.mg-child .mg-item{padding-left:22px}.mg-row.mg-child .mg-item-name{font-weight:600}.mg-empty{padding:26px;text-align:center;color:var(--gray);font-size:10.5px}.gantt-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:8.5px;color:var(--gray);margin:4px 0 9px}.gantt-legend span{display:inline-flex;align-items:center;gap:4px}.gantt-legend i{width:12px;height:6px;border-radius:2px;display:inline-block}.gantt-legend .gate{width:7px;height:7px;transform:rotate(45deg);background:var(--red)}\n
+/* ── V3.6.1 HOTFIX: readable time header + reliable drilldown + presentation exit ── */
+.mg-row.mg-head{min-height:64px}
+.mg-head .mg-time{height:64px;overflow:visible}
+.mg-month,.mg-week-label{display:none!important}
+.mg-month-band{position:absolute;top:0;height:28px;border-left:1px solid #D5D5D1;border-right:1px solid #EEEDEA;display:flex;align-items:center;justify-content:center;background:#F5F5F3;font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:9px;font-weight:750;color:#5F6268;white-space:nowrap;overflow:hidden}
+.mg-tick-line{position:absolute;top:28px;bottom:0;width:1px;background:#E2E3E0}
+.mg-tick-label{position:absolute;top:36px;transform:translateX(-50%);font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:8px;color:#70747A;white-space:nowrap;background:#F5F5F3;padding:0 2px;line-height:1.2}
+.mg-tick-label.edge-left{transform:none}
+.mg-tick-label.edge-right{transform:translateX(-100%)}
+.mg-row[onclick]{cursor:pointer}
+.mg-row[onclick]:hover{background:#FFF8F8}
+.mg-detail-group{cursor:pointer}
+.presentation-exit{right:20px!important;top:auto!important;bottom:20px!important;z-index:99999!important;background:#141414!important;color:#fff!important;border:0!important;border-radius:999px!important;height:40px!important;padding:0 16px!important;box-shadow:0 10px 28px rgba(0,0,0,.28)!important}
+body.presentation .presentation-exit{display:flex!important;align-items:center;justify-content:center}
+body.presentation::after{content:'ESC 可返回';position:fixed;right:24px;bottom:66px;z-index:99998;font-size:9px;color:#777;background:rgba(255,255,255,.94);padding:3px 7px;border-radius:5px;border:1px solid #E8E8E5}
+@media(max-width:760px){.mg-row{grid-template-columns:96px 190px minmax(700px,1fr)}.mg-item{left:96px}.mg-phase{font-size:8.5px;padding:5px 6px}.mg-item{font-size:9.5px;padding:5px 7px}.mg-owner{display:none}.timeline-view-note{display:none}.g-detail-controls{width:100%}.timeline-tools.detail-mode .g-detail-controls{display:flex}.g-detail-controls .tool-select{max-width:none;flex:1 1 140px}}\n
 /* ── MOBILE / PHONE FIRST INTERACTION ── */
 @media(max-width:640px){
   .wrap{padding:0 12px}.top-in{padding-left:12px;padding-right:12px}.brand-t{font-size:12.5px}
@@ -405,7 +421,7 @@ body.presentation .appnav{display:none}body.presentation .top{position:relative}
   <button class="navbtn" data-page="risk" onclick="switchPage('risk',this)"><span class="navnum">05</span>風險與決策</button>
   <span class="navspacer"></span><button class="present-btn" id="presentationToggle" onclick="togglePresentation()">▣ 簡報模式</button>
 </div></div>
-<button class="presentation-exit" id="presentationExit" onclick="togglePresentation(false)">× 退出簡報模式</button>
+<button class="presentation-exit" id="presentationExit" onclick="exitPresentation()">× 退出簡報模式</button>
 <main>
 <section class="app-page active" id="app-command">
 <div class="wrap">
@@ -891,9 +907,17 @@ function togglePresentation(force){
   const on=(typeof force==='boolean')?force:!document.body.classList.contains('presentation');
   document.body.classList.toggle('presentation',on);
   const b=document.getElementById('presentationToggle'); if(b)b.textContent=on?'× 退出簡報模式':'▣ 簡報模式';
-  const e=document.getElementById('presentationExit'); if(e)e.setAttribute('aria-hidden',on?'false':'true');
+  const e=document.getElementById('presentationExit');
+  if(e){e.setAttribute('aria-hidden',on?'false':'true');e.style.display=on?'flex':'';}
+  if(!on){ document.documentElement.style.overflow=''; document.body.style.overflow=''; }
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('presentation'))togglePresentation(false);});
+function exitPresentation(){
+  document.body.classList.remove('presentation');
+  document.documentElement.style.overflow=''; document.body.style.overflow='';
+  const b=document.getElementById('presentationToggle'); if(b)b.textContent='▣ 簡報模式';
+  const e=document.getElementById('presentationExit'); if(e){e.setAttribute('aria-hidden','true');e.style.display='none';}
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('presentation'))exitPresentation();});
 function tasksData(){ return (D.execution&&Array.isArray(D.execution.items)&&D.execution.items.length)?D.execution.items:FALLBACK_TASKS; }
 function contingencyData(){ const live=Array.isArray(D.contingency)?D.contingency:[]; return live.length?live:(goLiveGovData().fallback?.tasks||[]); }
 function allTaskData(){ const a=tasksData(),b=contingencyData(); const seen=new Set(); return a.concat(b).filter(t=>{const k=String(t.row||'')+'|'+String(t.task||'');if(seen.has(k))return false;seen.add(k);return true;}); }
@@ -1070,8 +1094,41 @@ function managementRowsV36(){
   return rows.filter(x=>x.start&&x.end);
 }
 function mgGridV36(){const weeks=mgWeekAnchorsV36();return weeks.map(w=>'<span class="mg-week" style="left:'+mgDxV36(w).toFixed(2)+'%"></span>').join('');}
-function mgHeaderV36(){const months=mgMonthAnchorsV36(),weeks=mgWeekAnchorsV36();return'<div class="mg-row mg-head"><div class="mg-phase">執行階段</div><div class="mg-item">管理項目／關鍵節點</div><div class="mg-time">'+months.map(m=>'<span class="mg-month" style="left:'+mgDxV36(m.date).toFixed(2)+'%">'+esc(m.label)+'</span>').join('')+weeks.map(w=>'<span class="mg-week" style="left:'+mgDxV36(w).toFixed(2)+'%"></span><span class="mg-week-label" style="left:'+mgDxV36(w).toFixed(2)+'%">'+String(w.getMonth()+1).padStart(2,'0')+'/'+String(w.getDate()).padStart(2,'0')+'</span>').join('')+'</div></div>';}
-function mgRowHtmlV36(r,child=false){const left=mgDxV36(r.start),right=mgDxV36(r.end),w=Math.max(.35,right-left+.35),today=mgDxV36(mgmtDomainV36().today).toFixed(2);const clickable=r.row?'openTaskByRow('+Number(r.row)+')':r.gateGroupId?'openGateGroup(\''+esc(r.gateGroupId)+'\')':r.gateId?'openGateById(\''+esc(r.gateId)+'\')':'';const ic=r.type==='star'?'star':r.type==='gate'?'gate':'';const cls=(r.type==='phase'?' mg-phase-row':'')+(r.type==='gate'||r.type==='star'?' mg-gate':'')+(child?' mg-child':'');let visual='';if(r.type==='gate'||r.type==='star')visual='<span class="mg-marker '+(r.type==='star'?'star ':'')+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%"></span>';else visual='<span class="mg-bar '+(r.phaseClass||'')+' '+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%;width:'+w.toFixed(2)+'%"></span>';return'<div class="mg-row'+cls+'"'+(clickable?' onclick="'+clickable+'"':'')+'><div class="mg-phase">'+esc(r.stage||'')+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-type-icon '+ic+'"></span><span class="mg-item-name">'+esc(r.label||'')+'</span>'+(r.owner?'<span class="mg-owner">'+esc(r.owner)+'</span>':'')+'</div></div><div class="mg-time">'+mgGridV36()+'<span class="mg-today" style="left:'+today+'%"></span>'+visual+'</div></div>';}
+function mgMonthBandsV361(){
+  const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),out=[]; if(!a||!b)return out;
+  let y=a.getFullYear(),m=a.getMonth();
+  while(true){
+    const ms=new Date(y,m,1), next=new Date(y,m+1,1); if(ms>b)break;
+    const start=ms<a?a:ms, end=next>b?b:next;
+    const left=mgDxV36(start), right=mgDxV36(end);
+    out.push({label:y+'/'+String(m+1).padStart(2,'0'),left,width:Math.max(.8,right-left)});
+    m++; if(m>11){m=0;y++;}
+  }
+  return out;
+}
+function mgHeaderV36(){
+  const bands=mgMonthBandsV361(),weeks=mgWeekAnchorsV36();
+  const ticks=weeks.filter((_,i)=>i%2===0);
+  return'<div class="mg-row mg-head"><div class="mg-phase">執行階段</div><div class="mg-item">管理項目／關鍵節點</div><div class="mg-time">'
+    +bands.map(m=>'<span class="mg-month-band" style="left:'+m.left.toFixed(2)+'%;width:'+m.width.toFixed(2)+'%">'+esc(m.label)+'</span>').join('')
+    +weeks.map(w=>'<span class="mg-tick-line" style="left:'+mgDxV36(w).toFixed(2)+'%"></span>').join('')
+    +ticks.map((w,i)=>{const x=mgDxV36(w),edge=x<2?' edge-left':x>98?' edge-right':'';return'<span class="mg-tick-label'+edge+'" style="left:'+x.toFixed(2)+'%">'+String(w.getMonth()+1).padStart(2,'0')+'/'+String(w.getDate()).padStart(2,'0')+'</span>';}).join('')
+    +'</div></div>';
+}
+function openStageDrawerV361(stage){
+  const arr=tasksData().filter(t=>t.isCore!==false&&t.role==='parent'&&t.stage===stage).sort((a,b)=>(dateObj(a.plannedStart)||0)-(dateObj(b.plannedStart)||0));
+  setDrawerHeader(stage,'專案階段',arr.some(t=>['overdue','blocked','risk'].includes(t.status))?'overdue':arr.some(t=>t.status==='active')?'active':'pending');
+  let b='<div class="ad-quant">'+qBox('工作包',arr.length+' 項')+qBox('進行中',arr.filter(t=>t.status==='active').length)+qBox('已完成',arr.filter(t=>t.status==='done').length)+qBox('逾期',arr.filter(t=>t.status==='overdue').length)+'</div>';
+  b+=secHtml('工作包',arr.length?wbsHtml(arr,30):'<div class="ad-text">目前此階段尚無工作包資料。</div>');
+  openDrawer(b);
+}
+function openTaskSafeV361(row,module,title){
+  const t=allTaskData().find(x=>Number(x.row)===Number(row));
+  if(t){openTaskDrawer(t);return;}
+  if(module){openWorkstreamDrawer(module);return;}
+  setDrawerHeader(title||'工作項目','工作明細','pending');openDrawer('<div class="ad-text">此項目前未連結到可下鑽的工作資料。</div>');
+}
+function mgRowHtmlV36(r,child=false){const left=mgDxV36(r.start),right=mgDxV36(r.end),w=Math.max(.35,right-left+.35),today=mgDxV36(mgmtDomainV36().today).toFixed(2);const clickable=r.type==='phase'?'openStageDrawerV361(\''+esc(r.stage)+'\')':r.row?'openTaskSafeV361('+Number(r.row)+',\''+esc(r.module||'')+'\',\''+esc(r.label||'')+'\')':r.gateGroupId?'openGateGroup(\''+esc(r.gateGroupId)+'\')':r.gateId?'openGateById(\''+esc(r.gateId)+'\')':r.module?'openWorkstreamDrawer(\''+esc(r.module)+'\')':'';const ic=r.type==='star'?'star':r.type==='gate'?'gate':'';const cls=(r.type==='phase'?' mg-phase-row':'')+(r.type==='gate'||r.type==='star'?' mg-gate':'')+(child?' mg-child':'');let visual='';if(r.type==='gate'||r.type==='star')visual='<span class="mg-marker '+(r.type==='star'?'star ':'')+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%"></span>';else visual='<span class="mg-bar '+(r.phaseClass||'')+' '+(r.status||'pending')+'" style="left:'+left.toFixed(2)+'%;width:'+w.toFixed(2)+'%"></span>';return'<div class="mg-row'+cls+'"'+(clickable?' onclick="'+clickable+'"':'')+'><div class="mg-phase">'+esc(r.stage||'')+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-type-icon '+ic+'"></span><span class="mg-item-name">'+esc(r.label||'')+'</span>'+(r.owner?'<span class="mg-owner">'+esc(r.owner)+'</span>':'')+'</div></div><div class="mg-time">'+mgGridV36()+'<span class="mg-today" style="left:'+today+'%"></span>'+visual+'</div></div>';}
 function detailRowsV36(){const mod=document.getElementById('gModule')?.value||'',st=document.getElementById('gStatus')?.value||'',crit=document.getElementById('gCritical')?.checked;let arr=tasksData().filter(t=>t.isCore!==false&&t.role==='parent'&&t.plannedStart&&t.plannedEnd);if(mod)arr=arr.filter(t=>t.module===mod);if(st)arr=arr.filter(t=>t.status===st);if(crit)arr=arr.filter(t=>t.isGate||t.keyNode||managementThemesData().some(x=>Number(x.taskRow)===Number(t.row)));const order=D.timeline?.workstreamOrder||WS_ORDER;arr.sort((a,b)=>{const ai=order.indexOf(a.module),bi=order.indexOf(b.module);if(ai!==bi)return(ai<0?99:ai)-(bi<0?99:bi);return dateObj(a.plannedStart)-dateObj(b.plannedStart);});return arr;}
 function renderGantt(){
   const box=document.getElementById('ganttGrid');if(!box)return;
@@ -1083,7 +1140,7 @@ function renderGantt(){
     const arr=detailRowsV36();
     if(!arr.length){html+='<div class="mg-empty">此條件目前沒有工作包</div>';box.innerHTML=html;return;}
     let last='';
-    arr.forEach(t=>{if(t.module!==last){html+='<div class="mg-row mg-detail-group"><div class="mg-phase">'+esc(moduleDisplayName(t.module))+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-item-name">工作包</span></div></div><div class="mg-time">'+mgGridV36()+'</div></div>';last=t.module;}html+=mgRowHtmlV36({stage:t.stage,label:taskManagementTitle(t),owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type:'bar',status:t.status,phaseClass:phaseClassV36(t.stage),row:t.row},true);});
+    arr.forEach(t=>{if(t.module!==last){html+='<div class="mg-row mg-detail-group" onclick="openWorkstreamDrawer(\''+esc(t.module)+'\')"><div class="mg-phase">'+esc(moduleDisplayName(t.module))+'</div><div class="mg-item"><div class="mg-item-main"><span class="mg-item-name">工作包總覽</span><span class="mg-owner">點擊查看模組</span></div></div><div class="mg-time">'+mgGridV36()+'</div></div>';last=t.module;}html+=mgRowHtmlV36({stage:t.stage,label:taskManagementTitle(t),owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type:'bar',status:t.status,phaseClass:phaseClassV36(t.stage),row:t.row},true);});
   }
   box.innerHTML=html;
   scheduleGanttViewport_();
@@ -1227,7 +1284,7 @@ function renderRiskPage(){
     +'</tbody></table>';
 }
 
-function openTaskByRow(row){const t=allTaskData().find(x=>Number(x.row)===Number(row));if(t)openTaskDrawer(t);}
+function openTaskByRow(row){const t=allTaskData().find(x=>Number(x.row)===Number(row));if(t){openTaskDrawer(t);return;}setDrawerHeader('工作項目','工作明細','pending');openDrawer('<div class="ad-text">此項目的工作資料尚未連結完成。</div>');}
 function qBox(l,v){return '<div class="ad-q"><div class="l">'+esc(l)+'</div><div class="v">'+esc(v??'—')+'</div></div>';}
 function secHtml(title,html){return '<div class="ad-sec"><div class="ad-sec-title">'+esc(title)+'</div>'+html+'</div>';}
 
@@ -1270,6 +1327,7 @@ function openTaskDrawer(t){
   if(t.coordination)body+=secHtml('待確認／協調','<div class="ad-callout">'+esc(t.coordination)+'</div>');
   if(t.isGate||t.keyNode)body+=secHtml('關鍵節點','<div class="ad-callout red">'+esc(t.keyNode||'管理型關鍵節點')+'</div>');
   const children=childTasks(t);if(children.length)body+=secHtml('工作清單',wbsHtml(children,20));
+  else if(t.role==='parent')body+=secHtml('工作清單','<div class="ad-text">此工作包目前未拆分子項，依工作包本身進度管理。</div>');
   if(t.description)body+=secHtml('工作說明／完成標準','<div class="ad-text">'+esc(t.description)+'</div>');
   if(t.memo)body+=secHtml('備註','<div class="ad-text">'+esc(t.memo)+'</div>');
   if(t.isContingency)body+=secHtml('範疇定位','<div class="ad-callout">此工作屬 4/1 條件式備援方案；未正式啟動前不納入 1/1 主計畫進度、逾期與近期到期 KPI。</div>');
