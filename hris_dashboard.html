@@ -423,6 +423,10 @@ body.presentation .presentation-exit::before{content:'←';margin-right:6px}
 body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bottom:70px;z-index:99999;font-size:9px;color:#666;background:rgba(255,255,255,.96);padding:3px 7px;border-radius:5px;border:1px solid #E4E4E1}
 @media(max-width:760px){.mg-row{grid-template-columns:108px 220px minmax(760px,1fr)}.mg-item{left:108px}.gantt-grid{min-width:1120px}.mg-item-name{max-width:150px}.presentation-exit{right:12px!important;bottom:14px!important}}
 
+
+/* V3.7.1 overview copy/legibility hotfix */
+.ov-progress-main{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}.ov-metric{min-width:0}.ov-metric .ov-value{display:flex;align-items:baseline;gap:7px}.ov-metric .ov-label{font-size:12px;line-height:1.2}.ov-card.progress .ov-pairs{font-size:11px;line-height:1.4}.ov-card.progress .ov-note{font-size:11px;white-space:normal}.ov-card.schedule .ov-main{gap:10px}.ov-card.schedule .ov-big{font-size:29px;letter-spacing:-.5px}.ov-card.schedule .ov-label{font-size:12.5px}.ov-card.schedule .ov-pairs{font-size:11px}.ov-card.schedule .ov-note{font-size:11px;white-space:normal}
+
 </style>
 </head>
 <body>
@@ -781,10 +785,12 @@ function renderCommandOverview(){
   const health={green:['正常','green'],amber:['注意','amber'],red:['需關注','red']}[m.health]||['待確認',''];
   const next=s.nextGate?fmtMD(s.nextGate.date)+' '+s.nextGate.name:'—';
   const focus=(f.items||[]).slice(0,2);
+  const early=Math.max(0,Number(p.doneTasks||0)-Number(p.dueDoneCount??0));
+  const gateGap=Math.max(0,Number(s.criticalGatesDue||0)-Number(s.criticalGatesDone||0));
   document.getElementById('commandOverview').innerHTML=
     '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理 GOVERNANCE</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前治理狀態依執行、關鍵節點與正式風險綜合判斷')+'</div></div>'+ 
-    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度 PROGRESS</div><div class="ov-main"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span><span class="ov-big green" style="margin-left:auto">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成達成率</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</span><span>應完成達成率 <b>'+Number(p.dueDoneCount??p.dueTotalCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</span></div><div class="ov-note">已完成 '+Number(p.doneTasks||0)+' / '+Number(p.totalTasks||0)+' 項；應完成 '+Number(p.dueDoneCount??0)+' / '+Number(p.dueTotalCount??0)+' 項</div></div>'+ 
-    '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程 SCHEDULE</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+'/'+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至今日里程碑</span></div><div class="ov-pairs"><span>執行逾期 <b class="'+((s.overdueTasks||0)>0?'red':'')+'">'+Number(s.overdueTasks||0)+'</b></span><span>距上線 <b>'+Number(s.daysToGo||0)+' 天</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'</div></div>'+ 
+    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度 PROGRESS</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big green">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">到期工作達成</span></div></div></div><div class="ov-pairs"><span>累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</span><span>到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</span></div><div class="ov-note">'+(early>0?'另有 '+early+' 項提前完成，因此累計完成數高於截至資料日到期工作數。':'累計完成與截至資料日到期完成口徑一致。')+'</div></div>'+ 
+    '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程 SCHEDULE</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　執行逾期 '+Number(s.overdueTasks||0)+'　｜　距上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
     '<div class="ov-card focus" onclick="openOverviewDrawer(\'focus\')"><span class="ov-arrow">›</span><div class="ov-kicker">重點 FOCUS</div><div class="ov-main"><span class="ov-big amber">'+Number(f.count||focus.length)+'</span><span class="ov-label">管理主題</span></div>'+(focus.length?focus.map(x=>'<div class="ov-focus-line">'+esc(x.title)+'</div>').join(''):'<div class="ov-note">目前無需特別關注事項</div>')+'</div>';
 }
 function openOverviewDrawer(type){
@@ -806,7 +812,7 @@ function openOverviewDrawer(type){
   }
   if(type==='schedule'){
     setDrawerHeader('專案時程總覽','專案總覽 · 時程',(s.overdueTasks||0)>0?'overdue':'active');
-    let b='<div class="ad-quant">'+qBox('截至今日里程碑',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('執行逾期',s.overdueTasks||0)+qBox('距正式上線',(s.daysToGo||0)+' 天')+qBox('下一控制點',s.nextGate?fmtMD(s.nextGate.date)+' '+managementGateText('',s.nextGate.name):'—')+'</div>';
+    let b='<div class="ad-quant">'+qBox('截至資料日里程碑',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('執行逾期',s.overdueTasks||0)+qBox('距正式上線',(s.daysToGo||0)+' 天')+qBox('下一控制點',s.nextGate?fmtMD(s.nextGate.date)+' '+managementGateText('',s.nextGate.name):'—')+'</div>';
     const overdue=(D.timeline?.masterGates||[]).filter(g=>g.status==='overdue'||g.isOverdue);if(overdue.length)b+=secHtml('未完成／逾期里程碑',gateItemsHtml(overdue.slice(0,6)));
     const exec=gateGroups().filter(g=>g.status!=='done');if(exec.length)b+=secHtml('後續管理關卡',gateGroupItemsHtml(exec.slice(0,10)));
     b+=secHtml('時程結構','<div class="ad-text">管理時程以專案階段、主管關卡與主要工作包呈現；一般月度節奏與細項工作保留於工作明細，不與主管關卡混列。</div>');
@@ -832,7 +838,7 @@ function renderKpis(k, p){
   // Critical Gates
   const gc=el('div','kpi gate');
   const gWarn = k.criticalGatesDone < k.criticalGatesDue;
-  gc.innerHTML='<div class="k-l">截至今日里程碑</div><div class="k-v">'+k.criticalGatesDone+'<span class="slash"> / </span>'+k.criticalGatesDue+'</div><div class="k-sub '+(gWarn?'bad':'ok')+'">'+(gWarn?'已有應完成節點未完成':'全數守住')+'</div>';
+  gc.innerHTML='<div class="k-l">截至資料日里程碑</div><div class="k-v">'+k.criticalGatesDone+'<span class="slash"> / </span>'+k.criticalGatesDue+'</div><div class="k-sub '+(gWarn?'bad':'ok')+'">'+(gWarn?'已有應完成節點未完成':'全數守住')+'</div>';
   gc.classList.add('clickable');gc.onclick=()=>openOverviewDrawer('schedule');box.appendChild(gc);
   // In Progress
   const ki=kpiCell('plain','進行中 In Progress', k.activeTasks, ' 件', '正在動的有效工作', '');ki.classList.add('clickable');ki.onclick=()=>openOverviewDrawer('progress');box.appendChild(ki);
