@@ -506,7 +506,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   </div>
 
   <!-- NEXT GATES -->
-  <div class="sh"><span class="bar"></span><span class="t">近期關鍵節點</span><span class="n">重要節點與上線關卡 ｜ <b>紅＝管理型關鍵路徑</b></span></div>
+  <div class="sh"><span class="bar"></span><span class="t">近期關鍵節點</span><span class="n">重要節點與上線關卡 ｜ <b>紅＝重要控制點</b></span></div>
   <div class="gates" id="gates"></div>
 
   <!-- WORKSTREAMS -->
@@ -530,9 +530,9 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
       <select class="tool-select" id="gStatus" onchange="renderGantt()"><option value="">全部狀態</option><option value="active">進行中</option><option value="pending">未開始</option><option value="done">已完成</option><option value="overdue">逾期</option></select>
       <label class="check"><input type="checkbox" id="gCritical" onchange="renderGantt()">只看關鍵工作</label>
     </span>
-    <span class="timeline-view-note" id="timelineViewNote">管理時程依專案階段與主管關卡呈現；點擊任一列可下鑽工作內容。</span>
+    <span class="timeline-view-note" id="timelineViewNote">管理時程依專案階段與主管控制點呈現；點擊任一列可下鑽工作內容。</span>
   </div>
-  <div class="gantt-legend"><span><i style="background:#8EA0B4"></i>專案治理</span><span><i style="background:#82B8ED"></i>需求／規則</span><span><i style="background:#52D4C4"></i>系統設定</span><span><i style="background:#F1C84B"></i>資料／整合</span><span><i style="background:#F6933A"></i>平測／切換</span><span><i style="background:#45C96B"></i>上線／穩定</span><span><i class="gate"></i>主管關卡</span></div>
+  <div class="gantt-legend"><span><i style="background:#8EA0B4"></i>專案管理</span><span><i style="background:#82B8ED"></i>需求／規則</span><span><i style="background:#52D4C4"></i>系統設定</span><span><i style="background:#F1C84B"></i>資料／整合</span><span><i style="background:#F6933A"></i>平測／切換</span><span><i style="background:#45C96B"></i>上線／穩定</span><span><i class="gate"></i>主管控制點</span></div>
   <div class="gantt-shell"><div class="gantt-scroll"><div class="gantt-grid" id="ganttGrid"></div></div></div>
   <div class="backup-branch" id="backupBranch"></div>
   <div class="subhead"><span class="bar"></span><span class="title">階段重點</span><span class="note">8月規則確認｜9–10月設定驗證｜11–12月整合、平測與上線</span></div>
@@ -545,7 +545,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   <div class="status-strip" id="workstreamKpis"></div>
   <div class="ws-section-head"><span class="bar"></span><span class="title">核心 HR 模組</span><span class="sub">Core HR Modules</span></div>
   <div class="ws-core-grid" id="wsCoreGrid"></div>
-  <div class="ws-section-head"><span class="bar"></span><span class="title">跨域工作</span><span class="sub">IT、資料、測試、上線與專案治理</span></div>
+  <div class="ws-section-head"><span class="bar"></span><span class="title">跨域工作</span><span class="sub">IT、資料、測試、上線與專案管理</span></div>
   <div class="ws-flow-grid" id="wsFlowGrid"></div>
 </div></section>
 
@@ -559,11 +559,11 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
 </div></section>
 
 <section class="app-page" id="app-risk"><div class="wrap">
-  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">05 / RISK & DECISION</div><div class="pagetitle">風險與決策</div><div class="pagedesc">集中管理正式風險、待裁示決策與跨單位協調事項，追蹤其對資料可行性、薪資驗證、平測準備度與 1/1 主計畫的影響。</div></div></div>
+  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">05 / RISK & DECISION</div><div class="pagetitle">風險與決策</div><div class="pagedesc">集中查看正式風險、待裁示決策與跨單位協調事項，確認哪些問題會影響資料匯入、薪資測試、平測與 1/1 上線。</div></div></div>
   <div class="page-brief clickable" id="governanceBrief"></div>
   <div class="status-strip" id="riskKpis"></div>
   <div class="golive-governance" id="goLiveGovernance"></div>
-  <div class="subhead"><span class="bar"></span><span class="title">正式治理事項</span><span class="note">風險看影響與因應；決策看誰要拍板、何時要決定</span></div>
+  <div class="subhead"><span class="bar"></span><span class="title">正式風險與決策事項</span><span class="note">風險看影響與因應；決策看誰要拍板、何時要決定</span></div>
   <div class="rd-grid"><div class="rd-panel"><div class="rd-title">開放風險 <span class="rd-en">正式風險</span><span class="rd-count" id="riskCount"></span></div><div id="riskList"></div></div><div class="rd-panel"><div class="rd-title">待裁示決策 <span class="rd-en">正式決策</span><span class="rd-count" id="decisionCount"></span></div><div id="decisionList"></div></div></div>
   <div class="coord-section rd-panel"><div class="rd-title">待確認／協調 <span class="rd-en">協調候選</span><span class="rd-count" id="coordCount"></span></div><div id="coordList"></div></div>
 </div></section>
@@ -578,32 +578,36 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
    執行時會嘗試抓 data.json（GPT 的 V3 產出）覆蓋此 fixture。
    ══════════════════════════════════════════════════════════════ */
 const FIXTURE = {
-  schemaVersion:"HRIS_DASHBOARD_V3_SEMANTIC_FIXTURE",
+  schemaVersion:"HRIS_DASHBOARD_V4_BASELINE_OVERDUE_FIXTURE",
   updated:"2026/08/16",
   project:{
     start:"2026/05/05", goLive:"2027/01/01", daysToGo:138,
     health:"amber",
-    healthText:"注意｜考勤規則較原基準延後，8/19進行Final問卷Recovery；組織／簽核同步推進，1/1主計畫維持",
+    healthText:"注意｜考勤核心規則較原定時程延後；8/19需完成最終版問卷並接續考勤、薪資設定，目前1/1上線計畫仍維持。",
     currentPhase:"核心規則確認／組織簽核驗證"
   },
   commandCenter:{
     currentPhase:"核心規則確認／組織簽核驗證",
+    management:{health:"amber",healthText:"管理焦點：考勤時程追回、組織／簽核第一輪確認。",openRisk:13,highRisk:2,pendingDecision:5,coordination:13},
+    progress:{scopeProgressPct:13,doneTasks:42,totalTasks:313,dueToDatePct:98,dueDoneCount:41,dueTotalCount:42,activeTasks:4},
+    schedule:{criticalGatesDone:9,criticalGatesDue:10,overdueTasks:1,daysToGo:138,nextGate:{id:"CMD-ATTENDANCE",date:"2026/08/19",name:"考勤核心規則／最終問卷交付",status:"overdue"}},
+    focus:{count:6,items:[{title:"考勤時程追回",meta:"8/19 最終版問卷｜8月底確認考勤／薪資設定進度",level:"red"},{title:"組織／簽核第一輪確認",meta:"9/11 完成第一輪差異與例外確認",level:"red"}]},
     spine:[
       {id:"CMD-KICKOFF",date:"2026/05/05",label:"開工",status:"done"},
       {id:"CMD-BASELINE",date:"2026/06/30",label:"基礎定案",status:"done",delayDays:31},
-      {id:"CMD-ATTENDANCE",date:"2026/08/19",label:"考勤Final問卷／Recovery",status:"active",labelPosition:"below"},
-      {id:"CMD-ORG-SIGN",date:"2026/09/11",label:"組織／簽核治理",status:"pending",row:55,labelPosition:"above"},
-      {id:"CMD-DATA0",date:"2026/10/15",label:"第一輪資料匯入",status:"pending"},{id:"CMD-DATA1",date:"2026/10/30",label:"資料品質／可行性",status:"pending"},
-      {id:"CMD-PAYROLL1",date:"2026/11/13",label:"第一次薪資驗證",status:"pending",labelPosition:"above"},
-      {id:"CMD-PREPARALLEL",date:"2026/11/27",label:"平測前準備度確認",status:"pending",labelPosition:"below"},
-      {id:"CMD-GONOGO",date:"2026/12/18",label:"最終切換授權",status:"pending"},
+      {id:"CMD-ATTENDANCE",date:"2026/08/19",label:"考勤核心規則／最終問卷",status:"overdue",labelPosition:"below"},
+      {id:"CMD-ORG-SIGN",date:"2026/09/11",label:"組織／簽核第一輪確認",status:"pending",row:55,labelPosition:"above"},
+      {id:"CMD-DATA0",date:"2026/10/15",label:"第一輪資料匯入",status:"pending"},{id:"CMD-STABLE",date:"2026/10/16",label:"核心設定穩定",status:"pending",labelPosition:"above"},{id:"CMD-DATA1",date:"2026/10/30",label:"資料匯入結果／品質",status:"pending"},
+      {id:"CMD-PAYROLL1",date:"2026/11/13",label:"第一次薪資測試",status:"pending",labelPosition:"above"},
+      {id:"CMD-PREPARALLEL",date:"2026/11/27",label:"平測前各項準備確認",status:"pending",labelPosition:"below"},
+      {id:"CMD-GONOGO",date:"2026/12/18",label:"最終上線確認",status:"pending"},
       {id:"CMD-GOLIVE",date:"2027/01/01",label:"正式上線",status:"pending",star:true}
     ]
   },
   kpis:{
-    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:100, dueProgressPoints:4100, dueProgressDenominator:41, dueDoneCount:41, dueTotalCount:41,
+    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:98, dueProgressPoints:4100, dueProgressDenominator:42, dueDoneCount:41, dueTotalCount:42,
     doneTasks:42, totalTasks:313, criticalGatesDone:9, criticalGatesDue:10,
-    activeTasks:4, overdueTasks:0
+    activeTasks:4, overdueTasks:1, currentOverdueTasks:0, baselineOverdueTasks:1
   },
   commercial:{
     title:"合約付款進度", totalAmount:4920000, installments:4, conditionMetPct:20,
@@ -611,7 +615,7 @@ const FIXTURE = {
       {code:"A",phase:"專案啟動",attachment:"附件三",pct:20,amount:984000,status:"condition_met",evidenceDone:2,evidenceTotal:2,trigger:"專案開工與合約文件完成",evidence:[{label:"專案開工完成",done:true},{label:"合約簽署完成",done:true}]},
       {code:"B",phase:"系統安裝",attachment:"附件四",pct:20,amount:984000,status:"verify",evidenceDone:2,evidenceTotal:3,trigger:"IT環境、授權申請與系統安裝交付完成",evidence:[{label:"IT環境就緒",done:true},{label:"License申請完成",done:true},{label:"逐鹿系統安裝交付確認",unknown:true}]},
       {code:"C",phase:"需求定案",attachment:"附件八",pct:40,amount:1968000,status:"attention",evidenceDone:1,evidenceTotal:2,trigger:"基礎訪談與必要客製規格定案",relatedRisks:["R01","R05"],evidence:[{label:"基礎訪談定案",done:true},{label:"客製需求定案",overdue:true}]},
-      {code:"D",phase:"系統驗收",attachment:"附件五",pct:20,amount:984000,status:"pending",evidenceDone:0,evidenceTotal:3,trigger:"整合測試、平行驗證與正式上線完成",evidence:[{label:"整合測試完成"},{label:"正式平行驗證完成"},{label:"正式上線完成"}]}
+      {code:"D",phase:"系統驗收",attachment:"附件五",pct:20,amount:984000,status:"pending",evidenceDone:0,evidenceTotal:3,trigger:"整合測試、正式平測與正式上線完成",evidence:[{label:"整合測試完成"},{label:"正式平測完成"},{label:"正式上線完成"}]}
     ]
   },
   roadmap:[
@@ -621,16 +625,16 @@ const FIXTURE = {
     {name:"系統設定", status:"active"},
     {name:"功能測試", status:"pending"},
     {name:"整合測試", status:"pending"},
-    {name:"平行驗證", status:"pending"},
+    {name:"正式平測", status:"pending"},
     {name:"上線準備", status:"pending"},
-    {name:"GO LIVE", status:"golive"}
+    {name:"正式上線", status:"golive"}
   ],
   executive:{
     currentFocus:[
       {title:"客製需求定案逾期", meta:"計畫 7/31 ｜ 逾期 +15 天 ｜ 觸發 C 期付款 NT$1,968,000", level:"red"},
-      {title:"考勤時程 Recovery", meta:"原基準已延後 ｜ 8/19 Final問卷交付，8月底檢核考勤／薪資設定是否追回", level:"red"},
+      {title:"考勤核心規則逾期／時程追回", meta:"較原定時程延後 ｜ 8/19完成最終版問卷，8月底確認考勤／薪資設定是否追回", level:"red"},
       {title:"海外 APP 打卡時區", meta:"Target 9 月 ｜ 正式方案未成，需啟動 Web／卡機備援", level:"amber"},
-      {title:"年假混合制轉週年制", meta:"Target 12/1 ｜ 制度、資料、補償成本需同步收斂", level:"amber"},
+      {title:"年假混合制轉週年制", meta:"Target 12/1 ｜ 制度、資料與補償方式需同步確認", level:"amber"},
       {title:"薪資追溯期限政策", meta:"待副總定案月數 ｜ 影響薪資結算與系統效能", level:"amber"}
     ],
     decisionsNeeded:[
@@ -641,50 +645,50 @@ const FIXTURE = {
   timeline:{
     masterGates:[
       {date:"2026/07/31", name:"客製需求定案", module:"商務", status:"overdue", critical:false, note:"觸發 C 期 NT$1.968M"},
-      {date:"2026/08/19", name:"考勤Final問卷／Recovery", module:"考勤", status:"active", critical:true},
-      {date:"2026/09/11", name:"各 AO 組織／簽核差異收斂", module:"組織", status:"pending", critical:false},
-      {date:"2026/09/30", name:"9 月顧問駐點收斂檢核", module:"跨模組", status:"pending", critical:false},
+      {date:"2026/08/19", name:"考勤核心規則／最終問卷交付", module:"考勤", status:"overdue", critical:true},
+      {date:"2026/09/11", name:"各 AO 組織／簽核差異確認", module:"組織", status:"pending", critical:false},
+      {date:"2026/09/30", name:"9 月顧問駐點工作確認", module:"跨模組", status:"pending", critical:false},
       {date:"2026/10/16", name:"組織／考勤設定穩定版確認", module:"考勤", status:"pending", critical:true},
-      {date:"2026/10/15", name:"第一輪全模組資料匯入", module:"資料", status:"pending", critical:true},{date:"2026/10/30", name:"資料品質／可行性檢核", module:"資料", status:"pending", critical:true},
-      {date:"2026/11/13", name:"第一次薪資測試／薪資驗證", module:"薪酬", status:"pending", critical:true},
+      {date:"2026/10/15", name:"第一輪全模組資料匯入", module:"資料", status:"pending", critical:true},{date:"2026/10/30", name:"資料匯入結果與品質確認", module:"資料", status:"pending", critical:true},
+      {date:"2026/11/13", name:"第一次薪資測試", module:"薪酬", status:"pending", critical:true},
       {date:"2026/11/20", name:"第二次完整資料匯入", module:"資料", status:"pending", critical:true},
       {date:"2026/11/27", name:"薪資第二次測試差異確認", module:"薪酬", status:"pending", critical:true},
       {date:"2026/11/27", name:"IT 整合測試確認", module:"IT／介接", status:"pending", critical:true},
-      {date:"2026/12/01", name:"正式平行驗證（–12/31）", module:"全體", status:"pending", critical:true},
-      {date:"2026/12/18", name:"最終切換授權", module:"上線", status:"pending", critical:true, decision:true},
-      {date:"2027/01/01", name:"正式上線 Go-Live", module:"全體", status:"pending", critical:true, star:true},
+      {date:"2026/12/01", name:"正式平測（–12/31）", module:"全體", status:"pending", critical:true},
+      {date:"2026/12/18", name:"最終上線確認", module:"上線", status:"pending", critical:true, decision:true},
+      {date:"2027/01/01", name:"正式上線", module:"全體", status:"pending", critical:true, star:true},
       {date:"2027/04/01", name:"備援上線方案", module:"上線", status:"pending", critical:false}
     ]
   },
-  /* Workstream health：真值。健康燈號採「收斂版」規則（見交付說明），
+  /* Workstream health：真值。健康燈號採「確認版」規則（見交付說明），
      非 GPT 語意層現行 due14→amber 規則。 */
   modules:[
-    {name:"組織", pm:"俊翔", owner:"義峰、Lisa", scopeProgressPct:33, dueToDatePct:100, total:24, done:8, active:0, overdue:0, health:"green", nextGate:"9/11 各 AO 差異收斂"},
-    {name:"人事", pm:"Kate", owner:"Lisa、義峰", scopeProgressPct:21, dueToDatePct:100, total:28, done:6, active:0, overdue:0, health:"green", nextGate:"Demo 後差異收斂"},
-    {name:"考勤", pm:"Ken", owner:"欣穎、Nancy", scopeProgressPct:14, dueToDatePct:100, total:42, done:6, active:0, overdue:0, health:"red", nextGate:"8/19 Final問卷／Recovery"},
+    {name:"組織", pm:"俊翔", owner:"義峰、Lisa", scopeProgressPct:33, dueToDatePct:100, total:24, done:8, active:0, overdue:0, health:"green", nextGate:"9/11 各 AO 差異確認"},
+    {name:"人事", pm:"Kate", owner:"Lisa、義峰", scopeProgressPct:21, dueToDatePct:100, total:28, done:6, active:0, overdue:0, health:"green", nextGate:"Demo 後差異確認"},
+    {name:"考勤", pm:"Ken", owner:"欣穎、Nancy", scopeProgressPct:14, dueToDatePct:86, dueDone:6, dueTotal:7, total:42, done:6, active:1, overdue:1, health:"red", nextGate:"8/19 考勤核心規則／最終問卷交付"},
     {name:"薪酬", pm:"智翔", owner:"Betty、伊雯", scopeProgressPct:24, dueToDatePct:100, total:21, done:5, active:0, overdue:0, health:"green", nextGate:"11/27 第二次薪資測試"},
-    {name:"保險", pm:"Ken", owner:"妍雅、姿彤", scopeProgressPct:18, dueToDatePct:100, total:17, done:3, active:0, overdue:0, health:"green", nextGate:"與薪資聯測"},
-    {name:"IT／介接", scopeProgressPct:18, dueToDatePct:100, total:38, done:7, active:0, overdue:0, health:"green", nextGate:"11/27 整合測試確認"},
+    {name:"保險", pm:"Ken", owner:"妍雅、姿彤", scopeProgressPct:18, dueToDatePct:100, total:17, done:3, active:0, overdue:0, health:"green", nextGate:"與薪資一起測試"},
+    {name:"IT／介接", scopeProgressPct:18, dueToDatePct:100, total:38, done:7, active:0, overdue:0, health:"green", nextGate:"11/27 跨模組整合測試確認"},
     {name:"資料",   scopeProgressPct:0,  dueToDatePct:100, total:33, done:0, active:0, overdue:0, health:"grey",  nextGate:"10/15 第一輪全模組資料匯入"},
-    {name:"電子簽核", scopeProgressPct:0,  dueToDatePct:100, total:24, done:0, active:0, overdue:0, health:"grey",  nextGate:"逐張表單設定"},
+    {name:"電子簽核", scopeProgressPct:0,  dueToDatePct:100, total:24, done:0, active:0, overdue:0, health:"grey",  nextGate:"逐張確認表單設定"},
     {name:"跨模組",  scopeProgressPct:9,  dueToDatePct:100, total:11, done:1, active:0, overdue:0, health:"green", nextGate:"9 月起顧問每週三駐點"},
     {name:"專案總控", scopeProgressPct:45, dueToDatePct:100, total:11, done:5, active:2, overdue:0, health:"green", nextGate:"每週進度與風險更新"},
     {name:"測試",   scopeProgressPct:0,  dueToDatePct:100, total:14, done:0, active:0, overdue:0, health:"grey",  nextGate:"單元 → 整合 → 平測"},
-    {name:"上線",   scopeProgressPct:0,  dueToDatePct:100, total:34, done:0, active:0, overdue:0, health:"grey",  nextGate:"10/30 資料可行性 → 11/13 薪資驗證 → 11/27 Readiness"},
-    {name:"教育訓練", scopeProgressPct:0,  dueToDatePct:100, total:16, done:0, active:0, overdue:0, health:"grey",  nextGate:"9/16 Key User Enablement → 11/16 正式分層訓練"}
+    {name:"上線",   scopeProgressPct:0,  dueToDatePct:100, total:34, done:0, active:0, overdue:0, health:"grey",  nextGate:"10/15 第一輪資料匯入 → 10/16 核心設定確認 → 10/30 資料品質確認 → 11/13 第一次薪資測試 → 11/27 平測前各項準備確認"},
+    {name:"教育訓練", scopeProgressPct:0,  dueToDatePct:100, total:16, done:0, active:0, overdue:0, health:"grey",  nextGate:"9/16 HR內部操作訓練啟動 → 11/16 正式分層訓練"}
   ]
 };
 
 
-const FALLBACK_TASKS = [{"row":47,"role":"leaf","isLeaf":true,"stage":"專案治理／進度控管","module":"專案總控","task":"後續工作、時程、負責人與關鍵節點說明","description":"完成8/17至1/1整合計畫，建立後續工作、責任與關鍵節點基準。","pm":"冠元／Kate","owner":"Ken","plannedStart":"2026/08/14","plannedEnd":"2026/08/17","actualEnd":"","status":"active","completionPct":60,"scheduleTag":"on_track","delayDays":0,"progress":"完成8/17至1/1整合計畫","coordination":"","memo":"12/1平測、1/1上線","keyNode":"重要節點","isGate":true,"isCore":true},{"row":55,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"組織","task":"組織圖＆簽核邏輯確認","description":"以已匯入組織資料為初版，逐一與AO確認組織線、主管配置與簽核需求。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/17","plannedEnd":"2026/09/11","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":56,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"組織","task":"產品群（Sharon + All）","description":"第一場由全體AO共同參加，以產品群作為共通邏輯樣板。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":57,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"組織","task":"行銷群（Linda）","description":"依產品群共通原則檢視行銷群差異。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/20","plannedEnd":"2026/08/21","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":63,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"組織","task":"各事業群問題整理與待確認事項收斂","description":"整理共通規則、例外情境及需主管確認事項。","pm":"俊翔","owner":"義峰","plannedStart":"2026/09/11","plannedEnd":"2026/09/11","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":64,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"組織","task":"組織及簽核設定調整","description":"依AO確認結果調整組織樹、主管、虛擬組織與簽核規則。","pm":"俊翔／逐鹿Vivian","owner":"義峰","plannedStart":"2026/09/14","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"若10月中仍有重大組織／簽核問題，將影響表單與整合測試","keyNode":"","isGate":false,"isCore":true},{"row":72,"role":"leaf","isLeaf":true,"stage":"系統設定／單元測試／修正","module":"組織","task":"修正後確認完成","description":"組織與簽核設定穩定版確認。","pm":"俊翔／逐鹿Vivian","owner":"義峰","plannedStart":"2026/10/15","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":73,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"人事","task":"人事主檔與欄位確認","description":"盤點集團人事主檔欄位、必選填、畫面順序及特殊人員資料管理方式。","pm":"Kate","owner":"Lisa、義峰、Nancy","plannedStart":"2026/08/24","plannedEnd":"2026/09/15","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":88,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"考勤核心規則收斂與設定Recovery","description":"原8月上旬規則交付基準已發生偏差；8/19完成Final Rule／最終問卷交付，完成後銜接考勤設定及薪資參數，8月底檢核Recovery。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/28","status":"active","completionPct":35,"scheduleTag":"recovery","delayDays":0,"progress":"8/19完成Final考勤問卷並交付Vivian，8/28–8/31檢核設定Recovery","coordination":"若8/19未交付或8月底無法追回，將壓縮9月測試與薪資驗證","memo":"Baseline Slippage｜原基準8月上旬","keyNode":"重要節點","isGate":true,"isCore":true},{"row":89,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"彈性工時／15分鐘緩衝方案","description":"確認制度是否採行及適用方式。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":90,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"核定出勤工時認定規則","description":"確認打卡、請假、加班、表態後的實際出勤時間認定。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":91,"role":"leaf","isLeaf":true,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"員工表態規則","description":"確認表態情境與核定工時關係。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":97,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"曆年制改週年制","description":"完成轉制原則、資料、制度、系統設定與切換方案。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/19","plannedEnd":"2026/10/02","status":"active","completionPct":10,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":105,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"考勤管理模組功能展示（Demo）","description":"展示考勤模組主要功能與操作流程，辨識與現行規則差異。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/08/25","plannedEnd":"2026/08/26","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":110,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"考勤","task":"考勤功能測試","description":"依已定案規則測試排班、刷卡、異常、請假、加班、表態與核定出勤結果。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/09/02","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":120,"role":"leaf","isLeaf":true,"stage":"系統設定／單元測試／修正","module":"考勤","task":"考勤設定穩定版確認","description":"考勤設定達穩定版，支撐11月薪資測試。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/10/12","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"若未於10月中完成，將影響11月薪資測試","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":121,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"考勤","task":"海外APP打卡時區處理","description":"確認APP時區技術機制並保留Web／卡機備援。","pm":"Ken","owner":"欣穎、IT","plannedStart":"2026/08/17","plannedEnd":"2026/09/25","status":"active","completionPct":15,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"若正式方案無法於上線前完成，需保留Web或卡機備援","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":133,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"薪酬","task":"薪資管理模組功能展示（Demo）","description":"展示薪資模組標準功能、計薪流程與主要設定邏輯。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/09/02","plannedEnd":"2026/09/04","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"實際日期待Kate與Vivian敲定","keyNode":"","isGate":false,"isCore":true},{"row":136,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"薪酬","task":"薪資規則與參數確認","description":"確認薪資科目、多包計薪、稅務、保障薪資、跨法人與特殊加扣項規則。","pm":"智翔","owner":"Betty、伊雯","plannedStart":"2026/09/02","plannedEnd":"2026/09/30","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":145,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"薪酬","task":"薪資系統設定與測試","description":"10月完成設定，11月以正式薪資結果進行兩輪比對測試。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/10/01","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"兩次薪資測試未通過不得進入12月平測","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":152,"role":"leaf","isLeaf":true,"stage":"資料驗證／整合測試／上線訓練","module":"薪酬","task":"第二次薪資測試差異確認完成","description":"第二次複測主要差異關閉，具備12月平行測試條件。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/11/27","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":177,"role":"parent","isLeaf":false,"stage":"需求收斂／規則確認／系統Demo","module":"IT／介接","task":"AD登入與系統管理權限","description":"驗證AD登入、帳號更新邏輯與管理員權限。","pm":"慈琬","owner":"IT、義峰","plannedStart":"2026/08/13","plannedEnd":"2026/09/11","status":"active","completionPct":25,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":196,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"IT／介接","task":"IT開發與測試","description":"完成查詢中心、郵件中心、報表中心及API／介接開發與整合驗證。","pm":"慈琬","owner":"IT","plannedStart":"2026/10/01","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":203,"role":"leaf","isLeaf":true,"stage":"資料驗證／整合測試／上線訓練","module":"IT／介接","task":"IT整合測試確認完成","description":"主要IT介接通過整合測試，不阻擋12月平測。","pm":"慈琬","owner":"IT","plannedStart":"2026/11/26","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":214,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"資料","task":"第一次完整資料匯入","description":"以接近正式資料的全量資料執行第一次完整模擬匯入。","pm":"Kate／逐鹿Vivian","owner":"各主責經辦","plannedStart":"2026/10/12","plannedEnd":"2026/10/30","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"第一次全量模擬匯入，不是最終上線資料","keyNode":"重要節點","isGate":true,"isCore":true},{"row":230,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"資料","task":"第二次完整資料匯入","description":"使用全員確認後最新資料執行第二次完整匯入。","pm":"Kate／逐鹿Vivian","owner":"各主責經辦","plannedStart":"2026/11/09","plannedEnd":"2026/11/20","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":249,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"測試","task":"上線前整合測試","description":"將組織、人事、考勤、薪酬、保險、電子簽核、APP及IT介接串成端到端情境測試。","pm":"Kate／慈琬","owner":"全PM、IT","plannedStart":"2026/11/16","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"主要整合測試未通過將影響12/1平測","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":257,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"上線","task":"平測前作業確認","description":"確認考勤、薪資、保險、電子簽核、IT介接與資料均達可平測條件。","pm":"Kate","owner":"全PM、IT","plannedStart":"2026/11/16","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":265,"role":"parent","isLeaf":false,"stage":"平行驗證／上線決策／切換準備","module":"測試","task":"正式平行測試","description":"12月以舊系統與Gaia HCM同步執行主要作業並持續比對結果。","pm":"Kate／逐鹿Vivian","owner":"全PM、全經辦、IT","plannedStart":"2026/12/01","plannedEnd":"2026/12/31","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"重大差異未解決不得正式切換","memo":"12/1開始，1/1上線","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":273,"role":"parent","isLeaf":false,"stage":"平行驗證／上線決策／切換準備","module":"上線","task":"正式上線條件確認","description":"彙整平測重大差異、重大缺陷、資料完整性及訓練完成度，判斷1/1或4/1。","pm":"Kate","owner":"全PM、IT","plannedStart":"2026/12/14","plannedEnd":"2026/12/18","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"若關鍵項目未達標，評估轉2027/4/1","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":296,"role":"parent","isLeaf":false,"stage":"正式上線／穩定化支援","module":"上線","task":"正式上線","description":"依核定決策於2027/1/1正式切換Gaia HCM。","pm":"Kate","owner":"全PM、全經辦、IT","plannedStart":"2027/01/01","plannedEnd":"2027/01/01","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"目前正式基準","keyNode":"正式上線","isGate":true,"isCore":true}];
+const FALLBACK_TASKS = [{"row":47,"role":"leaf","isLeaf":true,"stage":"專案治理／進度控管","module":"專案總控","task":"後續工作、時程、負責人與關鍵節點說明","description":"完成8/17至1/1整合計畫，建立後續工作、責任與關鍵節點基準。","pm":"冠元／Kate","owner":"Ken","plannedStart":"2026/08/14","plannedEnd":"2026/08/17","actualEnd":"","status":"active","completionPct":60,"scheduleTag":"on_track","delayDays":0,"progress":"完成8/17至1/1整合計畫","coordination":"","memo":"12/1平測、1/1上線","keyNode":"重要節點","isGate":true,"isCore":true},{"row":55,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"組織","task":"組織圖＆簽核邏輯確認","description":"以已匯入組織資料為初版，逐一與AO確認組織線、主管配置與簽核需求。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/17","plannedEnd":"2026/09/11","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":56,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"組織","task":"產品群（Sharon + All）","description":"第一場由全體AO共同參加，以產品群作為共通邏輯樣板。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":57,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"組織","task":"行銷群（Linda）","description":"依產品群共通原則檢視行銷群差異。","pm":"俊翔","owner":"義峰","plannedStart":"2026/08/20","plannedEnd":"2026/08/21","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":63,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"組織","task":"各事業群問題整理與差異確認","description":"整理共通規則、例外情境及需主管確認事項。","pm":"俊翔","owner":"義峰","plannedStart":"2026/09/11","plannedEnd":"2026/09/11","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":64,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"組織","task":"組織及簽核設定調整","description":"依AO確認結果調整組織樹、主管、虛擬組織與簽核規則。","pm":"俊翔／逐鹿Vivian","owner":"義峰","plannedStart":"2026/09/14","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"若10月中仍有重大組織／簽核問題，將影響表單與整合測試","keyNode":"","isGate":false,"isCore":true},{"row":72,"role":"leaf","isLeaf":true,"stage":"系統設定／單元測試／修正","module":"組織","task":"修正後確認完成","description":"組織與簽核設定穩定版確認。","pm":"俊翔／逐鹿Vivian","owner":"義峰","plannedStart":"2026/10/15","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":73,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"人事","task":"人事主檔與欄位確認","description":"盤點集團人事主檔欄位、必選填、畫面順序及特殊人員資料管理方式。","pm":"Kate","owner":"Lisa、義峰、Nancy","plannedStart":"2026/08/24","plannedEnd":"2026/09/15","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":88,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"考勤核心規則確認與設定追回","description":"考勤核心規則原定8月上旬完成，目前已延後；8/19完成核心規則與最終版問卷並提供顧問，之後接續考勤及薪資設定，8月底確認是否追回9月測試所需進度。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/28","status":"overdue","completionPct":35,"scheduleTag":"baseline_overdue","delayDays":0,"progress":"8/19完成最終版考勤問卷並提供Vivian，8/28–8/31確認考勤與薪資設定是否追回","coordination":"若8/19仍未交付，或8月底設定進度仍無法追回，將壓縮9月考勤測試與後續薪資測試","memo":"較原定時程延後｜原定8月上旬完成","keyNode":"重要節點","isGate":true,"isCore":true},{"row":89,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"彈性工時／15分鐘緩衝方案","description":"確認制度是否採行及適用方式。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":90,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"核定出勤工時認定規則","description":"確認打卡、請假、加班、表態後的實際出勤時間認定。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":91,"role":"leaf","isLeaf":true,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"員工表態規則","description":"確認表態情境與核定工時關係。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/17","plannedEnd":"2026/08/19","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":97,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"曆年制改週年制","description":"完成轉制原則、資料、制度、系統設定與切換方案。","pm":"Ken","owner":"欣穎、Nancy","plannedStart":"2026/08/19","plannedEnd":"2026/10/02","status":"active","completionPct":10,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":105,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"考勤管理模組功能展示（Demo）","description":"展示考勤模組主要功能與操作流程，辨識與現行規則差異。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/08/25","plannedEnd":"2026/08/26","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":110,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"考勤","task":"考勤功能測試","description":"依已定案規則測試排班、刷卡、異常、請假、加班、表態與核定出勤結果。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/09/02","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":120,"role":"leaf","isLeaf":true,"stage":"系統設定／單元測試／修正","module":"考勤","task":"考勤設定穩定版確認","description":"考勤設定達穩定版，支撐11月薪資測試。","pm":"Ken／逐鹿Vivian","owner":"欣穎、Nancy","plannedStart":"2026/10/12","plannedEnd":"2026/10/16","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"若未於10月中完成，將影響11月薪資測試","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":121,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"考勤","task":"海外APP打卡時區處理","description":"確認APP時區技術機制並保留Web／卡機備援。","pm":"Ken","owner":"欣穎、IT","plannedStart":"2026/08/17","plannedEnd":"2026/09/25","status":"active","completionPct":15,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"若正式方案無法於上線前完成，需保留Web或卡機備援","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":133,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"薪酬","task":"薪資管理模組功能展示（Demo）","description":"展示薪資模組標準功能、計薪流程與主要設定邏輯。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/09/02","plannedEnd":"2026/09/04","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"實際日期待Kate與Vivian敲定","keyNode":"","isGate":false,"isCore":true},{"row":136,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"薪酬","task":"薪資規則與參數確認","description":"確認薪資科目、多包計薪、稅務、保障薪資、跨法人與特殊加扣項規則。","pm":"智翔","owner":"Betty、伊雯","plannedStart":"2026/09/02","plannedEnd":"2026/09/30","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":145,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"薪酬","task":"薪資系統設定與測試","description":"10月完成設定，11月以正式薪資結果進行兩輪比對測試。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/10/01","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"兩次薪資測試未通過不得進入12月平測","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":152,"role":"leaf","isLeaf":true,"stage":"資料驗證／整合測試／上線訓練","module":"薪酬","task":"第二次薪資測試差異確認完成","description":"第二次複測主要差異關閉，具備12月平行測試條件。","pm":"智翔／逐鹿Vivian","owner":"Betty、伊雯","plannedStart":"2026/11/27","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":177,"role":"parent","isLeaf":false,"stage":"需求確認／規則確認／系統Demo","module":"IT／介接","task":"AD登入與系統管理權限","description":"驗證AD登入、帳號更新邏輯與管理員權限。","pm":"慈琬","owner":"IT、義峰","plannedStart":"2026/08/13","plannedEnd":"2026/09/11","status":"active","completionPct":25,"scheduleTag":"on_track","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":196,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"IT／介接","task":"IT開發與測試","description":"完成查詢中心、郵件中心、報表中心及API／介接開發與整合驗證。","pm":"慈琬","owner":"IT","plannedStart":"2026/10/01","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":203,"role":"leaf","isLeaf":true,"stage":"資料驗證／整合測試／上線訓練","module":"IT／介接","task":"IT整合測試確認完成","description":"主要IT介接通過整合測試，不阻擋12月平測。","pm":"慈琬","owner":"IT","plannedStart":"2026/11/26","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":214,"role":"parent","isLeaf":false,"stage":"系統設定／單元測試／修正","module":"資料","task":"第一次完整資料匯入","description":"以接近正式資料的全量資料執行第一次完整模擬匯入。","pm":"Kate／逐鹿Vivian","owner":"各主責經辦","plannedStart":"2026/10/12","plannedEnd":"2026/10/30","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"第一次全量模擬匯入，不是最終上線資料","keyNode":"重要節點","isGate":true,"isCore":true},{"row":230,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"資料","task":"第二次完整資料匯入","description":"使用全員確認後最新資料執行第二次完整匯入。","pm":"Kate／逐鹿Vivian","owner":"各主責經辦","plannedStart":"2026/11/09","plannedEnd":"2026/11/20","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"重要節點","isGate":true,"isCore":true},{"row":249,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"測試","task":"上線前整合測試","description":"將組織、人事、考勤、薪酬、保險、電子簽核、APP及IT介接串成端到端情境測試。","pm":"Kate／慈琬","owner":"全PM、IT","plannedStart":"2026/11/16","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"主要整合測試未通過將影響12/1平測","memo":"","keyNode":"","isGate":false,"isCore":true},{"row":257,"role":"parent","isLeaf":false,"stage":"資料驗證／整合測試／上線訓練","module":"上線","task":"平測前作業確認","description":"確認考勤、薪資、保險、電子簽核、IT介接與資料均達可平測條件。","pm":"Kate","owner":"全PM、IT","plannedStart":"2026/11/16","plannedEnd":"2026/11/27","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":265,"role":"parent","isLeaf":false,"stage":"平行驗證／上線決策／切換準備","module":"測試","task":"正式平行測試","description":"12月以舊系統與Gaia HCM同步執行主要作業並持續比對結果。","pm":"Kate／逐鹿Vivian","owner":"全PM、全經辦、IT","plannedStart":"2026/12/01","plannedEnd":"2026/12/31","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"重大差異未解決不得正式切換","memo":"12/1開始，1/1上線","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":273,"role":"parent","isLeaf":false,"stage":"平行驗證／上線決策／切換準備","module":"上線","task":"正式上線條件確認","description":"彙整平測重大差異、重大缺陷、資料完整性及訓練完成度，判斷1/1或4/1。","pm":"Kate","owner":"全PM、IT","plannedStart":"2026/12/14","plannedEnd":"2026/12/18","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"若關鍵項目未達標，評估轉2027/4/1","memo":"","keyNode":"上線關卡","isGate":true,"isCore":true},{"row":296,"role":"parent","isLeaf":false,"stage":"正式上線／穩定化支援","module":"上線","task":"正式上線","description":"依核定決策於2027/1/1正式切換Gaia HCM。","pm":"Kate","owner":"全PM、全經辦、IT","plannedStart":"2027/01/01","plannedEnd":"2027/01/01","status":"pending","completionPct":0,"scheduleTag":"future","delayDays":0,"progress":"","coordination":"","memo":"目前正式基準","keyNode":"正式上線","isGate":true,"isCore":true}];
 FALLBACK_TASKS.push(
-  {row:282,role:"parent",isLeaf:false,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"HR內部操作培訓／種子能力建立",description:"9/11第一輪AO與主要規則收斂後，依模組成熟度分批啟動內部實作；HRM建立深度操作／測試能力，AO與HRD以人員／員工視角學習共通HCM操作及與HRM串聯作業。",pm:"Kate／各PM",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/09/14",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,progress:"9/16配合Vivian駐點啟動第一輪Key User Enablement；10月持續實作、測試與SOP累積。",coordination:"AO／HRD共用人員／員工視角教材，依職責補充案例。",memo:"能力移轉工作流，非正式上線教育訓練。",keyNode:"",isGate:false,isCore:true},
-  {row:283,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"Key User培訓啟動與種子名單確認",description:"9/16配合Vivian駐點啟動第一輪Key User Enablement。",pm:"Kate／各PM／逐鹿Vivian",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/09/14",plannedEnd:"2026/09/16",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true},
+  {row:282,role:"parent",isLeaf:false,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"HR內部操作與測試訓練",description:"9/11完成第一輪AO與主要規則確認後，各模組依設定進度分批開始內部實作；HRM進行核心模組操作與測試，AO與HRD學習人員／員工作業及與HRM的串接流程。",pm:"Kate／各PM",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/09/14",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,progress:"9/16配合Vivian駐點啟動第一輪種子人員操作訓練；10月持續實作、測試與SOP整理。",coordination:"AO／HRD共用人員／員工視角教材，依職責補充案例。",memo:"此階段是HR內部操作與測試訓練，不是正式上線教育訓練。",keyNode:"",isGate:false,isCore:true},
+  {row:283,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"Key User培訓啟動與種子名單確認",description:"9/16配合Vivian駐點啟動第一輪種子人員培訓啟動。",pm:"Kate／各PM／逐鹿Vivian",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/09/14",plannedEnd:"2026/09/16",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true},
   {row:284,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"HRM核心模組操作與測試實作",description:"HRM各功能PM／主責經辦實作核心HCM流程、測試腳本、結果判讀與Issue回報。",pm:"各PM／逐鹿Vivian",owner:"HRM各主責經辦",plannedStart:"2026/09/16",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true},
   {row:285,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"AO／HRD人員視角與HRM串聯作業實作",description:"AO與HRD皆以人員／員工視角學習共通HCM操作，並掌握與HRM之異動、考勤、表單、資料權限與問題回報串聯。",pm:"Kate／各PM",owner:"AO／HRD種子人員",plannedStart:"2026/09/21",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true},
-  {row:286,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"種子能力檢核與SOP V1收斂",description:"9/30進行第一階段能力檢核，10/30形成種子能力缺口與SOP V1，銜接11月正式訓練準備。",pm:"Kate／各PM",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/10/01",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true}
+  {row:286,parentRow:282,role:"leaf",isLeaf:true,stage:"系統設定／單元測試／修正",module:"教育訓練",task:"種子能力檢核與SOP V1確認",description:"9/30進行第一階段能力檢核，10/30形成種子能力缺口與SOP V1，銜接11月正式訓練準備。",pm:"Kate／各PM",owner:"HRM主責經辦、AO／HRD種子人員",plannedStart:"2026/10/01",plannedEnd:"2026/10/30",status:"pending",completionPct:0,scheduleTag:"future",delayDays:0,isCore:true}
 );
-const FALLBACK_RISKS = [{"id":"R01","module":"商務合約","desc":"C期付款條件「客製規格」定義，雙方認知存在落差","level":"medium","mit":"C期文字已定稿「含雙方認定上線前之必要客製規格」，待報價單用印完成","owner":"Kate/採購","deadline":"Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"訪談前逐鹿顧問對C期付款文字有異議，今日經協調後雙方達成共識，待報價單用印確認後正式收斂"},{"id":"R02","module":"商務合約","desc":"合約尚未完成用印，系統安裝授權檔無法即時交付","level":"high","mit":"報價單已用印，系統安裝授權檔已可交付；合約本體持續推進採購簽核","owner":"Kate/採購","deadline":"Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"05/26系統安裝已排定，但合約未確認，Robert說明授權檔會後補。合約用印是系統正式安裝的前提"},{"id":"R03","module":"時程","desc":"訪談定案連鎖延遲，壓縮後續配置與測試時間","level":"medium","mit":"每節點嚴格追蹤，延遲立即升級APL；訪談後24小時內完成填報","owner":"Kate","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"整體時程僅8個月，訪談、定案、配置、測試任一環節延誤均連鎖影響後續，無緩衝空間"},{"id":"R04","module":"範疇","desc":"多法人規則差異，導入範疇難以收斂","level":"medium","mit":"顧問駐點訪談同步確認旅天下、欣食旅差異；差異大則納入第二階段","owner":"Kate/俊翔","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"顧問駐點計劃要求三法人同步訪談。若各法人規則不一致，單一組織樹前提不成立，需重新議定導入範疇"},{"id":"R05","module":"範疇","desc":"客製需求在訪談中持續擴大，影響時程與預算","level":"medium","mit":"以標準化模板為基礎，非必要不客製；冠元與Steven各自擔保範疇不發散","owner":"Kate/逐鹿","deadline":"Fri Jul 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"C期付款以「雙方認定必要客製規格」為基準，但「必要」缺乏客觀標準，訪談過程中雙方認知可能出現落差"},{"id":"R06","module":"系統技術","desc":"現有考勤系統對接格式複雜，對接失敗影響全員考勤計算","level":"medium","mit":"訪談時確認eNitorWeb刷卡格式規格，提前進行欄位對應確認","owner":"Ken/慈琬","deadline":"Mon Aug 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"現有系統刷卡資料為自定義格式（工號5碼+日期+時間+進出代碼），對接Gaia HCM需精確欄位映射，設定錯誤將導致全員考勤資料無法匯入"},{"id":"R07","module":"系統技術","desc":"薪資計算規則複雜，設定錯誤有直接法律責任","level":"medium","mit":"訪談逐一確認加班科目及法院扣款設定，主責經辦Betty/伊雯進行驗證","owner":"智翔/逐鹿","deadline":"Sat Oct 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"問卷顯示加班費有16個科目（應稅/免稅×4種倍率）、法院扣款科目、計勤區間非自然月（上月21至當月20日），設定錯誤影響全員薪資並違反勞基法"},{"id":"R08","module":"系統技術","desc":"ERP異系統對接複雜度於訪談後才能確認，開發時間可能不足","level":"medium","mit":"提前啟動對接需求訪談，確認API規格與資料清理工作量","owner":"慈琬/逐鹿","deadline":"Mon Nov 30 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"與ERP系統的對接規格需待需求訪談完成才能鎖定，複雜度超出預期將壓縮整合測試時間"},{"id":"R09","module":"資料品質","desc":"多法人歷史資料清理工作量超出預期，影響平測與上線","level":"medium","mit":"提前確認各法人資料格式，主責經辦主導清理，逐鹿提供匯入範本","owner":"Kate/全體經辦","deadline":"Tue Dec 15 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"多法人、多薪資結構下歷史資料格式不一致，清理工作量難以預估，資料品質直接影響平測能否正常執行"},{"id":"R10","module":"系統技術","desc":"根組織節點代碼設定錯誤，系統建置後難以修改","level":"medium","mit":"節點代碼由HR主管確認後才回傳，不由IT自行決定","owner":"Kate","deadline":"Fri May 22 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"closed","background":"組織樹根節點代碼一旦設定錯誤幾乎無法修改，影響後續所有模組配置。已於05/18由主管確認後回傳逐鹿，此風險已關閉"},{"id":"R11","module":"系統技術","desc":"考勤DB對接方式與刷卡機廠商協調未定，影響考勤上線","level":"medium","mit":"6/18協調刷卡機廠商；DB對接方式待IT確認；提前鎖定規格","owner":"Ken/慈琬","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"06/04考勤訪談浮現，整合雄獅與欣食旅打卡資料、門禁併入考勤，對接未定將影響2027/1/1上線"},{"id":"R12","module":"資料品質","desc":"年假轉週年制之歷史差異補償，有成本與員工關係風險","level":"medium","mit":"盤點已領與應給差異、分析缺少年假人數，12/1前完成；轉制方案先提副總","owner":"Ken/Kate","deadline":"Tue Dec 01 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"部分年假給付不符比例，轉制需補足差異，涉及全員權益與成本，需副總決策後執行"}];
+const FALLBACK_RISKS = [{"id":"R01","module":"商務合約","desc":"C期付款條件「客製規格」定義，雙方認知存在落差","level":"medium","mit":"C期文字已定稿「含雙方認定上線前之必要客製規格」，待報價單用印完成","owner":"Kate/採購","deadline":"Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"訪談前逐鹿顧問對C期付款文字有異議，今日經協調後雙方達成共識，待報價單用印確認後正式確認"},{"id":"R02","module":"商務合約","desc":"合約尚未完成用印，系統安裝授權檔無法即時交付","level":"high","mit":"報價單已用印，系統安裝授權檔已可交付；合約本體持續推進採購簽核","owner":"Kate/採購","deadline":"Tue May 26 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"05/26系統安裝已排定，但合約未確認，Robert說明授權檔會後補。合約用印是系統正式安裝的前提"},{"id":"R03","module":"時程","desc":"訪談定案連鎖延遲，壓縮後續配置與測試時間","level":"medium","mit":"每節點嚴格追蹤，延遲立即升級APL；訪談後24小時內完成填報","owner":"Kate","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"processing","background":"整體時程僅8個月，訪談、定案、配置、測試任一環節延誤均連鎖影響後續，無緩衝空間"},{"id":"R04","module":"範疇","desc":"多法人規則差異，導入範疇難以確認","level":"medium","mit":"顧問駐點訪談同步確認旅天下、欣食旅差異；差異大則納入第二階段","owner":"Kate/俊翔","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"顧問駐點計劃要求三法人同步訪談。若各法人規則不一致，單一組織樹前提不成立，需重新議定導入範疇"},{"id":"R05","module":"範疇","desc":"客製需求在訪談中持續擴大，影響時程與預算","level":"medium","mit":"以標準化模板為基礎，非必要不客製；冠元與Steven各自擔保範疇不發散","owner":"Kate/逐鹿","deadline":"Fri Jul 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"C期付款以「雙方認定必要客製規格」為基準，但「必要」缺乏客觀標準，訪談過程中雙方認知可能出現落差"},{"id":"R06","module":"系統技術","desc":"現有考勤系統對接格式複雜，對接失敗影響全員考勤計算","level":"medium","mit":"訪談時確認eNitorWeb刷卡格式規格，提前進行欄位對應確認","owner":"Ken/慈琬","deadline":"Mon Aug 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"現有系統刷卡資料為自定義格式（工號5碼+日期+時間+進出代碼），對接Gaia HCM需精確欄位映射，設定錯誤將導致全員考勤資料無法匯入"},{"id":"R07","module":"系統技術","desc":"薪資計算規則複雜，設定錯誤有直接法律責任","level":"medium","mit":"訪談逐一確認加班科目及法院扣款設定，主責經辦Betty/伊雯進行驗證","owner":"智翔/逐鹿","deadline":"Sat Oct 31 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"問卷顯示加班費有16個科目（應稅/免稅×4種倍率）、法院扣款科目、計勤區間非自然月（上月21至當月20日），設定錯誤影響全員薪資並違反勞基法"},{"id":"R08","module":"系統技術","desc":"ERP異系統對接複雜度於訪談後才能確認，開發時間可能不足","level":"medium","mit":"提前啟動對接需求訪談，確認API規格與資料清理工作量","owner":"慈琬/逐鹿","deadline":"Mon Nov 30 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"與ERP系統的對接規格需待需求訪談完成才能鎖定，複雜度超出預期將壓縮整合測試時間"},{"id":"R09","module":"資料品質","desc":"多法人歷史資料清理工作量超出預期，影響平測與上線","level":"medium","mit":"提前確認各法人資料格式，主責經辦主導清理，逐鹿提供匯入範本","owner":"Kate/全體經辦","deadline":"Tue Dec 15 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"多法人、多薪資結構下歷史資料格式不一致，清理工作量難以預估，資料品質直接影響平測能否正常執行"},{"id":"R10","module":"系統技術","desc":"根組織節點代碼設定錯誤，系統建置後難以修改","level":"medium","mit":"節點代碼由HR主管確認後才回傳，不由IT自行決定","owner":"Kate","deadline":"Fri May 22 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"closed","background":"組織樹根節點代碼一旦設定錯誤幾乎無法修改，影響後續所有模組配置。已於05/18由主管確認後回傳逐鹿，此風險已關閉"},{"id":"R11","module":"系統技術","desc":"考勤DB對接方式與刷卡機廠商協調未定，影響考勤上線","level":"medium","mit":"6/18協調刷卡機廠商；DB對接方式待IT確認；提前鎖定規格","owner":"Ken/慈琬","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"06/04考勤訪談浮現，整合雄獅與欣食旅打卡資料、門禁併入考勤，對接未定將影響2027/1/1上線"},{"id":"R12","module":"資料品質","desc":"年假轉週年制之歷史差異補償，有成本與員工關係風險","level":"medium","mit":"盤點已領與應給差異、分析缺少年假人數，12/1前完成；轉制方案先提副總","owner":"Ken/Kate","deadline":"Tue Dec 01 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","background":"部分年假給付不符比例，轉制需補足差異，涉及全員權益與成本，需副總決策後執行"}];
 const FALLBACK_DECISIONS = [{"id":"D01","date":"Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"全體","title":"時程基準","content":"正式上線 2027/01/01（湯副總確認基準）。保守基準：2027/03/01","decider":"Steven/Vivian","executor":"Kate","deadline":"Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"decided","note":""},{"id":"D02","date":"Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"全體","title":"導入範疇","content":"單一組織樹、單套規則、台灣事業體。旅天下/欣食旅規則須一致才納入","decider":"Steven/Vivian","executor":"Kate/俊翔","deadline":"Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"decided","note":""},{"id":"D03","date":"Tue May 05 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"IT","title":"技術移轉範圍","content":"郵件/報表/查詢中心技轉後由雄獅IT開發。標準報表4張由逐鹿提供","decider":"Steven/Vivian","executor":"慈琬","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"decided","note":""},{"id":"D04","date":"Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"合約","title":"合約簽署截止日","content":"確認付款期程後走採購簽核，目標05/15完成","decider":"待確認","executor":"Kate/採購","deadline":"Fri May 15 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","note":"報價單已用印完成，合約本體仍在走採購簽核流程"},{"id":"D05","date":"Thu May 07 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"組織","title":"根組織節點代碼","content":"由HR主管確認後回傳，不由IT自行決定","decider":"待確認","executor":"Kate/冠元","deadline":"Fri May 15 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","note":""},{"id":"D06","date":"Mon May 11 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"考勤保險","title":"考勤PM調整","content":"考勤PM與保險PM統一由 Ken 負責，俊翔專注組織模組","decider":"冠元","executor":"Kate","deadline":"Mon May 11 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"decided","note":""},{"id":"D07","date":"Wed May 27 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"組織/人事","title":"組織+人事1/1上線導入策略","content":"以現有資料為基礎導入，透過欄位定義進行資料清洗。影響ERP/SERP/訂單/權限/經營分析的欄位獨立設定，透過顯示/不顯示控制，不貿然調動。SERP+ERP透過API抓欄位維持業務系統正常運作。終極目標：乾淨組織簽核邏輯、清洗過的職稱職等職級","decider":"Steven","executor":"俊翔/慈琬/義峰/All","deadline":"Tue Jun 30 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"decided","note":"05/27內部工作會議，與會：Steven、冠元、慈琬、俊翔、義峰、Ken。組織樹raw data牽涉SERP、ERP、訂單、權限角色與經營分析平台，不能貿然調動"},{"id":"D08","date":"Tue Jun 02 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"薪酬","title":"薪資追溯期限政策","content":"訪談建議追溯6個月為限，例外狀況可人工調整。追溯期過長將增加系統負擔，需確立公司政策上限","decider":"待確認","executor":"智翔/逐鹿","deadline":"Wed Jul 01 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","note":"06/02薪酬訪談浮現，影響薪資結算與系統效能，需副總定案追溯月數"},{"id":"D09","date":"Thu Jun 04 2026 15:00:00 GMT+0800 (Taiwan Standard Time)","module":"考勤","title":"年假制度：混合制改週年制","content":"現行年假為混合制，建議改週年制管理。需盤點歷史已領與應給差異、補足缺少年假，12/1前完成資料準備","decider":"待確認","executor":"Ken/逐鹿","deadline":"Tue Dec 01 2026 16:00:00 GMT+0800 (Taiwan Standard Time)","status":"pending","note":"06/04考勤訪談浮現，影響全員年假權益與給付，屬政策級決策，需副總拍板並評估補償成本"}];
 let APP_STATE={page:'command',ganttMode:'executive',execMode:'active',selectedWS:''};
 
@@ -769,12 +773,12 @@ function renderSpine(p){
   const anchors=(Array.isArray(cc.spine)&&cc.spine.length)?cc.spine:[
     {id:'CMD-KICKOFF',date:p.start,label:'開工',status:'done'},
     {id:'CMD-BASELINE',date:'2026/06/30',label:'基礎定案',status:'done'},
-    {id:'CMD-ATTENDANCE',date:'2026/08/19',label:'考勤Final問卷／Recovery',status:'active',labelPosition:'below'},
-    {id:'CMD-ORG-SIGN',date:'2026/09/11',label:'組織／簽核治理',status:'pending',labelPosition:'above'},
+    {id:'CMD-ATTENDANCE',date:'2026/08/19',label:'考勤最終問卷／時程追回',status:'active',labelPosition:'below'},
+    {id:'CMD-ORG-SIGN',date:'2026/09/11',label:'組織／簽核第一輪確認',status:'pending',labelPosition:'above'},
     {id:'CMD-DATA0',date:'2026/10/15',label:'第一輪資料匯入',status:'pending',labelPosition:'below'},
-    {id:'CMD-DATA1',date:'2026/10/30',label:'資料品質／可行性',status:'pending'},
-    {id:'CMD-PREPARALLEL',date:'2026/11/27',label:'平測前準備度確認',status:'pending',labelPosition:'above'},
-    {id:'CMD-GONOGO',date:'2026/12/18',label:'最終切換授權',status:'pending'},
+    {id:'CMD-DATA1',date:'2026/10/30',label:'資料匯入結果／品質',status:'pending'},
+    {id:'CMD-PREPARALLEL',date:'2026/11/27',label:'平測前各項準備確認',status:'pending',labelPosition:'above'},
+    {id:'CMD-GONOGO',date:'2026/12/18',label:'最終上線確認',status:'pending'},
     {id:'CMD-GOLIVE',date:p.goLive,label:'正式上線',status:'pending',star:true}
   ];
   anchors.forEach(a=>{
@@ -812,8 +816,8 @@ function renderCommandOverview(){
   const early=Math.max(0,Number(p.doneTasks||0)-Number(p.dueDoneCount??0));
   const gateGap=Math.max(0,Number(s.criticalGatesDue||0)-Number(s.criticalGatesDone||0));
   document.getElementById('commandOverview').innerHTML=
-    '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理 GOVERNANCE</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前治理狀態依執行、關鍵節點與正式風險綜合判斷')+'</div></div>'+ 
-    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度 PROGRESS</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big green">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">到期工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+(early>0?'其中 '+early+' 項工作已提前完成，因此累計完成數高於截至資料日到期工作數。':'累計完成與截至資料日到期完成口徑一致。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程 SCHEDULE</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　執行逾期 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
+    '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前專案狀態依工作進度、重要節點與正式風險綜合判斷')+'</div></div>'+ 
+    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(Number(p.dueToDatePct||0)<100?'red':'green')+'">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+((Number(p.dueTotalCount??0)>Number(p.dueDoneCount??0))?'截至目前應完成 '+Number(p.dueTotalCount??0)+' 項中已完成 '+Number(p.dueDoneCount??0)+' 項；未完成 1 項為考勤核心規則，現正依 8/19 時程追回計畫處理。另有 '+early+' 項後續工作提前完成。':'截至目前原定應完成的工作均已完成。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
     '<div class="ov-card focus" onclick="openOverviewDrawer(\'focus\')"><span class="ov-arrow">›</span><div class="ov-kicker">重點 FOCUS</div><div class="ov-main"><span class="ov-big amber">'+Number(f.count||focus.length)+'</span><span class="ov-label">管理主題</span></div>'+(focus.length?focus.map(x=>'<div class="ov-focus-line">'+esc(x.title)+'</div>').join(''):'<div class="ov-note">目前無需特別關注事項</div>')+'</div>';
 }
 function openOverviewDrawer(type){
@@ -828,17 +832,17 @@ function openOverviewDrawer(type){
   }
   if(type==='progress'){
     setDrawerHeader('專案進度總覽','專案總覽 · 進度','done');
-    let b='<div class="ad-quant">'+qBox('全案進度',p.scopeProgressPct+'%')+qBox('有效工作',p.totalTasks+' 項')+qBox('已完成工作',p.doneTasks+' / '+p.totalTasks+' 項')+qBox('應完成達成率',p.dueToDatePct+'%')+qBox('截至今日應完成',Number(p.dueTotalCount??0)+' 項')+qBox('其中已完成',Number(p.dueDoneCount??0)+' / '+Number(p.dueTotalCount??0)+' 項')+'</div>';
-    b+=secHtml('指標口徑','<div class="ad-text">全案進度＝有效工作完成度合計 ÷ 有效工作數；應完成達成率＝截至今日已完成工作數 ÷ 截至今日應完成工作數。母項僅作彙整，不納入分母。</div>');
+    let b='<div class="ad-quant">'+qBox('全案進度',p.scopeProgressPct+'%')+qBox('有效工作',p.totalTasks+' 項')+qBox('已完成工作',p.doneTasks+' / '+p.totalTasks+' 項')+qBox('應完成工作達成率',p.dueToDatePct+'%')+qBox('截至目前應完成',Number(p.dueTotalCount??0)+' 項')+qBox('其中已完成',Number(p.dueDoneCount??0)+' / '+Number(p.dueTotalCount??0)+' 項')+'</div>';
+    b+=secHtml('指標口徑','<div class="ad-text">全案進度＝有效工作完成度合計 ÷ 有效工作數；應完成工作達成率＝截至資料日原定應完成且已完成的工作數 ÷ 原定應完成工作數。若工作已較原定時程延後，即使重新排日期，也仍要保留逾期紀錄。母項只作彙整，不納入分母。</div>');
     const act=(D.execution?.active||[]).slice(0,8); if(act.length)b+=secHtml('進行中工作',wbsHtml(act,8));
     const done=(D.execution?.completedRecent||[]).slice(0,6); if(done.length)b+=secHtml('最近完成',wbsHtml(done,6)); openDrawer(b);return;
   }
   if(type==='schedule'){
     setDrawerHeader('專案時程總覽','專案總覽 · 時程',(s.overdueTasks||0)>0?'overdue':'active');
-    let b='<div class="ad-quant">'+qBox('截至資料日應完成里程碑',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('執行逾期',s.overdueTasks||0)+qBox('距正式上線',(s.daysToGo||0)+' 天')+qBox('下一控制點',s.nextGate?fmtMD(s.nextGate.date)+' '+managementGateText('',s.nextGate.name):'—')+'</div>';
+    let b='<div class="ad-quant">'+qBox('截至資料日應完成里程碑',s.criticalGatesDone+' / '+s.criticalGatesDue)+qBox('逾期／追回中',s.overdueTasks||0)+qBox('距正式上線',(s.daysToGo||0)+' 天')+qBox('下一控制點',s.nextGate?fmtMD(s.nextGate.date)+' '+managementGateText('',s.nextGate.name):'—')+'</div>';
     const overdue=(D.timeline?.masterGates||[]).filter(g=>g.status==='overdue'||g.isOverdue);if(overdue.length)b+=secHtml('未完成／逾期里程碑',gateItemsHtml(overdue.slice(0,6)));
     const exec=gateGroups().filter(g=>g.status!=='done');if(exec.length)b+=secHtml('後續管理關卡',gateGroupItemsHtml(exec.slice(0,10)));
-    b+=secHtml('時程結構','<div class="ad-text">管理時程以專案階段、主管關卡與主要工作包呈現；一般月度節奏與細項工作保留於工作明細，不與主管關卡混列。</div>');
+    b+=secHtml('時程結構','<div class="ad-text">管理時程以專案階段、主管控制點與主要工作包呈現；一般月度節奏與細項工作保留於工作明細，不與主管控制點混列。</div>');
     openDrawer(b);return;
   }
   setDrawerHeader('目前管理重點','專案總覽 · 重點','active');
@@ -857,7 +861,7 @@ function renderKpis(k, p){
   // 全案進度 (pair-a)
   const ka=kpiCell('pair-a','全案進度', k.scopeProgressPct, '%', '有效工作完成度的整體進度', '');ka.classList.add('clickable');ka.onclick=()=>openOverviewDrawer('progress');box.appendChild(ka);
   // 應完成-to-Date (pair-b)
-  const kb=kpiCell('pair-b','應完成達成率', k.dueToDatePct, '%', '截至今日應完成工作的達成程度', 'ok');kb.classList.add('clickable');kb.onclick=()=>openOverviewDrawer('progress');box.appendChild(kb);
+  const kb=kpiCell('pair-b','應完成工作達成率', k.dueToDatePct, '%', '截至資料日原定應完成工作的完成程度', k.dueToDatePct<100?'bad':'ok');kb.classList.add('clickable');kb.onclick=()=>openOverviewDrawer('progress');box.appendChild(kb);
   // Critical Gates
   const gc=el('div','kpi gate');
   const gWarn = k.criticalGatesDone < k.criticalGatesDue;
@@ -867,7 +871,7 @@ function renderKpis(k, p){
   const ki=kpiCell('plain','進行中 In Progress', k.activeTasks, ' 件', '正在動的有效工作', '');ki.classList.add('clickable');ki.onclick=()=>openOverviewDrawer('progress');box.appendChild(ki);
   // Overdue
   const ov=el('div','kpi plain');
-  ov.innerHTML='<div class="k-l">逾期 Overdue</div><div class="k-v">'+k.overdueTasks+'<span class="u"> 件</span></div><div class="k-sub '+(k.overdueTasks>0?'bad':'ok')+'">'+(k.overdueTasks>0?'需立即處理':'執行面零逾期')+'</div>';
+  ov.innerHTML='<div class="k-l">逾期／追回中</div><div class="k-v">'+k.overdueTasks+'<span class="u"> 件</span></div><div class="k-sub '+(k.overdueTasks>0?'bad':'ok')+'">'+(k.overdueTasks>0?'考勤核心規則 1 項時程追回中':'目前無逾期工作')+'</div>';
   ov.classList.add('clickable');ov.onclick=()=>openOverviewDrawer('schedule');box.appendChild(ov);
   // Days to go
   const dg=el('div','kpi plain');
@@ -924,7 +928,7 @@ function renderGates(){
     let flags='';if(g.managementCritical)flags+='<span class="critflag">管理 Gate</span>';if(g.star)flags+='<span class="star">★</span>';if(g.decision)flags+='<span class="critflag" style="color:var(--slate);border-color:#C5D0DC;background:var(--slatel)">決策點</span>';
     row.innerHTML='<div class="gate-date">'+fmtMD(g.date)+'</div><div class="gate-mid"><div class="gate-name">'+esc(g.label)+flags+'</div><div class="gate-mod">主管時程控制點</div></div><div class="gate-st '+st+'">'+stTxt+'</div>';box.appendChild(row);
   });
-  const lg=el('div','crit-legend');lg.innerHTML='<span class="cf">管理 Gate</span> 前置控制點 → 2026/11/27 平測準備度 → 2026/12/18 最終上線決策 → 2027/01/01 正式上線';box.appendChild(lg);
+  const lg=el('div','crit-legend');lg.innerHTML='<span class="cf">主管控制點</span> 前置確認 → 2026/11/27 平測前確認 → 2026/12/18 最終上線確認 → 2027/01/01 正式上線';box.appendChild(lg);
 }
 
 function moduleDisplayName(name){return({ '組織':'組織管理','人事':'人事管理','考勤':'考勤管理','薪酬':'薪酬管理','保險':'保險福利' }[name]||name);}
@@ -1002,8 +1006,8 @@ function managementGateText(name,fallback){const t=managementThemeForModule(name
 function taskManagementTitle(t){
   const n=String(t?.task||'');
   const map={
-    '組織圖＆簽核邏輯確認':'組織／簽核架構定版',
-    '考勤規則／Recovery確認':'考勤核心制度定案',
+    '組織圖＆簽核邏輯確認':'組織／簽核第一輪確認',
+    '考勤設定回復檢核':'考勤核心制度定案',
     '需調整／客製表單規格確認':'必要客製與表單範圍定版',
     '組織及簽核設定調整':'組織／簽核設定與驗證',
     '電子簽核單流程建置':'電子表單／簽核流程定版',
@@ -1017,27 +1021,27 @@ function goLiveGovData(){
   if(D.goLiveGovernance)return D.goLiveGovernance;
   return {
     primary:{date:D.project?.goLive||'2027/01/01',status:'pending',label:'正式主計畫'},
-    decisionGate:{date:'2026/12/18',status:'pending',label:'最終切換授權',criteria:['平測重大差異','重大缺陷','資料完整性','教育訓練完成度']},
-    fallback:{date:'2027/04/01',status:'conditional',label:'條件式備援方案',activationMode:'not_activated',preparedness:'standby',tasks:[
-      {row:328,scopeType:'contingency',isContingency:true,role:'parent',isLeaf:false,module:'上線',stage:'備援上線方案（條件啟動）',task:'4/1備援上線方案',description:'僅於關鍵上線條件未達成時啟動，不列入1/1主計畫完成度。',pm:'冠元／Kate',owner:'全PM、全經辦、IT',plannedStart:'2026/12/18',plannedEnd:'2027/04/01',status:'pending',completionPct:0,memo:'僅於1/1上線條件未達成時啟動',keyNode:'備援方案'},
-      {row:329,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（條件啟動）',task:'啟動條件與範圍確認',description:'依12月上線條件確認結果，鎖定未達標項目、影響範圍與責任人。',pm:'冠元／Kate',owner:'全PM、IT',plannedStart:'2026/12/18',plannedEnd:'2026/12/31',status:'pending',completionPct:0},
-      {row:330,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（條件啟動）',task:'重大問題修正與規則調整',description:'依未達標原因完成制度、設定、資料、介接或流程問題修正。',pm:'各PM／逐鹿',owner:'全經辦、IT',plannedStart:'2027/01/04',plannedEnd:'2027/01/29',status:'pending',completionPct:0},
-      {row:331,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（條件啟動）',task:'重新測試與薪資驗證',description:'重新執行受影響模組測試、整合測試及薪資驗證。',pm:'各PM／逐鹿',owner:'全經辦、IT',plannedStart:'2027/02/01',plannedEnd:'2027/02/26',status:'pending',completionPct:0},
-      {row:332,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（條件啟動）',task:'再次平行驗證與正式切換準備',description:'3月重新執行平行驗證並完成上線前資料更新、訓練補強及切換準備。',pm:'Kate／各PM',owner:'全經辦、IT',plannedStart:'2027/03/01',plannedEnd:'2027/03/31',status:'pending',completionPct:0},
-      {row:333,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（條件啟動）',task:'2027/4/1備援正式上線',description:'僅於1/1上線條件未達成且備援方案正式啟動時適用。',pm:'Kate',owner:'全PM、全經辦、IT',plannedStart:'2027/04/01',plannedEnd:'2027/04/01',status:'pending',completionPct:0,keyNode:'備援上線'}
+    decisionGate:{date:'2026/12/18',status:'pending',label:'最終上線確認',criteria:['平測重大差異','重大缺陷','資料完整性','教育訓練完成度']},
+    fallback:{date:'2027/04/01',status:'conditional',label:'備援方案方案',activationMode:'not_activated',preparedness:'standby',tasks:[
+      {row:328,scopeType:'contingency',isContingency:true,role:'parent',isLeaf:false,module:'上線',stage:'備援上線方案（未啟動）',task:'4/1備援上線方案',description:'僅於關鍵上線條件未達成時啟動，不列入1/1主計畫完成度。',pm:'冠元／Kate',owner:'全PM、全經辦、IT',plannedStart:'2026/12/18',plannedEnd:'2027/04/01',status:'pending',completionPct:0,memo:'僅於1/1上線條件未達成時啟動',keyNode:'備援方案'},
+      {row:329,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（未啟動）',task:'備援工作與範圍確認',description:'依12月上線條件確認結果，鎖定未達標項目、影響範圍與責任人。',pm:'冠元／Kate',owner:'全PM、IT',plannedStart:'2026/12/18',plannedEnd:'2026/12/31',status:'pending',completionPct:0},
+      {row:330,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（未啟動）',task:'重大問題修正與規則調整',description:'依未達標原因完成制度、設定、資料、介接或流程問題修正。',pm:'各PM／逐鹿',owner:'全經辦、IT',plannedStart:'2027/01/04',plannedEnd:'2027/01/29',status:'pending',completionPct:0},
+      {row:331,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（未啟動）',task:'重新測試與薪資測試',description:'重新執行受影響模組測試、整合測試及薪資測試。',pm:'各PM／逐鹿',owner:'全經辦、IT',plannedStart:'2027/02/01',plannedEnd:'2027/02/26',status:'pending',completionPct:0},
+      {row:332,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（未啟動）',task:'再次平測與正式切換準備',description:'3月重新執行平測，並完成上線前資料更新、訓練補強及切換準備。',pm:'Kate／各PM',owner:'全經辦、IT',plannedStart:'2027/03/01',plannedEnd:'2027/03/31',status:'pending',completionPct:0},
+      {row:333,parentRow:328,scopeType:'contingency',isContingency:true,role:'leaf',isLeaf:true,module:'上線',stage:'備援上線方案（未啟動）',task:'2027/4/1備援正式上線',description:'僅於1/1上線條件未達成且備援方案正式啟動時適用。',pm:'Kate',owner:'全PM、全經辦、IT',plannedStart:'2027/04/01',plannedEnd:'2027/04/01',status:'pending',completionPct:0,keyNode:'備援上線'}
     ]},
     checkpoints:[
-      {id:'CP-ATT',label:'考勤Final問卷／Recovery',date:'2026/08/19',status:'active',level:'recovery',action:'原8月上旬規則交付基準已發生偏差；8/19完成Final問卷並交付顧問，完成後立即銜接考勤設定與薪資參數。8月底檢核是否追回9月測試基準。'},
+      {id:'CP-ATT',label:'考勤最終問卷／時程追回',date:'2026/08/19',status:'active',level:'recovery',action:'原8月上旬規則交付基準已發生偏差；8/19完成最終問卷並交付顧問，完成後立即銜接考勤設定與薪資參數。8月底檢核是否追回9月測試基準。'},
       {id:'CP-ORG',label:'組織／簽核架構',date:'2026/09/11',status:'pending',level:'control',action:'未達時凍結例外清單並升級處理；電子簽核、權限與表單定版不得在基準不明下前推。'},
       {id:'CP-STABLE',label:'核心設定穩定',date:'2026/10/16',status:'pending',level:'control',action:'未達時停止新增非必要變更，集中修正與複測。'},
-      {id:'CP-DATA0',label:'第一輪全模組資料匯入',date:'2026/10/15',status:'pending',level:'control',action:'確認組織／職位、人事、考勤、薪酬、保險均具備實際匯入能力；未達先做影響分析與Recovery。'},{id:'CP-DATA1',label:'資料品質／可行性檢核',date:'2026/10/30',status:'pending',level:'viability',action:'10/16–10/30完成Mapping與資料品質修正，10/30檢視是否足以支撐11月薪資與整合驗證。'},
-      {id:'CP-PAY1',label:'第一次薪資驗證',date:'2026/11/13',status:'pending',level:'viability',action:'以現行正式薪資比對Gaia計算；重大差異無修正路徑即升級1/1可行性風險。'},
-      {id:'CP-DATA2',label:'第二次完整資料匯入',date:'2026/11/20',status:'pending',level:'control',action:'確認最新資料品質足以支撐第二次薪資、端到端整合與正式平測。'},
-      {id:'CP-PRE',label:'平測前準備度確認',date:'2026/11/27',status:'pending',level:'readiness',action:'綜合第二次資料、第二次薪資、IT介接與整合結果，正式判斷是否可於12/1進入平行驗證。'},
-      {id:'CP-GNG',label:'最終切換授權',date:'2026/12/18',status:'pending',level:'final',action:'平測期間持續動態評估；無合理Recovery Path可提前提報提前No-Go提案。12/18為最晚正式切換授權。'}
+      {id:'CP-DATA0',label:'第一輪全模組資料匯入',date:'2026/10/15',status:'pending',level:'control',action:'確認組織／職位、人事、考勤、薪酬、保險均具備實際匯入能力；未達先做影響分析與時程追回。'},{id:'CP-DATA1',label:'資料匯入結果與品質確認',date:'2026/10/30',status:'pending',level:'viability',action:'10/16–10/30完成Mapping與資料品質修正，10/30檢視是否足以支撐11月薪資與整合驗證。'},
+      {id:'CP-PAY1',label:'第一次薪資測試',date:'2026/11/13',status:'pending',level:'viability',action:'以現行正式薪資比對Gaia計算；重大差異無修正路徑即升級1/1可行性風險。'},
+      {id:'CP-DATA2',label:'第二次完整資料匯入',date:'2026/11/20',status:'pending',level:'control',action:'確認最新資料品質足以支撐第二次薪資、跨模組整合測試與正式平測。'},
+      {id:'CP-PRE',label:'平測前各項準備確認',date:'2026/11/27',status:'pending',level:'readiness',action:'綜合第二次資料、第二次薪資、IT介接與整合結果，確認是否可於12/1進入正式平測。'},
+      {id:'CP-GNG',label:'最終上線確認',date:'2026/12/18',status:'pending',level:'final',action:'平測期間持續動態評估；無合理回復路徑時，可提前提報調整上線計畫。12/18為最後上線確認。'}
     ],
-    baselineAlignment:{status:'needs_alignment',message:'備援基準待確認：S4 歷史紀錄為 2027/03/01，S2_V2 現行條件式備援規劃為 2027/04/01。正式裁示前，以 4/1 作備援規劃，不視為已啟動。'},
-    governanceText:'上線治理採分階段控制與Recovery：8/19完成考勤Final問卷Recovery、9/11完成組織／簽核第一輪收斂、10/15確認第一輪全模組資料匯入能力、10/30檢視資料品質與可行性、11/13完成第一次薪資驗證、11/27確認平測前準備度、12/1進入正式平行驗證，12/18為最終切換授權。單一節點未達不自動切換4/1；先做影響分析與Recovery，若確認無合理Recovery Path再提報調整上線計畫。'
+    baselineAlignment:{status:'needs_alignment',message:'備援基準待確認：S4 歷史紀錄為 2027/03/01，S2_V2 現行備援方案規劃為 2027/04/01。正式裁示前，以 4/1 作備援規劃，不視為已啟動。'},
+    governanceText:'上線採分階段確認：8/19完成考勤核心規則與最終版問卷、9/11完成組織／簽核第一輪確認、10/15完成第一輪全模組資料匯入、10/16確認核心設定穩定、10/30確認資料匯入結果與品質、11/13完成第一次薪資測試、11/27確認是否可進12/1正式平測，12/18做最終上線確認。任何節點未完成，都要立即確認影響、提出修正時程並向主管報告；若已確定無法合理追回，再提報調整上線日期。'
   };
 }
 function renderPageBrief(id,label,text,meta,onClick){const e=document.getElementById(id);if(!e)return;e.innerHTML='<span class="pb-label">'+esc(label)+'</span><span class="pb-text">'+esc(text||'—')+'</span>'+(meta?'<span class="pb-meta">'+esc(meta)+'</span>':'')+'<span class="pb-arrow">›</span>';e.onclick=typeof onClick==='function'?onClick:null;}
@@ -1051,8 +1055,8 @@ function hydrateSelects(){
   ['gModule','execModule'].forEach(id=>{const s=document.getElementById(id);if(!s)return;const first=s.options[0]?.outerHTML||'<option value="">全部</option>';s.innerHTML=first+mods.map(m=>'<option value="'+esc(m)+'">'+esc(m)+'</option>').join('');});
 }
 const WS_ORDER=['專案總控','組織','人事','考勤','薪酬','保險','IT／介接','資料','電子簽核','測試','教育訓練','上線','跨模組'];
-function tlStageKey(s){s=String(s||'');if(/專案治理/.test(s))return'governance';if(/需求收斂|規則確認|Demo/.test(s))return'define';if(/系統設定|單元測試|修正/.test(s))return'configure';if(/資料驗證|整合測試|上線訓練/.test(s))return'validate';if(/平行驗證|上線決策|切換準備/.test(s))return'parallel';if(/正式上線|穩定化/.test(s))return'hypercare';return s||'other';}
-function tlStageLabel(k){return({governance:'治理',define:'規則／需求',configure:'設定／測試',validate:'整合驗證',parallel:'平測／切換',hypercare:'上線支援'})[k]||k;}
+function tlStageKey(s){s=String(s||'');if(/專案治理/.test(s))return'governance';if(/需求確認|規則確認|Demo/.test(s))return'define';if(/系統設定|單元測試|修正/.test(s))return'configure';if(/資料驗證|整合測試|上線訓練/.test(s))return'validate';if(/平行驗證|上線決策|切換準備/.test(s))return'parallel';if(/正式上線|穩定化/.test(s))return'hypercare';return s||'other';}
+function tlStageLabel(k){return({governance:'專案管理',define:'規則／需求',configure:'設定／測試',validate:'資料／整合測試',parallel:'平測／切換',hypercare:'上線支援'})[k]||k;}
 function timelineView(){return D.timeline||{};}
 function timelineDomain(){const t=timelineView();return{start:t.domainStart||'2026/08/01',end:t.domainEnd||'2027/01/15',today:t.today||D.updatedDate||D.updated||'2026/08/15'};}
 function dxDate(iso){const c=timelineDomain(),a=dateObj(c.start),b=dateObj(c.end),d=dateObj(iso);if(!a||!b||!d)return 0;return Math.max(0,Math.min(100,(d-a)/(b-a)*100));}
@@ -1062,27 +1066,27 @@ function assignTracks(segs){const ends=[];return segs.map(s=>{const x=Object.ass
 function fallbackTimelineLanes(){const parents=tasksData().filter(t=>t.isCore!==false&&t.role==='parent'&&t.plannedStart&&t.plannedEnd),by={};parents.forEach(t=>{(by[t.module]=by[t.module]||{});const k=tlStageKey(t.stage);(by[t.module][k]=by[t.module][k]||[]).push(t);});return WS_ORDER.filter(m=>by[m]).map(m=>{const segs=Object.keys(by[m]).map(k=>{const a=by[m][k].slice().sort((x,y)=>dateObj(x.plannedStart)-dateObj(y.plannedStart));const start=a[0].plannedStart,end=a.reduce((mx,t)=>dateObj(t.plannedEnd)>dateObj(mx)?t.plannedEnd:mx,a[0].plannedEnd);const anyOver=a.some(t=>['overdue','blocked','risk'].includes(t.status)),anyActive=a.some(t=>t.status==='active'),allDone=a.every(t=>t.status==='done');return{id:m+'|'+k,label:tlStageLabel(k),stage:k,start,end,status:anyOver?'overdue':allDone?'done':anyActive?'active':'pending',completionPct:a.length===1&&a[0].status==='active'?a[0].completionPct:null,taskRows:a.map(t=>t.row),taskCount:a.length,managementCritical:a.some(t=>t.isGate)};}).sort((x,y)=>dateObj(x.start)-dateObj(y.start));const mm=(D.modules||[]).find(x=>x.name===m)||{};return{module:m,health:mm.health||'gray',scopeProgressPct:mm.scopeProgressPct||0,dueToDatePct:mm.dueToDatePct??100,managementCritical:(D.timeline?.masterGates||[]).some(g=>(g.managementCritical||g.critical)&&((g.module||'')===m)),segments:assignTracks(segs)};});}
 function timelineLanes(){return(Array.isArray(D.timeline?.workstreamLanes)&&D.timeline.workstreamLanes.length)?D.timeline.workstreamLanes:fallbackTimelineLanes();}
 function fallbackGateGroups(){
-  const by={}, re=/(考勤Final問卷|考勤核心規則|考勤規則／Recovery|組織／簽核|組織.*簽核|第一輪全模組資料匯入|第一次完整資料匯入|資料品質／可行性|第一次薪資驗證|第二次完整資料匯入|平測前.*準備|正式平行驗證|最終切換授權|正式上線)/;
+  const by={}, re=/(考勤最終問卷|考勤核心規則|考勤設定回復|組織／簽核|組織.*簽核|第一輪全模組資料匯入|第一次完整資料匯入|資料匯入結果／品質|第一次薪資測試|第二次完整資料匯入|平測前.*準備|正式平測|最終上線確認|正式上線)/;
   (window.TASKS||FALLBACK_TASKS||[]).filter(t=>t&&t.isGate&&t.plannedEnd&&re.test((t.keyNode||'')+' '+(t.task||''))).forEach(t=>{
     const d=t.plannedEnd, text=(t.keyNode||'')+' '+(t.task||'');
     let label=t.task||t.keyNode||'';
-    if(/考勤Final問卷|考勤核心規則|考勤規則／Recovery/.test(text)) label='考勤Final問卷／Recovery';
-    else if(/組織.*簽核|組織／簽核/.test(text)) label='組織／簽核治理';
+    if(/考勤最終問卷|考勤核心規則|考勤設定回復/.test(text)) label='考勤最終問卷／時程追回';
+    else if(/組織.*簽核|組織／簽核/.test(text)) label='組織／簽核第一輪確認';
     else if(/第一輪全模組資料匯入/.test(text)) label='第一輪資料匯入';
-    else if(/第一次完整資料匯入|資料品質／可行性/.test(text)) label='資料品質／可行性檢核';
-    else if(/第一次薪資驗證/.test(text)) label='第一次薪資驗證';
+    else if(/第一次完整資料匯入|資料匯入結果／品質/.test(text)) label='資料匯入結果與品質確認';
+    else if(/第一次薪資測試/.test(text)) label='第一次薪資測試';
     else if(/第二次完整資料匯入/.test(text)) label='第二次完整資料匯入';
-    else if(/平測前.*準備/.test(text)) label='平測前準備度確認';
-    else if(/正式平行驗證/.test(text)) label='正式平行驗證';
-    else if(/最終切換授權/.test(text)) label='最終切換授權';
+    else if(/平測前.*準備/.test(text)) label='平測前各項準備確認';
+    else if(/正式平測/.test(text)) label='正式平測';
+    else if(/最終上線確認/.test(text)) label='最終上線確認';
     else if(/正式上線/.test(text)) label='正式上線';
     if(!by[d]) by[d]={date:d,label,count:0,status:t.status||'pending'};
     by[d].count++;
   });
   const arr=Object.values(by).sort((a,b)=>new Date(a.date)-new Date(b.date));
-  if(!arr.some(x=>x.date==='2026-08-19')) arr.unshift({date:'2026-08-19',label:'考勤Final問卷／Recovery',count:1,status:'active'});
+  if(!arr.some(x=>x.date==='2026-08-19')) arr.unshift({date:'2026-08-19',label:'考勤最終問卷／時程追回',count:1,status:'active'});
   if(!arr.some(x=>x.date==='2026-10-15')) arr.push({date:'2026-10-15',label:'第一輪資料匯入',count:1,status:'pending'});
-  if(!arr.some(x=>x.date==='2026-10-30')) arr.push({date:'2026-10-30',label:'資料品質／可行性檢核',count:1,status:'pending'});
+  if(!arr.some(x=>x.date==='2026-10-30')) arr.push({date:'2026-10-30',label:'資料匯入結果與品質確認',count:1,status:'pending'});
   return arr.sort((a,b)=>new Date(a.date)-new Date(b.date));
 }
 
@@ -1105,9 +1109,9 @@ function renderTimelinePage(){
     ['備援方案',fmtMD(gov.fallback.date)+(gov.fallback.status==='active'?'（已啟動）':'（未啟動）'),'']
   ].map(x=>'<div class="ss-item '+(x[2]==='grow'?'ss-grow':'')+'"><span class="ss-label">'+esc(x[0])+'</span><span class="ss-value '+(x[2]==='red'||x[2]==='green'?x[2]:'')+'">'+esc(x[1])+'</span></div>').join('');
   const bands=(D.timeline?.summaryBands&&D.timeline.summaryBands.length)?D.timeline.summaryBands:[
-    {label:'2026/08',title:'規則確認與 Demo',text:'核心制度、AO差異與系統展示收斂。'},
+    {label:'2026/08',title:'規則確認與 Demo',text:'核心制度、AO差異與系統展示確認。'},
     {label:'2026/09–10',title:'設定、測試與資料匯入',text:'設定調整、單元測試與完整資料匯入。'},
-    {label:'2026/11–12',title:'薪資驗證、Readiness 與切換授權',text:'11/13第一次薪資驗證、11/27 平測前準備度確認、12/1平行驗證與12/18 最終切換授權。'}
+    {label:'2026/11–12',title:'薪資測試、平測前確認與最終上線確認',text:'11/13第一次薪資測試、11/27平測前各項準備確認、12/1正式平測、12/18最終上線確認。'}
   ];
   const sum=document.getElementById('timelineSummary');if(sum)sum.innerHTML=bands.map(b=>'<div class="ts-card"><div class="ts-k">'+esc(b.label)+'</div><div class="ts-t">'+esc(b.title||'')+'</div><div class="ts-d">'+esc(b.text)+'</div></div>').join('');
   const tools=document.querySelector('.timeline-tools');if(tools)tools.classList.toggle('detail-mode',APP_STATE.ganttMode==='detail');
@@ -1123,14 +1127,14 @@ function renderBackupBranch(){
   const control=cps.filter(c=>c.level==='control'),readiness=cps.find(c=>c.level==='readiness');
   const tasks=(fb.tasks||[]).filter(t=>t.plannedStart||t.plannedEnd);
   const rows=tasks.filter(t=>t.role!=='parent').slice(0,6).map(t=>'<div class="bt-row" onclick="'+(t.row?'openTaskByRow('+Number(t.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="bt-date">'+fmtMD(t.plannedStart||t.plannedEnd)+'</span><span class="bt-task">'+esc(t.task||'備援工作')+'</span><span class="bt-status">'+statusText(t.status||'pending')+'</span></div>').join('');
-  box.innerHTML='<div class="backup-head"><span class="backup-title">上線治理與條件式備援</span><span class="backup-status '+status+'">'+(status==='active'?'備援已正式啟動':'備援未啟動')+'</span><span class="backup-sub">主計畫：2027/01/01｜備援：2027/04/01</span></div>'
+  box.innerHTML='<div class="backup-head"><span class="backup-title">上線確認與備援方案</span><span class="backup-status '+status+'">'+(status==='active'?'備援已正式啟動':'備援未啟動')+'</span><span class="backup-sub">主計畫：2027/01/01｜備援：2027/04/01</span></div>'
     +'<div class="branch-body">'
     +'<div class="branch-control-track">'+control.map(c=>'<div class="branch-control '+(c.status||'pending')+'" onclick="'+(c.row?'openTaskByRow('+Number(c.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="d">'+fmtMD(c.date)+'</span><span class="n">'+esc(c.label)+'</span></div>').join('')+'</div>'
-    +(readiness?'<div class="branch-readiness" onclick="'+(readiness.row?'openTaskByRow('+Number(readiness.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="d">'+fmtMD(readiness.date)+'</span><span class="n">平測前整合 Gate</span><span class="s">檢核是否具備進入平測與維持 1/1 主計畫的準備度</span></div>':'')
-    +'<div class="branch-decision-node" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">最終切換授權</div><div class="branch-date">'+fmtMD(dg.date)+'</div><div class="branch-name">最終切換授權</div><div class="branch-condition">整合前置控制結果、平測重大差異、重大缺陷、資料完整性與教育訓練完成度</div></div>'
+    +(readiness?'<div class="branch-readiness" onclick="'+(readiness.row?'openTaskByRow('+Number(readiness.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="d">'+fmtMD(readiness.date)+'</span><span class="n">平測前各項準備確認</span><span class="s">確認是否具備進入平測的條件，並持續確認1/1上線是否仍能依計畫推進</span></div>':'')
+    +'<div class="branch-decision-node" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">最終上線確認</div><div class="branch-date">'+fmtMD(dg.date)+'</div><div class="branch-name">最終上線確認</div><div class="branch-condition">整合前置控制結果、平測重大差異、重大缺陷、資料完整性與教育訓練完成度</div></div>'
     +'<div class="branch-fork">'
-    +'<div class="branch-outcome"><div class="branch-main" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">GO｜維持主計畫</div><div class="branch-date">'+fmtMD(primary.date)+'</div><div class="branch-name">正式上線</div></div></div>'
-    +'<div class="branch-outcome"><div class="branch-fallback" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">NO-GO｜啟動備援</div><div class="branch-date">'+fmtMD(fb.date)+'</div><div class="branch-name">條件式備援上線</div><div class="branch-condition">目前 '+(status==='active'?'已啟動':'未啟動')+'</div></div></div>'
+    +'<div class="branch-outcome"><div class="branch-main" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">通過｜維持主計畫</div><div class="branch-date">'+fmtMD(primary.date)+'</div><div class="branch-name">正式上線</div></div></div>'
+    +'<div class="branch-outcome"><div class="branch-fallback" onclick="openGoLiveGovernanceDrawer()"><div class="branch-k">未通過｜啟動備援</div><div class="branch-date">'+fmtMD(fb.date)+'</div><div class="branch-name">備援方案上線</div><div class="branch-condition">目前 '+(status==='active'?'已啟動':'未啟動')+'</div></div></div>'
     +'</div></div>'
     +(status==='active' && rows?'<div class="backup-timeline">'+rows+(tasks.filter(t=>t.role!=='parent').length>6?'<div class="drawer-more">備援方案細項共 '+tasks.filter(t=>t.role!=='parent').length+' 項，顯示前 6 項</div>':'')+'</div>':'<div class="backup-mini" onclick="openGoLiveGovernanceDrawer()"><span>2026/12 未達範圍確認</span><i>→</i><span>2027/01 問題修正</span><i>→</i><span>2027/02 重測</span><i>→</i><span>2027/03 再平測</span><i>→</i><span>2027/04/01 備援上線</span><span class="open">查看備援細節 ›</span></div>');
 }
@@ -1141,14 +1145,14 @@ function setGanttMode(m,b){
   document.querySelectorAll('[data-gmode]').forEach(x=>x.classList.remove('active'));
   if(b)b.classList.add('active');
   const tools=document.querySelector('.timeline-tools'); if(tools)tools.classList.toggle('detail-mode',m==='detail');
-  const note=document.getElementById('timelineViewNote'); if(note)note.textContent=m==='detail'?'工作明細以「一列一個工作包」呈現；可用模組與狀態篩選，點擊任一列查看細項。':'管理時程以「階段＋主管關卡」呈現，不在同一列堆疊多個工作。';
+  const note=document.getElementById('timelineViewNote'); if(note)note.textContent=m==='detail'?'工作明細以「一列一個工作包」呈現；可用模組與狀態篩選，點擊任一列查看細項。':'管理時程以「階段＋主管控制點」呈現，不在同一列堆疊多個工作。';
   renderGantt();
 }
 function mgmtDomainV36(){return{start:'2026/08/17',end:'2027/02/28',today:timelineDomain().today||'2026/08/15'};}
 function mgDxV36(iso){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),x=dateObj(iso);if(!a||!b||!x)return 0;return Math.max(0,Math.min(100,(x-a)/(b-a)*100));}
 function mgWeekAnchorsV36(){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),out=[];let x=new Date(a.getTime());x.setHours(0,0,0,0);while(x<=b){out.push(new Date(x));x.setDate(x.getDate()+7);}return out;}
 function mgMonthAnchorsV36(){const d=mgmtDomainV36(),a=dateObj(d.start),b=dateObj(d.end),out=[];let y=a.getFullYear(),m=a.getMonth();while(true){const x=new Date(y,m,1);if(x>b)break;if(x>=a||out.length===0)out.push({date:x,label:x.getFullYear()+'/'+String(x.getMonth()+1).padStart(2,'0')});m++;if(m>11){m=0;y++;}}return out;}
-function phaseClassV36(stage){const s=String(stage||'');if(s.includes('專案治理'))return'phase-pmo';if(s.includes('需求收斂'))return'phase-requirement';if(s.includes('系統設定'))return'phase-setting';if(s.includes('資料驗證'))return'phase-validation';if(s.includes('平行驗證'))return'phase-parallel';if(s.includes('正式上線'))return'phase-golive';if(s.includes('備援'))return'phase-backup';return'phase-expansion';}
+function phaseClassV36(stage){const s=String(stage||'');if(s.includes('專案治理'))return'phase-pmo';if(s.includes('需求確認'))return'phase-requirement';if(s.includes('系統設定'))return'phase-setting';if(s.includes('資料驗證'))return'phase-validation';if(s.includes('平行驗證'))return'phase-parallel';if(s.includes('正式上線'))return'phase-golive';if(s.includes('備援'))return'phase-backup';return'phase-expansion';}
 function rangeStatusV36(start,end){const t=dateObj(mgmtDomainV36().today),a=dateObj(start),b=dateObj(end);if(!a||!b)return'pending';if(t>b)return'done';if(t>=a&&t<=b)return'active';return'pending';}
 function taskFindV36(pattern){return tasksData().find(t=>pattern.test(String(t.task||'')));}
 function gateFindV36(pattern){return (D.timeline?.masterGates||[]).find(g=>pattern.test(String(g.name||'')))||null;}
@@ -1158,29 +1162,29 @@ function managementRowsV36(){
   const addPhase=(stage,label)=>{const r=stageRangeV36(stage);if(r)rows.push({id:'PH-'+rows.length,stage,label,owner:'',start:r.start,end:r.end,type:'phase',status:r.status,phaseClass:phaseClassV36(stage)});};
   const addTask=(stage,label,pattern,type='bar')=>{const t=taskFindV36(pattern);if(t)rows.push({id:'T-'+t.row,stage,label,owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type,status:t.status||rangeStatusV36(t.plannedStart,t.plannedEnd),phaseClass:phaseClassV36(stage),row:t.row,module:t.module});};
   const addGate=(stage,label,pattern,kind='gate')=>{const t=taskFindV36(pattern),g=gateFindV36(pattern);const x=t||g;if(x){const date=t?.plannedEnd||g?.date;rows.push({id:'G-'+(t?.row||g?.id||rows.length),stage,label,owner:t?.pm||g?.owner||'',start:date,end:date,type:kind,status:t?.status||g?.status||'pending',phaseClass:phaseClassV36(stage),row:t?.row||null,gateId:g?.id||null,module:t?.module||g?.module||''});}};
-  addPhase('專案治理／進度控管','專案全期治理與進度控管');
-  addPhase('需求收斂／規則確認／系統Demo','需求／規則收斂／系統 Demo');
-  addTask('需求收斂／規則確認／系統Demo','考勤管理模組 Demo',/考勤管理模組功能展示/,'gate');
+  addPhase('專案治理／進度控管','專案全期管理與進度控管');
+  addPhase('需求確認／規則確認／系統Demo','需求／規則確認／系統 Demo');
+  addTask('需求確認／規則確認／系統Demo','考勤管理模組 Demo',/考勤管理模組功能展示/,'gate');
   addTask('專案治理／進度控管','9月顧問固定駐點',/9月逐鹿顧問每週三固定駐點工作排程/,'bar');
-  addGate('需求收斂／規則確認／系統Demo','考勤核心制度定案',/考勤規則／Recovery確認/);
-  addGate('需求收斂／規則確認／系統Demo','組織／簽核架構定版',/組織圖＆簽核邏輯確認/);
+  addGate('需求確認／規則確認／系統Demo','考勤核心制度定案',/考勤設定回復檢核/);
+  addGate('需求確認／規則確認／系統Demo','組織／簽核第一輪確認',/組織圖＆簽核邏輯確認/);
   addPhase('系統設定／單元測試／修正','系統設定／單元測試／修正');
-  addTask('系統設定／單元測試／修正','HR內部操作培訓／種子能力建立',/HR內部操作培訓／種子能力建立/,'bar');
+  addTask('系統設定／單元測試／修正','HR內部操作與測試訓練',/HR內部操作與測試訓練|HR內部操作與測試訓練/,'bar');
   {const g=(gateGroups().find(x=>x.label==='核心設定穩定'));if(g)rows.push({id:g.id,stage:'系統設定／單元測試／修正',label:'核心設定穩定',owner:'俊翔／Ken',start:g.date,end:g.date,type:'gate',status:g.status,phaseClass:'phase-setting',gateGroupId:g.id});}
   addPhase('資料驗證／整合測試／上線訓練','資料驗證／整合測試／上線訓練');
   addGate('資料驗證／整合測試／上線訓練','第一次完整資料匯入',/第一次完整資料匯入/);
-  addGate('資料驗證／整合測試／上線訓練','第一次薪資驗證',/第一次薪資測試$/);
+  addGate('資料驗證／整合測試／上線訓練','第一次薪資測試',/第一次薪資測試$/);
   addGate('資料驗證／整合測試／上線訓練','第二次完整資料匯入',/第二次完整資料匯入/);
-  addTask('資料驗證／整合測試／上線訓練','端到端整合測試',/上線前整合測試/,'bar');
-  addGate('資料驗證／整合測試／上線訓練','平測前準備度確認',/平測前作業確認/,'gate');
+  addTask('資料驗證／整合測試／上線訓練','跨模組整合測試',/上線前整合測試/,'bar');
+  addGate('資料驗證／整合測試／上線訓練','平測前各項準備確認',/平測前作業確認/,'gate');
   addTask('資料驗證／整合測試／上線訓練','上線前分層教育訓練',/上線教育訓練準備與執行/,'bar');
-  addPhase('平行驗證／上線決策／切換準備','平行驗證／上線決策／切換準備');
-  addTask('平行驗證／上線決策／切換準備','正式平行驗證',/正式平行測試/,'bar');
-  addGate('平行驗證／上線決策／切換準備','最終切換授權',/正式上線條件確認/,'gate');
+  addPhase('平行驗證／上線決策／切換準備','平測／上線確認／切換準備');
+  addTask('平行驗證／上線決策／切換準備','正式平測',/正式平行測試/,'bar');
+  addGate('平行驗證／上線決策／切換準備','最終上線確認',/正式上線條件確認/,'gate');
   {const g=gateFindV36(/上線前資料凍結|正式切換就緒/);if(g)rows.push({id:'G-'+g.id,stage:'平行驗證／上線決策／切換準備',label:'上線切換就緒',owner:g.owner||'Kate',start:g.date,end:g.date,type:'gate',status:g.status,phaseClass:'phase-parallel',gateId:g.id});}
   addPhase('正式上線／穩定化支援','正式上線／穩定化支援');
   {const g=gateGroups().find(x=>x.label==='正式上線');if(g)rows.push({id:g.id,stage:'正式上線／穩定化支援',label:'2027/01/01 正式上線',owner:'Kate',start:g.date,end:g.date,type:'star',status:g.status,phaseClass:'phase-golive',gateGroupId:g.id});}
-  addTask('正式上線／穩定化支援','上線初期密集支援／問題收斂',/上線初期密集支援/,'bar');
+  addTask('正式上線／穩定化支援','上線初期密集支援／問題確認',/上線初期密集支援/,'bar');
   addTask('正式上線／穩定化支援','首月考勤結算驗證',/首月考勤結算驗證/,'bar');
   addTask('正式上線／穩定化支援','首月薪資正式運算驗證',/首月薪資正式運算驗證/,'bar');
   addGate('正式上線／穩定化支援','維運移交／專案結案',/維運移交.*專案結案/,'gate');
@@ -1248,16 +1252,16 @@ function openTimelineSegment(module,id){
   const done=children.filter(t=>t.status==='done').length, active=children.filter(t=>['active','risk','blocked','overdue'].includes(t.status)).length;
   const title=seg.label||taskManagementTitle(parent||{task:seg.sourceTask});
   setDrawerHeader(title,module+' · 工作包 · '+fmtMD(seg.start)+' → '+fmtMD(seg.end),seg.status);
-  let b='<div class="ad-statusline"><span class="ad-status '+seg.status+'">'+statusText(seg.status)+'</span>'+(seg.completionPct!=null?'<span class="ad-pct">'+seg.completionPct+'<small>%</small></span>':'')+(seg.managementCritical?'<span class="ad-gate">管理型關鍵路徑</span>':'')+'</div>';
+  let b='<div class="ad-statusline"><span class="ad-status '+seg.status+'">'+statusText(seg.status)+'</span>'+(seg.completionPct!=null?'<span class="ad-pct">'+seg.completionPct+'<small>%</small></span>':'')+(seg.managementCritical?'<span class="ad-gate">重要控制點</span>':'')+'</div>';
   b+='<div class="ad-quant">'+qBox('期間',fmtMD(seg.start)+' → '+fmtMD(seg.end))+qBox('工作進度',children.length?(done+' / '+children.length+' 項'):'1 項')+qBox('進行中',active)+qBox('功能 PM',seg.pm||parent?.pm||'—')+qBox('主責經辦',seg.owner||parent?.owner||'—')+'</div>';
   const desc=seg.description||parent?.description||'';if(desc)b+=secHtml('目標成果／完成標準','<div class="ad-text">'+esc(desc)+'</div>');
   if(children.length)b+=secHtml('工作清單',wbsHtml(children,20));else if(rows.length)b+=secHtml('工作項目',wbsHtml(rows,12));
   const next=seg.progress||parent?.progress||'';if(next)b+=secHtml('目前進度／下一步','<div class="ad-callout">'+esc(next)+'</div>');
   const coord=seg.coordination||parent?.coordination||'';if(coord)b+=secHtml('待確認／協調','<div class="ad-callout">'+esc(coord)+'</div>');
-  const mt=managementThemesData().find(t=>Number(t.taskRow)===Number(seg.sourceRow));if(mt){let rel=[];(mt.relatedRiskIds||[]).forEach(x=>rel.push('<button onclick="openRisk(\''+esc(x)+'\')">風險 '+esc(x)+'</button>'));(mt.relatedDecisionIds||[]).forEach(x=>rel.push('<button onclick="openDecision(\''+esc(x)+'\')">決策 '+esc(x)+'</button>'));if(rel.length)b+=secHtml('關聯治理事項','<div class="gate-rel">'+rel.join('')+'</div>');}
+  const mt=managementThemesData().find(t=>Number(t.taskRow)===Number(seg.sourceRow));if(mt){let rel=[];(mt.relatedRiskIds||[]).forEach(x=>rel.push('<button onclick="openRisk(\''+esc(x)+'\')">風險 '+esc(x)+'</button>'));(mt.relatedDecisionIds||[]).forEach(x=>rel.push('<button onclick="openDecision(\''+esc(x)+'\')">決策 '+esc(x)+'</button>'));if(rel.length)b+=secHtml('相關風險／決策','<div class="gate-rel">'+rel.join('')+'</div>');}
   openDrawer(b);
 }
-function openGateGroup(id){const g=gateGroups().find(x=>String(x.id)===String(id));if(!g)return;const mt=managementThemesData().find(t=>fmtMD(t.deadline)===fmtMD(g.date)&&((g.label||'').includes('組織／簽核')&&t.id==='ORG_SIGN'||(g.label||'').includes('考勤核心')&&t.id==='ATT_RULE'));if(mt)return openManagementTheme(mt.id);if((g.items||[]).length===1){openGateDrawer(g.items[0]);return;}setDrawerHeader(g.label,'關鍵節點群組 · '+fmtMD(g.date),g.status);let b='<div class="ad-statusline"><span class="ad-status '+g.status+'">'+gateStatusText(g.status)+'</span>'+(g.managementCritical?'<span class="ad-gate">管理型關鍵路徑</span>':'')+'</div><div class="ad-quant">'+qBox('日期',fmtMD(g.date))+qBox('節點數',g.count||g.items?.length||0)+'</div>'+secHtml('節點明細',gateItemsHtml(g.items||[]));openDrawer(b);}
+function openGateGroup(id){const g=gateGroups().find(x=>String(x.id)===String(id));if(!g)return;const mt=managementThemesData().find(t=>fmtMD(t.deadline)===fmtMD(g.date)&&((g.label||'').includes('組織／簽核')&&t.id==='ORG_SIGN'||(g.label||'').includes('考勤核心')&&t.id==='ATT_RULE'));if(mt)return openManagementTheme(mt.id);if((g.items||[]).length===1){openGateDrawer(g.items[0]);return;}setDrawerHeader(g.label,'關鍵節點群組 · '+fmtMD(g.date),g.status);let b='<div class="ad-statusline"><span class="ad-status '+g.status+'">'+gateStatusText(g.status)+'</span>'+(g.managementCritical?'<span class="ad-gate">重要控制點</span>':'')+'</div><div class="ad-quant">'+qBox('日期',fmtMD(g.date))+qBox('節點數',g.count||g.items?.length||0)+'</div>'+secHtml('節點明細',gateItemsHtml(g.items||[]));openDrawer(b);}
 function gateItemsHtml(items){if(!items.length)return'<div class="ad-text">暫無明細</div>';return'<div class="wbs-list">'+items.map(g=>'<div class="wbs-i" onclick="openGateById(\''+esc(g.id||'')+'\')"><span class="wm2 '+(g.status||'pending')+'">'+(g.status==='done'?'✓':g.status==='active'?'●':'○')+'</span><span class="wtx">'+esc(g.name)+'</span><span class="wdt">'+fmtMD(g.date)+'</span></div>').join('')+'</div>';}
 function openGateById(id){const g=(D.timeline?.masterGates||[]).concat(D.timeline?.contingencyGates||[]).find(x=>String(x.id)===String(id));if(g){openGateDrawer(g);return;}setDrawerHeader('關鍵節點','節點明細','pending');openDrawer('<div class="ad-text">此節點目前沒有可下鑽的來源資料，但仍保留於主管時程中。</div>');}
 
@@ -1268,7 +1272,7 @@ function renderWorkstreamPage(){
   const red=ps.red??mods.filter(m=>m.health==='red').length,amber=ps.amber??mods.filter(m=>m.health==='amber').length,green=ps.green??mods.filter(m=>m.health==='green').length,gray=ps.gray??mods.filter(m=>['gray','grey'].includes(m.health)).length;
   const priority=ps.priorityTheme||null;
   const fallbackPriority=mods.find(m=>m.health==='red')||mods.find(m=>m.health==='amber')||null;
-  const headline=ps.headline||(red?'有 '+red+' 個模組／跨域工作處於風險狀態，需優先處理。':amber?'有 '+amber+' 個模組／跨域工作需持續收斂，其餘已啟動項目大致在軌。':'已啟動的模組／跨域工作整體在軌。');
+  const headline=ps.headline||(red?'有 '+red+' 個模組／跨域工作處於風險狀態，需優先處理。':amber?'有 '+amber+' 個模組／跨域工作需持續確認，其餘已啟動項目大致在軌。':'已啟動的模組／跨域工作整體在軌。');
   const focusLabel=ps.priorityLabel||(priority&&priority.title)||(fallbackPriority?moduleDisplayName(fallbackPriority.name):'—');
   renderPageBrief('workstreamBrief','管理摘要',headline,focusLabel!=='—'?'管理焦點｜'+focusLabel:'',priority?()=>openManagementTheme(priority.id):openWorkstreamPortfolioDrawer);
   const focusText=priority?(focusLabel+'｜'+fmtMD(priority.deadline)):focusLabel;const strip=document.getElementById('workstreamKpis');if(strip)strip.innerHTML=[['在軌',green,'green'],['注意',amber,amber?'':''],['需介入',red,red?'red':''],['待啟動',gray,''],['管理焦點',focusText,'grow']].map(x=>'<div class="ss-item '+(x[2]==='grow'?'ss-grow':'')+'"><span class="ss-label">'+esc(x[0])+'</span><span class="ss-value '+(x[2]==='red'||x[2]==='green'?x[2]:'')+'">'+esc(x[1])+'</span></div>').join('');
@@ -1284,13 +1288,13 @@ function openWorkstreamDrawer(name){
   const active=all.filter(t=>['active','overdue','blocked','risk'].includes(t.status)),today=dateObj(timelineDomain().today),upcoming=all.filter(t=>t.status!=='done'&&dateObj(t.plannedEnd)&&dateObj(t.plannedEnd)>=today).sort((a,b)=>dateObj(a.plannedEnd)-dateObj(b.plannedEnd)).slice(0,10),completed=all.filter(t=>t.status==='done').sort((a,b)=>(dateObj(b.actualEnd)||0)-(dateObj(a.actualEnd)||0)).slice(0,6),gates=(D.timeline?.masterGates||[]).filter(g=>g.status!=='done'&&((g.module||'')===name)).slice(0,5);setDrawerHeader(moduleDisplayName(name),'模組／跨域工作總覽',m.health==='red'?'overdue':m.health==='amber'?'active':m.health==='green'?'done':'pending');let b='<div class="ad-statusline"><span class="ad-status '+(m.health==='red'?'overdue':m.health==='amber'?'active':m.health==='green'?'done':'pending')+'">'+healthText(m.health)+'</span><span class="ad-pct">'+(m.scopeProgressPct??0)+'<small>% 全案進度</small></span></div><div class="ad-quant">'+qBox('應完成達成率',(m.dueToDatePct??100)+'%')+qBox('應完成工作',String(m.dueDone??0)+' / '+String(m.dueTotal??0)+' 項')+qBox('已完成工作',String(m.done||0)+' / '+String(m.total||0)+' 項')+qBox('進行中',m.active||0)+qBox('逾期',m.overdue||0)+qBox('功能 PM',m.pm||'—')+qBox('主責經辦',m.owner||'—')+qBox('下一管理節點',managementGateText(name,m.nextGate||deriveNextGate(name)||'—'))+qBox('模組／跨域工作',name)+'</div>';if(m.managerNote)b+=secHtml('管理重點','<div class="ad-callout">'+esc(m.managerNote)+'</div>');if(active.length||upcoming.length)b+=secHtml('目前／近期工作',wbsHtml(active.concat(upcoming).filter((v,i,a)=>a.findIndex(x=>x.row===v.row)===i),12));if(gates.length)b+=secHtml('近期關鍵節點',gateItemsHtml(gates));if(completed.length)b+=secHtml('最近完成',wbsHtml(completed,6));openDrawer(b);}
 function wbsHtml(items,limit){const arr=(items||[]).slice(0,limit||10);if(!arr.length)return'<div class="ad-text">暫無項目</div>';return'<div class="wbs-list">'+arr.map(t=>'<div class="wbs-i" onclick="openTaskByRow('+Number(t.row||0)+')"><span class="wm2 '+(t.status||'pending')+'">'+(t.status==='done'?'✓':t.status==='active'?'●':t.status==='overdue'?'!':'○')+'</span><span class="wtx">'+esc(t.task)+'</span><span class="wdt">'+fmtMD(t.plannedEnd)+'</span></div>').join('')+((items||[]).length>arr.length?'<div class="drawer-more">共 '+items.length+' 項，顯示前 '+arr.length+' 項</div>':'')+'</div>';}
 
-function executionSets(){if(D.execution){return{active:D.execution.active||[],due7:D.execution.due7||[],due14:D.execution.due14||[],due30:D.execution.due30||[],overdue:D.execution.overdue||[],completed:D.execution.completedRecent||[],future:D.execution.future||[]};}const t=tasksData(),today=dateObj(timelineDomain().today),d7=new Date(today.getTime()+7*86400000),d14=new Date(today.getTime()+14*86400000),d30=new Date(today.getTime()+30*86400000);return{active:t.filter(x=>['active','overdue','blocked','risk'].includes(x.status)),overdue:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)<today),due7:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d7),due14:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d14),due30:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d30),completed:t.filter(x=>x.status==='done'),future:t.filter(x=>x.status!=='done'&&dateObj(x.plannedStart)>today)};}
+function executionSets(){if(D.execution){return{active:D.execution.active||[],due7:D.execution.due7||[],due14:D.execution.due14||[],due30:D.execution.due30||[],overdue:D.execution.overdue||[],completed:D.execution.completedRecent||[],future:D.execution.future||[]};}const t=tasksData(),today=dateObj(timelineDomain().today),d7=new Date(today.getTime()+7*86400000),d14=new Date(today.getTime()+14*86400000),d30=new Date(today.getTime()+30*86400000);return{active:t.filter(x=>['active','overdue','blocked','risk'].includes(x.status)),overdue:t.filter(x=>x.status==='overdue'||(x.status!=='done'&&dateObj(x.plannedEnd)<today)),due7:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d7),due14:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d14),due30:t.filter(x=>x.status!=='done'&&dateObj(x.plannedEnd)>=today&&dateObj(x.plannedEnd)<=d30),completed:t.filter(x=>x.status==='done'),future:t.filter(x=>x.status!=='done'&&dateObj(x.plannedStart)>today)};}
 function renderExecutionPage(){
   const s=executionSets(),ps=pageSummaryData().execution||{};
-  const headline=ps.headline||(s.overdue.length?'先處理 '+s.overdue.length+' 項逾期工作，再追蹤近期到期。':s.due7.length?'目前無執行逾期；未來 7 日有 '+s.due7.length+' 項工作到期。':'目前無執行逾期，近期工作負荷穩定。');
+  const headline=ps.headline||(s.overdue.length?'目前有 '+s.overdue.length+' 項工作較原定時程延後，正在追回進度，並同步追蹤近期到期。':s.due7.length?'目前無執行逾期；未來 7 日有 '+s.due7.length+' 項工作到期。':'目前無執行逾期，近期工作負荷穩定。');
   renderPageBrief('executionBrief','執行摘要',headline,'進行中 '+s.active.length+' · 7日內 '+s.due7.length,openExecutionSummaryDrawer);
   const strip=document.getElementById('execKpis');if(strip)strip.innerHTML=[['進行中',s.active.length,''],['逾期',s.overdue.length,s.overdue.length?'red':'green'],['7日內',s.due7.length,''],['14日內',s.due14.length,''],['30日內',s.due30.length,''],['最近完成',s.completed.length,'green']].map(x=>'<div class="ss-item"><span class="ss-label">'+x[0]+'</span><span class="ss-value '+(x[2]||'')+'">'+x[1]+'</span></div>').join('');
-  const modes=[['active','現在進行'],['overdue','逾期'],['due7','7日內'],['due14','14日內'],['due30','30日內'],['completed','最近完成'],['future','後續']];document.getElementById('execTabs').innerHTML=modes.map(([id,l])=>'<button class="exec-tab '+(APP_STATE.execMode===id?'active ':'')+(id==='overdue'?'overdue-mode':'')+'" onclick="setExecMode(\''+id+'\')">'+l+'<span class="cnt">'+(s[id]?.length||0)+'</span></button>').join('');renderExecution();
+  const modes=[['active','現在進行'],['overdue','逾期／追回'],['due7','7日內'],['due14','14日內'],['due30','30日內'],['completed','最近完成'],['future','後續']];document.getElementById('execTabs').innerHTML=modes.map(([id,l])=>'<button class="exec-tab '+(APP_STATE.execMode===id?'active ':'')+(id==='overdue'?'overdue-mode':'')+'" onclick="setExecMode(\''+id+'\')">'+l+'<span class="cnt">'+(s[id]?.length||0)+'</span></button>').join('');renderExecution();
 }
 function setExecMode(m){APP_STATE.execMode=m;renderExecutionPage();}
 function renderExecution(){const s=executionSets(),q=(document.getElementById('execSearch')?.value||'').trim().toLowerCase(),mod=document.getElementById('execModule')?.value||'';let arr=(s[APP_STATE.execMode]||[]).slice();if(mod)arr=arr.filter(t=>t.module===mod);if(q)arr=arr.filter(t=>[t.task,t.module,t.pm,t.owner,t.progress,t.coordination].join(' ').toLowerCase().includes(q));if(APP_STATE.execMode==='completed')arr.sort((a,b)=>(dateObj(b.actualEnd)||0)-(dateObj(a.actualEnd)||0));else arr.sort((a,b)=>(dateObj(a.plannedEnd)||0)-(dateObj(b.plannedEnd)||0));arr=arr.slice(0,120);const box=document.getElementById('execTable');if(!arr.length){box.innerHTML='<div class="exec-empty">此條件目前沒有工作項目</div>';return;}box.innerHTML='<div class="exec-head"><div>截止</div><div>工作項目</div><div>跨域工作</div><div>功能 PM</div><div>狀態</div><div>完成度</div><div>時程偏差</div></div>'+arr.map(t=>'<div class="exec-row" onclick="openTaskByRow('+Number(t.row||0)+')"><div class="mono" data-label="截止">'+fmtMD(t.plannedEnd)+'</div><div data-label="工作"><div class="exec-task">'+esc(t.task)+'</div><div class="exec-sub">'+esc(t.stage||'')+'</div></div><div data-label="跨域工作">'+esc(t.module||'')+'</div><div data-label="功能 PM">'+esc(t.pm||t.owner||'—')+'</div><div data-label="狀態"><span class="status-pill '+(t.status||'pending')+'">'+statusText(t.status)+'</span></div><div data-label="完成度"><span class="mono">'+(t.completionPct??0)+'%</span><div class="pctbar"><div class="pctfill" style="width:'+(t.completionPct??0)+'%"></div></div></div><div data-label="偏差" class="'+((t.delayDays||0)>0?'delay-bad':'delay-good')+'">'+((t.delayDays||0)>0?'+'+t.delayDays+' 天':((t.delayDays||0)<0?'提前 '+Math.abs(t.delayDays)+' 天':'—'))+'</div></div>').join('');}
@@ -1307,31 +1311,31 @@ function renderGoLiveGovernance(){
     ? '下一評估點｜'+fmtMD(firstPending.date)+' '+firstPending.label
     : readiness&&readiness.status!=='done'
       ? '下一評估點｜'+fmtMD(readiness.date)+' '+readiness.label
-      : '已進入平行驗證／切換評估階段。';
-  box.innerHTML='<div class="gg-head"><span class="gg-title">上線治理</span><span class="gg-status '+(fallbackActive?'active':'')+'">'+(fallbackActive?'4/1 備援已啟動':'1/1 主計畫推進中')+'</span><span class="gg-sub">控制 · 可行性 · 平測準備 · 切換授權</span></div>'
+      : '已進入正式平測與上線確認階段。';
+  box.innerHTML='<div class="gg-head"><span class="gg-title">上線管理</span><span class="gg-status '+(fallbackActive?'active':'')+'">'+(fallbackActive?'4/1 備援已啟動':'1/1 主計畫推進中')+'</span><span class="gg-sub">前置確認 · 資料／薪資測試 · 平測前確認 · 最終上線確認</span></div>'
     +'<div class="gg-grid"><div class="gg-main">'
-    +'<div class="gg-stage-row"><div class="gg-stage current"><div class="k">01 控制／Recovery</div><div class="v">規則／設定／能力建立</div><div class="d">8/19–10/16</div></div><div class="gg-stage viability"><div class="k">02 可行性檢核</div><div class="v">資料＋薪資可行性</div><div class="d">10/15・10/30・11/13</div></div><div class="gg-stage readiness"><div class="k">03 平測前準備度</div><div class="v">是否可進 12/1 平測</div><div class="d">'+fmtMD(readiness?.date||'2026/11/27')+'</div></div><div class="gg-stage final"><div class="k">04 最終切換授權</div><div class="v">正式切換授權</div><div class="d">'+fmtMD(finalGate?.date||gov.decisionGate?.date)+'</div></div></div>'
-    +'<div class="gg-control-title">分階段控制與可行性評估</div>'
+    +'<div class="gg-stage-row"><div class="gg-stage current"><div class="k">01 前置確認／時程追回</div><div class="v">規則／設定／HR操作訓練</div><div class="d">8/19–10/16</div></div><div class="gg-stage viability"><div class="k">02 資料／薪資確認</div><div class="v">確認資料與薪資測試結果</div><div class="d">10/15・10/30・11/13</div></div><div class="gg-stage readiness"><div class="k">03 平測前確認</div><div class="v">確認是否可進12/1平測</div><div class="d">'+fmtMD(readiness?.date||'2026/11/27')+'</div></div><div class="gg-stage final"><div class="k">04 最終上線確認</div><div class="v">確認是否依1/1上線</div><div class="d">'+fmtMD(finalGate?.date||gov.decisionGate?.date)+'</div></div></div>'
+    +'<div class="gg-control-title">分階段確認上線條件</div>'
     +'<div class="gg-checkpoints">'+ordered.map(c=>'<div class="gg-cp '+(c.status||'pending')+'" onclick="'+(c.row?'openTaskByRow('+Number(c.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="gg-cpd">'+fmtMD(c.date)+'</span><span class="gg-cpl">'+esc(c.label)+'</span></div>').join('')+'</div>'
-    +'<div class="gg-final"><div><span class="gg-final-k">最終切換授權</span><b>'+fmtMD(gov.decisionGate?.date)+'</b><span>最晚正式切換授權</span></div><div class="gg-final-arrow">→</div><div class="gg-outcomes"><span>GO｜'+fmtMD(gov.primary?.date)+' 正式上線</span><span>NO-GO｜啟動 '+fmtMD(gov.fallback?.date)+' 條件式備援</span></div></div>'
+    +'<div class="gg-final"><div><span class="gg-final-k">最終上線確認</span><b>'+fmtMD(gov.decisionGate?.date)+'</b><span>最後上線確認</span></div><div class="gg-final-arrow">→</div><div class="gg-outcomes"><span>通過｜'+fmtMD(gov.primary?.date)+' 正式上線</span><span>未通過｜改採 '+fmtMD(gov.fallback?.date)+' 備援方案</span></div></div>'
     +'<div class="gg-criteria">'+criteria.map(c=>'<span class="gg-chip">'+esc(c)+'</span>').join('')+'</div>'
-    +'</div><div class="gg-side"><div class="gg-side-title">目前狀態</div><div class="gg-side-text">'+esc(currentText)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看各控制點、可行性評估與切換授權 ›</div></div></div>';
+    +'</div><div class="gg-side"><div class="gg-side-title">目前狀態</div><div class="gg-side-text">'+esc(currentText)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看各控制點與上線確認內容 ›</div></div></div>';
 }
 
 function openGoLiveGovernanceDrawer(){
   const gov=goLiveGovData(),criteria=gov.decisionGate?.criteria||[],fb=gov.fallback||{},align=gov.baselineAlignment||{},cps=gov.checkpoints||[];
-  setDrawerHeader('上線治理','分階段可行性評估、平測準備度與最終切換授權',fb.status==='active'?'active':'pending');
-  let b='<div class="ad-statusline"><span class="ad-status '+(fb.status==='active'?'active':'pending')+'">'+(fb.status==='active'?'備援已啟動':'1/1 主計畫推進中')+'</span><span class="ad-gate">上線治理</span></div>';
-  b+='<div class="ad-quant">'+qBox('主計畫上線',fmtMD(gov.primary?.date))+qBox('最終切換授權',fmtMD(gov.decisionGate?.date))+qBox('備援上線',fmtMD(fb.date))+qBox('備援狀態',fb.status==='active'?'已啟動':'條件式／未啟動')+'</div>';
-  b+=secHtml('治理架構','<div class="gate-purpose">'+esc(gov.governanceText||'專案以前置控制點、平測前 Readiness 與最終上線決策三層治理。')+'</div>');
-  if(cps.length)b+=secHtml('分階段控制與切換授權',cps.map(c=>'<div class="wbs-i" onclick="'+(c.row?'openTaskByRow('+Number(c.row)+')':'void(0)')+'"><span class="wm2 '+(c.status==='done'?'done':c.status==='overdue'?'overdue':c.status==='active'?'active':'pending')+'">'+(c.status==='done'?'✓':c.status==='overdue'?'!':c.status==='active'?'●':'○')+'</span><span class="wtx"><b>'+esc(c.label)+'</b><small style="display:block;color:var(--gray);margin-top:2px">'+esc(c.action||'')+'</small></span><span class="wdt">'+fmtMD(c.date)+'</span></div>').join(''));
-  if(criteria.length)b+=secHtml('最終切換授權 授權條件','<div class="gg-criteria">'+criteria.map(c=>'<span class="gg-chip">'+esc(c)+'</span>').join('')+'</div>');
+  setDrawerHeader('上線管理','分階段確認、平測準備與最終上線確認',fb.status==='active'?'active':'pending');
+  let b='<div class="ad-statusline"><span class="ad-status '+(fb.status==='active'?'active':'pending')+'">'+(fb.status==='active'?'備援已啟動':'1/1 主計畫推進中')+'</span><span class="ad-gate">上線管理</span></div>';
+  b+='<div class="ad-quant">'+qBox('主計畫上線',fmtMD(gov.primary?.date))+qBox('最終上線確認',fmtMD(gov.decisionGate?.date))+qBox('備援上線',fmtMD(fb.date))+qBox('備援狀態',fb.status==='active'?'已啟動':'未啟動')+'</div>';
+  b+=secHtml('判斷方式','<div class="gate-purpose">'+esc(gov.governanceText||'專案依前置控制點、資料與薪資測試、平測前確認及最終上線確認分階段進行。')+'</div>');
+  if(cps.length)b+=secHtml('分階段控制點',cps.map(c=>'<div class="wbs-i" onclick="'+(c.row?'openTaskByRow('+Number(c.row)+')':'void(0)')+'"><span class="wm2 '+(c.status==='done'?'done':c.status==='overdue'?'overdue':c.status==='active'?'active':'pending')+'">'+(c.status==='done'?'✓':c.status==='overdue'?'!':c.status==='active'?'●':'○')+'</span><span class="wtx"><b>'+esc(c.label)+'</b><small style="display:block;color:var(--gray);margin-top:2px">'+esc(c.action||'')+'</small></span><span class="wdt">'+fmtMD(c.date)+'</span></div>').join(''));
+  if(criteria.length)b+=secHtml('最終上線確認條件','<div class="gg-criteria">'+criteria.map(c=>'<span class="gg-chip">'+esc(c)+'</span>').join('')+'</div>');
   if(fb.status==='active'){
     const tasks=fb.tasks||[];if(tasks.length)b+=secHtml('已啟動的 4/1 備援時程',wbsHtml(tasks,14));
   }else{
-    b+=secHtml('4/1 備援預案（未啟動）','<div class="ad-text">當 10/30、11/13 或 11/27 顯示風險升高時，可先進入 備援準備，確認範圍、資源與重排方案；若正式 No-Go（含核准的 提前No-Go提案 或最晚 12/18 最終切換授權）才啟動備援：2026/12 鎖定未達範圍 → 2027/01 修正 → 2027/02 重新測試與薪資驗證 → 2027/03 再次平行驗證 → 2027/04/01 備援上線。</div>');
+    b+=secHtml('4/1 備援預案（未啟動）','<div class="ad-text">如果10/30、11/13或11/27出現重大問題，可先準備4/1備援所需工作、資源與新時程；只有主管正式決定延後1/1上線後才啟動：2026/12確認未完成項目 → 2027/01修正 → 2027/02重新測試與薪資測試 → 2027/03再次平測 → 2027/04/01備援上線。</div>');
   }
-  if(align.status==='needs_alignment')b+=secHtml('治理備註','<div class="ad-callout">'+esc(align.message)+'</div>');
+  if(align.status==='needs_alignment')b+=secHtml('備註','<div class="ad-callout">'+esc(align.message)+'</div>');
   const risks=risksData().filter(r=>r.affectsGoNoGo&&r.status!=='closed');
   if(risks.length)b+=secHtml('可能影響上線判定的風險','<div class="gate-rel">'+risks.slice(0,8).map(r=>'<button onclick="openRisk(\''+esc(r.id)+'\')">'+esc(r.id)+' '+esc(r.goLiveImpactArea||'')+'</button>').join('')+'</div>');
   openDrawer(b);
@@ -1345,15 +1349,15 @@ function renderRiskPage(){
   const pending=decisions.filter(d=>d.status!=='decided'&&d.status!=='closed');
   const coords=(Array.isArray(D.coordinationCandidates)&&D.coordinationCandidates.length)?D.coordinationCandidates:tasksData().filter(t=>t.isCore!==false&&t.status!=='done'&&t.coordination);
   const ps=pageSummaryData().governance||{},gov=goLiveGovData();
-  const headline=ps.headline||gov.governanceText||'上線治理以 2026/10/30 資料可行性、2026/11/13 薪資驗證、2026/11/27 平測前準備度確認 與 2026/12/18 最終切換授權 分階段進行；2027/04/01 為條件式備援。';
-  renderPageBrief('governanceBrief','治理摘要',headline,'8/19 考勤Recovery · 10/15 資料匯入 · 10/30 品質檢核 · 11/13 薪資 · 11/27 平測準備 · 12/18 授權',openGoLiveGovernanceDrawer);
+  const headline=ps.headline||gov.governanceText||'上線依10/15第一輪資料匯入、10/30資料品質確認、11/13第一次薪資測試、11/27平測前確認及12/18最終上線確認分階段進行；2027/04/01為備援方案。';
+  renderPageBrief('governanceBrief','上線管理摘要',headline,'8/19 考勤追回 · 10/15 資料匯入 · 10/30 品質確認 · 11/13 薪資測試 · 11/27 平測前確認 · 12/18 最終上線確認',openGoLiveGovernanceDrawer);
   const strip=document.getElementById('riskKpis');
   if(strip) strip.innerHTML=[
     ['高風險',high.length,high.length?'red':''],
     ['開放風險',openRisks.length,''],
     ['待裁示',pending.length,pending.length?'red':''],
     ['待協調',coords.length,''],
-    ['最終切換授權',fmtMD(gov.decisionGate?.date||'2026/12/18'),'grow']
+    ['最終上線確認',fmtMD(gov.decisionGate?.date||'2026/12/18'),'grow']
   ].map(x=>'<div class="ss-item '+(x[2]==='grow'?'ss-grow':'')+'"><span class="ss-label">'+x[0]+'</span><span class="ss-value '+(x[2]==='red'?'red':'')+'">'+esc(x[1])+'</span></div>').join('');
 
   renderGoLiveGovernance();
@@ -1392,19 +1396,19 @@ function secHtml(title,html){return '<div class="ad-sec"><div class="ad-sec-titl
 function openManagementTheme(id){
   const t=managementThemesData().find(x=>String(x.id)===String(id));if(!t)return openWorkstreamPortfolioDrawer();
   setDrawerHeader(t.title,'管理焦點 · '+(t.module||'跨模組'),t.status==='red'?'overdue':t.status==='amber'?'active':'done');
-  let b='<div class="ad-statusline"><span class="ad-status '+(t.status==='red'?'overdue':t.status==='amber'?'active':'done')+'">'+(t.status==='red'?'高優先':t.status==='amber'?'需收斂':'在軌')+'</span></div>'
+  let b='<div class="ad-statusline"><span class="ad-status '+(t.status==='red'?'overdue':t.status==='amber'?'active':'done')+'">'+(t.status==='red'?'高優先':t.status==='amber'?'需確認':'在軌')+'</span></div>'
     +'<div class="ad-quant">'+qBox('管理截止',fmtMD(t.deadline))+qBox('主責領域',t.module||'—')+'</div>'
     +secHtml('管理重點','<div class="ad-callout">'+esc(t.impact||'—')+'</div>');
   if(t.taskRow)b+=secHtml('對應執行工作','<div class="wbs-i" onclick="openTaskByRow('+Number(t.taskRow)+')"><span class="wm2 active">●</span><span class="wtx">查看 S2_V2 對應工作包</span><span class="wdt">'+fmtMD(t.deadline)+'</span></div>');
   const rel=[];
   (t.relatedRiskIds||[]).forEach(r=>rel.push('<button onclick="openRisk(\''+esc(r)+'\')">風險 '+esc(r)+'</button>'));
   (t.relatedDecisionIds||[]).forEach(d=>rel.push('<button onclick="openDecision(\''+esc(d)+'\')">決策 '+esc(d)+'</button>'));
-  if(rel.length)b+=secHtml('關聯治理事項','<div class="gate-rel">'+rel.join('')+'</div>');
+  if(rel.length)b+=secHtml('相關風險／決策','<div class="gate-rel">'+rel.join('')+'</div>');
   openDrawer(b);
 }
 function openWorkstreamPortfolioDrawer(){const mods=(D.modules||D.workstreams||[]),ps=pageSummaryData().workstreams||{},themes=managementThemesData().filter(t=>['red','amber'].includes(t.status));const attention=mods.filter(m=>['red','amber'].includes(m.health));setDrawerHeader('模組與跨域工作進度','各領域執行健康度',themes.some(t=>t.status==='red')?'overdue':attention.length?'active':'done');let b='<div class="ad-quant">'+qBox('在軌',ps.green??mods.filter(m=>m.health==='green').length)+qBox('注意',ps.amber??mods.filter(m=>m.health==='amber').length)+qBox('風險',ps.red??mods.filter(m=>m.health==='red').length)+qBox('待啟動',ps.gray??mods.filter(m=>['gray','grey'].includes(m.health)).length)+'</div>';if(themes.length)b+=secHtml('管理焦點',themes.slice(0,6).map(t=>'<div class="wbs-i" onclick="openManagementTheme(\''+esc(t.id)+'\')"><span class="wm2 '+(t.status==='red'?'overdue':'active')+'">●</span><span class="wtx">'+esc(t.title)+'</span><span class="wdt">'+fmtMD(t.deadline)+'</span></div>').join(''));else if(attention.length)b+=secHtml('需持續追蹤',attention.slice(0,8).map(m=>'<div class="wbs-i" onclick="openWorkstreamDrawer(\''+esc(m.name)+'\')"><span class="wm2 '+(m.health==='red'?'overdue':'active')+'">●</span><span class="wtx">'+esc(moduleDisplayName(m.name))+'</span><span class="wdt">'+healthText(m.health)+'</span></div>').join(''));else b+=secHtml('管理摘要','<div class="ad-text">已啟動的模組／跨域工作目前未見需要升級處理的異常。</div>');openDrawer(b);}
 function openExecutionSummaryDrawer(){const s=executionSets();setDrawerHeader('工作進度追蹤','進行中、近期到期、逾期與最近完成',s.overdue.length?'overdue':'active');let b='<div class="ad-quant">'+qBox('進行中',s.active.length)+qBox('逾期',s.overdue.length)+qBox('7日內',s.due7.length)+qBox('14日內',s.due14.length)+qBox('30日內',s.due30.length)+qBox('最近完成',s.completed.length)+'</div>';if(s.overdue.length)b+=secHtml('逾期工作',wbsHtml(s.overdue,10));if(s.due7.length)b+=secHtml('未來 7 日',wbsHtml(s.due7,10));if(!s.overdue.length&&s.active.length)b+=secHtml('現在進行',wbsHtml(s.active,10));openDrawer(b);}
-function openGovernanceSummaryDrawer(){const risks=risksData().filter(r=>!['closed','done'].includes(r.status)),high=risks.filter(r=>r.level==='high'),decisions=decisionsData().filter(d=>d.status!=='decided'),coords=(Array.isArray(D.coordinationCandidates)?D.coordinationCandidates:[]);setDrawerHeader('治理議題總覽','風險、決策與協調',high.length?'overdue':decisions.length?'active':'done');let b='<div class="ad-quant">'+qBox('高風險',high.length)+qBox('開放風險',risks.length)+qBox('待裁示',decisions.length)+qBox('待協調',coords.length)+'</div>';if(high.length)b+=secHtml('高風險',high.slice(0,6).map(r=>'<div class="wbs-i" onclick="openRisk(\''+esc(r.id)+'\')"><span class="wm2 overdue">●</span><span class="wtx">'+esc(r.id+' '+(r.desc||''))+'</span><span class="wdt">'+esc(r.deadline||'')+'</span></div>').join(''));if(decisions.length)b+=secHtml('待裁示',decisions.slice(0,6).map(d=>'<div class="wbs-i" onclick="openDecision(\''+esc(d.id)+'\')"><span class="wm2 active">●</span><span class="wtx">'+esc(d.id+' '+d.title)+'</span><span class="wdt">'+esc(d.deadline||'')+'</span></div>').join(''));if(!high.length&&!decisions.length)b+=secHtml('管理摘要','<div class="ad-text">目前無高風險或正式待裁示決策；協調候選仍依 S2_V2 持續追蹤，不自動升級為 S4。</div>');openDrawer(b);}
+function openGovernanceSummaryDrawer(){const risks=risksData().filter(r=>!['closed','done'].includes(r.status)),high=risks.filter(r=>r.level==='high'),decisions=decisionsData().filter(d=>d.status!=='decided'),coords=(Array.isArray(D.coordinationCandidates)?D.coordinationCandidates:[]);setDrawerHeader('風險與決策總覽','風險、決策與協調',high.length?'overdue':decisions.length?'active':'done');let b='<div class="ad-quant">'+qBox('高風險',high.length)+qBox('開放風險',risks.length)+qBox('待裁示',decisions.length)+qBox('待協調',coords.length)+'</div>';if(high.length)b+=secHtml('高風險',high.slice(0,6).map(r=>'<div class="wbs-i" onclick="openRisk(\''+esc(r.id)+'\')"><span class="wm2 overdue">●</span><span class="wtx">'+esc(r.id+' '+(r.desc||''))+'</span><span class="wdt">'+esc(r.deadline||'')+'</span></div>').join(''));if(decisions.length)b+=secHtml('待裁示',decisions.slice(0,6).map(d=>'<div class="wbs-i" onclick="openDecision(\''+esc(d.id)+'\')"><span class="wm2 active">●</span><span class="wtx">'+esc(d.id+' '+d.title)+'</span><span class="wdt">'+esc(d.deadline||'')+'</span></div>').join(''));if(!high.length&&!decisions.length)b+=secHtml('管理摘要','<div class="ad-text">目前無高風險或正式待裁示決策；協調候選仍依 S2_V2 持續追蹤，不自動升級為 S4。</div>');openDrawer(b);}
 let DRAWER_STACK=[];let DRAWER_RESTORING=false;
 function captureDrawerState_(){
   const dr=document.getElementById('appDrawer');
@@ -1438,16 +1442,16 @@ function childTasks(t){
 function openTaskDrawer(t){
   const displayTitle=t.role==='parent'?taskManagementTitle(t):t.task;
   setDrawerHeader(displayTitle,[t.module,t.role==='parent'?'工作包':t.stage].filter(Boolean).join(' · '),t.status);
-  let body='<div class="ad-statusline"><span class="ad-status '+(t.status||'pending')+'">'+statusText(t.status)+'</span><span class="ad-pct">'+(t.completionPct??0)+'<small>%</small></span>'+((t.isGate||t.keyNode)?'<span class="ad-gate">關鍵節點</span>':'')+(t.isContingency?'<span class="scope-badge">條件式備援</span>':'')+'</div>';
+  let body='<div class="ad-statusline"><span class="ad-status '+(t.status||'pending')+'">'+statusText(t.status)+'</span><span class="ad-pct">'+(t.completionPct??0)+'<small>%</small></span>'+((t.isGate||t.keyNode)?'<span class="ad-gate">關鍵節點</span>':'')+(t.isContingency?'<span class="scope-badge">備援方案</span>':'')+'</div>';
   body+='<div class="ad-quant">'+qBox('計畫',fmtMD(t.plannedStart)+' → '+fmtMD(t.plannedEnd))+qBox('實際完成',t.actualEnd?fmtMD(t.actualEnd):'—')+qBox('時程狀態',delayText(t))+qBox('功能 PM',t.pm||'—')+qBox('主責經辦',t.owner||'—')+qBox('負責方',t.party||'—')+'</div>';
   if(t.progress)body+=secHtml('下一步','<div class="ad-callout">'+esc(t.progress)+'</div>');
   if(t.coordination)body+=secHtml('待確認／協調','<div class="ad-callout">'+esc(t.coordination)+'</div>');
-  if(t.isGate||t.keyNode)body+=secHtml('關鍵節點','<div class="ad-callout red">'+esc(t.keyNode||'管理型關鍵節點')+'</div>');
+  if(t.isGate||t.keyNode)body+=secHtml('關鍵節點','<div class="ad-callout red">'+esc(t.keyNode||'重要控制點')+'</div>');
   const children=childTasks(t);if(children.length)body+=secHtml('工作清單',wbsHtml(children,20));
   else if(t.role==='parent')body+=secHtml('工作清單','<div class="ad-text">此工作包目前未拆分子項，依工作包本身進度管理。</div>');
   if(t.description)body+=secHtml('工作說明／完成標準','<div class="ad-text">'+esc(t.description)+'</div>');
   if(t.memo)body+=secHtml('備註','<div class="ad-text">'+esc(t.memo)+'</div>');
-  if(t.isContingency)body+=secHtml('範疇定位','<div class="ad-callout">此工作屬 4/1 條件式備援方案；未正式啟動前不納入 1/1 主計畫進度、逾期與近期到期 KPI。</div>');
+  if(t.isContingency)body+=secHtml('計入範圍','<div class="ad-callout">此工作屬4/1備援方案；主管尚未決定啟動前，不納入1/1上線計畫進度、逾期與近期到期統計。</div>');
   openDrawer(body);
 }
 function clientGateEnrichment(g){
@@ -1497,23 +1501,23 @@ function openGateDrawer(g){
   g=clientGateEnrichment(g);
   const isBackup=g.gateType==='contingency_go_live'||g.isContingency;
   const gov=goLiveGovData();
-  setDrawerHeader(g.name,(isBackup?'條件式備援關卡':'關鍵節點')+' · '+(g.source||'S1/S2'),g.status);
+  setDrawerHeader(g.name,(isBackup?'備援方案關卡':'關鍵節點')+' · '+(g.source||'S1/S2'),g.status);
   let b='<div class="ad-statusline"><span class="ad-status '+(g.status||'pending')+'">'+statusText(g.status)+'</span>'
-    +((g.managementCritical||g.critical)?'<span class="ad-gate">管理型關鍵路徑</span>':'')
-    +(isBackup?'<span class="scope-badge">條件式備援</span>':'')+'</div>';
+    +((g.managementCritical||g.critical)?'<span class="ad-gate">重要控制點</span>':'')
+    +(isBackup?'<span class="scope-badge">備援方案</span>':'')+'</div>';
   b+='<div class="ad-quant">'+qBox('目標日期',fmtMD(g.date))+qBox('時程偏差',(g.delayDays||0)>0?'+'+g.delayDays+' 天':g.status==='done'&&g.actual?'已完成':'在軌')+qBox('功能 PM',g.pm||g.owner||'—')+qBox('主責經辦',g.executor||'—')+qBox('模組／主線',g.module||'—')+qBox('完成度',(g.completionPct??0)+'%')+'</div>';
   const purpose=g.gatePurpose||g.definitionOfDone||g.note||'此節點用於確認階段成果是否達到進入下一階段的條件。';
   b+=secHtml('這一關要達成什麼','<div class="gate-purpose">'+esc(purpose)+'</div>');
   if(g.gateType==='go_no_go'){
     const criteria=gov.decisionGate?.criteria||[];
-    if(criteria.length)b+=secHtml('最終切換授權 授權條件','<div class="gg-criteria">'+criteria.map(c=>'<span class="gg-chip">'+esc(c)+'</span>').join('')+'</div>');
+    if(criteria.length)b+=secHtml('最終上線確認條件','<div class="gg-criteria">'+criteria.map(c=>'<span class="gg-chip">'+esc(c)+'</span>').join('')+'</div>');
   }
   const checklist=gateChecklistHtml(g);if(checklist)b+=secHtml('關卡檢核',checklist);
   if(g.nextAction)b+=secHtml('下一步','<div class="ad-callout">'+esc(g.nextAction)+'</div>');
   const impact=g.impactText||g.coordination||g.memo||g.note;if(impact)b+=secHtml('未完成／延遲影響','<div class="gate-impact">'+esc(impact)+'</div>');
   if(g.definitionOfDone&&g.definitionOfDone!==g.gatePurpose)b+=secHtml('完成標準','<div class="ad-text">'+esc(g.definitionOfDone)+'</div>');
   const rel=gateRelationsHtml(g);if(rel)b+=secHtml('關聯風險／決策',rel);
-  if(isBackup)b+=secHtml('備援治理','<div class="ad-callout">此節點目前僅為條件式備援規劃，不納入 1/1 主計畫完成度；可於前期 Gate 風險升高時先準備備援，但僅正式 No-Go 後才啟動。</div>');
+  if(isBackup)b+=secHtml('備援說明','<div class="ad-callout">此節點目前只是4/1備援規劃，不納入1/1上線計畫完成度；前面控制點若出現重大問題，可先準備備援工作，但只有主管正式決定延後1/1上線後才啟動。</div>');
   openDrawer(b);
 }
 function openRisk(id){
@@ -1521,7 +1525,7 @@ function openRisk(id){
   setDrawerHeader(r.id+' '+(r.desc||''),'正式風險 · S4 · '+(r.module||''),r.level==='high'?'overdue':r.level==='low'?'done':'active');
   let b='<div class="ad-statusline"><span class="ad-status '+(r.level==='high'?'overdue':r.level==='low'?'done':'active')+'">'+riskLevelText(r.level)+'風險</span>'+(r.affectsGoNoGo?'<span class="ad-gate">影響上線判定</span>':'')+'</div>'
     +'<div class="ad-quant">'+qBox('狀態',governanceStatusText(r.status))+qBox('責任人',r.owner)+qBox('目標解決日',r.deadline)+qBox('模組',r.module)+qBox('影響嚴重度',r.severity||riskLevelText(r.level))+qBox('發生機率',r.probability||'—')+'</div>';
-  if(r.goLiveImpactText)b+=secHtml('對上線判定的影響','<div class="risk-impact">'+esc(r.goLiveImpactText)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看上線控制點與條件式備援治理 ›</div>');
+  if(r.goLiveImpactText)b+=secHtml('對1/1上線的影響','<div class="risk-impact">'+esc(r.goLiveImpactText)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看上線控制點與4/1備援說明 ›</div>');
   b+=secHtml('因應措施','<div class="ad-callout">'+esc(r.mit||'')+'</div>');
   if(r.background)b+=secHtml('背景說明','<div class="ad-text">'+esc(r.background)+'</div>');
   openDrawer(b);
@@ -1532,7 +1536,7 @@ function openDecision(id){
   let b='<div class="ad-statusline"><span class="ad-status '+(d.status==='decided'?'done':'active')+'">'+(d.status==='decided'?'已決策':'待裁示')+'</span>'+(d.goLiveRelation?'<span class="ad-gate">'+esc(d.goLiveRelation)+'</span>':'')+'</div>'
     +'<div class="ad-quant">'+qBox('裁示人',d.decider)+qBox('執行人',d.executor)+qBox('截止日',d.deadline)+qBox('提出日期',d.date)+qBox('模組',d.module)+qBox('狀態',governanceStatusText(d.status))+'</div>'
     +secHtml('決策內容','<div class="ad-text">'+esc(d.content||'')+'</div>');
-  if(d.goLiveRelation)b+=secHtml('與上線治理的關係','<div class="decision-relation">'+esc(d.goLiveRelation)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看主計畫、分階段上線判讀與條件式備援 ›</div>');
+  if(d.goLiveRelation)b+=secHtml('與1/1上線的關係','<div class="decision-relation">'+esc(d.goLiveRelation)+'</div><div class="gg-open" onclick="openGoLiveGovernanceDrawer()">查看1/1上線控制點與4/1備援說明 ›</div>');
   if(d.note)b+=secHtml('備註','<div class="ad-callout">'+esc(d.note)+'</div>');
   openDrawer(b);
 }
