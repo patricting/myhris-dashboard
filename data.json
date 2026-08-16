@@ -1,12 +1,12 @@
 {
   "schemaVersion": "HRIS_DASHBOARD_MASTER_V3_5_1_TIMELINE_HIERARCHY_20260815",
-  "updated": "2026/08/15",
-  "updatedDate": "2026/08/15",
-  "updatedAt": "2026/08/15 20:54",
+  "updated": "2026/08/16",
+  "updatedDate": "2026/08/16",
+  "updatedAt": "2026/08/16 08:43",
   "project": {
     "start": "2026/05/05",
     "goLive": "2027/01/01",
-    "daysToGo": 139,
+    "daysToGo": 138,
     "health": "amber",
     "healthText": "主計畫目前仍可依既定時程推進；有逾期里程碑待完成，近期有關鍵節點需完成，有高風險事項待處理，有待裁示決策。",
     "healthSource": "semantic_auto",
@@ -31,7 +31,7 @@
     "blockedTasks": 0,
     "due7Tasks": 12,
     "due14Tasks": 26,
-    "due30Tasks": 91,
+    "due30Tasks": 92,
     "openCriticalGates": 7,
     "overdueCriticalGates": 1,
     "openExecutionGates": 21,
@@ -195,7 +195,7 @@
       "criticalGatesDone": 9,
       "criticalGatesDue": 10,
       "overdueTasks": 0,
-      "daysToGo": 139,
+      "daysToGo": 138,
       "nextGate": {
         "id": "CMD-ATTENDANCE",
         "date": "2026/08/28",
@@ -656,7 +656,7 @@
           "memo": "僅於1/1上線條件未達成時啟動",
           "keyNode": "備援方案",
           "isGate": true,
-          "dueIn": 229,
+          "dueIn": 228,
           "isCore": false
         },
         {
@@ -691,7 +691,7 @@
           "memo": "",
           "keyNode": "",
           "isGate": false,
-          "dueIn": 138,
+          "dueIn": 137,
           "isCore": false
         },
         {
@@ -726,7 +726,7 @@
           "memo": "",
           "keyNode": "",
           "isGate": false,
-          "dueIn": 167,
+          "dueIn": 166,
           "isCore": false
         },
         {
@@ -761,7 +761,7 @@
           "memo": "",
           "keyNode": "",
           "isGate": false,
-          "dueIn": 195,
+          "dueIn": 194,
           "isCore": false
         },
         {
@@ -796,7 +796,7 @@
           "memo": "",
           "keyNode": "",
           "isGate": false,
-          "dueIn": 228,
+          "dueIn": 227,
           "isCore": false
         },
         {
@@ -831,7 +831,7 @@
           "memo": "",
           "keyNode": "備援上線",
           "isGate": true,
-          "dueIn": 229,
+          "dueIn": 228,
           "isCore": false
         }
       ]
@@ -927,7 +927,7 @@
       "memo": "僅於1/1上線條件未達成時啟動",
       "keyNode": "備援方案",
       "isGate": true,
-      "dueIn": 229,
+      "dueIn": 228,
       "isCore": false
     },
     {
@@ -962,7 +962,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 138,
+      "dueIn": 137,
       "isCore": false
     },
     {
@@ -997,7 +997,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 167,
+      "dueIn": 166,
       "isCore": false
     },
     {
@@ -1032,7 +1032,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 195,
+      "dueIn": 194,
       "isCore": false
     },
     {
@@ -1067,7 +1067,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 228,
+      "dueIn": 227,
       "isCore": false
     },
     {
@@ -1102,7 +1102,7 @@
       "memo": "",
       "keyNode": "備援上線",
       "isGate": true,
-      "dueIn": 229,
+      "dueIn": 228,
       "isCore": false
     }
   ],
@@ -1170,7 +1170,7 @@
       },
       {
         "title": "客製需求定案",
-        "meta": "計畫 2026/07/31 ｜ 逾期 +15 天 ｜ 觸發C期付款 NT$1,968,000",
+        "meta": "計畫 2026/07/31 ｜ 逾期 +16 天 ｜ 觸發C期付款 NT$1,968,000",
         "level": "amber"
       },
       {
@@ -2077,7 +2077,7 @@
   "timeline": {
     "domainStart": "2026/08/01",
     "domainEnd": "2027/01/15",
-    "today": "2026/08/15",
+    "today": "2026/08/16",
     "workstreamOrder": [
       "專案總控",
       "組織",
@@ -3925,7 +3925,7 @@
         "note": "觸發C期付款 NT$1,968,000",
         "row": null,
         "completionPct": 0,
-        "delayDays": 15,
+        "delayDays": 16,
         "isOverdue": true,
         "managementCritical": false,
         "critical": false,
@@ -4687,7 +4687,7 @@
         "note": "觸發C期付款 NT$1,968,000",
         "row": null,
         "completionPct": 0,
-        "delayDays": 15,
+        "delayDays": 16,
         "isOverdue": true,
         "managementCritical": false,
         "critical": false,
@@ -5490,7 +5490,7 @@
         "memo": "目標06/15",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -61,
+        "dueIn": -62,
         "isCore": true
       },
       {
@@ -5525,7 +5525,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5560,7 +5560,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5595,7 +5595,7 @@
         "memo": "Chinese_Taiwan_Stroke_CI_AS 截圖確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5630,7 +5630,7 @@
         "memo": "AP＋DB Server 各一",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5665,7 +5665,7 @@
         "memo": "⚠️ 需主管確認，不可由IT自行填",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       },
       {
@@ -5700,7 +5700,7 @@
         "memo": "依賴：根組織節點確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       },
       {
@@ -5735,7 +5735,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -98,
+        "dueIn": -99,
         "isCore": true
       },
       {
@@ -5770,7 +5770,7 @@
         "memo": "含Apps Script串接",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -89,
+        "dueIn": -90,
         "isCore": true
       },
       {
@@ -5805,7 +5805,7 @@
         "memo": "含儀表板Demo",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -89,
+        "dueIn": -90,
         "isCore": true
       },
       {
@@ -5840,7 +5840,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -89,
+        "dueIn": -90,
         "isCore": true
       },
       {
@@ -5875,7 +5875,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5910,7 +5910,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5945,7 +5945,7 @@
         "memo": "需於05/28訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -5980,7 +5980,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -6015,7 +6015,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -6050,7 +6050,7 @@
         "memo": "需於06/04訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -6085,7 +6085,7 @@
         "memo": "旅天下、欣食旅資料整合",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -81,
+        "dueIn": -82,
         "isCore": true
       },
       {
@@ -6120,7 +6120,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -6155,7 +6155,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -6190,7 +6190,7 @@
         "memo": "正式組織與虛擬組織為同一張架構，差別僅在於是否呈現給一般User看\n\n若編碼夠乾淨，就可以組織代碼=成本中心\n\n待確認組織\n嘉義直售、嘉義批售",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -70,
+        "dueIn": -71,
         "isCore": true
       },
       {
@@ -6225,7 +6225,7 @@
         "memo": "13:40-18:00 @3大",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -79,
+        "dueIn": -80,
         "isCore": true
       },
       {
@@ -6260,7 +6260,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -6295,7 +6295,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -6330,7 +6330,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -45,
+        "dueIn": -46,
         "isCore": true
       },
       {
@@ -6365,7 +6365,7 @@
         "memo": "10:15-18:00 @2-1，與薪酬同日",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -6400,7 +6400,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -72,
+        "dueIn": -73,
         "isCore": true
       },
       {
@@ -6435,7 +6435,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -65,
+        "dueIn": -66,
         "isCore": true
       },
       {
@@ -6470,7 +6470,7 @@
         "memo": "第二階段：待與AO確認虛擬組織(簽核樹)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6505,7 +6505,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6540,7 +6540,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6575,7 +6575,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6610,7 +6610,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6645,7 +6645,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -6680,7 +6680,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -16,
+        "dueIn": -17,
         "isCore": true
       },
       {
@@ -6715,7 +6715,7 @@
         "memo": "對應8月專案排程 8/3 考勤參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -12,
+        "dueIn": -13,
         "isCore": true
       },
       {
@@ -6750,7 +6750,7 @@
         "memo": "對應8月專案排程 8/4 考勤配置",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -11,
+        "dueIn": -12,
         "isCore": true
       },
       {
@@ -6785,7 +6785,7 @@
         "memo": "對應8月專案排程 8/11 薪資參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -6820,7 +6820,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -5,
+        "dueIn": -6,
         "isCore": true
       },
       {
@@ -6855,7 +6855,7 @@
         "memo": "逐鹿教學，IT後續開發",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -6890,7 +6890,7 @@
         "memo": "待功能展示時確認細節\n1 代理的設定方式?HCM畫面→問組織是否需要\n2 新人報到的身分註記(備註欄位註記)\n3【開code】重複員編判斷\n4【關code】流程\n5 預設生效日→會佔員編，暫存→不佔員編\n6 [員工資料維護]\n7 在、離職證明書功能\n8【證照、員工資料更新】審核\n9 永久居留證，有新增在[證件類型]的項目中，匯出報表功能",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -3,
+        "dueIn": -4,
         "isCore": true
       },
       {
@@ -6925,7 +6925,7 @@
         "memo": "母項目作為彙整，實際進度以細項為準",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -6960,7 +6960,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -6995,7 +6995,7 @@
         "memo": "12/1平測、1/1上線",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -7030,7 +7030,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -7065,7 +7065,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -7100,7 +7100,7 @@
         "memo": "Vivian最新回覆：9月後固定駐廠時間暫約每週三，可再協調。",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -7135,7 +7135,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 18,
+        "dueIn": 17,
         "isCore": true
       },
       {
@@ -7170,7 +7170,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -7205,7 +7205,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -7240,7 +7240,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 39,
+        "dueIn": 38,
         "isCore": true
       },
       {
@@ -7275,7 +7275,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -7310,7 +7310,7 @@
         "memo": "承接原8月專案排程：參數設定、IT技轉、系統Demo，並依最新實況補入AO／WBS控管。",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 16,
+        "dueIn": 15,
         "isCore": true
       },
       {
@@ -7345,7 +7345,7 @@
         "memo": "承接原9月任務目標：AO簽核、表單／報表、異質系統串接、SOP；另補入考勤測試與薪資／保險Demo。",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -7380,7 +7380,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -7415,7 +7415,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -7450,7 +7450,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -7485,7 +7485,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -7520,7 +7520,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 17,
+        "dueIn": 16,
         "isCore": true
       },
       {
@@ -7555,7 +7555,7 @@
         "memo": "至少保留3天",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -7590,7 +7590,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 24,
+        "dueIn": 23,
         "isCore": true
       },
       {
@@ -7625,7 +7625,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -7660,7 +7660,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -7695,7 +7695,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -7730,7 +7730,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -7765,7 +7765,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -7800,7 +7800,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -7835,7 +7835,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -7870,7 +7870,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -7905,7 +7905,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -7940,7 +7940,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 60,
+        "dueIn": 59,
         "isCore": true
       },
       {
@@ -7975,7 +7975,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -8010,7 +8010,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 31,
+        "dueIn": 30,
         "isCore": true
       },
       {
@@ -8045,7 +8045,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -8080,7 +8080,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -8115,7 +8115,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -8150,7 +8150,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -8185,7 +8185,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -8220,7 +8220,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -8255,7 +8255,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -8290,7 +8290,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -8325,7 +8325,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 31,
+        "dueIn": 30,
         "isCore": true
       },
       {
@@ -8360,7 +8360,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -8395,7 +8395,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -8430,7 +8430,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -8465,7 +8465,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -8500,7 +8500,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -8535,7 +8535,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -8570,7 +8570,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -8605,7 +8605,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -8640,7 +8640,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -8675,7 +8675,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -8710,7 +8710,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -8745,7 +8745,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -8780,7 +8780,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -8815,7 +8815,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -8850,7 +8850,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -8885,7 +8885,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -8920,7 +8920,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -8955,7 +8955,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -8990,7 +8990,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -9025,7 +9025,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -9060,7 +9060,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -9095,7 +9095,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -9130,7 +9130,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -9165,7 +9165,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -9200,7 +9200,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -9235,7 +9235,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -9270,7 +9270,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -9305,7 +9305,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -9340,7 +9340,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -9375,7 +9375,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -9410,7 +9410,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -9445,7 +9445,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -9480,7 +9480,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -9515,7 +9515,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -9550,7 +9550,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -9585,7 +9585,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -9620,7 +9620,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -9655,7 +9655,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -9690,7 +9690,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -9725,7 +9725,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -9760,7 +9760,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -9795,7 +9795,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -9830,7 +9830,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -9865,7 +9865,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -9900,7 +9900,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -9935,7 +9935,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -9970,7 +9970,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -10005,7 +10005,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -10040,7 +10040,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -10075,7 +10075,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -10110,7 +10110,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -10145,7 +10145,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -10180,7 +10180,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -10215,7 +10215,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -10250,7 +10250,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -10285,7 +10285,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -10320,7 +10320,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -10355,7 +10355,7 @@
         "memo": "實際日期待Kate與Vivian敲定；承辦結薪後安排",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -10390,7 +10390,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -10425,7 +10425,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -10460,7 +10460,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -10495,7 +10495,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -10530,7 +10530,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -10565,7 +10565,7 @@
         "memo": "含獎金固定5%、固定代扣與標準稅額取大值",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -10600,7 +10600,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -10635,7 +10635,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -10670,7 +10670,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -10705,7 +10705,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -10740,7 +10740,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -10775,7 +10775,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -10810,7 +10810,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -10845,7 +10845,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -10880,7 +10880,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -10915,7 +10915,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -10950,7 +10950,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -10985,7 +10985,7 @@
         "memo": "",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -11020,7 +11020,7 @@
         "memo": "智翔(?)涉及薪酬連動項目協作",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -11055,7 +11055,7 @@
         "memo": "實際日期待Vivian確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11090,7 +11090,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -11125,7 +11125,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -11160,7 +11160,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -11195,7 +11195,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -11230,7 +11230,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -11265,7 +11265,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -11300,7 +11300,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -11335,7 +11335,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -11370,7 +11370,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -11405,7 +11405,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 69,
+        "dueIn": 68,
         "isCore": true
       },
       {
@@ -11440,7 +11440,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -11475,7 +11475,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -11510,7 +11510,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -11545,7 +11545,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11580,7 +11580,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11615,7 +11615,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11650,7 +11650,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11685,7 +11685,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11720,7 +11720,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11755,7 +11755,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11790,7 +11790,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11825,7 +11825,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11860,7 +11860,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11895,7 +11895,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11930,7 +11930,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -11965,7 +11965,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12000,7 +12000,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12035,7 +12035,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12070,7 +12070,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12105,7 +12105,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12140,7 +12140,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12175,7 +12175,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12210,7 +12210,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -12245,7 +12245,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12280,7 +12280,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -12315,7 +12315,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -12350,7 +12350,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 62,
+        "dueIn": 61,
         "isCore": true
       },
       {
@@ -12385,7 +12385,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 69,
+        "dueIn": 68,
         "isCore": true
       },
       {
@@ -12420,7 +12420,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -12455,7 +12455,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12490,7 +12490,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -12525,7 +12525,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -12560,7 +12560,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -12595,7 +12595,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -12630,7 +12630,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12665,7 +12665,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12700,7 +12700,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12735,7 +12735,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12770,7 +12770,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12805,7 +12805,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12840,7 +12840,7 @@
         "memo": "非電子簽核文件，例如勞檢包、ESG、在離職證明等",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12875,7 +12875,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12910,7 +12910,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12945,7 +12945,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -12980,7 +12980,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -13015,7 +13015,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -13050,7 +13050,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13085,7 +13085,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13120,7 +13120,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13155,7 +13155,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13190,7 +13190,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13225,7 +13225,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13260,7 +13260,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13295,7 +13295,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13330,7 +13330,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13365,7 +13365,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -13400,7 +13400,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -13435,7 +13435,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 51,
+        "dueIn": 50,
         "isCore": true
       },
       {
@@ -13470,7 +13470,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 83,
+        "dueIn": 82,
         "isCore": true
       },
       {
@@ -13505,7 +13505,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 83,
+        "dueIn": 82,
         "isCore": true
       },
       {
@@ -13540,7 +13540,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -13575,7 +13575,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -13610,7 +13610,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -13645,7 +13645,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 102,
+        "dueIn": 101,
         "isCore": true
       },
       {
@@ -13680,7 +13680,7 @@
         "memo": "",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -13715,7 +13715,7 @@
         "memo": "主責經辦整理與匯入，小PM確認資料正確",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13750,7 +13750,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13785,7 +13785,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13820,7 +13820,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13855,7 +13855,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13890,7 +13890,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13925,7 +13925,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13960,7 +13960,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -13995,7 +13995,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14030,7 +14030,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14065,7 +14065,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14100,7 +14100,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14135,7 +14135,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14170,7 +14170,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14205,7 +14205,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -14240,7 +14240,7 @@
         "memo": "第一次全量模擬匯入，不是最終上線資料",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14275,7 +14275,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14310,7 +14310,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14345,7 +14345,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14380,7 +14380,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14415,7 +14415,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14450,7 +14450,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 61,
+        "dueIn": 60,
         "isCore": true
       },
       {
@@ -14485,7 +14485,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14520,7 +14520,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14555,7 +14555,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14590,7 +14590,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14625,7 +14625,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 76,
+        "dueIn": 75,
         "isCore": true
       },
       {
@@ -14660,7 +14660,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 83,
+        "dueIn": 82,
         "isCore": true
       },
       {
@@ -14695,7 +14695,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 69,
+        "dueIn": 68,
         "isCore": true
       },
       {
@@ -14730,7 +14730,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 83,
+        "dueIn": 82,
         "isCore": true
       },
       {
@@ -14765,7 +14765,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 83,
+        "dueIn": 82,
         "isCore": true
       },
       {
@@ -14800,7 +14800,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -14835,7 +14835,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -14870,7 +14870,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -14905,7 +14905,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -14940,7 +14940,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -14975,7 +14975,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 90,
+        "dueIn": 89,
         "isCore": true
       },
       {
@@ -15010,7 +15010,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15045,7 +15045,7 @@
         "memo": "主責經辦／測試人員Demo，不是正式操作訓練",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -15080,7 +15080,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -15115,7 +15115,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -15150,7 +15150,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -15185,7 +15185,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -15220,7 +15220,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15255,7 +15255,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15290,7 +15290,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15325,7 +15325,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15360,7 +15360,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15395,7 +15395,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15430,7 +15430,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -15465,7 +15465,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -15500,7 +15500,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15535,7 +15535,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15570,7 +15570,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 109,
+        "dueIn": 108,
         "isCore": true
       },
       {
@@ -15605,7 +15605,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 111,
+        "dueIn": 110,
         "isCore": true
       },
       {
@@ -15640,7 +15640,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 116,
+        "dueIn": 115,
         "isCore": true
       },
       {
@@ -15675,7 +15675,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 118,
+        "dueIn": 117,
         "isCore": true
       },
       {
@@ -15710,7 +15710,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -15745,7 +15745,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15780,7 +15780,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15815,7 +15815,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15850,7 +15850,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15885,7 +15885,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15920,7 +15920,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15955,7 +15955,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -15990,7 +15990,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16025,7 +16025,7 @@
         "memo": "",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16060,7 +16060,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -16095,7 +16095,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 97,
+        "dueIn": 96,
         "isCore": true
       },
       {
@@ -16130,7 +16130,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16165,7 +16165,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16200,7 +16200,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16235,7 +16235,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16270,7 +16270,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16305,7 +16305,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 104,
+        "dueIn": 103,
         "isCore": true
       },
       {
@@ -16340,7 +16340,7 @@
         "memo": "12/1開始，1/1上線",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16375,7 +16375,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16410,7 +16410,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16445,7 +16445,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16480,7 +16480,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16515,7 +16515,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16550,7 +16550,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16585,7 +16585,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16620,7 +16620,7 @@
         "memo": "",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16655,7 +16655,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16690,7 +16690,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16725,7 +16725,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16760,7 +16760,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16795,7 +16795,7 @@
         "memo": "",
         "keyNode": "上線關卡",
         "isGate": true,
-        "dueIn": 125,
+        "dueIn": 124,
         "isCore": true
       },
       {
@@ -16830,7 +16830,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16865,7 +16865,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16900,7 +16900,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16935,7 +16935,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -16970,7 +16970,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -17005,7 +17005,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -17040,7 +17040,7 @@
         "memo": "目前正式基準",
         "keyNode": "正式上線",
         "isGate": true,
-        "dueIn": 139,
+        "dueIn": 138,
         "isCore": true
       },
       {
@@ -17075,7 +17075,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 179,
+        "dueIn": 178,
         "isCore": true
       },
       {
@@ -17110,7 +17110,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 141,
+        "dueIn": 140,
         "isCore": true
       },
       {
@@ -17145,7 +17145,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 153,
+        "dueIn": 152,
         "isCore": true
       },
       {
@@ -17180,7 +17180,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 153,
+        "dueIn": 152,
         "isCore": true
       },
       {
@@ -17215,7 +17215,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 169,
+        "dueIn": 168,
         "isCore": true
       },
       {
@@ -17250,7 +17250,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 169,
+        "dueIn": 168,
         "isCore": true
       },
       {
@@ -17285,7 +17285,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 169,
+        "dueIn": 168,
         "isCore": true
       },
       {
@@ -17320,7 +17320,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 153,
+        "dueIn": 152,
         "isCore": true
       },
       {
@@ -17355,7 +17355,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 153,
+        "dueIn": 152,
         "isCore": true
       },
       {
@@ -17390,7 +17390,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 174,
+        "dueIn": 173,
         "isCore": true
       },
       {
@@ -17425,7 +17425,7 @@
         "memo": "",
         "keyNode": "上線後關卡",
         "isGate": true,
-        "dueIn": 179,
+        "dueIn": 178,
         "isCore": true
       },
       {
@@ -17460,7 +17460,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 195,
+        "dueIn": 194,
         "isCore": true
       },
       {
@@ -17495,7 +17495,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 181,
+        "dueIn": 180,
         "isCore": true
       },
       {
@@ -17530,7 +17530,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 188,
+        "dueIn": 187,
         "isCore": true
       },
       {
@@ -17565,7 +17565,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 188,
+        "dueIn": 187,
         "isCore": true
       },
       {
@@ -17600,7 +17600,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 195,
+        "dueIn": 194,
         "isCore": true
       },
       {
@@ -17635,7 +17635,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 195,
+        "dueIn": 194,
         "isCore": true
       },
       {
@@ -17670,7 +17670,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 195,
+        "dueIn": 194,
         "isCore": true
       }
     ],
@@ -17707,7 +17707,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -17742,7 +17742,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -17777,7 +17777,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -17812,7 +17812,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ],
@@ -17849,7 +17849,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -17884,7 +17884,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -17919,7 +17919,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -17954,7 +17954,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -17989,7 +17989,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18024,7 +18024,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18059,7 +18059,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18094,7 +18094,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18129,7 +18129,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18164,7 +18164,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -18199,7 +18199,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -18234,7 +18234,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       }
     ],
@@ -18271,7 +18271,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -18306,7 +18306,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -18341,7 +18341,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -18376,7 +18376,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -18411,7 +18411,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -18446,7 +18446,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -18481,7 +18481,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18516,7 +18516,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18551,7 +18551,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18586,7 +18586,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18621,7 +18621,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18656,7 +18656,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -18691,7 +18691,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -18726,7 +18726,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -18761,7 +18761,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -18796,7 +18796,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -18831,7 +18831,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -18866,7 +18866,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -18901,7 +18901,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -18936,7 +18936,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -18971,7 +18971,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -19006,7 +19006,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -19041,7 +19041,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -19076,7 +19076,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -19111,7 +19111,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -19146,7 +19146,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       }
     ],
@@ -19183,7 +19183,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -19218,7 +19218,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 18,
+        "dueIn": 17,
         "isCore": true
       },
       {
@@ -19253,7 +19253,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -19288,7 +19288,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -19323,7 +19323,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -19358,7 +19358,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -19393,7 +19393,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 17,
+        "dueIn": 16,
         "isCore": true
       },
       {
@@ -19428,7 +19428,7 @@
         "memo": "至少保留3天",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19463,7 +19463,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 24,
+        "dueIn": 23,
         "isCore": true
       },
       {
@@ -19498,7 +19498,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -19533,7 +19533,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -19568,7 +19568,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -19603,7 +19603,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -19638,7 +19638,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19673,7 +19673,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -19708,7 +19708,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -19743,7 +19743,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -19778,7 +19778,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -19813,7 +19813,42 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
+        "isCore": true
+      },
+      {
+        "row": 85,
+        "parentRow": 76,
+        "role": "leaf",
+        "isLeaf": true,
+        "scopeType": "primary",
+        "isContingency": false,
+        "stage": "需求收斂／規則確認／系統Demo",
+        "module": "人事",
+        "moduleRaw": "",
+        "task": "人事主檔規則與欄位最終確認",
+        "description": "",
+        "party": "雄獅",
+        "pm": "Kate",
+        "owner": "Lisa、義峰、Nancy",
+        "plannedStart": "2026/09/11",
+        "plannedEnd": "2026/09/15",
+        "actualEnd": "",
+        "plannedStartRaw": "Fri Sep 11 2026 00:00:00 GMT+0800 (台北標準時間)",
+        "plannedEndRaw": "Tue Sep 15 2026 00:00:00 GMT+0800 (台北標準時間)",
+        "actualEndRaw": "",
+        "status": "pending",
+        "rawStatus": "⏳ 未開始",
+        "completionPct": 0,
+        "enteredPct": null,
+        "scheduleTag": "future",
+        "delayDays": 0,
+        "progress": "",
+        "coordination": "",
+        "memo": "",
+        "keyNode": "",
+        "isGate": false,
+        "dueIn": 30,
         "isCore": true
       },
       {
@@ -19848,7 +19883,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19883,7 +19918,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19918,7 +19953,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19953,7 +19988,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -19988,7 +20023,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -20023,7 +20058,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20058,7 +20093,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20093,7 +20128,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20128,7 +20163,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20163,7 +20198,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20198,7 +20233,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20233,7 +20268,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20268,7 +20303,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -20303,7 +20338,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20338,7 +20373,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -20373,7 +20408,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -20408,7 +20443,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -20443,7 +20478,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -20478,7 +20513,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -20513,7 +20548,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -20548,7 +20583,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -20583,7 +20618,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -20618,7 +20653,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -20653,7 +20688,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -20688,7 +20723,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -20723,7 +20758,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -20758,7 +20793,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -20793,7 +20828,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20828,7 +20863,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20863,7 +20898,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -20898,7 +20933,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -20933,7 +20968,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -20968,7 +21003,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -21003,7 +21038,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21038,7 +21073,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -21073,7 +21108,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -21108,7 +21143,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21143,7 +21178,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21178,7 +21213,7 @@
         "memo": "實際日期待Vivian確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21213,7 +21248,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21248,7 +21283,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21283,7 +21318,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21318,7 +21353,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21353,7 +21388,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21388,7 +21423,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21423,7 +21458,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21458,7 +21493,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21493,7 +21528,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21528,7 +21563,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21563,7 +21598,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21598,7 +21633,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21633,7 +21668,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21668,7 +21703,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21703,7 +21738,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21738,7 +21773,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21773,7 +21808,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21808,7 +21843,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21843,7 +21878,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21878,7 +21913,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -21913,7 +21948,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -21948,7 +21983,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -21983,7 +22018,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -22018,7 +22053,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22053,7 +22088,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22088,7 +22123,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22123,7 +22158,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22158,7 +22193,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22193,7 +22228,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22228,7 +22263,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -22263,7 +22298,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -22298,7 +22333,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -22333,7 +22368,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ],
@@ -22371,7 +22406,7 @@
         "memo": "對應8月專案排程 8/11 薪資參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -22406,7 +22441,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -5,
+        "dueIn": -6,
         "isCore": true
       },
       {
@@ -22441,7 +22476,7 @@
         "memo": "逐鹿教學，IT後續開發",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -22476,7 +22511,7 @@
         "memo": "對應8月專案排程 8/4 考勤配置",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -11,
+        "dueIn": -12,
         "isCore": true
       },
       {
@@ -22511,7 +22546,7 @@
         "memo": "對應8月專案排程 8/3 考勤參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -12,
+        "dueIn": -13,
         "isCore": true
       },
       {
@@ -22546,7 +22581,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -16,
+        "dueIn": -17,
         "isCore": true
       },
       {
@@ -22581,7 +22616,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22616,7 +22651,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22651,7 +22686,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22686,7 +22721,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22721,7 +22756,7 @@
         "memo": "第二階段：待與AO確認虛擬組織(簽核樹)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22756,7 +22791,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -22791,7 +22826,7 @@
         "memo": "10:15-18:00 @2-1，與薪酬同日",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -22826,7 +22861,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -72,
+        "dueIn": -73,
         "isCore": true
       },
       {
@@ -22861,7 +22896,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -65,
+        "dueIn": -66,
         "isCore": true
       },
       {
@@ -22896,7 +22931,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -22931,7 +22966,7 @@
         "memo": "正式組織與虛擬組織為同一張架構，差別僅在於是否呈現給一般User看\n\n若編碼夠乾淨，就可以組織代碼=成本中心\n\n待確認組織\n嘉義直售、嘉義批售",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -70,
+        "dueIn": -71,
         "isCore": true
       },
       {
@@ -22966,7 +23001,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -23001,7 +23036,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -23036,7 +23071,7 @@
         "memo": "13:40-18:00 @3大",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -79,
+        "dueIn": -80,
         "isCore": true
       },
       {
@@ -23071,7 +23106,7 @@
         "memo": "旅天下、欣食旅資料整合",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -81,
+        "dueIn": -82,
         "isCore": true
       },
       {
@@ -23106,7 +23141,7 @@
         "memo": "需於06/04訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23141,7 +23176,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -98,
+        "dueIn": -99,
         "isCore": true
       },
       {
@@ -23176,7 +23211,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23211,7 +23246,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23246,7 +23281,7 @@
         "memo": "需於05/28訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23281,7 +23316,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23316,7 +23351,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -23351,7 +23386,7 @@
         "memo": "⚠️ 需主管確認，不可由IT自行填",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       },
       {
@@ -23386,7 +23421,7 @@
         "memo": "依賴：根組織節點確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       }
     ],
@@ -23423,7 +23458,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -23458,7 +23493,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -23493,7 +23528,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -23528,7 +23563,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -23563,7 +23598,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23598,7 +23633,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23633,7 +23668,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23668,7 +23703,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23703,7 +23738,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23738,7 +23773,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -23773,7 +23808,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -23808,7 +23843,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -23843,7 +23878,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -23878,7 +23913,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -23913,7 +23948,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -23948,7 +23983,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -23983,7 +24018,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -24018,7 +24053,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -24053,7 +24088,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -24088,7 +24123,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -24123,7 +24158,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -24158,7 +24193,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -24193,7 +24228,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24228,7 +24263,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24263,7 +24298,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24298,7 +24333,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24333,7 +24368,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24368,7 +24403,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24403,7 +24438,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24438,7 +24473,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -24473,7 +24508,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -24508,7 +24543,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -24543,7 +24578,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -24578,7 +24613,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -24613,7 +24648,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -24648,7 +24683,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24683,7 +24718,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24718,7 +24753,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24753,7 +24788,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24788,7 +24823,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24823,7 +24858,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24858,7 +24893,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24893,7 +24928,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24928,7 +24963,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24963,7 +24998,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -24998,7 +25033,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25033,7 +25068,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25068,7 +25103,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25103,7 +25138,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25138,7 +25173,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25173,7 +25208,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25208,7 +25243,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25243,7 +25278,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -25278,7 +25313,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 17,
+        "dueIn": 16,
         "isCore": true
       },
       {
@@ -25313,7 +25348,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25348,7 +25383,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25383,7 +25418,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25418,7 +25453,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25453,7 +25488,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25488,7 +25523,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -25523,7 +25558,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -25558,7 +25593,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25593,7 +25628,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25628,7 +25663,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25663,7 +25698,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25698,7 +25733,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25733,7 +25768,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25768,7 +25803,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25803,7 +25838,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25838,7 +25873,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -25873,7 +25908,7 @@
         "memo": "Vivian最新回覆：9月後固定駐廠時間暫約每週三，可再協調。",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -25908,7 +25943,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 18,
+        "dueIn": 17,
         "isCore": true
       },
       {
@@ -25943,7 +25978,7 @@
         "memo": "至少保留3天",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -25978,7 +26013,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -26013,7 +26048,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -26048,7 +26083,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -26083,7 +26118,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -26118,7 +26153,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26153,7 +26188,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26188,7 +26223,7 @@
         "memo": "實際日期待Vivian確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26223,7 +26258,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -26258,7 +26293,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26293,7 +26328,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 24,
+        "dueIn": 23,
         "isCore": true
       },
       {
@@ -26328,7 +26363,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26363,7 +26398,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26398,7 +26433,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26433,7 +26468,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26468,7 +26503,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -26503,7 +26538,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -26538,7 +26573,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -26573,7 +26608,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -26608,7 +26643,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26643,7 +26678,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26678,7 +26713,7 @@
         "memo": "含獎金固定5%、固定代扣與標準稅額取大值",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -26713,7 +26748,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -26748,7 +26783,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -26783,7 +26818,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -26818,7 +26853,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26853,7 +26888,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -26888,7 +26923,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ]
@@ -26929,7 +26964,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -26964,7 +26999,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -26999,7 +27034,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -27034,7 +27069,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27069,7 +27104,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27104,7 +27139,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27139,7 +27174,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27174,7 +27209,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27209,7 +27244,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27244,7 +27279,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -27279,7 +27314,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -27314,7 +27349,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       }
     ],
@@ -27351,7 +27386,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -27386,7 +27421,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -27421,7 +27456,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -27456,7 +27491,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -27491,7 +27526,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -27526,7 +27561,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -27561,7 +27596,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27596,7 +27631,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27631,7 +27666,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27666,7 +27701,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27701,7 +27736,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27736,7 +27771,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -27771,7 +27806,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -27806,7 +27841,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -27841,7 +27876,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -27876,7 +27911,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -27911,7 +27946,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -27946,7 +27981,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -27981,7 +28016,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -28016,7 +28051,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -28051,7 +28086,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -28086,7 +28121,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -28121,7 +28156,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -28156,7 +28191,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -28191,7 +28226,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -28226,7 +28261,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       }
     ],
@@ -28263,7 +28298,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -28298,7 +28333,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 18,
+        "dueIn": 17,
         "isCore": true
       },
       {
@@ -28333,7 +28368,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -28368,7 +28403,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -28403,7 +28438,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -28438,7 +28473,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -28473,7 +28508,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 17,
+        "dueIn": 16,
         "isCore": true
       },
       {
@@ -28508,7 +28543,7 @@
         "memo": "至少保留3天",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -28543,7 +28578,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 24,
+        "dueIn": 23,
         "isCore": true
       },
       {
@@ -28578,7 +28613,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -28613,7 +28648,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -28648,7 +28683,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -28683,7 +28718,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -28718,7 +28753,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -28753,7 +28788,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -28788,7 +28823,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -28823,7 +28858,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -28858,7 +28893,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -28893,7 +28928,42 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
+        "isCore": true
+      },
+      {
+        "row": 85,
+        "parentRow": 76,
+        "role": "leaf",
+        "isLeaf": true,
+        "scopeType": "primary",
+        "isContingency": false,
+        "stage": "需求收斂／規則確認／系統Demo",
+        "module": "人事",
+        "moduleRaw": "",
+        "task": "人事主檔規則與欄位最終確認",
+        "description": "",
+        "party": "雄獅",
+        "pm": "Kate",
+        "owner": "Lisa、義峰、Nancy",
+        "plannedStart": "2026/09/11",
+        "plannedEnd": "2026/09/15",
+        "actualEnd": "",
+        "plannedStartRaw": "Fri Sep 11 2026 00:00:00 GMT+0800 (台北標準時間)",
+        "plannedEndRaw": "Tue Sep 15 2026 00:00:00 GMT+0800 (台北標準時間)",
+        "actualEndRaw": "",
+        "status": "pending",
+        "rawStatus": "⏳ 未開始",
+        "completionPct": 0,
+        "enteredPct": null,
+        "scheduleTag": "future",
+        "delayDays": 0,
+        "progress": "",
+        "coordination": "",
+        "memo": "",
+        "keyNode": "",
+        "isGate": false,
+        "dueIn": 30,
         "isCore": true
       },
       {
@@ -28928,7 +28998,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -28963,7 +29033,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -28998,7 +29068,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29033,7 +29103,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29068,7 +29138,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -29103,7 +29173,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29138,7 +29208,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29173,7 +29243,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29208,7 +29278,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29243,7 +29313,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29278,7 +29348,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -29313,7 +29383,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -29348,7 +29418,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -29383,7 +29453,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -29418,7 +29488,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29453,7 +29523,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -29488,7 +29558,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -29523,7 +29593,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -29558,7 +29628,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -29593,7 +29663,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29628,7 +29698,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29663,7 +29733,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -29698,7 +29768,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -29733,7 +29803,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -29768,7 +29838,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -29803,7 +29873,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -29838,7 +29908,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -29873,7 +29943,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -29908,7 +29978,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -29943,7 +30013,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -29978,7 +30048,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30013,7 +30083,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -30048,7 +30118,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -30083,7 +30153,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30118,7 +30188,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -30153,7 +30223,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -30188,7 +30258,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30223,7 +30293,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30258,7 +30328,7 @@
         "memo": "實際日期待Vivian確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30293,7 +30363,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30328,7 +30398,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30363,7 +30433,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30398,7 +30468,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30433,7 +30503,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30468,7 +30538,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30503,7 +30573,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30538,7 +30608,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30573,7 +30643,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30608,7 +30678,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30643,7 +30713,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30678,7 +30748,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30713,7 +30783,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30748,7 +30818,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30783,7 +30853,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30818,7 +30888,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30853,7 +30923,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30888,7 +30958,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30923,7 +30993,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -30958,7 +31028,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -30993,7 +31063,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -31028,7 +31098,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31063,7 +31133,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -31098,7 +31168,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31133,7 +31203,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31168,7 +31238,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31203,7 +31273,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31238,7 +31308,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31273,7 +31343,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31308,7 +31378,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -31343,7 +31413,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -31378,7 +31448,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -31413,7 +31483,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ],
@@ -31450,7 +31520,7 @@
         "memo": "",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -31485,7 +31555,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 48,
+        "dueIn": 47,
         "isCore": true
       },
       {
@@ -31520,7 +31590,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 41,
+        "dueIn": 40,
         "isCore": true
       },
       {
@@ -31555,7 +31625,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ],
@@ -31592,7 +31662,7 @@
         "memo": "對應8月專案排程 8/11 薪資參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -31627,7 +31697,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -5,
+        "dueIn": -6,
         "isCore": true
       },
       {
@@ -31662,7 +31732,7 @@
         "memo": "逐鹿教學，IT後續開發",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -4,
+        "dueIn": -5,
         "isCore": true
       },
       {
@@ -31697,7 +31767,7 @@
         "memo": "對應8月專案排程 8/4 考勤配置",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -11,
+        "dueIn": -12,
         "isCore": true
       },
       {
@@ -31732,7 +31802,7 @@
         "memo": "對應8月專案排程 8/3 考勤參數設定",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -12,
+        "dueIn": -13,
         "isCore": true
       },
       {
@@ -31767,7 +31837,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -16,
+        "dueIn": -17,
         "isCore": true
       },
       {
@@ -31802,7 +31872,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -31837,7 +31907,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -31872,7 +31942,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -31907,7 +31977,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -31942,7 +32012,7 @@
         "memo": "第二階段：待與AO確認虛擬組織(簽核樹)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -31977,7 +32047,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -46,
+        "dueIn": -47,
         "isCore": true
       },
       {
@@ -32012,7 +32082,7 @@
         "memo": "10:15-18:00 @2-1，與薪酬同日",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -32047,7 +32117,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -72,
+        "dueIn": -73,
         "isCore": true
       },
       {
@@ -32082,7 +32152,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -65,
+        "dueIn": -66,
         "isCore": true
       },
       {
@@ -32117,7 +32187,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -32152,7 +32222,7 @@
         "memo": "正式組織與虛擬組織為同一張架構，差別僅在於是否呈現給一般User看\n\n若編碼夠乾淨，就可以組織代碼=成本中心\n\n待確認組織\n嘉義直售、嘉義批售",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -70,
+        "dueIn": -71,
         "isCore": true
       },
       {
@@ -32187,7 +32257,7 @@
         "memo": "10:15-18:00 @2-1",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -74,
+        "dueIn": -75,
         "isCore": true
       },
       {
@@ -32222,7 +32292,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -75,
+        "dueIn": -76,
         "isCore": true
       },
       {
@@ -32257,7 +32327,7 @@
         "memo": "13:40-18:00 @3大",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -79,
+        "dueIn": -80,
         "isCore": true
       },
       {
@@ -32292,7 +32362,7 @@
         "memo": "旅天下、欣食旅資料整合",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -81,
+        "dueIn": -82,
         "isCore": true
       },
       {
@@ -32327,7 +32397,7 @@
         "memo": "需於06/04訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32362,7 +32432,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -98,
+        "dueIn": -99,
         "isCore": true
       },
       {
@@ -32397,7 +32467,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32432,7 +32502,7 @@
         "memo": "需於05/26訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32467,7 +32537,7 @@
         "memo": "需於05/28訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32502,7 +32572,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32537,7 +32607,7 @@
         "memo": "需於06/02訪談前到位",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -85,
+        "dueIn": -86,
         "isCore": true
       },
       {
@@ -32572,7 +32642,7 @@
         "memo": "⚠️ 需主管確認，不可由IT自行填",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       },
       {
@@ -32607,7 +32677,7 @@
         "memo": "依賴：根組織節點確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": -92,
+        "dueIn": -93,
         "isCore": true
       }
     ],
@@ -32644,7 +32714,7 @@
         "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 2,
+        "dueIn": 1,
         "isCore": true
       },
       {
@@ -32679,7 +32749,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -32714,7 +32784,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 138,
+        "dueIn": 137,
         "isCore": true
       },
       {
@@ -32749,7 +32819,7 @@
         "memo": "組織、主管、兼任、虛擬組織、簽核",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 4,
+        "dueIn": 3,
         "isCore": true
       },
       {
@@ -32784,7 +32854,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -32819,7 +32889,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -32854,7 +32924,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -32889,7 +32959,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -32924,7 +32994,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -32959,7 +33029,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -32994,7 +33064,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33029,7 +33099,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33064,7 +33134,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 5,
+        "dueIn": 4,
         "isCore": true
       },
       {
@@ -33099,7 +33169,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 6,
+        "dueIn": 5,
         "isCore": true
       },
       {
@@ -33134,7 +33204,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33169,7 +33239,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33204,7 +33274,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33239,7 +33309,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -33274,7 +33344,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33309,7 +33379,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -33344,7 +33414,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33379,7 +33449,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33414,7 +33484,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33449,7 +33519,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33484,7 +33554,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33519,7 +33589,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33554,7 +33624,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33589,7 +33659,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33624,7 +33694,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33659,7 +33729,7 @@
         "memo": "10:00-11:00",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -33694,7 +33764,7 @@
         "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -33729,7 +33799,7 @@
         "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -33764,7 +33834,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 11,
+        "dueIn": 10,
         "isCore": true
       },
       {
@@ -33799,7 +33869,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 10,
+        "dueIn": 9,
         "isCore": true
       },
       {
@@ -33834,7 +33904,7 @@
         "memo": "主管8/25後返台",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 13,
+        "dueIn": 12,
         "isCore": true
       },
       {
@@ -33869,7 +33939,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33904,7 +33974,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33939,7 +34009,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -33974,7 +34044,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34009,7 +34079,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34044,7 +34114,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34079,7 +34149,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34114,7 +34184,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34149,7 +34219,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34184,7 +34254,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34219,7 +34289,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34254,7 +34324,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34289,7 +34359,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34324,7 +34394,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34359,7 +34429,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34394,7 +34464,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34429,7 +34499,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34464,7 +34534,7 @@
         "memo": "確認是否需客製",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -34499,7 +34569,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 17,
+        "dueIn": 16,
         "isCore": true
       },
       {
@@ -34534,7 +34604,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34569,7 +34639,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34604,7 +34674,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34639,7 +34709,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34674,7 +34744,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34709,7 +34779,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -34744,7 +34814,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -34779,7 +34849,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34814,7 +34884,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34849,7 +34919,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -34884,7 +34954,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -34919,7 +34989,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -34954,7 +35024,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -34989,7 +35059,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -35024,7 +35094,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -35059,7 +35129,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 55,
+        "dueIn": 54,
         "isCore": true
       },
       {
@@ -35094,7 +35164,7 @@
         "memo": "Vivian最新回覆：9月後固定駐廠時間暫約每週三，可再協調。",
         "keyNode": "重要節點",
         "isGate": true,
-        "dueIn": 46,
+        "dueIn": 45,
         "isCore": true
       },
       {
@@ -35129,7 +35199,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 18,
+        "dueIn": 17,
         "isCore": true
       },
       {
@@ -35164,7 +35234,7 @@
         "memo": "至少保留3天",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35199,7 +35269,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35234,7 +35304,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35269,7 +35339,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35304,7 +35374,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35339,7 +35409,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35374,7 +35444,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35409,7 +35479,7 @@
         "memo": "實際日期待Vivian確認",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35444,7 +35514,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 20,
+        "dueIn": 19,
         "isCore": true
       },
       {
@@ -35479,7 +35549,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35514,7 +35584,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 24,
+        "dueIn": 23,
         "isCore": true
       },
       {
@@ -35549,7 +35619,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35584,7 +35654,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35619,7 +35689,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35654,7 +35724,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35689,7 +35759,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -35724,7 +35794,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -35759,7 +35829,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -35794,7 +35864,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -35829,7 +35899,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35864,7 +35934,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -35899,7 +35969,7 @@
         "memo": "含獎金固定5%、固定代扣與標準稅額取大值",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 32,
+        "dueIn": 31,
         "isCore": true
       },
       {
@@ -35934,7 +36004,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 34,
+        "dueIn": 33,
         "isCore": true
       },
       {
@@ -35969,7 +36039,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 25,
+        "dueIn": 24,
         "isCore": true
       },
       {
@@ -36004,7 +36074,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 26,
+        "dueIn": 25,
         "isCore": true
       },
       {
@@ -36039,7 +36109,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -36074,7 +36144,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       },
       {
@@ -36109,7 +36179,7 @@
         "memo": "",
         "keyNode": "",
         "isGate": false,
-        "dueIn": 27,
+        "dueIn": 26,
         "isCore": true
       }
     ]
@@ -36589,7 +36659,7 @@
       "memo": "Mon Aug 17 2026 09:30:00 GMT+0800 (台北標準時間)",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 2,
+      "dueIn": 1,
       "isCore": true
     },
     {
@@ -36624,7 +36694,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 18,
+      "dueIn": 17,
       "isCore": true
     },
     {
@@ -36659,7 +36729,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 25,
+      "dueIn": 24,
       "isCore": true
     },
     {
@@ -36694,7 +36764,7 @@
       "memo": "承接原8月專案排程：參數設定、IT技轉、系統Demo，並依最新實況補入AO／WBS控管。",
       "keyNode": "重要節點",
       "isGate": true,
-      "dueIn": 16,
+      "dueIn": 15,
       "isCore": true
     },
     {
@@ -36729,7 +36799,7 @@
       "memo": "",
       "keyNode": "重要節點",
       "isGate": true,
-      "dueIn": 27,
+      "dueIn": 26,
       "isCore": true
     },
     {
@@ -36764,7 +36834,7 @@
       "memo": "",
       "keyNode": "重要節點",
       "isGate": true,
-      "dueIn": 13,
+      "dueIn": 12,
       "isCore": true
     },
     {
@@ -36799,7 +36869,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 11,
+      "dueIn": 10,
       "isCore": true
     },
     {
@@ -36834,7 +36904,7 @@
       "memo": "10:00-11:00",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 10,
+      "dueIn": 9,
       "isCore": true
     },
     {
@@ -36869,7 +36939,7 @@
       "memo": "11:15-12:00；請假、銷假、補刷、事後加班、留停",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 10,
+      "dueIn": 9,
       "isCore": true
     },
     {
@@ -36904,7 +36974,7 @@
       "memo": "14:00-15:30；班別、行事曆、刷卡資料、異常排除",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 10,
+      "dueIn": 9,
       "isCore": true
     },
     {
@@ -36939,7 +37009,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 11,
+      "dueIn": 10,
       "isCore": true
     },
     {
@@ -36974,7 +37044,7 @@
       "memo": "實際日期待Kate與Vivian敲定；承辦結薪後安排",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 20,
+      "dueIn": 19,
       "isCore": true
     },
     {
@@ -37009,7 +37079,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 20,
+      "dueIn": 19,
       "isCore": true
     },
     {
@@ -37044,7 +37114,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 20,
+      "dueIn": 19,
       "isCore": true
     },
     {
@@ -37079,7 +37149,7 @@
       "memo": "實際日期待Vivian確認",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 27,
+      "dueIn": 26,
       "isCore": true
     },
     {
@@ -37114,7 +37184,7 @@
       "memo": "主責經辦整理與匯入，小PM確認資料正確",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 27,
+      "dueIn": 26,
       "isCore": true
     },
     {
@@ -37149,7 +37219,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 10,
+      "dueIn": 9,
       "isCore": true
     },
     {
@@ -37184,7 +37254,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 20,
+      "dueIn": 19,
       "isCore": true
     },
     {
@@ -37219,7 +37289,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 27,
+      "dueIn": 26,
       "isCore": true
     }
   ],
@@ -37256,7 +37326,7 @@
       "memo": "不列入1/1上線關鍵時程",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 46,
+      "dueIn": 45,
       "isCore": false
     },
     {
@@ -37291,7 +37361,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 16,
+      "dueIn": 15,
       "isCore": false
     },
     {
@@ -37326,7 +37396,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 16,
+      "dueIn": 15,
       "isCore": false
     },
     {
@@ -37361,7 +37431,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 46,
+      "dueIn": 45,
       "isCore": false
     },
     {
@@ -37396,7 +37466,7 @@
       "memo": "不列入Gaia HCM 1/1完成度",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 138,
+      "dueIn": 137,
       "isCore": false
     },
     {
@@ -37431,7 +37501,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 76,
+      "dueIn": 75,
       "isCore": false
     },
     {
@@ -37466,7 +37536,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 107,
+      "dueIn": 106,
       "isCore": false
     },
     {
@@ -37501,7 +37571,7 @@
       "memo": "",
       "keyNode": "",
       "isGate": false,
-      "dueIn": 138,
+      "dueIn": 137,
       "isCore": false
     }
   ],
