@@ -581,16 +581,16 @@ const FIXTURE = {
   schemaVersion:"HRIS_DASHBOARD_V4_4_PEOPLE_DATA_ALIGNMENT_FIXTURE",
   updated:"2026/08/17",
   project:{
-    start:"2026/05/05", goLive:"2027/01/01", daysToGo:138,
+    start:"2026/05/05", goLive:"2027/01/01", daysToGo:137,
     health:"amber",
     healthText:"注意｜考勤核心規則較原定時程延後；8/19需完成最終版問卷並接續考勤、薪資設定，目前1/1上線計畫仍維持。",
     currentPhase:"核心規則確認／組織簽核驗證"
   },
   commandCenter:{
     currentPhase:"核心規則確認／組織簽核驗證",
-    management:{health:"amber",healthText:"管理焦點：考勤時程追回、組織／簽核第一輪確認。",openRisk:13,highRisk:2,pendingDecision:5,coordination:13},
-    progress:{scopeProgressPct:13,doneTasks:42,totalTasks:313,dueToDatePct:98,dueDoneCount:41,dueTotalCount:42,activeTasks:4},
-    schedule:{criticalGatesDone:9,criticalGatesDue:10,overdueTasks:1,daysToGo:138,nextGate:{id:"CMD-ATTENDANCE",date:"2026/08/19",name:"考勤核心規則／最終問卷交付",status:"overdue"}},
+    management:{health:"amber",healthText:"管理焦點：考勤時程追回、組織／簽核第一輪確認。",openRisk:13,highRisk:2,pendingDecision:5,coordination:21},
+    progress:{scopeProgressPct:13,doneTasks:42,totalTasks:313,dueToDatePct:95,dueDoneCount:42,dueTotalCount:44,activeTasks:4},
+    schedule:{criticalGatesDone:9,criticalGatesDue:10,overdueTasks:1,daysToGo:137,nextGate:{id:"CMD-ATTENDANCE",date:"2026/08/19",name:"考勤核心規則／最終問卷交付",status:"overdue"}},
     focus:{count:6,items:[{title:"考勤時程追回",meta:"8/19 最終版問卷｜8月底確認考勤／薪資設定進度",level:"red"},{title:"組織／簽核第一輪確認",meta:"9/11 完成第一輪差異與例外確認",level:"red"}]},
     spine:[
       {id:"CMD-KICKOFF",date:"2026/05/05",label:"開工",status:"done"},
@@ -605,8 +605,8 @@ const FIXTURE = {
     ]
   },
   kpis:{
-    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:98, dueProgressPoints:4100, dueProgressDenominator:42, dueDoneCount:41, dueTotalCount:42,
-    doneTasks:42, totalTasks:313, criticalGatesDone:9, criticalGatesDue:10,
+    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:95, dueProgressPoints:4200, dueProgressDenominator:44, dueDoneCount:42, dueTotalCount:44,
+    doneTasks:42, totalTasks:313, criticalGatesDone:9, criticalGatesDue:9,
     activeTasks:4, overdueTasks:1, currentOverdueTasks:0, baselineOverdueTasks:1
   },
   commercial:{
@@ -825,7 +825,7 @@ function renderCommandOverview(){
   const gateGap=Math.max(0,Number(s.criticalGatesDue||0)-Number(s.criticalGatesDone||0));
   document.getElementById('commandOverview').innerHTML=
     '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前專案狀態依工作進度、重要節點與正式風險綜合判斷')+'</div></div>'+ 
-    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(Number(p.dueToDatePct||0)<100?'red':'green')+'">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+((Number(p.dueTotalCount??0)>Number(p.dueDoneCount??0))?'截至目前應完成 '+Number(p.dueTotalCount??0)+' 項中已完成 '+Number(p.dueDoneCount??0)+' 項；未完成 1 項為考勤核心規則，現正依 8/19 時程追回計畫處理。另有 '+early+' 項後續工作提前完成。':'截至目前原定應完成的工作均已完成。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
+    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(Number(p.dueToDatePct||0)<100?'red':'green')+'">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+((Number(p.dueTotalCount??0)>Number(p.dueDoneCount??0))?'截至目前應完成 '+Number(p.dueTotalCount??0)+' 項、已完成 '+Number(p.dueDoneCount??0)+' 項；目前主要落差集中於考勤核心規則，正依 8/19 時程追回計畫處理。另有 '+early+' 項後續工作提前完成。':'截至目前原定應完成的工作均已完成。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
     '<div class="ov-card focus" onclick="openOverviewDrawer(\'focus\')"><span class="ov-arrow">›</span><div class="ov-kicker">重點 FOCUS</div><div class="ov-main"><span class="ov-big amber">'+Number(f.count||focus.length)+'</span><span class="ov-label">管理主題</span></div>'+(focus.length?focus.map(x=>'<div class="ov-focus-line">'+esc(x.title)+'</div>').join(''):'<div class="ov-note">目前無需特別關注事項</div>')+'</div>';
 }
 function openOverviewDrawer(type){
