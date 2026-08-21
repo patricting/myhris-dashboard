@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Command Center｜Gaia HCM 導入專案｜FINAL 2026/08/17</title>
+<title>Command Center｜Gaia HCM 導入專案｜V4.4</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -63,6 +63,16 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,.app-dra
 .spine-node .lbl .dte{display:block;font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:9px;font-weight:600;color:var(--gray);margin-bottom:1px}
 .spine-node .lbl .nm{display:block}
 .spine-node.above .lbl{top:-42px;color:var(--cha);font-weight:700}
+/* V5.1 Overview spine density: all gates remain clickable, only executive anchors carry labels */
+.spine{height:96px;margin-top:48px}
+.spine-node.minor .nd{width:7px;height:7px;border-width:2px;background:#fff;border-color:#B9BDC2;opacity:.9}
+.spine-node.minor .lbl{display:none}
+.spine-node.major .lbl{width:118px;font-size:9px;line-height:1.28;color:#666}
+.spine-node.major .lbl .dte{font-size:8.6px;font-weight:750;color:#555}
+.spine-node.major.above .lbl{top:-43px;color:var(--cha)}
+.spine-node.major.below .lbl{top:19px}
+.spine-node.major.current .lbl{color:var(--red-d);font-weight:800}
+.spine-node.major.golive .lbl{font-weight:850;color:var(--red-d)}
 .spine-node.edge-left .lbl{transform:translateX(32%);text-align:left}
 .spine-node.edge-right .lbl{transform:translateX(-32%);text-align:right}
 .spine-today{position:absolute;top:9px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center}
@@ -535,7 +545,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   <div class="gantt-legend"><span><i style="background:#8EA0B4"></i>專案管理</span><span><i style="background:#82B8ED"></i>需求／規則</span><span><i style="background:#52D4C4"></i>系統設定</span><span><i style="background:#F1C84B"></i>資料／整合</span><span><i style="background:#F6933A"></i>平測／切換</span><span><i style="background:#45C96B"></i>上線／穩定</span><span><i class="gate"></i>主管控制點</span></div>
   <div class="gantt-shell"><div class="gantt-scroll"><div class="gantt-grid" id="ganttGrid"></div></div></div>
   <div class="backup-branch" id="backupBranch"></div>
-  <div class="subhead"><span class="bar"></span><span class="title">階段重點</span><span class="note">8–9月規則確認｜9–11月核心使用者／資料驗證｜10月下旬HR擴大進場｜11月底起正式分層訓練｜12月平測與上線</span></div>
+  <div class="subhead"><span class="bar"></span><span class="title">階段重點</span><span class="note">8–9月規則確認｜9–11月核心使用者／資料驗證｜10月下旬HR擴大進場｜12月正式訓練、平測與上線</span></div>
   <div class="timeline-summary" id="timelineSummary"></div>
 </div></section>
 
@@ -574,29 +584,29 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
 <script>
 /* ══════════════════════════════════════════════════════════════
    FIXTURE：形狀完全對齊 V3 Data Contract。
-   數值＝我從 live 試算表離線推導的真值（截至 2026/08/15）。
+   數值僅供 data.json 無法讀取時的預覽；正式資料以 S2_V2＋S1＋S4 為準。
    執行時會嘗試抓 data.json（GPT 的 V3 產出）覆蓋此 fixture。
    ══════════════════════════════════════════════════════════════ */
 const FIXTURE = {
   schemaVersion:"HRIS_DASHBOARD_V4_4_PEOPLE_DATA_ALIGNMENT_FIXTURE",
-  updated:"2026/08/17",
+  updated:"2026/08/21",
   project:{
-    start:"2026/05/05", goLive:"2027/01/01", daysToGo:137,
+    start:"2026/05/05", goLive:"2027/01/01", daysToGo:138,
     health:"amber",
-    healthText:"注意｜考勤核心規則較原定時程延後；8/19需完成最終版問卷並接續考勤、薪資設定，目前1/1上線計畫仍維持。",
-    currentPhase:"核心規則確認／組織簽核驗證"
+    healthText:"注意｜考勤核心規則已於8/20完成；目前轉入設定追回，8/28檢核考勤／薪資主要設定是否具備9月測試條件。1/1主計畫維持。",
+    currentPhase:"考勤設定追回／組織簽核定版"
   },
   commandCenter:{
-    currentPhase:"核心規則確認／組織簽核驗證",
-    management:{health:"amber",healthText:"管理焦點：考勤時程追回、組織／簽核第一輪確認。",openRisk:13,highRisk:2,pendingDecision:5,coordination:21},
-    progress:{scopeProgressPct:13,doneTasks:42,totalTasks:313,dueToDatePct:95,dueDoneCount:42,dueTotalCount:44,activeTasks:4},
-    schedule:{criticalGatesDone:9,criticalGatesDue:10,overdueTasks:1,daysToGo:137,nextGate:{id:"CMD-ATTENDANCE",date:"2026/08/19",name:"考勤核心規則／最終問卷交付",status:"overdue"}},
-    focus:{count:6,items:[{title:"考勤時程追回",meta:"8/19 最終版問卷｜8月底確認考勤／薪資設定進度",level:"red"},{title:"組織／簽核第一輪確認",meta:"9/11 完成第一輪差異與例外確認",level:"red"}]},
+    currentPhase:"考勤設定追回／組織簽核定版",
+    management:{health:"amber",healthText:"管理焦點：考勤設定追回、組織／簽核定版。",openRisk:13,highRisk:2,pendingDecision:5,coordination:13},
+    progress:{scopeProgressPct:13,doneTasks:42,totalTasks:313,dueToDatePct:98,dueDoneCount:41,dueTotalCount:42,activeTasks:4},
+    schedule:{criticalGatesDone:9,criticalGatesDue:10,overdueTasks:1,daysToGo:133,nextGate:{id:"CMD-ATTENDANCE",date:"2026/08/28",name:"考勤設定追回控制點",status:"active"}},
+    focus:{count:6,items:[{title:"考勤設定追回",meta:"8/28 檢核考勤／薪資主要設定",level:"amber"},{title:"組織／簽核定版",meta:"9/11 第一輪確認｜9/30 定版",level:"red"}]},
     spine:[
       {id:"CMD-KICKOFF",date:"2026/05/05",label:"開工",status:"done"},
       {id:"CMD-BASELINE",date:"2026/06/30",label:"基礎定案",status:"done",delayDays:31},
-      {id:"CMD-ATTENDANCE",date:"2026/08/19",label:"考勤核心規則／最終問卷",status:"overdue",labelPosition:"below"},
-      {id:"CMD-ORG-SIGN",date:"2026/09/11",label:"組織／簽核第一輪確認",status:"pending",row:55,labelPosition:"above"},
+      {id:"CMD-ATTENDANCE",date:"2026/08/28",label:"考勤設定追回",status:"active",labelPosition:"below"},
+      {id:"CMD-ORG-SIGN",date:"2026/09/30",label:"組織／簽核定版",status:"pending",row:55,labelPosition:"above"},
       {id:"CMD-DATA0",date:"2026/10/15",label:"第一輪資料匯入",status:"pending"},{id:"CMD-STABLE",date:"2026/10/16",label:"核心設定穩定",status:"pending",labelPosition:"above"},{id:"CMD-DATA1",date:"2026/10/30",label:"資料匯入結果／品質",status:"pending"},
       {id:"CMD-PAYROLL1",date:"2026/11/13",label:"第一次薪資測試",status:"pending",labelPosition:"above"},
       {id:"CMD-PREPARALLEL",date:"2026/11/27",label:"平測／正式上線訓練就緒確認",status:"pending",labelPosition:"below"},
@@ -605,8 +615,8 @@ const FIXTURE = {
     ]
   },
   kpis:{
-    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:95, dueProgressPoints:4200, dueProgressDenominator:44, dueDoneCount:42, dueTotalCount:44,
-    doneTasks:42, totalTasks:313, criticalGatesDone:9, criticalGatesDue:9,
+    scopeProgressPct:13, scopeProgressPoints:4200, scopeProgressDenominator:313, scopeDoneCount:42, dueToDatePct:98, dueProgressPoints:4100, dueProgressDenominator:42, dueDoneCount:41, dueTotalCount:42,
+    doneTasks:42, totalTasks:313, criticalGatesDone:9, criticalGatesDue:10,
     activeTasks:4, overdueTasks:1, currentOverdueTasks:0, baselineOverdueTasks:1
   },
   commercial:{
@@ -781,27 +791,41 @@ function renderSpine(p){
   const anchors=(Array.isArray(cc.spine)&&cc.spine.length)?cc.spine:[
     {id:'CMD-KICKOFF',date:p.start,label:'開工',status:'done'},
     {id:'CMD-BASELINE',date:'2026/06/30',label:'基礎定案',status:'done'},
-    {id:'CMD-ATTENDANCE',date:'2026/08/19',label:'考勤最終問卷／時程追回',status:'active',labelPosition:'below'},
-    {id:'CMD-ORG-SIGN',date:'2026/09/11',label:'組織／簽核第一輪確認',status:'pending',labelPosition:'above'},
+    {id:'CMD-ATTENDANCE',date:'2026/08/28',label:'考勤設定追回',status:'active',labelPosition:'below'},
+    {id:'CMD-ORG-SIGN',date:'2026/09/30',label:'組織／簽核定版',status:'pending',labelPosition:'above'},
     {id:'CMD-DATA0',date:'2026/10/15',label:'第一輪資料匯入',status:'pending',labelPosition:'below'},
     {id:'CMD-DATA1',date:'2026/10/30',label:'資料匯入結果／品質',status:'pending'},
     {id:'CMD-PREPARALLEL',date:'2026/11/27',label:'平測／正式上線訓練就緒確認',status:'pending',labelPosition:'above'},
     {id:'CMD-GONOGO',date:'2026/12/18',label:'最終上線確認',status:'pending'},
     {id:'CMD-GOLIVE',date:p.goLive,label:'正式上線',status:'pending',star:true}
   ];
+  // Overview is a command view, not the full milestone register.
+  // Keep all gates as clickable dots, but show labels only on the nine executive anchors below.
+  const overviewMajor=new Set([
+    'CMD-KICKOFF','CMD-BASELINE','CMD-ATT','CMD-ATTENDANCE',
+    'CMD-ORG2','CMD-DATA1','CMD-PAY1','CMD-READY','CMD-GNG','CMD-GONOGO','CMD-GOLIVE'
+  ]);
+  const majorLane={
+    'CMD-KICKOFF':'below','CMD-BASELINE':'below',
+    'CMD-ATT':'below','CMD-ATTENDANCE':'below',
+    'CMD-ORG2':'above','CMD-DATA1':'below','CMD-PAY1':'above',
+    'CMD-READY':'below','CMD-GNG':'above','CMD-GONOGO':'above','CMD-GOLIVE':'below'
+  };
   anchors.forEach(a=>{
     const ad=parseD(a.date), x=Math.max(0,Math.min(1,(ad-start)/total));
-    const cls=['spine-node'];
+    const isMajor=overviewMajor.has(String(a.id||''));
+    const lane=isMajor?(majorLane[String(a.id||'')]||a.labelPosition||'below'):'';
+    const cls=['spine-node',isMajor?'major':'minor'];
     if(a.status==='done')cls.push('done');
-    if(a.status==='active')cls.push('active');
+    if(a.status==='active')cls.push('active','current');
     if((a.delayDays||0)>0&&a.status==='done')cls.push('late');
     if(a.status==='overdue'||(a.delayDays||0)>0&&a.status!=='done')cls.push('overdue');
-    if(a.star)cls.push('golive');
-    if(a.labelPosition==='above')cls.push('above');
+    if(a.star||String(a.id||'')==='CMD-GOLIVE')cls.push('golive');
+    if(lane==='above')cls.push('above'); else if(lane==='below')cls.push('below');
     if(x<.05)cls.push('edge-left');
     if(x>.95)cls.push('edge-right');
     const n=el('div',cls.join(' ')); n.style.left=(x*100).toFixed(1)+'%';
-    n.title=(a.name||a.label||'')+(a.delayDays>0?'｜偏差 +'+a.delayDays+' 天':'');
+    n.title=mdShort(a.date)+'｜'+(a.name||a.label||'')+(a.delayDays>0?'｜偏差 +'+a.delayDays+' 天':'')+(isMajor?'':'｜中間控制點');
     n.innerHTML='<div class="nd"></div><div class="lbl"><span class="dte">'+esc(mdShort(a.date))+'</span><span class="nm">'+esc(a.label||a.name||'')+'</span></div>';
     n.onclick=()=>openSpineNode(a.id);
     spine.appendChild(n);
@@ -825,7 +849,7 @@ function renderCommandOverview(){
   const gateGap=Math.max(0,Number(s.criticalGatesDue||0)-Number(s.criticalGatesDone||0));
   document.getElementById('commandOverview').innerHTML=
     '<div class="ov-card management" onclick="openOverviewDrawer(\'management\')"><span class="ov-arrow">›</span><div class="ov-kicker">管理</div><div class="ov-main"><span class="ov-big '+health[1]+'">'+health[0]+'</span><span class="ov-label">專案健康</span></div><div class="ov-pairs"><span>開放風險 <b>'+Number(m.openRisk||0)+'</b></span><span>待裁示 <b class="'+((m.pendingDecision||0)>0?'red':'')+'">'+Number(m.pendingDecision||0)+'</b></span><span>協調 <b>'+Number(m.coordination||0)+'</b></span></div><div class="ov-note">'+esc(m.healthText||'目前專案狀態依工作進度、重要節點與正式風險綜合判斷')+'</div></div>'+ 
-    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(Number(p.dueToDatePct||0)<100?'red':'green')+'">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+((Number(p.dueTotalCount??0)>Number(p.dueDoneCount??0))?'截至目前應完成 '+Number(p.dueTotalCount??0)+' 項、已完成 '+Number(p.dueDoneCount??0)+' 項；目前主要落差集中於考勤核心規則，正依 8/19 時程追回計畫處理。另有 '+early+' 項後續工作提前完成。':'截至目前原定應完成的工作均已完成。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
+    '<div class="ov-card progress" onclick="openOverviewDrawer(\'progress\')"><span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(p.scopeProgressPct||0)+'%</span><span class="ov-label">全案進度</span></div><div class="ov-metric-sub">累計完成 <b>'+Number(p.doneTasks||0)+'</b> / '+Number(p.totalTasks||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(Number(p.dueToDatePct||0)<100?'red':'green')+'">'+Number(p.dueToDatePct||0)+'%</span><span class="ov-label">應完成工作達成率</span></div><div class="ov-metric-sub">到期完成 <b>'+Number(p.dueDoneCount??0)+'</b> / '+Number(p.dueTotalCount??0)+' 項</div></div></div><div class="ov-note">'+((Number(p.dueTotalCount??0)>Number(p.dueDoneCount??0))?'截至目前應完成 '+Number(p.dueTotalCount??0)+' 項中已完成 '+Number(p.dueDoneCount??0)+' 項；尚未完成 '+Math.max(0,Number(p.dueTotalCount??0)-Number(p.dueDoneCount??0))+' 項，請依WBS狀態與近期控制點處理。另有 '+early+' 項後續工作提前完成。':'截至目前原定應完成的工作均已完成。')+'</div></div>'+ '<div class="ov-card schedule" onclick="openOverviewDrawer(\'schedule\')"><span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div></div>'+ 
     '<div class="ov-card focus" onclick="openOverviewDrawer(\'focus\')"><span class="ov-arrow">›</span><div class="ov-kicker">重點 FOCUS</div><div class="ov-main"><span class="ov-big amber">'+Number(f.count||focus.length)+'</span><span class="ov-label">管理主題</span></div>'+(focus.length?focus.map(x=>'<div class="ov-focus-line">'+esc(x.title)+'</div>').join(''):'<div class="ov-note">目前無需特別關注事項</div>')+'</div>';
 }
 function openOverviewDrawer(type){
@@ -879,7 +903,7 @@ function renderKpis(k, p){
   const ki=kpiCell('plain','進行中 In Progress', k.activeTasks, ' 件', '正在動的有效工作', '');ki.classList.add('clickable');ki.onclick=()=>openOverviewDrawer('progress');box.appendChild(ki);
   // Overdue
   const ov=el('div','kpi plain');
-  ov.innerHTML='<div class="k-l">逾期／追回中</div><div class="k-v">'+k.overdueTasks+'<span class="u"> 件</span></div><div class="k-sub '+(k.overdueTasks>0?'bad':'ok')+'">'+(k.overdueTasks>0?'考勤核心規則 1 項時程追回中':'目前無逾期工作')+'</div>';
+  ov.innerHTML='<div class="k-l">逾期／追回中</div><div class="k-v">'+k.overdueTasks+'<span class="u"> 件</span></div><div class="k-sub '+(k.overdueTasks>0?'bad':'ok')+'">'+(k.overdueText||((k.overdueTasks||0)>0?'有項目需時程回復':'目前無正式逾期項目'))+'</div>';
   ov.classList.add('clickable');ov.onclick=()=>openOverviewDrawer('schedule');box.appendChild(ov);
   // Days to go
   const dg=el('div','kpi plain');
@@ -1048,8 +1072,8 @@ function goLiveGovData(){
       {id:'CP-PRE',label:'平測／正式上線訓練就緒確認',date:'2026/11/27',status:'pending',level:'readiness',action:'綜合第二次資料、第二次薪資、IT介接與整合結果，確認是否可於12/1進入正式平測。'},
       {id:'CP-GNG',label:'最終上線確認',date:'2026/12/18',status:'pending',level:'final',action:'平測期間持續動態評估；無合理回復路徑時，可提前提報調整上線計畫。12/18為最後上線確認。'}
     ],
-    baselineAlignment:{status:'aligned',message:'D01 的 2027/03/01 保留為歷史紀錄；現行治理依 D11，以 2027/04/01 作為條件式備援日期，目前未啟動。'},
-    governanceText:'上線採分階段確認：8/19完成考勤核心規則與最終版問卷、9/11完成組織／簽核第一輪確認；9月中起核心使用者操作與情境驗證。10/15完成第一輪全模組資料匯入後HR全體逐步進場，10/30確認資料品質，11/13完成第一次薪資測試，11/20完成第二次完整資料，11/27確認12/1正式平測與正式分層教育訓練就緒，12/18做最終上線確認。任何節點未完成，都先確認影響、提出修正時程；確認已無合理回復路徑時再提報調整上線日期。4/1僅於主管正式決定延後後啟動。'
+    baselineAlignment:{status:'needs_alignment',message:'備援基準待確認：S4 歷史紀錄為 2027/03/01，S2_V2 現行備援方案規劃為 2027/04/01。正式裁示前，以 4/1 作備援規劃，不視為已啟動。'},
+    governanceText:'上線採分階段確認：8/19完成考勤核心規則與最終版問卷、9/11完成組織／簽核第一輪確認、10/15完成第一輪全模組資料匯入、10/16確認核心設定穩定、10/30確認資料匯入結果與品質、11/13完成第一次薪資測試、11/27確認是否可進12/1正式平測，12/18做最終上線確認。任何節點未完成，都要立即確認影響、提出修正時程並向主管報告；若已確定無法合理追回，再提報調整上線日期。'
   };
 }
 function renderPageBrief(id,label,text,meta,onClick){const e=document.getElementById(id);if(!e)return;e.innerHTML='<span class="pb-label">'+esc(label)+'</span><span class="pb-text">'+esc(text||'—')+'</span>'+(meta?'<span class="pb-meta">'+esc(meta)+'</span>':'')+'<span class="pb-arrow">›</span>';e.onclick=typeof onClick==='function'?onClick:null;}
@@ -1320,9 +1344,9 @@ function renderGoLiveGovernance(){
     : readiness&&readiness.status!=='done'
       ? '下一評估點｜'+fmtMD(readiness.date)+' '+readiness.label
       : '已進入正式平測與上線確認階段。';
-  box.innerHTML='<div class="gg-head"><span class="gg-title">上線管理</span><span class="gg-status '+(fallbackActive?'active':'')+'">'+(fallbackActive?'4/1 備援已啟動':'1/1 主計畫推進中')+'</span><span class="gg-sub">前置確認 · 資料／薪資測試 · 平測／訓練就緒 · 最終上線確認</span></div>'
+  box.innerHTML='<div class="gg-head"><span class="gg-title">上線管理</span><span class="gg-status '+(fallbackActive?'active':'')+'">'+(fallbackActive?'4/1 備援已啟動':'1/1 主計畫推進中')+'</span><span class="gg-sub">前置確認 · 資料／薪資測試 · 平測前確認 · 最終上線確認</span></div>'
     +'<div class="gg-grid"><div class="gg-main">'
-    +'<div class="gg-stage-row"><div class="gg-stage current"><div class="k">01 前置確認／時程追回</div><div class="v">規則／設定／核心使用者驗證</div><div class="d">8/19–10/16</div></div><div class="gg-stage viability"><div class="k">02 資料／薪資確認</div><div class="v">確認資料與薪資測試結果</div><div class="d">10/15・10/30・11/13</div></div><div class="gg-stage readiness"><div class="k">03 平測／訓練就緒</div><div class="v">確認12/1平測＋正式訓練就緒</div><div class="d">'+fmtMD(readiness?.date||'2026/11/27')+'</div></div><div class="gg-stage final"><div class="k">04 最終上線確認</div><div class="v">確認是否依1/1上線</div><div class="d">'+fmtMD(finalGate?.date||gov.decisionGate?.date)+'</div></div></div>'
+    +'<div class="gg-stage-row"><div class="gg-stage current"><div class="k">01 前置確認／時程追回</div><div class="v">規則／設定／HR操作訓練</div><div class="d">8/19–10/16</div></div><div class="gg-stage viability"><div class="k">02 資料／薪資確認</div><div class="v">確認資料與薪資測試結果</div><div class="d">10/15・10/30・11/13</div></div><div class="gg-stage readiness"><div class="k">03 平測前確認</div><div class="v">確認是否可進12/1平測</div><div class="d">'+fmtMD(readiness?.date||'2026/11/27')+'</div></div><div class="gg-stage final"><div class="k">04 最終上線確認</div><div class="v">確認是否依1/1上線</div><div class="d">'+fmtMD(finalGate?.date||gov.decisionGate?.date)+'</div></div></div>'
     +'<div class="gg-control-title">分階段確認上線條件</div>'
     +'<div class="gg-checkpoints">'+ordered.map(c=>'<div class="gg-cp '+(c.status||'pending')+'" onclick="'+(c.row?'openTaskByRow('+Number(c.row)+')':'openGoLiveGovernanceDrawer()')+'"><span class="gg-cpd">'+fmtMD(c.date)+'</span><span class="gg-cpl">'+esc(c.label)+'</span></div>').join('')+'</div>'
     +'<div class="gg-final"><div><span class="gg-final-k">最終上線確認</span><b>'+fmtMD(gov.decisionGate?.date)+'</b><span>最後上線確認</span></div><div class="gg-final-arrow">→</div><div class="gg-outcomes"><span>通過｜'+fmtMD(gov.primary?.date)+' 正式上線</span><span>未通過｜改採 '+fmtMD(gov.fallback?.date)+' 備援方案</span></div></div>'
@@ -1341,7 +1365,7 @@ function openGoLiveGovernanceDrawer(){
   if(fb.status==='active'){
     const tasks=fb.tasks||[];if(tasks.length)b+=secHtml('已啟動的 4/1 備援時程',wbsHtml(tasks,14));
   }else{
-    b+=secHtml('4/1 備援預案（未啟動）','<div class="ad-text">如果10/30、11/13、11/20或11/27出現重大問題，可先準備4/1備援所需工作、資源與新時程；只有主管正式決定延後1/1上線後才啟動：2026/12確認未完成項目 → 2027/01修正 → 2027/02重新測試與薪資測試 → 2027/03再次平測 → 2027/04/01備援上線。</div>');
+    b+=secHtml('4/1 備援預案（未啟動）','<div class="ad-text">如果10/30、11/13或11/27出現重大問題，可先準備4/1備援所需工作、資源與新時程；只有主管正式決定延後1/1上線後才啟動：2026/12確認未完成項目 → 2027/01修正 → 2027/02重新測試與薪資測試 → 2027/03再次平測 → 2027/04/01備援上線。</div>');
   }
   if(align.status==='needs_alignment')b+=secHtml('備註','<div class="ad-callout">'+esc(align.message)+'</div>');
   const risks=risksData().filter(r=>r.affectsGoNoGo&&r.status!=='closed');
@@ -1357,8 +1381,8 @@ function renderRiskPage(){
   const pending=decisions.filter(d=>d.status!=='decided'&&d.status!=='closed');
   const coords=(Array.isArray(D.coordinationCandidates)&&D.coordinationCandidates.length)?D.coordinationCandidates:tasksData().filter(t=>t.isCore!==false&&t.status!=='done'&&t.coordination);
   const ps=pageSummaryData().governance||{},gov=goLiveGovData();
-  const headline=ps.headline||gov.governanceText||'上線依10/15第一輪資料匯入、10/30資料品質確認、11/13第一次薪資測試、11/20第二次完整資料、11/27平測／正式訓練就緒確認及12/18最終上線確認分階段進行；2027/04/01為條件式備援方案，目前未啟動。';
-  renderPageBrief('governanceBrief','上線管理摘要',headline,'8/19 考勤追回 · 10/15 第一輪資料 · 10/30 品質確認 · 11/13 薪資測試 · 11/20 第二輪資料 · 11/27 平測／訓練就緒 · 12/18 最終上線確認',openGoLiveGovernanceDrawer);
+  const headline=ps.headline||gov.governanceText||'上線依10/15第一輪資料匯入、10/30資料品質確認、11/13第一次薪資測試、11/27平測前確認及12/18最終上線確認分階段進行；2027/04/01為備援方案。';
+  renderPageBrief('governanceBrief','上線管理摘要',headline,'8/19 考勤追回 · 10/15 資料匯入 · 10/30 品質確認 · 11/13 薪資測試 · 11/27 平測前確認 · 12/18 最終上線確認',openGoLiveGovernanceDrawer);
   const strip=document.getElementById('riskKpis');
   if(strip) strip.innerHTML=[
     ['高風險',high.length,high.length?'red':''],
@@ -1550,6 +1574,56 @@ function openDecision(id){
 }
 function openDrawer(body){document.getElementById('adBody').innerHTML=body;document.getElementById('appOverlay').classList.add('open');document.getElementById('appDrawer').classList.add('open');document.getElementById('appDrawer').scrollTop=0;updateDrawerBack_();}
 function closeDrawer(){document.getElementById('appOverlay').classList.remove('open');document.getElementById('appDrawer').classList.remove('open');DRAWER_STACK=[];updateDrawerBack_();}
+
+
+
+/* HRIS V5 WBS GOVERNANCE PATCH */
+/* HRIS Dashboard V4.3 → V5 Governance 最小修補
+   放到既有 hris_dashboard.html 最後一個 <script> 中、DOMContentLoaded boot 前。
+   不重做版面，只把舊硬編碼改成 data.json 動態治理訊號。 */
+
+const __v5RenderKpisBase = typeof renderKpis === 'function' ? renderKpis : null;
+renderKpis = function(k,p){
+  const box=document.getElementById('kpis'); if(!box){ if(__v5RenderKpisBase)__v5RenderKpisBase(k,p); return; }
+  box.innerHTML='';
+  function add(c){box.appendChild(c);}
+  let c=kpiCell('pair-a','全案進度',Number(k.scopeProgressPct||0),'%','1/1主計畫有效工作完成度','');c.classList.add('clickable');c.onclick=()=>openOverviewDrawer('progress');add(c);
+  c=kpiCell('pair-b','應完成工作達成率',Number(k.dueToDatePct||0),'%','截至資料日應完成工作的完成程度',Number(k.dueToDatePct||0)<100?'bad':'ok');c.classList.add('clickable');c.onclick=()=>openOverviewDrawer('progress');add(c);
+  c=document.createElement('div');c.className='kpi gate clickable';c.onclick=()=>openOverviewDrawer('schedule');
+  c.innerHTML='<div class="k-l">截至資料日應完成里程碑</div><div class="k-v">'+Number(k.criticalGatesDone||0)+'<span class="slash"> / </span>'+Number(k.criticalGatesDue||0)+'</div><div class="k-sub '+(Number(k.criticalGatesDone||0)<Number(k.criticalGatesDue||0)?'bad':'ok')+'">'+(Number(k.criticalGatesDone||0)<Number(k.criticalGatesDue||0)?'已有管理節點待回復':'截至目前全數守住')+'</div>';add(c);
+  c=kpiCell('plain','關鍵路徑待完成',Number(k.criticalPathOpen||0),' 項','只計1/1主計畫關鍵路徑','');c.classList.add('clickable');c.onclick=()=>openOverviewDrawer('focus');add(c);
+  c=document.createElement('div');c.className='kpi plain clickable';c.onclick=()=>openOverviewDrawer('schedule');c.innerHTML='<div class="k-l">逾期／追回中</div><div class="k-v">'+Number(k.overdueTasks||0)+'<span class="u"> 件</span></div><div class="k-sub '+(Number(k.overdueTasks||0)>0?'bad':'ok')+'">'+esc(k.overdueText||'')+'</div>';add(c);
+  c=document.createElement('div');c.className='kpi plain clickable';c.onclick=()=>openOverviewDrawer('schedule');c.innerHTML='<div class="k-l">距正式上線</div><div class="k-v">'+Number(p.daysToGo||0)+'<span class="u"> 天</span></div><div class="k-sub">目標 '+esc(p.goLive||'2027/01/01')+'</div>';add(c);
+};
+
+function renderGovernancePulseV5(){
+  const ov=document.getElementById('commandOverview'); if(!ov)return;
+  const old=document.getElementById('govPulseV5'); if(old)old.remove();
+  const g=D.goLiveGovernance||{}, p=D.project||{}, k=D.kpis||{}, next=g.nextGate||{};
+  const fallback=(g.fallback||{}).status==='active';
+  const el=document.createElement('div');el.id='govPulseV5';el.className='govpulse-v5';
+  el.innerHTML='<div><span>1/1主計畫</span><b>'+esc(p.mainPlanStatus||'維持')+'</b></div><div><span>下一控制點</span><b>'+esc((next.date||'—')+' '+(next.label||''))+'</b></div><div><span>關鍵路徑待完成</span><b>'+Number(k.criticalPathOpen||0)+' 項</b></div><div class="'+(fallback?'bad':'')+'"><span>4/1條件式備援</span><b>'+(fallback?'已啟動':'未啟動')+'</b></div>';
+  ov.parentNode.insertBefore(el,ov.nextSibling);
+}
+
+function renderMaturityV5(){
+  const anchor=document.getElementById('kpis'); if(!anchor||!D.maturity)return;
+  const old=document.getElementById('maturityV5'); if(old)old.remove();
+  const m=D.maturity, wrap=document.createElement('div');wrap.id='maturityV5';wrap.className='maturity-v5';
+  function card(label,x){x=x||{};return '<div class="mv-card"><span>'+label+'</span><b>'+Number(x.pct||0)+'%</b><i><em style="width:'+Math.max(2,Number(x.pct||0))+'%"></em></i><small>完成 '+Number(x.done||0)+' / '+Number(x.total||0)+'</small></div>';}
+  wrap.innerHTML='<div class="mv-head"><b>1/1 上線成熟度</b><span>'+esc(m.note||'依相關WBS完成度推估，非品質認證')+'</span></div><div class="mv-grid">'+card('系統',m.system)+card('資料',m.data)+card('人員',m.people)+'</div>';
+  anchor.parentNode.insertBefore(wrap,anchor);
+}
+
+const __v5RenderBase=render;
+render=function(){__v5RenderBase();renderGovernancePulseV5();renderMaturityV5();};
+
+(function(){const s=document.createElement('style');s.textContent=`
+.govpulse-v5{display:grid;grid-template-columns:1fr 1.35fr 1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:11px;overflow:hidden;margin:10px 0 18px;box-shadow:var(--shadow)}
+.govpulse-v5>div{background:#fff;padding:11px 13px;min-width:0}.govpulse-v5 span{display:block;font-size:9.5px;color:var(--gray);font-weight:700;margin-bottom:3px}.govpulse-v5 b{font-size:11.5px;color:var(--blk)}.govpulse-v5 .bad b{color:var(--red)}
+.maturity-v5{background:#fff;border:1px solid var(--bdr);border-radius:12px;box-shadow:var(--shadow);margin:0 0 11px;overflow:hidden}.mv-head{display:flex;gap:10px;align-items:baseline;padding:10px 14px;border-bottom:1px solid var(--bdrl)}.mv-head b{font-size:11px}.mv-head span{font-size:9.5px;color:var(--gray)}.mv-grid{display:grid;grid-template-columns:repeat(3,1fr)}.mv-card{padding:12px 14px;border-left:1px solid var(--bdrl)}.mv-card:first-child{border-left:0}.mv-card>span{display:block;font-size:10px;color:var(--gray);font-weight:700}.mv-card>b{display:block;font-family:var(--font-num);font-size:23px;margin:2px 0}.mv-card>i{display:block;height:4px;background:var(--bdrl);border-radius:4px;overflow:hidden}.mv-card>i>em{display:block;height:100%;background:var(--red);border-radius:4px}.mv-card>small{display:block;font-size:9.5px;color:var(--gray);margin-top:5px}
+@media(max-width:760px){.govpulse-v5{grid-template-columns:1fr 1fr}.mv-grid{grid-template-columns:1fr}.mv-card{border-left:0;border-top:1px solid var(--bdrl)}}`;
+document.head.appendChild(s);})();
 
 
 document.addEventListener('DOMContentLoaded', boot);
