@@ -1801,6 +1801,99 @@ render=function(){__v5RenderBase();renderGovernancePulseV5();renderMaturityV5();
 document.head.appendChild(s);})();
 
 
+
+/* === V5.5 PMO SEMANTICS FINAL PATCH ===
+   目標：把「做了多少」與「現在做得好不好」分開；以目前階段、到期達成、逾期與 Gate 作主管主訊號。 */
+function pmDuePctText(m){return Number(m.dueTotal||0)?Number(m.dueToDatePct??0)+'%':'—';}
+function pmModuleStateText(m){
+  if(Number(m.overdue||0)>0)return '需介入';
+  if(Number(m.dueTotal||0)>0 && Number(m.dueToDatePct??100)<100)return '需注意';
+  if((m.displayMode||'')==='not_started')return '尚未進入主要執行期';
+  if(Number(m.dueTotal||0)>0)return '依計畫';
+  return '推進中';
+}
+function pmNextActionText(m){return m.nextAction||'—';}
+function pmNextGateText(m){return m.nextGate||'—';}
+
+renderKpis=function(k,p){
+  const box=document.getElementById('kpis');if(!box)return;box.innerHTML='';
+  function add(c){box.appendChild(c);}
+  const stagePct=Number(k.currentStagePct??0), stageName=k.currentStageName||'目前階段';
+  let c=kpiCell('pair-a','目前階段完成率',stagePct,'%','目前：'+stageName,'');c.classList.add('clickable');c.onclick=()=>openOverviewDrawer('progress');add(c);
+  const dueHas=Number(k.dueTotalCount||0)>0, dueVal=dueHas?Number(k.dueToDatePct??0):0;
+  c=kpiCell('pair-b','到期工作達成率',dueHas?dueVal:'—',dueHas?'%':'','截至資料日應完成工作的交付表現',dueHas&&dueVal<100?'bad':'ok');c.classList.add('clickable');c.onclick=()=>openOverviewDrawer('progress');add(c);
+  c=document.createElement('div');c.className='kpi gate clickable';c.onclick=()=>openOverviewDrawer('schedule');
+  c.innerHTML='<div class="k-l">逾期 Gate</div><div class="k-v">'+Number(k.overdueGateCount??0)+'<span class="u"> 項</span></div><div class="k-sub '+(Number(k.overdueGateCount??0)>0?'bad':'ok')+'">'+(Number(k.overdueGateCount??0)>0?'已有主管控制點失守／待追回':'目前無逾期 Gate')+'</div>';add(c);
+  c=document.createElement('div');c.className='kpi plain clickable';c.onclick=()=>openOverviewDrawer('schedule');c.innerHTML='<div class="k-l">逾期／追回中</div><div class="k-v">'+Number(k.overdueTasks||0)+'<span class="u"> 件</span></div><div class="k-sub '+(Number(k.overdueTasks||0)>0?'bad':'ok')+'">執行工作逾期／待追回</div>';add(c);
+  const next=(D.commandCenter&&D.commandCenter.schedule&&D.commandCenter.schedule.nextGate)||{};
+  c=document.createElement('div');c.className='kpi plain clickable';c.onclick=()=>openOverviewDrawer('schedule');c.innerHTML='<div class="k-l">下一 Gate</div><div class="k-v k-nextgate">'+esc(next.date?fmtMD(next.date):'—')+'</div><div class="k-sub">'+esc(next.name||'尚無下一控制點')+'</div>';add(c);
+  c=document.createElement('div');c.className='kpi plain clickable';c.onclick=()=>openOverviewDrawer('schedule');c.innerHTML='<div class="k-l">距正式上線</div><div class="k-v">'+Number(p.daysToGo||0)+'<span class="u"> 天</span></div><div class="k-sub">目標 '+esc(p.goLive||'2027/01/01')+'</div>';add(c);
+};
+
+renderGovernancePulseV5=function(){
+  const ov=document.getElementById('commandOverview');if(!ov)return;const old=document.getElementById('govPulseV5');if(old)old.remove();
+  const g=D.goLiveGovernance||{}, p=D.project||{}, k=D.kpis||{}, next=(D.commandCenter&&D.commandCenter.schedule&&D.commandCenter.schedule.nextGate)||{};
+  const fallback=(g.fallback||{}).status==='active';
+  const el=document.createElement('div');el.id='govPulseV5';el.className='govpulse-v5';
+  el.innerHTML='<div><span>1/1主計畫</span><b>'+(fallback?'已由正式決策切換':'維持推進')+'</b></div><div><span>下一控制點</span><b>'+esc((next.date?fmtMD(next.date):'—')+' '+(next.name||''))+'</b></div><div><span>逾期 Gate</span><b class="'+(Number(k.overdueGateCount||0)?'bad':'')+'">'+Number(k.overdueGateCount||0)+' 項</b></div><div class="'+(fallback?'bad':'')+'"><span>4/1條件式備援</span><b>'+(fallback?'已啟動':'未啟動')+'</b></div>';
+  ov.parentNode.insertBefore(el,ov.nextSibling);
+};
+
+function workstreamCardHtml(m){
+  const h=m.health||'grey',state=pmModuleStateText(m),dueTotal=Number(m.dueTotal||0),duePct=pmDuePctText(m);
+  const note=m.managerNote?'<div class="wsc-note" title="'+esc(m.managerNote)+'">'+esc(m.managerNote)+'</div>':'';
+  const own=(m.pm||m.owner)?'<div class="wsc-owner">PM <b>'+esc(m.pm||'—')+'</b> · 主責 <b>'+esc(m.owner||'—')+'</b></div>':'';
+  let primary='';
+  if(dueTotal){
+    primary='<div class="wsc-metrics"><span class="wsc-scope '+(Number(m.dueToDatePct??0)<100?'bad':'')+'">'+duePct+'</span><span class="wsc-due">到期工作達成率 · '+Number(m.dueDone||0)+' / '+dueTotal+'</span></div>'+
+      '<div class="wsc-bar"><div class="wsc-fill" style="width:'+Math.max(2,Number(m.dueToDatePct||0))+'%"></div></div>';
+  }else{
+    primary='<div class="wsc-metrics"><span class="wsc-scope upcoming">—</span><span class="wsc-due">尚未進入主要到期檢核</span></div>';
+  }
+  const volume=(m.name==='專案總控')?'已完成管理工作 <b>'+(m.done||0)+'</b> 項':'全期工作已完成 <b>'+(m.done||0)+'</b> / '+(m.total||0)+' 項';
+  return '<div class="wscard h-'+h+'" onclick="openWorkstreamDrawer(\''+esc(m.name)+'\')"><div class="wsc-top"><span class="wsc-name">'+esc(moduleDisplayName(m.name))+'</span><span class="wsc-health '+h+'">'+esc(state)+'</span></div>'+own+primary+
+    '<div class="wsc-nums"><span>'+volume+'</span><span>進行 <b>'+(m.active||0)+'</b></span><span class="bad">逾期 <b>'+(m.overdue||0)+'</b></span></div>'+
+    '<div class="wsc-next"><span class="lab">近期工作｜</span><b>'+esc(pmNextActionText(m))+'</b></div>'+
+    '<div class="wsc-next"><span class="lab">下一 Gate｜</span><b>'+esc(pmNextGateText(m))+'</b></div>'+note+'</div>';
+}
+
+function renderWorkstreamPage(){
+  const mods=(D.modules||D.workstreams||[]).slice(),order=['組織職位','人事','考勤','薪酬','保險','電子簽核','IT／介接','資料','測試','教育訓練','上線','跨模組','專案總控','結案'];
+  mods.sort((a,b)=>{const ai=order.indexOf(a.name),bi=order.indexOf(b.name);return(ai<0?99:ai)-(bi<0?99:bi);});
+  const coreNames=['組織職位','組織','人事','考勤','薪酬','保險'];
+  const core=mods.filter(m=>coreNames.includes(m.name)),flow=mods.filter(m=>!core.includes(m));
+  const ps=pageSummaryData().workstreams||{};
+  const red=mods.filter(m=>m.health==='red').length,amber=mods.filter(m=>m.health==='amber').length,green=mods.filter(m=>m.health==='green').length,gray=mods.filter(m=>['gray','grey'].includes(m.health)).length;
+  const priority=ps.priorityTheme||null,headline=ps.headline||'依到期達成、逾期與正式 Gate 管理各模組；全期工作量僅作輔助，不等同當期健康度。';
+  renderPageBrief('workstreamBrief','管理摘要',headline,priority?'管理焦點｜'+priority.title:'',priority?()=>openManagementTheme(priority.id):openWorkstreamPortfolioDrawer);
+  const strip=document.getElementById('workstreamKpis');if(strip)strip.innerHTML=[['在軌',green,'green'],['注意',amber,''],['需介入',red,red?'red':''],['待啟動',gray,'']].map(x=>'<div class="ss-item"><span class="ss-label">'+x[0]+'</span><span class="ss-value '+(x[2]||'')+'">'+x[1]+'</span></div>').join('');
+  const c=document.getElementById('wsCoreGrid'),f=document.getElementById('wsFlowGrid');if(c)c.innerHTML=core.map(workstreamCardHtml).join('')||'<div class="compact-empty">暫無核心模組</div>';if(f)f.innerHTML=flow.map(workstreamCardHtml).join('')||'<div class="compact-empty">暫無跨域工作</div>';
+}
+
+function openWorkstreamDrawer(name){
+  const all=tasksData().filter(t=>t.module===name&&t.isCore!==false),m=(D.modules||D.workstreams||[]).find(x=>x.name===name)||{};
+  const active=all.filter(t=>['active','overdue','blocked','risk'].includes(t.status)),today=dateObj(timelineDomain().today),upcoming=all.filter(t=>t.status!=='done'&&dateObj(t.plannedEnd)&&dateObj(t.plannedEnd)>=today).sort((a,b)=>dateObj(a.plannedEnd)-dateObj(b.plannedEnd)).slice(0,10),completed=all.filter(t=>t.status==='done').sort((a,b)=>(dateObj(b.actualEnd)||0)-(dateObj(a.actualEnd)||0)).slice(0,6),gates=(D.timeline?.masterGates||[]).filter(g=>g.status!=='done'&&((g.module||'')===name)).slice(0,5);
+  setDrawerHeader(moduleDisplayName(name),'模組／跨域工作總覽',m.health==='red'?'overdue':m.health==='amber'?'active':m.health==='green'?'done':'pending');
+  const dueTotal=Number(m.dueTotal||0),dueTxt=dueTotal?Number(m.dueToDatePct??0)+'%':'—';
+  let b='<div class="ad-statusline"><span class="ad-status '+(m.health==='red'?'overdue':m.health==='amber'?'active':m.health==='green'?'done':'pending')+'">'+esc(pmModuleStateText(m))+'</span></div>'+
+    '<div class="ad-quant">'+qBox('到期工作達成率',dueTxt)+qBox('截至今日到期工作',dueTotal?String(m.dueDone??0)+' / '+dueTotal+' 項':'目前無到期工作')+qBox('全期工作量',String(m.done||0)+' / '+String(m.total||0)+' 已完成')+qBox('進行中',m.active||0)+qBox('逾期',m.overdue||0)+qBox('功能 PM',m.pm||'—')+qBox('主責經辦',m.owner||'—')+qBox('近期工作',pmNextActionText(m))+qBox('下一 Gate',pmNextGateText(m))+'</div>';
+  if(m.managerNote)b+=secHtml('管理重點','<div class="ad-callout">'+esc(m.managerNote)+'</div>');if(active.length||upcoming.length)b+=secHtml('目前／近期工作',wbsHtml(active.concat(upcoming).filter((v,i,a)=>a.findIndex(x=>x.row===v.row)===i),12));if(gates.length)b+=secHtml('近期關鍵節點',gateItemsHtml(gates));if(completed.length)b+=secHtml('最近完成',wbsHtml(completed,6));openDrawer(b);
+}
+
+const __v55RenderOverviewBase=typeof renderCommandOverview==='function'?renderCommandOverview:null;
+if(__v55RenderOverviewBase){renderCommandOverview=function(){__v55RenderOverviewBase();const k=D.kpis||{},p=D.project||{},cc=D.commandCenter||{};const cards=document.querySelectorAll('#commandOverview .ov-card');if(cards.length>1){const c=cards[1],dueTotal=Number(k.dueTotalCount||0),stageName=k.currentStageName||cc.currentPhase||'目前階段';c.innerHTML='<span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+Number(k.currentStagePct||0)+'%</span><span class="ov-label">目前階段完成率</span></div><div class="ov-metric-sub">'+esc(stageName)+'｜完成 <b>'+Number(k.currentStageDoneCount||0)+'</b> / '+Number(k.currentStageTotalCount||0)+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(dueTotal&&Number(k.dueToDatePct||0)<100?'red':'green')+'">'+(dueTotal?Number(k.dueToDatePct||0)+'%':'—')+'</span><span class="ov-label">到期工作達成率</span></div><div class="ov-metric-sub">'+(dueTotal?'到期完成 <b>'+Number(k.dueDoneCount||0)+'</b> / '+dueTotal+' 項':'目前沒有到期工作')+'</div></div></div><div class="ov-note">全期原子工作已完成 '+Number(k.scopeDoneCount||k.doneTasks||0)+' / '+Number(k.scopeProgressDenominator||k.totalTasks||0)+' 項；此數字只作工作量參考，不代表當期健康度。</div>';c.onclick=()=>openOverviewDrawer('progress');}};}
+
+const __v55RenderThesisBase=typeof renderThesis==='function'?renderThesis:null;
+if(__v55RenderThesisBase){renderThesis=function(){const k=D.kpis||{},themes=managementThemesData().filter(t=>['red','amber'].includes(t.status));const el=document.getElementById('thesis');if(!el)return;const th=themes.length?' 管理焦點為 <b>'+themes.slice(0,2).map(t=>esc(t.title)).join('、')+'</b>。':'';el.innerHTML='<span class="arw">↔</span><span class="txt">目前階段完成率 <span class="hi">'+Number(k.currentStagePct||0)+'%</span>，到期工作達成率 <span class="hi">'+(Number(k.dueTotalCount||0)?Number(k.dueToDatePct||0)+'%':'—')+'</span>；逾期／追回 <span class="hi">'+Number(k.overdueTasks||0)+'</span> 項，逾期 Gate <span class="hi">'+Number(k.overdueGateCount||0)+'</span> 項。'+th+'</span>';};}
+
+// Timeline fallback also uses the formal nine-stage vocabulary; primary page shows stages 1–7, backup/expansion remain separate.
+tlStageKey=function(s){s=String(s||'');if(/基礎建置與需求確認/.test(s))return'stage1';if(/規則確認與測試準備/.test(s))return'stage2';if(/系統設定.*功能測試/.test(s))return'stage3';if(/第一輪資料匯入/.test(s))return'stage4';if(/第二輪資料匯入、薪資測試與平測準備/.test(s))return'stage5';if(/正式平測、教育訓練與切換準備/.test(s))return'stage6';if(/正式上線與穩定化/.test(s))return'stage7';if(/備援/.test(s))return'backup';if(/第二階段|後續擴充/.test(s))return'expansion';return'other';};
+tlStageLabel=function(k){return({stage1:'1 基礎建置與需求確認',stage2:'2 規則確認與測試準備',stage3:'3 系統設定與功能測試',stage4:'4 第一輪資料匯入、整合修正與HR操作驗證',stage5:'5 第二輪資料匯入、薪資測試與平測準備',stage6:'6 正式平測、教育訓練與切換準備',stage7:'7 正式上線與穩定化',backup:'8 備援上線方案（條件式）',expansion:'9 第二階段／後續擴充',other:'其他'})[k]||k;};
+
+(function(){const s=document.createElement('style');s.textContent=`
+.k-nextgate{font-size:18px!important}.wsc-scope.upcoming{font-size:23px}.wscard .wsc-next+.wsc-next{margin-top:4px}.wsc-health{white-space:nowrap}.ws-core-grid,.ws-flow-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.wscard,.ws{min-width:0!important;overflow:hidden}.wsc-note,.wsc-next,.ws-next{overflow-wrap:anywhere;word-break:break-word}@media(max-width:1180px){.ws-core-grid,.ws-flow-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:760px){.ws-core-grid,.ws-flow-grid{grid-template-columns:1fr!important}}`;
+document.head.appendChild(s);})();
+
 document.addEventListener('DOMContentLoaded', boot);
 </script>
 </body>
