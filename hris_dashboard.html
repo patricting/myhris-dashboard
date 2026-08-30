@@ -1802,7 +1802,7 @@ document.head.appendChild(s);})();
 
 
 
-/* === V5.5 PMO SEMANTICS FINAL PATCH ===
+/* === V5.6 PMO SEMANTICS FINAL PATCH ===
    目標：把「做了多少」與「現在做得好不好」分開；以目前階段、到期達成、逾期與 Gate 作主管主訊號。 */
 function pmDuePctText(m){return Number(m.dueTotal||0)?Number(m.dueToDatePct??0)+'%':'—';}
 function pmModuleStateText(m){
@@ -1894,7 +1894,117 @@ tlStageLabel=function(k){return({stage1:'1 基礎建置與需求確認',stage2:'
 .k-nextgate{font-size:18px!important}.wsc-scope.upcoming{font-size:23px}.wscard .wsc-next+.wsc-next{margin-top:4px}.wsc-health{white-space:nowrap}.ws-core-grid,.ws-flow-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.wscard,.ws{min-width:0!important;overflow:hidden}.wsc-note,.wsc-next,.ws-next{overflow-wrap:anywhere;word-break:break-word}@media(max-width:1180px){.ws-core-grid,.ws-flow-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:760px){.ws-core-grid,.ws-flow-grid{grid-template-columns:1fr!important}}`;
 document.head.appendChild(s);})();
 
+
+/* === V5.6 FINAL PMO SEMANTICS OVERRIDES === */
+function formalStageFallbackV56(){
+  const order=['基礎建置與需求確認','規則確認與測試準備','系統設定與功能測試','第一輪資料匯入、整合修正與HR操作驗證','第二輪資料匯入、薪資測試與平測準備','正式平測、教育訓練與切換準備','正式上線與穩定化'];
+  const today=dateObj(timelineDomain().today)||new Date();
+  const all=tasksData().filter(t=>t.isCore!==false);
+  let name='';
+  for(const st of order){const rows=all.filter(t=>t.stage===st);if(rows.some(t=>t.status!=='done'&&(!dateObj(t.plannedStart)||dateObj(t.plannedStart)<=today))){name=st;break;}}
+  if(!name){for(const st of order){if(all.some(t=>t.stage===st&&t.status!=='done')){name=st;break;}}}
+  const rows=all.filter(t=>t.stage===name&&t.role!=='parent');
+  const done=rows.filter(t=>t.status==='done').length;
+  const no=order.indexOf(name)+1;
+  return {name,label:no>0?'第'+no+'階段｜'+name:(D.commandCenter?.currentPhase||'尚未判定'),done,total:rows.length,pct:rows.length?Math.round(done/rows.length*100):null};
+}
+function stageMetricV56(){const k=D.kpis||{},fb=formalStageFallbackV56();return {label:k.currentStageLabel||((k.currentStageName)?'第'+(k.currentStageNo||'')+'階段｜'+k.currentStageName:fb.label),name:k.currentStageName||fb.name,done:Number.isFinite(Number(k.currentStageDoneCount))&&Number(k.currentStageTotalCount)>0?Number(k.currentStageDoneCount):fb.done,total:Number(k.currentStageTotalCount)>0?Number(k.currentStageTotalCount):fb.total,pct:Number(k.currentStageTotalCount)>0?Number(k.currentStagePct):fb.pct};}
+function overdueGateCountV56(){const k=D.kpis||{};if(k.overdueGateCount!=null)return Number(k.overdueGateCount||0);const today=dateObj(timelineDomain().today)||new Date();const seen=new Set();return (D.timeline?.masterGates||[]).filter(g=>{const d=dateObj(g.date);const key=(g.date||'')+'|'+String(g.name||'').replace(/管理 Gate|控制點|管理節點/g,'').trim();if(seen.has(key))return false;seen.add(key);return g.status!=='done'&&d&&d<today;}).length;}
+function nextGateV56(){const k=D.kpis||{};if(k.nextGateDate)return {date:k.nextGateDate,name:k.nextGateName||''};const today=dateObj(timelineDomain().today)||new Date();return (D.timeline?.masterGates||[]).filter(g=>g.status!=='done'&&dateObj(g.date)&&dateObj(g.date)>=today).sort((a,b)=>dateObj(a.date)-dateObj(b.date))[0]||{};}
+function deriveNextActionV56(name){const today=dateObj(timelineDomain().today)||new Date();const arr=tasksData().filter(t=>t.module===name&&t.isCore!==false&&t.status!=='done'&&t.status!=='archived');const active=arr.filter(t=>dateObj(t.plannedStart)&&dateObj(t.plannedStart)<=today&&(!dateObj(t.plannedEnd)||dateObj(t.plannedEnd)>=today)).sort((a,b)=>(dateObj(a.plannedEnd)||9e15)-(dateObj(b.plannedEnd)||9e15))[0];if(active)return '目前｜'+fmtMD(active.plannedEnd)+' '+active.task;const future=arr.filter(t=>dateObj(t.plannedStart)&&dateObj(t.plannedStart)>today).sort((a,b)=>dateObj(a.plannedStart)-dateObj(b.plannedStart))[0];return future?'下一步｜'+fmtMD(future.plannedStart)+' '+future.task:'—';}
+pmNextActionText=function(m){return m.nextAction||deriveNextActionV56(m.name)||'—';};
+moduleStatusTextV55=function(m){if((m.overdue||0)>0||(m.blocked||0)>0)return'需介入';if(Number(m.dueTotal||0)>0)return'依計畫';const today=dateObj(timelineDomain().today)||new Date();const started=tasksData().some(t=>t.module===m.name&&t.isCore!==false&&(t.status==='done'||t.status==='active'||(dateObj(t.plannedStart)&&dateObj(t.plannedStart)<=today)));return started?'推進中':'待啟動';};
+
+// 正式主管時程只使用 S2_V2 九階段語言，不再另造「需求確認／規則確認／Demo」等第二套階段。
+managementRowsV36=function(){
+  const rows=[];
+  const P={s2:'2 規則確認與測試準備',s3:'3 系統設定與功能測試',s4:'4 第一輪資料匯入、整合修正與HR操作驗證',s5:'5 第二輪資料匯入、薪資測試與平測準備',s6:'6 正式平測、教育訓練與切換準備',s7:'7 正式上線與穩定化'};
+  const pushTask=(stage,label,pattern,type='bar')=>{const t=taskFindV36(pattern);if(t)rows.push({id:'T-'+t.row,stage,label,owner:t.pm||t.owner||'',start:t.plannedStart,end:t.plannedEnd,type,status:t.status||rangeStatusV36(t.plannedStart,t.plannedEnd),phaseClass:phaseClassV36(t.stage),row:t.row,module:t.module});};
+  const pushGate=(stage,label,pattern,type='gate')=>{const t=taskFindV36(pattern),g=gateFindV36(pattern),x=t||g;if(x){const d=t?.plannedEnd||g?.date;rows.push({id:'G-'+(t?.row||g?.id||rows.length),stage,label,owner:t?.pm||g?.owner||'',start:d,end:d,type,status:t?.status||g?.status||'pending',phaseClass:phaseClassV36(stage),row:t?.row||null,gateId:g?.id||null,module:t?.module||g?.module||''});}};
+  pushTask(P.s2,'考勤設定追回',/考勤核心規則確認與設定時程追回/,'bar');
+  pushGate(P.s2,'組織／簽核第一輪確認',/組織／簽核第一輪確認|組織圖＆簽核邏輯確認/);
+  pushTask(P.s3,'核心使用者操作與情境驗證',/核心使用者操作與情境驗證/,'bar');
+  {const g=gateGroups().find(x=>x.label==='核心設定穩定');if(g)rows.push({id:g.id,stage:P.s3,label:'核心設定穩定',owner:'俊翔／Ken',start:g.date,end:g.date,type:'gate',status:g.status,phaseClass:'phase-setting',gateGroupId:g.id});}
+  pushGate(P.s4,'第一輪全模組資料匯入',/第一次完整資料匯入|第一輪全模組資料匯入/);
+  pushGate(P.s4,'資料品質確認',/資料品質|第一次完整資料匯入/);
+  pushGate(P.s5,'第一次薪資測試',/第一次薪資測試/);
+  pushGate(P.s5,'第二次完整資料匯入',/第二次完整資料匯入/);
+  pushTask(P.s5,'平測前整合測試',/平測前整合測試|上線前整合測試/,'bar');
+  pushGate(P.s5,'平測／正式訓練就緒確認',/平測前作業確認|平測／正式訓練就緒/);
+  pushTask(P.s6,'正式平測',/正式平行測試/,'bar');
+  pushGate(P.s6,'最終上線判定',/12\/18 最終Go|正式上線條件確認/);
+  {const g=gateGroups().find(x=>x.label==='正式上線');if(g)rows.push({id:g.id,stage:P.s7,label:'2027/01/01 正式上線',owner:'Kate',start:g.date,end:g.date,type:'star',status:g.status,phaseClass:'phase-golive',gateGroupId:g.id});}
+  pushTask(P.s7,'首月考勤結算驗證',/首月考勤結算驗證/,'bar');
+  return rows.filter(x=>x.start&&x.end);
+};
+
+// 執行表不再顯示不存在的人工完成度；改用 S2_V2 的「目前進度／待確認／後續」。
+renderExecution=function(){const s=executionSets(),q=(document.getElementById('execSearch')?.value||'').trim().toLowerCase(),mod=document.getElementById('execModule')?.value||'';let arr=(s[APP_STATE.execMode]||[]).slice();if(mod)arr=arr.filter(t=>t.module===mod);if(q)arr=arr.filter(t=>[t.task,t.module,t.pm,t.owner,t.progress,t.coordination].join(' ').toLowerCase().includes(q));if(APP_STATE.execMode==='completed')arr.sort((a,b)=>(dateObj(b.actualEnd)||0)-(dateObj(a.actualEnd)||0));else arr.sort((a,b)=>(dateObj(a.plannedEnd)||0)-(dateObj(b.plannedEnd)||0));arr=arr.slice(0,120);const box=document.getElementById('execTable');if(!arr.length){box.innerHTML='<div class="exec-empty">此條件目前沒有工作項目</div>';return;}box.innerHTML='<div class="exec-head"><div>截止</div><div>工作項目</div><div>模組／跨域</div><div>功能 PM</div><div>狀態</div><div>目前進度／下一步</div><div>時程偏差</div></div>'+arr.map(t=>'<div class="exec-row" onclick="openTaskByRow('+Number(t.row||0)+')"><div class="mono" data-label="截止">'+fmtMD(t.plannedEnd)+'</div><div data-label="工作"><div class="exec-task">'+esc(t.task)+'</div><div class="exec-sub">'+esc(t.stage||'')+'</div></div><div data-label="模組／跨域">'+esc(t.module||'')+'</div><div data-label="功能 PM">'+esc(t.pm||t.owner||'—')+'</div><div data-label="狀態"><span class="status-pill '+(t.status||'pending')+'">'+statusText(t.status)+'</span></div><div data-label="目前進度"><div class="exec-sub">'+esc((t.progress||t.coordination||'—').slice(0,110))+'</div></div><div data-label="偏差" class="'+((t.delayDays||0)>0?'delay-bad':'delay-good')+'">'+((t.delayDays||0)>0?'+'+t.delayDays+' 天':((t.delayDays||0)<0?'提前 '+Math.abs(t.delayDays)+' 天':'—'))+'</div></div>').join('');};
+
+// 首頁進度與 Gate 全部採同一套 fallback，避免新版 HTML 搭到舊 data.json 時出現 0/0、逾期 Gate=0。
+if(typeof renderCommandOverview==='function'){const __base=renderCommandOverview;renderCommandOverview=function(){__base();const st=stageMetricV56(),k=D.kpis||{},cards=document.querySelectorAll('#commandOverview .ov-card');if(cards.length>1){const c=cards[1],dueTotal=Number(k.dueTotalCount||0);c.innerHTML='<span class="ov-arrow">›</span><div class="ov-kicker">進度</div><div class="ov-progress-main"><div class="ov-metric"><div class="ov-value"><span class="ov-big">'+(st.pct==null?'—':st.pct+'%')+'</span><span class="ov-label">目前階段整體完成度</span></div><div class="ov-metric-sub">'+esc(st.label)+'｜完成 <b>'+st.done+'</b> / '+st.total+' 項</div></div><div class="ov-metric"><div class="ov-value"><span class="ov-big '+(dueTotal&&Number(k.dueToDatePct||0)<100?'red':'green')+'">'+(dueTotal?Number(k.dueToDatePct||0)+'%':'—')+'</span><span class="ov-label">到期工作達成率</span></div><div class="ov-metric-sub">'+(dueTotal?'到期完成 <b>'+Number(k.dueDoneCount||0)+'</b> / '+dueTotal+' 項':'目前沒有到期工作')+'</div></div></div><div class="ov-note">全期工作量僅作規模參考；專案健康以到期交付、逾期工作與 Gate 為主。</div>';c.onclick=()=>openOverviewDrawer('progress');}};}
+
+if(typeof renderThesis==='function'){renderThesis=function(){const k=D.kpis||{},st=stageMetricV56(),og=overdueGateCountV56(),themes=managementThemesData().filter(t=>['red','amber'].includes(t.status));const el=document.getElementById('thesis');if(!el)return;const th=themes.length?' 管理焦點為 <b>'+themes.slice(0,2).map(t=>esc(t.title)).join('、')+'</b>。':'';el.innerHTML='<span class="arw">↔</span><span class="txt">目前為 <span class="hi">'+esc(st.label)+'</span>，階段整體完成度 <span class="hi">'+(st.pct==null?'—':st.pct+'%')+'</span>；到期工作達成率 <span class="hi">'+(Number(k.dueTotalCount||0)?Number(k.dueToDatePct||0)+'%':'—')+'</span>，逾期／追回 <span class="hi">'+Number(k.overdueTasks||0)+'</span> 項，逾期 Gate <span class="hi">'+og+'</span> 項。'+th+'</span>';};}
+
+const __oldRenderCoreKpisV55=typeof renderCoreKpisV55==='function'?renderCoreKpisV55:null;
+if(__oldRenderCoreKpisV55){renderCoreKpisV55=function(){__oldRenderCoreKpisV55();const box=document.getElementById('coreKpis');if(!box)return;const st=stageMetricV56(),og=overdueGateCountV56(),ng=nextGateV56(),cells=box.children;if(cells[0])cells[0].innerHTML='<div class="k-l">目前階段</div><div class="k-v">'+esc(st.label)+'</div><div class="k-sub">整體完成 '+st.done+' / '+st.total+' 項</div>';if(cells[2])cells[2].innerHTML='<div class="k-l">逾期 Gate</div><div class="k-v">'+og+'<span class="u"> 項</span></div><div class="k-sub '+(og?'bad':'ok')+'">'+(og?'已有主管控制點失守／待追回':'目前無逾期 Gate')+'</div>';if(cells[4])cells[4].innerHTML='<div class="k-l">下一 Gate</div><div class="k-v k-nextgate">'+(ng.date?fmtMD(ng.date):'—')+'</div><div class="k-sub">'+esc(ng.name||'—')+'</div>';};}
+
+// 顯示資料引擎版本，之後一眼即可確認是不是新版 GS 已真正產出 data.json。
+document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{const f=document.querySelector('footer,.footer');if(f){const v=D?.meta?.generatorVersion||D?.schemaVersion||'資料版本未標示';if(!f.textContent.includes('資料引擎'))f.insertAdjacentHTML('beforeend','<span style="margin-left:10px;opacity:.65">｜資料引擎 '+esc(v)+'</span>');}},800);});
+/* === END V5.6 === */
+
 document.addEventListener('DOMContentLoaded', boot);
 </script>
+
+<script>
+/* === V5.6.1 DEPLOYMENT & DRAWER CONSISTENCY PATCH === */
+(function(){
+  const BUILD='V5.6.1';
+  function stageMetricFinal(){
+    try{return stageMetricV56();}catch(e){return {label:'目前階段',name:'',done:0,total:0,pct:null};}
+  }
+  function gateCountFinal(){try{return overdueGateCountV56();}catch(e){return 0;}}
+  function nextGateFinal(){try{return nextGateV56();}catch(e){return {};}}
+
+  // Progress drawer: never show the obsolete 18% as the primary project progress.
+  const _oldOpenOverviewDrawer=window.openOverviewDrawer;
+  window.openOverviewDrawer=function(type){
+    if(type!=='progress') return _oldOpenOverviewDrawer ? _oldOpenOverviewDrawer(type) : undefined;
+    const k=(window.D&&D.kpis)||{}, st=stageMetricFinal();
+    const dueTotal=Number(k.dueTotalCount||0), dueDone=Number(k.dueDoneCount||0);
+    let b='<div class="ad-head"><div><div class="ad-kicker">專案總覽 · 進度</div><h3>專案進度總覽</h3></div><button class="ad-close" onclick="closeDrawer()">×</button></div>';
+    b+='<div class="ad-quant">'
+      +qBox('目前階段',esc(st.label))
+      +qBox('階段整體完成度',st.pct==null?'—':st.pct+'%')
+      +qBox('階段完成工作',st.done+' / '+st.total+' 項')
+      +qBox('到期工作達成率',dueTotal?Number(k.dueToDatePct||0)+'%':'—')
+      +qBox('截至目前應完成',dueTotal+' 項')
+      +qBox('其中已完成',dueDone+' / '+dueTotal+' 項')
+      +'</div>';
+    b+=secHtml('指標口徑','<div class="ad-text"><b>目前階段整體完成度</b>＝目前正式專案階段中已完成工作 ÷ 該階段工作數；<b>到期工作達成率</b>＝截至資料日原定應完成且已完成的工作 ÷ 原定應完成工作。全期工作量僅作規模參考，不再作為主管判讀專案健康的主指標。</div>');
+    const active=tasksData().filter(t=>t.status==='active').sort((a,b)=>(dateObj(a.plannedEnd)||0)-(dateObj(b.plannedEnd)||0)).slice(0,8);
+    const completed=tasksData().filter(t=>t.status==='done').sort((a,b)=>(dateObj(b.actualEnd)||0)-(dateObj(a.actualEnd)||0)).slice(0,6);
+    if(active.length)b+=secHtml('進行中工作',wbsHtml(active,8));
+    if(completed.length)b+=secHtml('最近完成',wbsHtml(completed,6));
+    openDrawer(b);
+  };
+
+  // Strong visible build marker to verify GitHub Pages actually serves the new HTML.
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      const top=document.querySelector('.topbar,.top-bar,header');
+      if(top && !document.getElementById('buildBadge561')){
+        const badge=document.createElement('span');
+        badge.id='buildBadge561'; badge.textContent='Dashboard '+BUILD;
+        badge.style.cssText='margin-left:10px;padding:3px 8px;border:1px solid rgba(255,255,255,.24);border-radius:999px;font-size:11px;opacity:.72;white-space:nowrap;';
+        top.appendChild(badge);
+      }
+      const f=document.querySelector('footer,.footer');
+      if(f && !f.textContent.includes('Dashboard '+BUILD)) f.insertAdjacentHTML('beforeend','<span style="margin-left:10px;opacity:.65">｜Dashboard '+BUILD+'</span>');
+    },300);
+  });
+})();
+</script>
+
 </body>
 </html>
