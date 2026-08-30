@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Command Center｜Gaia HCM 導入專案｜V4.4</title>
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'; connect-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<title>Command Center｜Gaia HCM 導入專案｜V5.3</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --red:#E71A28;--red-d:#B4111C;--red-l:#FDEEEF;--red-m:#F7CDD0;
@@ -15,8 +18,8 @@
   --amb:#B26A00;--ambl:#FCF2E1;--ambb:#F0CE95;
   --slate:#33465C;--slatel:#EEF1F5;
   --shadow:0 1px 2px rgba(20,20,20,.04),0 8px 24px rgba(20,20,20,.05);
-  --font-zh:'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif;
-  --font-num:'Inter','Segoe UI',Arial,sans-serif;
+  --font-zh:'Microsoft JhengHei','PingFang TC','Noto Sans TC','Segoe UI',sans-serif;
+  --font-num:'Segoe UI','Arial','Microsoft JhengHei',sans-serif;
 }
 html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--blk);font-family:var(--font-zh);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -451,6 +454,136 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
 .gg-stage .v{line-height:1.25}.gg-stage .d{line-height:1.25}
 @media(max-width:760px){.ov-card.progress .ov-progress-main{grid-template-columns:1fr 1fr!important;gap:10px!important}.ov-card.progress .ov-label{white-space:normal!important}.ov-card.progress .ov-metric-sub{white-space:normal!important}.gg-stage-row{display:flex!important;overflow-x:auto!important}.gg-stage{min-width:155px!important}}
 
+
+/* ══ V5.2 PMO GOVERNANCE VISUAL UPGRADE ══ */
+:root{--navy:#172231;--navy2:#243448;--soft:#F7F8FA;--blue:#356A9A;--blue-l:#EDF4FA}
+body{font-size:14px;line-height:1.68;background:#F5F5F3}
+.wrap,.top-in,.appnav-in{max-width:1320px}
+.top{background:linear-gradient(90deg,#101317 0%,#171C22 72%,#231316 100%);box-shadow:0 1px 0 rgba(255,255,255,.04)}
+.top-in{padding-top:12px;padding-bottom:12px}.brand-mk{width:34px;height:34px;border-radius:9px;box-shadow:0 5px 16px rgba(231,26,40,.22)}
+.brand-t{font-size:14px;letter-spacing:.1px}.brand-s{font-size:10.5px}
+.appnav{box-shadow:0 4px 14px rgba(20,20,20,.035)}.navbtn{height:48px;font-size:12px}.navbtn.active{font-weight:800}
+.hero{padding-top:30px}.hero-title{font-size:24px;letter-spacing:-.6px}.hero-phase{font-size:12.5px}
+.sh{margin-top:30px}.sh .t{font-size:12px;font-weight:850}.sh .n{font-size:10.8px}
+.ov-grid{gap:14px}.ov-card{border-radius:14px;padding:17px 18px;min-height:138px}.ov-kicker{font-size:9.5px}.ov-big{font-size:29px}.ov-note{font-size:10.8px}
+.kpis{gap:12px}.kpi{border-radius:13px;padding:17px 17px 15px}.kpi .k-l{font-size:9.6px}.kpi .k-v{font-size:32px}.kpi .k-sub{font-size:10.8px}
+.panel,.gates,.road,.thesis{border-radius:14px}.ws{border-radius:13px}.gate-row{padding:14px 18px}.gate-name{font-size:13.3px}.gate-mod{font-size:10.8px}
+.pagehead{padding-top:30px}.pagetitle{font-size:24px}.pagedesc{font-size:12px;max-width:760px}
+.toolbar,.page-brief{border-radius:12px}
+/* executive governance strip */
+.gov-strip{display:grid;grid-template-columns:1.05fr 1.05fr 1.2fr;gap:12px;margin:2px 0 18px}
+.gov-card{background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:15px 17px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.gov-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--slate)}
+.gov-card.primary::before{background:var(--red)}.gov-card.decision::before{background:var(--navy2)}.gov-card.backup::before{background:var(--gl)}
+.gov-k{font-size:9px;font-weight:900;letter-spacing:1.1px;color:var(--gray);margin-bottom:5px}.gov-v{font-family:var(--font-num);font-variant-numeric:tabular-nums;font-size:21px;font-weight:700;letter-spacing:-.4px;color:var(--blk)}
+.gov-v .status{font-family:var(--font-zh);font-size:11px;margin-left:6px;padding:2px 7px;border-radius:999px;vertical-align:3px}.gov-card.primary .status{background:var(--red-l);color:var(--red-d)}.gov-card.decision .status{background:var(--slatel);color:var(--slate)}.gov-card.backup .status{background:#F1F1EF;color:#777}
+.gov-d{font-size:10.7px;color:var(--cha);line-height:1.5;margin-top:5px}.gov-d b{color:var(--ink)}
+.gov-rule{grid-column:1/-1;background:linear-gradient(90deg,#FFF 0%,#FFF8F8 100%);border:1px solid var(--red-m);border-radius:11px;padding:9px 13px;font-size:10.8px;color:var(--cha)}.gov-rule b{color:var(--red-d)}
+/* reduce visual noise */
+.ov-card,.kpi,.panel,.gates,.road,.ws,.pay-card,.mini-kpi,.rd-panel,.gantt-shell{box-shadow:0 1px 2px rgba(20,20,20,.025),0 6px 18px rgba(20,20,20,.035)}
+@media(max-width:760px){.gov-strip{grid-template-columns:1fr}.gov-rule{grid-column:1}.hero-title{font-size:21px}}
+@media print{.top,.appnav,.present-btn,.presentation-exit{position:static}.gov-strip{break-inside:avoid}.ov-card,.kpi,.panel,.gates,.road,.ws{box-shadow:none}}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   V5.3｜可讀性、RWD 與部署安全強化
+   - 不依賴第三方字型請求
+   - 中文內文維持 11px 以上，主管閱讀區提高行高
+   - 小螢幕改採卡片與自然換行，避免橫向壓縮文字
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --content-max:1280px;
+  --reading:1.68;
+}
+.wrap,.top-in,.appnav-in{max-width:var(--content-max)}
+body{font-size:14px;line-height:var(--reading)}
+p,li,.pagedesc,.pb-text,.ov-note,.att-m,.dec-m,.gate-mod,.ws-next,.wsc-next,.wsc-note,
+.ts-d,.risk-meta,.decision-meta,.coord-issue,.ad-text,.ad-callout,.gate-purpose,.gate-impact,
+.gg-side-text,.gg-alert,.branch-condition{overflow-wrap:anywhere;word-break:normal}
+.pagedesc{font-size:12px;line-height:1.65;max-width:820px}
+.page-brief{padding:12px 14px}
+.pb-text{font-size:12px;line-height:1.65}
+.ov-card{padding:16px 17px;min-height:138px}
+.ov-kicker{font-size:10.5px}
+.ov-label{font-size:12.5px}
+.ov-note{font-size:11.5px;line-height:1.62;white-space:normal;overflow:visible;text-overflow:clip}
+.ov-focus-line{font-size:11.5px;line-height:1.55}
+.kpi{padding:16px 17px}
+.kpi .k-l{font-size:10.5px}
+.kpi .k-sub{font-size:11px;line-height:1.55}
+.thesis .txt{font-size:13px;line-height:1.65}
+.att-item,.dec-item{padding-top:14px;padding-bottom:14px}
+.att-t{font-size:13.5px;line-height:1.5}
+.att-m,.dec-m{font-size:11.5px;line-height:1.58}
+.dec-t{font-size:13px;line-height:1.5}
+.gate-row{padding-top:13px;padding-bottom:13px}
+.gate-name{font-size:13px;line-height:1.5}
+.gate-mod{font-size:11px;line-height:1.5}
+.ws-next{font-size:11px;line-height:1.55;white-space:normal}
+.wscard{min-height:138px;padding:12px 13px}
+.wsc-name{font-size:12.5px}
+.wsc-owner,.wsc-nums,.wsc-next,.wsc-note{font-size:9.8px;line-height:1.5}
+.exec-head{font-size:9.2px}
+.exec-row{font-size:10.5px;min-height:44px}
+.exec-task{font-size:11.5px;line-height:1.4}
+.exec-sub{font-size:9.2px;line-height:1.4}
+.risk-desc,.decision-name{font-size:11px;line-height:1.48}
+.risk-meta,.decision-meta{font-size:9.4px;line-height:1.48}
+.coord-table td{font-size:10px;line-height:1.5}
+.coord-main{font-size:10.8px}
+.ad-title{font-size:15px;line-height:1.4}
+.ad-sub{font-size:9.8px}
+.ad-text,.ad-callout{font-size:11px;line-height:1.65}
+.wbs-i{font-size:10px;min-height:34px}
+.gate-purpose,.gate-impact{font-size:10.5px;line-height:1.6}
+.gg-side-text,.gg-alert{font-size:10.5px;line-height:1.6}
+.bt-task{white-space:normal;line-height:1.45}
+
+/* 長文字以原始換行為段落，不把所有內容壓成一列 */
+.ad-text,.ad-callout,.gg-side-text,.gg-alert,.gate-purpose,.gate-impact{white-space:pre-line}
+
+/* 可點擊元件維持至少 40px；手機至少 44px */
+.navbtn,.present-btn,.exec-tab,.tool-select,.tool-input,.seg button,.ad-back,.ad-close{min-height:40px}
+@media(max-width:760px){
+  .navbtn,.present-btn,.exec-tab,.tool-select,.tool-input,.seg button,.ad-back,.ad-close{min-height:44px}
+  .wrap{padding-left:14px;padding-right:14px}
+  .pagehead{padding-top:18px}
+  .pagedesc{font-size:11.5px;line-height:1.7}
+  .page-brief{grid-template-columns:1fr;padding:12px}
+  .pb-label{font-size:9.5px}
+  .pb-text{font-size:11.5px;line-height:1.65}
+  .pb-meta{font-size:9.5px}
+  .ov-card{min-height:0;padding:15px}
+  .ov-note{font-size:11.5px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpi .k-v{font-size:28px}
+  .thesis .txt{font-size:11.5px;line-height:1.65}
+  .status-strip{scroll-snap-type:x proximity}
+  .ss-item{scroll-snap-align:start}
+  .exec-row{font-size:10.5px;line-height:1.5}
+  .exec-task{font-size:11.5px;line-height:1.45}
+  .risk-desc,.decision-name{font-size:11.5px}
+  .risk-meta,.decision-meta{font-size:10px}
+  .ad-text,.ad-callout{font-size:11px}
+}
+@media(max-width:480px){
+  .kpis{grid-template-columns:1fr}
+  .ov-progress-main{grid-template-columns:1fr!important}
+  .top-in{gap:8px}
+  .brand-s{display:none}
+  .chip{padding:4px 8px}
+  .hero-title{font-size:18px}
+  .sh{align-items:flex-start;flex-wrap:wrap}
+  .sh .n{width:100%;padding-left:12px;line-height:1.45}
+}
+
+/* 列印／簡報：避免卡片被頁面切斷 */
+@media print{
+  .top,.appnav,.presentation-exit,.toolbar,.timeline-tools{display:none!important}
+  body{background:#fff}
+  .panel,.ov-card,.kpi,.pay-card,.wscard,.rd-panel,.gates,.road{box-shadow:none;break-inside:avoid}
+}
+
 </style>
 </head>
 <body>
@@ -459,9 +592,9 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   <div class="brand">
     <div class="brand-mk">HCM</div>
     <div style="min-width:0">
-      <div class="brand-t">Gaia HCM 導入專案指揮中心</div>
+      <div class="brand-t">Gaia HCM 導入專案｜PMO 指揮中心</div>
     </div>
-    <span class="brand-s">雄獅集團 × 逐鹿數位 MetaGuru</span>
+    <span class="brand-s">雄獅集團 × 逐鹿數位｜1/1 主計畫治理</span>
   </div>
   <div class="top-r">
     <div class="chip" id="healthChip"><span class="dot"></span><span id="healthTxt">—</span></div>
@@ -490,6 +623,25 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
     </div>
     <div class="spine" id="spine"></div>
   </div>
+  <div class="gov-strip" aria-label="上線治理原則">
+    <div class="gov-card primary">
+      <div class="gov-k">MAIN PLAN｜唯一主計畫</div>
+      <div class="gov-v">2027/01/01 <span class="status">主計畫推進中</span></div>
+      <div class="gov-d">所有 Gate 先以<b>追回、修復、資源升級</b>維持 1/1，不因單一節點未達直接改期。</div>
+    </div>
+    <div class="gov-card decision">
+      <div class="gov-k">GO / NO-GO｜最終切換授權</div>
+      <div class="gov-v">2026/12/18 <span class="status">正式判定點</span></div>
+      <div class="gov-d">依<b>平測、重大缺陷、資料、介接、教育訓練</b>成熟度做最終上線授權。</div>
+    </div>
+    <div class="gov-card backup">
+      <div class="gov-k">CONTINGENCY｜條件式備援</div>
+      <div class="gov-v">2027/04/01 <span class="status">未啟動</span></div>
+      <div class="gov-d">可預先準備，但<b>不納入 1/1 完成度</b>；僅在主管正式核定延後後才啟動。</div>
+    </div>
+    <div class="gov-rule"><b>判定原則：</b>前置 Gate 未達 ≠ 自動切換 4/1。先判斷是否仍有合理復原路徑；只有正式確認 1/1 已無合理復原路徑並完成主管核定，才啟動備援。</div>
+  </div>
+
 
   <!-- COMMAND OVERVIEW -->
   <div class="sh"><span class="bar"></span><span class="t">專案總覽</span><span class="n">專案健康、進度、時程與管理重點</span></div>
@@ -505,7 +657,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   <div class="pay-grid" id="paymentGrid"></div>
 
   <!-- ROADMAP -->
-  <div class="sh"><span class="bar"></span><span class="t">上線推進路徑</span><span class="n">Road to Go-Live</span></div>
+  <div class="sh"><span class="bar"></span><span class="t">上線推進路徑</span><span class="n">1/1 主計畫 Road to Go-Live</span></div>
   <div class="road"><div class="road-track" id="road"></div></div>
 
   <!-- ATTENTION + DECISIONS -->
@@ -516,7 +668,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   </div>
 
   <!-- NEXT GATES -->
-  <div class="sh"><span class="bar"></span><span class="t">近期關鍵節點</span><span class="n">重要節點與上線關卡 ｜ <b>紅＝重要控制點</b></span></div>
+  <div class="sh"><span class="bar"></span><span class="t">近期關鍵節點</span><span class="n">依 S1／S2_V2 管理 Gate ｜ <b>紅＝主管控制點</b></span></div>
   <div class="gates" id="gates"></div>
 
   <!-- WORKSTREAMS -->
@@ -524,12 +676,12 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
   <div class="ws-grid" id="ws"></div>
 
   <div class="banner" id="srcBanner"></div>
-  <div class="foot">Gaia HCM 導入專案｜HRIS Project Control Center｜每日 19:00 更新</div>
+  <div class="foot">Gaia HCM 導入專案｜HRIS Project Control Center｜依自動排程更新</div>
 </div>
 
 </section>
 <section class="app-page" id="app-timeline"><div class="wrap">
-  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">02 / TIMELINE & GANTT</div><div class="pagetitle">整體時程與關鍵節點</div><div class="pagedesc">掌握整體排程、平行工作與關鍵節點，確認各階段是否依計畫推進。</div></div><div class="page-meta" id="timelineMeta"></div></div>
+  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">02 / TIMELINE & GANTT</div><div class="pagetitle">整體時程與關鍵節點</div><div class="pagedesc">以 9 階段、Gate 與 1/1 主計畫檢視整體排程；4/1 僅作條件式備援，不與主計畫並行。</div></div><div class="page-meta" id="timelineMeta"></div></div>
   <div class="page-brief clickable" id="timelineBrief"></div>
   <div class="status-strip" id="timelineKpis"></div>
   <div class="timeline-tools">
@@ -569,7 +721,7 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
 </div></section>
 
 <section class="app-page" id="app-risk"><div class="wrap">
-  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">05 / RISK & DECISION</div><div class="pagetitle">風險與決策</div><div class="pagedesc">集中查看正式風險、待裁示決策與跨單位協調事項，確認哪些問題會影響資料匯入、薪資測試、平測與 1/1 上線。</div></div></div>
+  <div class="pagehead"><div class="pagehead-main"><div class="pagekicker">05 / RISK & DECISION</div><div class="pagetitle">風險與決策</div><div class="pagedesc">集中查看正式風險、待裁示決策與跨單位協調事項，判斷對下一 Gate 與 1/1 主計畫的實際影響。</div></div></div>
   <div class="page-brief clickable" id="governanceBrief"></div>
   <div class="status-strip" id="riskKpis"></div>
   <div class="golive-governance" id="goLiveGovernance"></div>
@@ -588,8 +740,8 @@ body.presentation::after{content:'ESC 也可返回';position:fixed;right:28px;bo
    執行時會嘗試抓 data.json（GPT 的 V3 產出）覆蓋此 fixture。
    ══════════════════════════════════════════════════════════════ */
 const FIXTURE = {
-  schemaVersion:"HRIS_DASHBOARD_V4_4_PEOPLE_DATA_ALIGNMENT_FIXTURE",
-  updated:"2026/08/21",
+  schemaVersion:"HRIS_DASHBOARD_V5_2_GOVERNANCE_VISUAL_FIXTURE",
+  updated:"2026/08/29",
   project:{
     start:"2026/05/05", goLive:"2027/01/01", daysToGo:138,
     health:"amber",
@@ -718,11 +870,29 @@ function mdShort(s){const d=parseD(s);return d.getFullYear()+'/'+String(d.getMon
 
 let D = FIXTURE;
 
+function isSafeDashboardData_(x){
+  if(!x || typeof x!=='object' || Array.isArray(x)) return false;
+  if(!x.kpis || typeof x.kpis!=='object') return false;
+  if(x.project && typeof x.project!=='object') return false;
+  const sv=String(x.schemaVersion||'');
+  if(sv.length>120) return false;
+  return true;
+}
 async function boot(){
   try{
-    const r = await fetch('data.json?t='+Date.now());
-    if(r.ok){ const live = await r.json(); if(live && live.kpis){ D = live; } }
-  }catch(e){/* 用 fixture */}
+    const r = await fetch('data.json?t='+Date.now(),{
+      cache:'no-store',
+      credentials:'same-origin',
+      redirect:'error',
+      referrerPolicy:'no-referrer',
+      headers:{'Accept':'application/json'}
+    });
+    const ct=(r.headers.get('content-type')||'').toLowerCase();
+    if(r.ok && (ct.includes('application/json') || ct==='')){
+      const live = await r.json();
+      if(isSafeDashboardData_(live)){ D = live; }
+    }
+  }catch(e){/* 正式資料不可用時，僅使用內建 fixture 預覽 */}
   render();
   renderExtraPages();
 }
@@ -736,7 +906,7 @@ function render(){
   chip.title = p.healthText||'';
   $('#upd').textContent = '更新 '+(D.updatedAt||D.updated||'');
   const cc=D.commandCenter||{};
-  $('#phaseTxt').innerHTML = p.start+' → <b>'+p.goLive+' 上線</b> ｜ 目前：'+esc(p.currentPhase||cc.currentPhase||'—');
+  $('#phaseTxt').innerHTML = esc(p.start||'—')+' → <b>'+esc(p.goLive||'—')+' 上線</b> ｜ 目前：'+esc(p.currentPhase||cc.currentPhase||'—');
 
   renderSpine(p);
   renderCommandOverview();
@@ -907,7 +1077,7 @@ function renderKpis(k, p){
   ov.classList.add('clickable');ov.onclick=()=>openOverviewDrawer('schedule');box.appendChild(ov);
   // Days to go
   const dg=el('div','kpi plain');
-  dg.innerHTML='<div class="k-l">距正式上線</div><div class="k-v">'+p.daysToGo+'<span class="u"> 天</span></div><div class="k-sub">目標 '+p.goLive+'</div>';
+  dg.innerHTML='<div class="k-l">距正式上線</div><div class="k-v">'+Number(p.daysToGo||0)+'<span class="u"> 天</span></div><div class="k-sub">目標 '+esc(p.goLive||'—')+'</div>';
   dg.classList.add('clickable');dg.onclick=()=>openOverviewDrawer('schedule');box.appendChild(dg);
 }
 function kpiCell(cls,label,val,unit,sub,subcls){
@@ -931,7 +1101,7 @@ function renderAttention(items){
   if(!items.length){box.innerHTML='<div class="panel-empty">目前無需特別關注事項</div>';return;}
   items.slice(0,5).forEach(it=>{
     const row=el('div','att-item clickable '+(it.level||'amber')); row.onclick=()=>openAttentionItem(it.title);
-    row.innerHTML='<div class="att-rail"></div><div class="att-body"><div class="att-t">'+it.title+'</div><div class="att-m">'+it.meta+'</div></div><div class="att-tag '+(it.level||'amber')+'">'+(it.level==='red'?'高':'注意')+'</div>';
+    row.innerHTML='<div class="att-rail"></div><div class="att-body"><div class="att-t">'+esc(it.title)+'</div><div class="att-m">'+esc(it.meta||'')+'</div></div><div class="att-tag '+(it.level==='red'?'red':'amber')+'">'+(it.level==='red'?'高':'注意')+'</div>';
     box.appendChild(row);
   });
 }
@@ -945,7 +1115,7 @@ function renderDecisions(items){
   if(!items.length){box.insertAdjacentHTML('beforeend','<div class="panel-empty">目前無待裁示事項</div>');return;}
   items.forEach(d=>{
     const row=el('div','dec-item clickable'); row.onclick=()=>openDecision(d.id);
-    row.innerHTML='<div class="dec-id">'+d.id+'</div><div><div class="dec-t">'+d.title+'</div><div class="dec-m">'+d.meta+'</div></div>';
+    row.innerHTML='<div class="dec-id">'+esc(d.id||'')+'</div><div><div class="dec-t">'+esc(d.title||'')+'</div><div class="dec-m">'+esc(d.meta||'')+'</div></div>';
     box.appendChild(row);
   });
 }
