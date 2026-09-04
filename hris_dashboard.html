@@ -777,12 +777,12 @@ const FIXTURE = {
     activeTasks:4, overdueTasks:1, currentOverdueTasks:0, baselineOverdueTasks:1
   },
   commercial:{
-    title:"合約付款進度", totalAmount:4920000, installments:4, conditionMetPct:20,
+    title:"合約付款進度", installments:4, conditionMetPct:20,
     payments:[
-      {code:"A",phase:"專案啟動",attachment:"附件三",pct:20,amount:984000,status:"condition_met",evidenceDone:2,evidenceTotal:2,trigger:"專案開工與合約文件完成",evidence:[{label:"專案開工完成",done:true},{label:"合約簽署完成",done:true}]},
-      {code:"B",phase:"系統安裝",attachment:"附件四",pct:20,amount:984000,status:"verify",evidenceDone:2,evidenceTotal:3,trigger:"IT環境、授權申請與系統安裝交付完成",evidence:[{label:"IT環境就緒",done:true},{label:"License申請完成",done:true},{label:"逐鹿系統安裝交付確認",unknown:true}]},
-      {code:"C",phase:"需求定案",attachment:"附件八",pct:40,amount:1968000,status:"attention",evidenceDone:1,evidenceTotal:2,trigger:"基礎訪談與必要客製規格定案",relatedRisks:["R01","R05"],evidence:[{label:"基礎訪談定案",done:true},{label:"客製需求定案",overdue:true}]},
-      {code:"D",phase:"系統驗收",attachment:"附件五",pct:20,amount:984000,status:"pending",evidenceDone:0,evidenceTotal:3,trigger:"整合測試、正式平測與正式上線完成",evidence:[{label:"整合測試完成"},{label:"正式平測完成"},{label:"正式上線完成"}]}
+      {code:"A",phase:"專案啟動",attachment:"附件三",pct:20,status:"condition_met",evidenceDone:2,evidenceTotal:2,trigger:"專案開工與合約文件完成",evidence:[{label:"專案開工完成",done:true},{label:"合約簽署完成",done:true}]},
+      {code:"B",phase:"系統安裝",attachment:"附件四",pct:20,status:"verify",evidenceDone:2,evidenceTotal:3,trigger:"IT環境、授權申請與系統安裝交付完成",evidence:[{label:"IT環境就緒",done:true},{label:"License申請完成",done:true},{label:"逐鹿系統安裝交付確認",unknown:true}]},
+      {code:"C",phase:"需求定案",attachment:"附件八",pct:40,status:"attention",evidenceDone:1,evidenceTotal:2,trigger:"基礎訪談與必要客製規格定案",relatedRisks:["R01","R05"],evidence:[{label:"基礎訪談定案",done:true},{label:"客製需求定案",overdue:true}]},
+      {code:"D",phase:"系統驗收",attachment:"附件五",pct:20,status:"pending",evidenceDone:0,evidenceTotal:3,trigger:"整合測試、正式平測與正式上線完成",evidence:[{label:"整合測試完成"},{label:"正式平測完成"},{label:"正式上線完成"}]}
     ]
   },
   roadmap:[
@@ -798,7 +798,7 @@ const FIXTURE = {
   ],
   executive:{
     currentFocus:[
-      {title:"客製需求定案逾期", meta:"計畫 7/31 ｜ 逾期 +15 天 ｜ 觸發 C 期付款 NT$1,968,000", level:"red"},
+      {title:"客製需求定案逾期", meta:"計畫 7/31 ｜ 逾期 +15 天 ｜ 影響 C 期付款條件", level:"red"},
       {title:"考勤核心規則逾期／時程追回", meta:"較原定時程延後 ｜ 8/19完成最終版問卷，8月底確認考勤／薪資設定是否追回", level:"red"},
       {title:"海外 APP 打卡時區", meta:"Target 9 月 ｜ 正式方案未成，需啟動 Web／卡機備援", level:"amber"},
       {title:"年假混合制轉週年制", meta:"Target 12/1 ｜ 制度、資料與補償方式需同步確認", level:"amber"},
@@ -811,7 +811,7 @@ const FIXTURE = {
   },
   timeline:{
     masterGates:[
-      {date:"2026/07/31", name:"客製需求定案", module:"商務", status:"overdue", critical:false, note:"觸發 C 期 NT$1.968M"},
+      {date:"2026/07/31", name:"客製需求定案", module:"商務", status:"overdue", critical:false, note:"影響 C 期付款條件"},
       {date:"2026/08/19", name:"考勤核心規則／最終問卷交付", module:"考勤", status:"overdue", critical:true},
       {date:"2026/09/11", name:"各 AO 組織／簽核差異確認", module:"組織", status:"pending", critical:false},
       {date:"2026/09/30", name:"9 月顧問駐點工作確認", module:"跨模組", status:"pending", critical:false},
@@ -942,17 +942,17 @@ function paymentStatusText(s){return({condition_met:'條件已達',in_progress:'
 function renderPayments(){
   const c=commercialData(),box=document.getElementById('paymentGrid');if(!box)return;
   const ps=c.payments||[];
-  box.innerHTML=ps.map(p=>'<div class="pay-card '+(p.status||'pending')+'" onclick="openPaymentDrawer(\''+esc(p.code)+'\')"><div class="pay-top"><span class="pay-code">'+esc(p.code)+'期</span><span class="pay-phase">'+esc(p.phase)+'</span><span class="pay-pct">'+Number(p.pct||0)+'%</span></div><div class="pay-attach">'+esc(p.attachment||'')+' · '+esc(p.trigger||'')+'</div><div class="pay-amt">'+ntMoney(p.amount)+'</div><div class="pay-meta"><span class="pay-status '+(p.status||'pending')+'">'+paymentStatusText(p.status)+'</span><span class="pay-evi">條件 <b>'+Number(p.evidenceDone||0)+'/'+Number(p.evidenceTotal||0)+'</b></span></div></div>').join('');
+  box.innerHTML=ps.map(p=>'<div class="pay-card '+(p.status||'pending')+'" onclick="openPaymentDrawer(\''+esc(p.code)+'\')"><div class="pay-top"><span class="pay-code">'+esc(p.code)+'期</span><span class="pay-phase">'+esc(p.phase)+'</span><span class="pay-pct">'+Number(p.pct||0)+'%</span></div><div class="pay-attach">'+esc(p.attachment||'')+' · '+esc(p.trigger||'')+'</div><div class="pay-meta"><span class="pay-status '+(p.status||'pending')+'">'+paymentStatusText(p.status)+'</span><span class="pay-evi">條件 <b>'+Number(p.evidenceDone||0)+'/'+Number(p.evidenceTotal||0)+'</b></span></div></div>').join('');
 }
 function openPaymentDrawer(code){
   const c=commercialData(),p=(c.payments||[]).find(x=>String(x.code)===String(code));if(!p)return;
   setDrawerHeader(p.code+'期｜'+p.phase,'合約付款進度 · '+(p.attachment||''),p.status==='condition_met'?'done':p.status==='attention'?'overdue':(p.status==='pending'?'pending':'active'));
   let b='<div class="ad-statusline"><span class="ad-status '+(p.status==='condition_met'?'done':p.status==='attention'?'overdue':p.status==='pending'?'pending':'active')+'">'+paymentStatusText(p.status)+'</span></div>'
-    +'<div class="ad-quant">'+qBox('付款比重',Number(p.pct||0)+'%')+qBox('金額',ntMoney(p.amount))+qBox('條件完成',Number(p.evidenceDone||0)+' / '+Number(p.evidenceTotal||0))+qBox('合約附件',p.attachment||'—')+'</div>'
+    +'<div class="ad-quant">'+qBox('付款比重',Number(p.pct||0)+'%')+qBox('條件完成',Number(p.evidenceDone||0)+' / '+Number(p.evidenceTotal||0))+qBox('合約附件',p.attachment||'—')+'</div>'
     +secHtml('觸發條件','<div class="gate-purpose">'+esc(p.trigger||'—')+'</div>');
   const ev=p.evidence||[];if(ev.length)b+=secHtml('條件檢核','<div class="wbs-list">'+ev.map(e=>'<div class="wbs-i" '+(e.row?'onclick="openTaskByRow('+Number(e.row)+')"':'')+'><span class="wm2 '+(e.done?'done':e.overdue?'overdue':'pending')+'">'+(e.done?'✓':e.overdue?'!':'○')+'</span><span class="wtx">'+esc(e.label||'')+'</span><span class="wdt">'+(e.unknown?'待確認':e.date?fmtMD(e.date):'')+'</span></div>').join('')+'</div>');
   if((p.relatedRisks||[]).length)b+=secHtml('關聯風險','<div class="gate-rel">'+p.relatedRisks.map(id=>'<button onclick="openRisk(\''+esc(id)+'\')">'+esc(id)+'</button>').join('')+'</div>');
-  b+=secHtml('資料範圍','<div class="ad-text">合約付款條件與專案里程碑；請款及實際付款日期以採購／財會紀錄為準。</div>');
+  b+=secHtml('資料範圍','<div class="ad-text">此區僅追蹤付款條件與專案里程碑達成狀態；金額資訊不於PMO Dashboard呈現。</div>');
   openDrawer(b);
 }
 
@@ -2008,9 +2008,9 @@ document.addEventListener('DOMContentLoaded', boot);
 
 
 <script>
-/* === V5.7 WEEKLY PMO SEMANTICS PATCH 2026-09-04 === */
+/* === V5.7.1 WEEKLY PMO + PAYMENT PRIVACY PATCH 2026-09-04 === */
 (function(){
-  const BUILD='V5.7';
+  const BUILD='V5.7.1';
   function todayV57(){ return dateObj(timelineDomain().today)||dateObj(D.updatedDate)||new Date(); }
   function stageV57(){ try{return stageMetricV56();}catch(e){return {label:'尚未判定',name:'',done:0,total:0,pct:null};} }
   function formalGateV57(){
@@ -2086,7 +2086,7 @@ document.addEventListener('DOMContentLoaded', boot);
     },350);
   });
 })();
-/* === END V5.7 === */
+/* === END V5.7.1 === */
 </script>
 </body>
 </html>
