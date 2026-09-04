@@ -2006,5 +2006,87 @@ document.addEventListener('DOMContentLoaded', boot);
 })();
 </script>
 
+
+<script>
+/* === V5.7 WEEKLY PMO SEMANTICS PATCH 2026-09-04 === */
+(function(){
+  const BUILD='V5.7';
+  function todayV57(){ return dateObj(timelineDomain().today)||dateObj(D.updatedDate)||new Date(); }
+  function stageV57(){ try{return stageMetricV56();}catch(e){return {label:'尚未判定',name:'',done:0,total:0,pct:null};} }
+  function formalGateV57(){
+    const k=D.kpis||{};
+    if(k.nextGateDate) return {date:k.nextGateDate,name:k.nextGateName||''};
+    try{return nextGateV56();}catch(e){return {};}
+  }
+  function controlPointV57(){
+    const cc=commandCenterData(), s=cc.schedule||{};
+    if(s.nextControlPoint&&s.nextControlPoint.date) return s.nextControlPoint;
+    const today=todayV57();
+    const arr=tasksData().filter(t=>t.isCore!==false&&t.status!=='done'&&t.status!=='archived'&&dateObj(t.plannedEnd)&&dateObj(t.plannedEnd)>=today&&(t.isControlPoint||t.keyNode));
+    arr.sort((a,b)=>dateObj(a.plannedEnd)-dateObj(b.plannedEnd));
+    const x=arr[0];
+    return x?{date:x.plannedEnd,name:x.task,row:x.row,wbs:x.wbs||''}:null;
+  }
+  function overdueGateV57(){
+    const today=todayV57(), seen=new Set();
+    const spine=(commandCenterData().spine||[]);
+    let arr=spine.filter(g=>{
+      const d=dateObj(g.date); if(!d||d>=today||g.status==='done')return false;
+      const key=(g.date||'')+'|'+String(g.label||g.name||'').replace(/管理 Gate|控制點|管理節點/g,'').trim();
+      if(seen.has(key))return false; seen.add(key); return true;
+    });
+    if(arr.length)return arr.length;
+    const gates=(D.timeline?.masterGates||[]).filter(g=>{
+      const d=dateObj(g.date); if(!d||d>=today||g.status==='done')return false;
+      const key=(g.date||'')+'|'+String(g.name||'').replace(/管理 Gate|控制點|管理節點/g,'').trim();
+      if(seen.has(key))return false; seen.add(key); return true;
+    });
+    return gates.length;
+  }
+
+  // 核心 KPI：目前階段顯示真正階段完成率；逾期 Gate 以主管 spine 實際失守節點為準；正式 Gate 與管理控制點分開。
+  const oldCore=window.renderCoreKpisV55;
+  window.renderCoreKpisV55=function(){
+    if(oldCore) oldCore();
+    const box=document.getElementById('coreKpis'); if(!box)return;
+    const st=stageV57(), og=overdueGateV57(), fg=formalGateV57(), cells=box.children;
+    if(cells[0]) cells[0].innerHTML='<div class="k-l">目前階段完成率</div><div class="k-v">'+(st.pct==null?'—':st.pct+'%')+'</div><div class="k-sub">'+esc(st.label)+'｜完成 '+st.done+' / '+st.total+' 項</div>';
+    if(cells[2]) cells[2].innerHTML='<div class="k-l">逾期 Gate</div><div class="k-v">'+og+'<span class="u"> 項</span></div><div class="k-sub '+(og?'bad':'ok')+'">'+(og?'已有正式主管控制點失守／待追回':'目前無逾期 Gate')+'</div>';
+    if(cells[4]) cells[4].innerHTML='<div class="k-l">下一正式 Gate</div><div class="k-v k-nextgate">'+(fg.date?fmtMD(fg.date):'—')+'</div><div class="k-sub">'+esc(fg.name||'尚無下一正式 Gate')+'</div>';
+  };
+
+  // 首頁四卡：時程卡優先顯示最近管理控制點，正式 Gate 仍留在 KPI 區。
+  const oldOverview=window.renderCommandOverview;
+  window.renderCommandOverview=function(){
+    if(oldOverview) oldOverview();
+    const cc=commandCenterData(), s=cc.schedule||{}, cp=controlPointV57();
+    const cards=document.querySelectorAll('#commandOverview .ov-card');
+    if(cards.length>2){
+      const c=cards[2];
+      const gateGap=Math.max(0,Number(s.criticalGatesDue||0)-Number(s.criticalGatesDone||0));
+      const next=cp?(fmtMD(cp.date)+' '+cp.name):'—';
+      c.innerHTML='<span class="ov-arrow">›</span><div class="ov-kicker">時程</div><div class="ov-main"><span class="ov-big red">'+Number(s.criticalGatesDone||0)+' / '+Number(s.criticalGatesDue||0)+'</span><span class="ov-label">截至資料日應完成里程碑</span></div><div class="ov-pairs"><span>已完成 <b>'+Number(s.criticalGatesDone||0)+'</b></span><span>應完成 <b>'+Number(s.criticalGatesDue||0)+'</b></span><span>尚未完成 <b class="'+(gateGap>0?'red':'')+'">'+gateGap+'</b></span></div><div class="ov-note">下一管理控制點｜'+esc(next)+'　｜　逾期／追回中 '+Number(s.overdueTasks||0)+'　｜　距正式上線 '+Number(s.daysToGo||0)+' 天</div>';
+      c.onclick=()=>openOverviewDrawer('schedule');
+    }
+  };
+
+  // 首頁 thesis 口徑一致。
+  window.renderThesis=function(){
+    const k=D.kpis||{}, st=stageV57(), og=overdueGateV57(), themes=managementThemesData().filter(t=>['red','amber'].includes(t.status));
+    const el=document.getElementById('thesis'); if(!el)return;
+    const th=themes.length?' 管理焦點為 <b>'+themes.slice(0,2).map(t=>esc(t.title)).join('、')+'</b>。':'';
+    el.innerHTML='<span class="arw">↔</span><span class="txt">目前為 <span class="hi">'+esc(st.label)+'</span>，階段整體完成度 <span class="hi">'+(st.pct==null?'—':st.pct+'%')+'</span>；到期工作達成率 <span class="hi">'+(Number(k.dueTotalCount||0)?Number(k.dueToDatePct||0)+'%':'—')+'</span>，逾期／追回 <span class="hi">'+Number(k.overdueTasks||0)+'</span> 項，逾期 Gate <span class="hi">'+og+'</span> 項。'+th+'</span>';
+  };
+
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      const old=document.getElementById('buildBadge561'); if(old) old.remove();
+      const top=document.querySelector('.topbar,.top-bar,header,.top');
+      if(top&&!document.getElementById('buildBadge57')){const b=document.createElement('span');b.id='buildBadge57';b.textContent='Dashboard '+BUILD;b.style.cssText='margin-left:10px;padding:3px 8px;border:1px solid rgba(255,255,255,.24);border-radius:999px;font-size:11px;opacity:.72;white-space:nowrap;';top.appendChild(b);}
+    },350);
+  });
+})();
+/* === END V5.7 === */
+</script>
 </body>
 </html>
