@@ -1120,110 +1120,209 @@ function reportWeek(){
 }
 function inRange(date,start,end){const d=dateObj(date);if(!d)return false;const x=dayStart(d);return x>=dayStart(start)&&x<=dayStart(end);}
 function liveTasks(){return allTaskData().filter(t=>!t.isContingency);}
-function meaningfulTask(t){return t&&t.task&&t.role!=='parent'||(t&&(t.isGate||t.keyNode));}
+function meaningfulTask(t){return !!(t&&t.task&&((t.role!=='parent')||(t.isGate||t.keyNode)));}
 function taskPriority(t){
   let n=0;if(t.status==='overdue'||t.status==='blocked'||t.status==='risk')n+=50;if(t.isGate||t.keyNode)n+=30;if(t.isCore)n+=15;if(t.role==='leaf')n+=5;if(t.status==='active')n+=4;return n;
 }
-function sortTaskPriority(a,b){return taskPriority(b)-taskPriority(a)||(dateObj(a.plannedEnd)-dateObj(b.plannedEnd));}
-function dedupeMeetingTasks(items,limit){
-  const out=[],seen=new Set();
-  (items||[]).sort(sortTaskPriority).forEach(t=>{const k=(t.module||'')+'|'+(t.task||'');if(!seen.has(k)){seen.add(k);out.push(t);}});
-  return typeof limit==='number'?out.slice(0,limit):out;
+function sortTaskPriority(a,b){return taskPriority(b)-taskPriority(a)||((dateObj(a.plannedEnd)?.getTime()||0)-(dateObj(b.plannedEnd)?.getTime()||0));}
+function uniqVals(arr){return [...new Set((arr||[]).filter(Boolean).map(x=>String(x).trim()).filter(Boolean))];}
+function isMeetingControlTask(t){
+  const n=String(t?.task||'');
+  return /(顧問駐點|主管會議|專案會議|啟動會議)/.test(n);
 }
-function previousCompletedTasks(){
+function meetingTopicDef(t){
+  const n=String(t?.task||'').trim();
+  // 測試資料匯入：各模組資料匯入 + 跨模組總控，主管層只看一個管理主題。
+  if(n==='資料匯入'||/匯入模板及資料匯入/.test(n)) return {
+    key:'TEST_IMPORT',
+    title:'測試資料匯入／異常排除準備',
+    action:'各主責先完成測試環境匯入，留下錯誤與修正結果；無法自行排除的問題於顧問駐點集中處理。'
+  };
+  if(/系統角色與權限確認/.test(n)) return {
+    key:'ROLE_ACCESS',
+    title:'系統角色與權限第一版',
+    action:'完成角色名稱、實際人員、資料範圍及查詢／編輯／核准權限第一版，供顧問協助進Gaia設定。'
+  };
+  if(/顧問版任務／議題／關鍵時程整合盤點/.test(n)) return {
+    key:'CONSULTANT_MASTER',
+    title:'顧問版任務／議題／關鍵時程初稿',
+    action:'完成顧問版初稿，整理未完成任務、待決議題、跨模組依賴與關鍵時程，供副總說明及後續顧問資源安排。'
+  };
+  if(/顧問駐點/.test(n)) return {
+    key:'CONSULTANT_ONSITE',
+    title:n.replace(/^\d+\/\d+（.）/,'').trim()||'顧問駐點',
+    action:'會前先完成資料匯入及問題清單；駐點當天集中處理匯入異常、角色權限與必要設定／教用問題。'
+  };
+  // 同名工作跨模組出現時，在主管畫面聚合；細節保留在 Drawer。
+  return {key:'TASK|'+n.replace(/\s+/g,''),title:taskManagementTitle(t)||n,action:''};
+}
+function groupMeetingTasks(items){
+  const map=new Map();
+  (items||[]).filter(meaningfulTask).forEach(t=>{
+    const def=meetingTopicDef(t),key=def.key;
+    if(!map.has(key))map.set(key,{key,title:def.title,action:def.action||'',items:[]});
+    map.get(key).items.push(t);
+  });
+  return [...map.values()].map(g=>{
+    const its=g.items.sort(sortTaskPriority);
+    const dates=its.map(x=>dateObj(x.plannedEnd)).filter(Boolean).sort((a,b)=>a-b);
+    const actuals=its.map(x=>dateObj(x.actualEnd)).filter(Boolean).sort((a,b)=>a-b);
+    const modules=uniqVals(its.map(x=>x.module)).filter(x=>x!=='跨模組');
+    const owners=uniqVals(its.flatMap(x=>String(x.owner||'').split(/[、,，/]/)));
+    const pms=uniqVals(its.flatMap(x=>String(x.pm||'').split(/[、,，/]/)));
+    const statuses=its.map(x=>x.status);
+    let status='pending';
+    if(statuses.every(x=>x==='done'))status='done';
+    else if(statuses.some(x=>['overdue','blocked','risk'].includes(x)))status='overdue';
+    else if(statuses.some(x=>x==='active'))status='active';
+    const due=dates.length?dates[dates.length-1]:null;
+    const actual=actuals.length?actuals[actuals.length-1]:null;
+    const first=its[0];
+    const metaParts=[];
+    if(modules.length)metaParts.push(modules.join('／'));
+    if(its.length>1)metaParts.push(its.length+'筆S2工作');
+    else if(pms.length)metaParts.push(pms.join('／'));
+    return {...g,status,due,actual,modules,owners,pms,meta:metaParts.join('｜'),first};
+  }).sort((a,b)=>{
+    const ao=a.due?.getTime()||8640000000000000,bo=b.due?.getTime()||8640000000000000;
+    if(ao!==bo)return ao-bo;
+    const pa=Math.max(...a.items.map(taskPriority)),pb=Math.max(...b.items.map(taskPriority));
+    return pb-pa;
+  });
+}
+function previousCompletedGroups(){
   const w=reportWeek();
-  return dedupeMeetingTasks(liveTasks().filter(t=>t.status==='done'&&t.actualEnd&&inRange(t.actualEnd,w.prevMon,w.prevSun)&&meaningfulTask(t)));
+  return groupMeetingTasks(liveTasks().filter(t=>t.status==='done'&&t.actualEnd&&inRange(t.actualEnd,w.prevMon,w.prevSun)&&meaningfulTask(t)));
 }
-function weekDeliverables(){
+function weeklyDeliverableGroups(){
   const w=reportWeek();
-  return dedupeMeetingTasks(liveTasks().filter(t=>t.status!=='done'&&t.plannedEnd&&inRange(t.plannedEnd,w.mon,w.fri)&&meaningfulTask(t)));
+  return groupMeetingTasks(liveTasks().filter(t=>t.status!=='done'&&!isMeetingControlTask(t)&&t.plannedEnd&&inRange(t.plannedEnd,w.mon,w.fri)&&meaningfulTask(t)));
 }
-function currentDelayTasks(){
+function weeklyControlEvents(){
+  const w=reportWeek();
+  return groupMeetingTasks(liveTasks().filter(t=>t.status!=='done'&&isMeetingControlTask(t)&&t.plannedEnd&&inRange(t.plannedEnd,w.mon,w.fri)&&meaningfulTask(t)));
+}
+function currentDelayGroups(){
   const d=reportDataDate();
-  return dedupeMeetingTasks(liveTasks().filter(t=>t.status!=='done'&&(t.status==='overdue'||t.status==='blocked'||t.status==='risk'||String(t.scheduleTag||'').includes('overdue')||((dateObj(t.plannedEnd)||new Date(8640000000000000))<d&&t.role!=='parent'))&&meaningfulTask(t)));
+  return groupMeetingTasks(liveTasks().filter(t=>t.status!=='done'&&(t.status==='overdue'||t.status==='blocked'||t.status==='risk'||String(t.scheduleTag||'').includes('overdue')||((dateObj(t.plannedEnd)||new Date(8640000000000000))<d&&t.role!=='parent'))&&meaningfulTask(t)));
 }
-function recoveredPreviousWeek(){
+function recoveredPreviousWeekGroups(){
   const w=reportWeek();
-  return dedupeMeetingTasks(liveTasks().filter(t=>t.status==='done'&&t.actualEnd&&inRange(t.actualEnd,w.prevMon,w.prevSun)&&t.plannedEnd&&dateObj(t.actualEnd)>dateObj(t.plannedEnd)&&meaningfulTask(t)));
+  return groupMeetingTasks(liveTasks().filter(t=>t.status==='done'&&t.actualEnd&&inRange(t.actualEnd,w.prevMon,w.prevSun)&&t.plannedEnd&&dateObj(t.actualEnd)>dateObj(t.plannedEnd)&&meaningfulTask(t)));
 }
+// 原始工作版本保留給其他頁面／Drawer 使用。
+function previousCompletedTasks(){return previousCompletedGroups().flatMap(g=>g.items);}
+function weekDeliverables(){return weeklyDeliverableGroups().flatMap(g=>g.items);}
+function currentDelayTasks(){return currentDelayGroups().flatMap(g=>g.items);}
+function recoveredPreviousWeek(){return recoveredPreviousWeekGroups().flatMap(g=>g.items);}
 function nextMeetingGate(){
   const w=reportWeek(),dd=w.dataDate;
   const gs=(typeof gateGroups==='function'?gateGroups():[]).filter(g=>g.status!=='done'&&g.date&&dateObj(g.date)>=dd).sort((a,b)=>dateObj(a.date)-dateObj(b.date));
   return gs[0]||null;
 }
-function statusBadge(t){
-  const s=t.status||'pending';return '<span class="mi-badge '+s+'">'+esc(statusText(s))+'</span>';
+function groupStatusBadge(g){
+  const s=g.status||'pending';return '<span class="mi-badge '+s+'">'+esc(statusText(s))+'</span>';
 }
-function taskMeetingItem(t,mode){
-  const dt=mode==='completed'?(t.actualEnd||t.plannedEnd):t.plannedEnd;
-  const meta=[t.module,t.pm||t.owner].filter(Boolean).join('｜');
-  const click=t.row?' onclick="openTaskByRow('+Number(t.row)+')"':'';
-  return '<div class="meeting-item"'+click+'><div class="mi-date">'+esc(dt?fmtMD(dt).slice(5):'—')+'</div><div><div class="mi-title">'+esc(taskManagementTitle(t)||t.task)+statusBadge(t)+'</div><div class="mi-meta">'+esc(meta||'')+(t.owner?'<br><b>主責：</b>'+esc(t.owner):'')+'</div></div></div>';
+function meetingGroupItem(g,mode){
+  const dt=mode==='completed'?(g.actual||g.due):g.due;
+  let meta=g.meta||'';
+  if(g.key==='TEST_IMPORT')meta=(g.modules.length?g.modules.join('／'):'各模組')+'｜'+g.items.length+'筆S2工作｜先匯入、再帶異常給顧問';
+  if(g.key==='ROLE_ACCESS')meta='角色名稱／人員／資料範圍／查詢・編輯・核准｜形成可設定第一版';
+  if(g.key==='CONSULTANT_MASTER')meta='Vivian／Kate／Ken／2-3｜完成副總說明底稿初稿';
+  const click=' onclick="openWeeklyGroup(\''+String(g.key).replace(/'/g,"\\'")+'\',\''+mode+'\')"';
+  return '<div class="meeting-item"'+click+'><div class="mi-date">'+esc(dt?fmtMD(dt).slice(5):'—')+'</div><div><div class="mi-title">'+esc(g.title)+groupStatusBadge(g)+'</div><div class="mi-meta">'+esc(meta)+(g.owners.length?'<br><b>主責：</b>'+esc(g.owners.join('、')):'')+'</div></div></div>';
 }
 function simpleControlItem(title,meta,date,onclick,badge){
   return '<div class="meeting-item"'+(onclick?' onclick="'+onclick+'"':'')+'><div class="mi-date">'+esc(date||'—')+'</div><div><div class="mi-title">'+esc(title)+(badge?'<span class="mi-badge '+badge.cls+'">'+esc(badge.text)+'</span>':'')+'</div><div class="mi-meta">'+esc(meta||'')+'</div></div></div>';
 }
 function meetingControls(){
   const out=[];
-  currentDelayTasks().slice(0,2).forEach(t=>out.push({kind:'task',task:t,title:taskManagementTitle(t)||t.task,meta:(t.module||'')+'｜'+(t.progress||t.coordination||'待追回'),date:t.plannedEnd?fmtMD(t.plannedEnd).slice(5):'—',badge:{cls:'overdue',text:'追回'}}));
-  const g=nextMeetingGate();if(g)out.push({kind:'gate',gate:g,title:g.label||g.name,meta:'本週需確認的控制點',date:fmtMD(g.date).slice(5),badge:{cls:'active',text:'Gate'}});
+  const delays=currentDelayGroups();
+  if(delays[0])out.push({kind:'group',group:delays[0],title:delays[0].title,meta:(delays[0].meta?delays[0].meta+'｜':'')+'原期限已過，需確認追回結果',date:delays[0].due?fmtMD(delays[0].due).slice(5):'—',badge:{cls:'overdue',text:'逾期'}});
+  const events=weeklyControlEvents();
+  if(events[0])out.push({kind:'event',group:events[0],title:events[0].title,meta:events[0].action||'本週控制點',date:events[0].due?fmtMD(events[0].due).slice(5):'—',badge:{cls:'active',text:'駐點'}});
+  const g=nextMeetingGate();if(g)out.push({kind:'gate',gate:g,title:g.label||g.name,meta:'下一個正式控制點',date:fmtMD(g.date).slice(5),badge:{cls:'active',text:'控制點'}});
   const r=risksData().filter(x=>!['closed','done'].includes(x.status)).sort((a,b)=>(b.level==='high')-(a.level==='high'))[0];if(r)out.push({kind:'risk',risk:r,title:r.desc||r.title||r.id,meta:'正式風險 '+r.id+'｜請確認處理方式與期限',date:'RISK',badge:{cls:r.level==='high'?'overdue':'active',text:r.level==='high'?'高風險':'風險'}});
-  const d=decisionsData().filter(x=>x.status!=='decided')[0];if(d)out.push({kind:'decision',decision:d,title:d.title||d.id,meta:'待裁示 '+d.id+'｜需主管確認',date:'DEC',badge:{cls:'active',text:'待決'}});
+  const d=decisionsData().filter(x=>x.status!=='decided')[0];if(d&&out.length<4)out.push({kind:'decision',decision:d,title:d.title||d.id,meta:'待裁示 '+d.id+'｜需主管確認',date:'DEC',badge:{cls:'active',text:'待決'}});
   return out.slice(0,4);
 }
 function renderPresentationHub(){
   const hub=document.getElementById('meetingHub');if(!hub)return;
-  const w=reportWeek(),completed=previousCompletedTasks(),due=weekDeliverables(),delays=currentDelayTasks(),recovered=recoveredPreviousWeek(),gate=nextMeetingGate();
+  const w=reportWeek(),completed=previousCompletedGroups(),due=weeklyDeliverableGroups(),delays=currentDelayGroups(),recovered=recoveredPreviousWeekGroups(),gate=nextMeetingGate();
   const p=D.project||{},health=p.health||'amber',healthLabel={green:'依計畫',amber:'有項目需追回',red:'需主管介入'}[health]||'待確認';
   document.getElementById('meetingTitle').textContent=md(w.mon)+'–'+md(w.fri)+' 本週專案進度';
-  document.getElementById('meetingSub').textContent='資料更新 '+(D.updatedAt||D.updated||'—')+'｜本週區間：週一至週五｜進度以正式專案資料為準';
+  document.getElementById('meetingSub').textContent='資料更新 '+(D.updatedAt||D.updated||'—')+'｜主管畫面以管理主題合併呈現；S2細項保留在Drawer';
   document.getElementById('meetingPlan').innerHTML='<div class="p-label">1/1 主計畫</div><div class="p-main">'+esc(p.goLive||'2027/01/01')+'｜'+esc(healthLabel)+'</div><div class="p-sub">'+esc(p.healthText||'依目前完成、逾期與近期控制點判斷')+'</div>';
   document.getElementById('meetingMetrics').innerHTML=
-    '<div class="meeting-metric done" onclick="openWeeklyDrawer(\'completed\')"><div class="m-l">上週完成</div><div class="m-v"><strong>'+completed.length+'</strong><span>項完成</span></div><div class="m-n">'+md(w.prevMon)+'–'+md(w.prevSun)+(recovered.length?'｜其中 '+recovered.length+' 項為逾期後完成':'')+'</div></div>'+ 
-    '<div class="meeting-metric week" onclick="openWeeklyDrawer(\'deliverables\')"><div class="m-l">本週要交</div><div class="m-v"><strong>'+due.length+'</strong><span>項要交</span></div><div class="m-n">只列本週到期且尚未完成的工作</div></div>'+ 
-    '<div class="meeting-metric delay" onclick="openWeeklyDrawer(\'delay\')"><div class="m-l">逾期未關</div><div class="m-v"><strong>'+delays.length+'</strong><span>項待追回</span></div><div class="m-n">已完成並補完成日者不再列入</div></div>'+ 
+    '<div class="meeting-metric done" onclick="openWeeklyDrawer(\'completed\')"><div class="m-l">上週完成</div><div class="m-v"><strong>'+completed.length+'</strong><span>個管理主題</span></div><div class="m-n">'+md(w.prevMon)+'–'+md(w.prevSun)+(recovered.length?'｜其中 '+recovered.length+' 個為逾期後完成':'')+'</div></div>'+ 
+    '<div class="meeting-metric week" onclick="openWeeklyDrawer(\'deliverables\')"><div class="m-l">本週要交</div><div class="m-v"><strong>'+due.length+'</strong><span>個管理主題</span></div><div class="m-n">同一議題跨模組工作已合併，不重複計數</div></div>'+ 
+    '<div class="meeting-metric delay" onclick="openWeeklyDrawer(\'delay\')"><div class="m-l">逾期未關</div><div class="m-v"><strong>'+delays.length+'</strong><span>個管理主題</span></div><div class="m-n">底層S2明細點入Drawer查看</div></div>'+ 
     '<div class="meeting-metric gate" onclick="openWeeklyDrawer(\'control\')"><div class="m-l">下一控制點</div><div class="m-v"><strong>'+(gate&&gate.date?fmtMD(gate.date).slice(5):'—')+'</strong><span>'+(gate?esc(gate.label||gate.name):'目前無待辦控制點')+'</span></div><div class="m-n">距正式上線 '+Number(p.daysToGo||0)+' 天</div></div>';
 
   const cbox=document.getElementById('meetingCompleted');
-  cbox.innerHTML=completed.length?completed.slice(0,4).map(t=>taskMeetingItem(t,'completed')).join(''):'<div class="meeting-empty">上週沒有新增可關單的完成項目。</div>';
+  cbox.innerHTML=completed.length?completed.slice(0,4).map(g=>meetingGroupItem(g,'completed')).join(''):'<div class="meeting-empty">上週沒有新增可關單的完成項目。</div>';
   const dbox=document.getElementById('meetingDeliverables');
-  dbox.innerHTML=due.length?due.slice(0,5).map(t=>taskMeetingItem(t,'due')).join(''):'<div class="meeting-empty">本週目前沒有到期未完成工作。</div>';
+  dbox.innerHTML=due.length?due.slice(0,5).map(g=>meetingGroupItem(g,'due')).join(''):'<div class="meeting-empty">本週目前沒有到期未完成工作。</div>';
   const controls=meetingControls(),xbox=document.getElementById('meetingControl');
-  xbox.innerHTML=controls.length?controls.map(x=>{if(x.kind==='task')return simpleControlItem(x.title,x.meta,x.date,'openTaskByRow('+Number(x.task.row||0)+')',x.badge);if(x.kind==='gate')return simpleControlItem(x.title,x.meta,x.date,"openGateGroup('"+String(x.gate.id).replace(/'/g,"\\'")+"')",x.badge);if(x.kind==='risk')return simpleControlItem(x.title,x.meta,x.date,"openRisk('"+String(x.risk.id).replace(/'/g,"\\'")+"')",x.badge);return simpleControlItem(x.title,x.meta,x.date,"openDecision('"+String(x.decision.id).replace(/'/g,"\\'")+"')",x.badge);}).join(''):'<div class="meeting-empty">目前沒有需要主管介入或特別盯進度的項目。</div>';
+  xbox.innerHTML=controls.length?controls.map(x=>{
+    if(x.kind==='group'||x.kind==='event')return simpleControlItem(x.title,x.meta,x.date,"openWeeklyGroup('"+String(x.group.key).replace(/'/g,"\\'")+"','"+(x.kind==='event'?'control':'delay')+"')",x.badge);
+    if(x.kind==='gate')return simpleControlItem(x.title,x.meta,x.date,"openGateGroup('"+String(x.gate.id).replace(/'/g,"\\'")+"')",x.badge);
+    if(x.kind==='risk')return simpleControlItem(x.title,x.meta,x.date,"openRisk('"+String(x.risk.id).replace(/'/g,"\\'")+"')",x.badge);
+    return simpleControlItem(x.title,x.meta,x.date,"openDecision('"+String(x.decision.id).replace(/'/g,"\\'")+"')",x.badge);
+  }).join(''):'<div class="meeting-empty">目前沒有需要主管介入或特別盯進度的項目。</div>';
 
   const days=document.getElementById('meetingDays');
   days.innerHTML='';
+  const events=weeklyControlEvents();
   for(let i=0;i<5;i++){
-    const day=plusDays(w.mon,i),key=ymd(day),items=due.filter(t=>ymd(dateObj(t.plannedEnd))===key);
+    const day=plusDays(w.mon,i),key=ymd(day),items=due.filter(g=>g.due&&ymd(g.due)===key),evs=events.filter(g=>g.due&&ymd(g.due)===key);
     const col=document.createElement('div');col.className='meeting-day'+(ymd(day)===ymd(w.dataDate)?' today':'');
-    col.innerHTML='<div class="meeting-day-head"><b>週'+weekdayZh(day)+'</b><span>'+md(day)+'</span></div>'+(items.length?items.slice(0,3).map(t=>'<div class="meeting-day-task" onclick="openTaskByRow('+Number(t.row||0)+')"><strong>'+esc(taskManagementTitle(t)||t.task)+'</strong><small>'+esc([t.module,t.pm||t.owner].filter(Boolean).join('｜'))+'</small></div>').join('')+(items.length>3?'<div class="meeting-day-more" onclick="openWeeklyDrawer(\'deliverables\')">＋'+(items.length-3)+' 項</div>':''):'<div class="meeting-empty" style="padding:16px 2px">—</div>');
+    const deliverHtml=items.slice(0,3).map(g=>'<div class="meeting-day-task" onclick="openWeeklyGroup(\''+String(g.key).replace(/'/g,"\\'")+'\',\'due\')"><strong>'+esc(g.title)+'</strong><small>'+esc(g.meta||'')+'</small></div>').join('');
+    const eventHtml=evs.slice(0,1).map(g=>'<div class="meeting-day-task" style="border-left-color:var(--amb)" onclick="openWeeklyGroup(\''+String(g.key).replace(/'/g,"\\'")+'\',\'control\')"><strong>'+esc(g.title)+'</strong><small>控制點｜'+esc(g.action||'')+'</small></div>').join('');
+    const more=(items.length>3?'<div class="meeting-day-more" onclick="openWeeklyDrawer(\'deliverables\')">＋'+(items.length-3)+' 個管理主題</div>':'');
+    col.innerHTML='<div class="meeting-day-head"><b>週'+weekdayZh(day)+'</b><span>'+md(day)+'</span></div>'+((deliverHtml||eventHtml)?eventHtml+deliverHtml+more:'<div class="meeting-empty" style="padding:16px 2px">—</div>');
     days.appendChild(col);
   }
-  document.getElementById('meetingFoot').innerHTML='<span><b>完成標準：</b>以原交付內容是否完成、實際完成日是否回填為準；開會、寄信、提供資料本身不算完成。</span><span>每日 19:00 更新｜點工作查看主責、期限、卡點、下一步與影響</span>';
+  document.getElementById('meetingFoot').innerHTML='<span><b>呈現原則：</b>主管畫面依管理主題合併；同一主題的S2底層工作不重複列示。</span><span>每日 19:00 更新｜點主題查看底層工作、主責、期限、卡點與下一步</span>';
+}
+function openWeeklyGroup(key,mode){
+  const pools={completed:previousCompletedGroups(),due:weeklyDeliverableGroups(),delay:currentDelayGroups(),control:weeklyControlEvents()};
+  const list=pools[mode]||[].concat();
+  const g=list.find(x=>String(x.key)===String(key))||[...previousCompletedGroups(),...weeklyDeliverableGroups(),...currentDelayGroups(),...weeklyControlEvents()].find(x=>String(x.key)===String(key));
+  if(!g)return;
+  const status=mode==='completed'?'done':g.status;
+  setDrawerHeader(g.title,(g.due?fmtMD(g.due):'—')+'｜主管主題，下鑽 '+g.items.length+' 筆S2工作',status);
+  let b='<div class="ad-quant">'+qBox('期限',g.due?fmtMD(g.due):'—')+qBox('S2明細',g.items.length+' 筆')+qBox('工作主軸',g.modules.length?g.modules.join('／'):'跨模組')+qBox('狀態',statusText(g.status))+'</div>';
+  if(g.action)b+=secHtml('這週要完成','<div class="ad-callout">'+esc(g.action)+'</div>');
+  if(g.owners.length)b+=secHtml('主責','<div class="ad-text">'+esc(g.owners.join('、'))+'</div>');
+  b+=secHtml('S2底層工作',wbsHtml(g.items,40));
+  b+=secHtml('主管畫面為什麼合併','<div class="ad-text">這些工作在S2_V2仍各自保留，用來管理不同工作主軸與主責；主管例會只合併相同管理目的，避免同一件事重複出現。</div>');
+  openDrawer(b);
 }
 function openWeeklyDrawer(type){
   const w=reportWeek();
   if(type==='completed'){
-    const list=previousCompletedTasks();setDrawerHeader('上週完成',md(w.prevMon)+'–'+md(w.prevSun)+'｜已完成並回填完成日','done');
-    let b='<div class="ad-quant">'+qBox('完成',list.length+' 項')+qBox('逾期後完成',recoveredPreviousWeek().length+' 項')+'</div>';
-    b+=secHtml('完成工作',list.length?wbsHtml(list,30):'<div class="ad-text">上週沒有符合條件的完成工作。</div>');openDrawer(b);return;
+    const list=previousCompletedGroups();setDrawerHeader('上週完成',md(w.prevMon)+'–'+md(w.prevSun)+'｜依管理主題合併','done');
+    let b='<div class="ad-quant">'+qBox('完成主題',list.length+' 個')+qBox('逾期後完成',recoveredPreviousWeekGroups().length+' 個')+'</div>';
+    b+=secHtml('完成工作',list.length?list.map(g=>meetingGroupItem(g,'completed')).join(''):'<div class="ad-text">上週沒有符合條件的完成工作。</div>');openDrawer(b);return;
   }
   if(type==='deliverables'){
-    const list=weekDeliverables();setDrawerHeader('本週要交',md(w.mon)+'–'+md(w.fri)+'｜本週到期且尚未完成','active');
-    let b='<div class="ad-quant">'+qBox('本週到期',list.length+' 項')+qBox('其中已逾期',currentDelayTasks().filter(t=>list.some(x=>x.row===t.row)).length+' 項')+'</div>';
-    b+=secHtml('工作清單',list.length?wbsHtml(list,40):'<div class="ad-text">本週目前沒有未完成到期工作。</div>');
-    b+=secHtml('使用方式','<div class="ad-text">週一先確認本週要交的結果；週中依主責與期限追進度。點工作列可查看工作說明、卡點、下一步與完成條件。</div>');openDrawer(b);return;
+    const list=weeklyDeliverableGroups();setDrawerHeader('本週要交',md(w.mon)+'–'+md(w.fri)+'｜同一管理主題已合併','active');
+    let b='<div class="ad-quant">'+qBox('管理主題',list.length+' 個')+qBox('S2底層工作',list.reduce((n,g)=>n+g.items.length,0)+' 筆')+'</div>';
+    b+=secHtml('本週交付',list.length?list.map(g=>meetingGroupItem(g,'due')).join(''):'<div class="ad-text">本週目前沒有未完成到期工作。</div>');
+    b+=secHtml('呈現原則','<div class="ad-text">主管畫面以管理目的合併，例如人事／考勤／薪酬／保險的「資料匯入」只顯示一個「測試資料匯入／異常排除準備」；點入主題後仍可查看每一筆S2。</div>');openDrawer(b);return;
   }
   if(type==='delay'){
-    const list=currentDelayTasks();setDrawerHeader('逾期未關','原期限已過且尚未完成；完成並補完成日後移除',list.length?'overdue':'done');
-    let b='<div class="ad-quant">'+qBox('目前未關',list.length+' 項')+qBox('上週逾期後完成',recoveredPreviousWeek().length+' 項')+'</div>';
-    b+=secHtml('待追回工作',list.length?wbsHtml(list,40):'<div class="ad-text">目前無未關閉逾期工作。</div>');openDrawer(b);return;
+    const list=currentDelayGroups();setDrawerHeader('逾期未關','原期限已過且尚未完成；同一管理主題合併呈現',list.length?'overdue':'done');
+    let b='<div class="ad-quant">'+qBox('未關主題',list.length+' 個')+qBox('S2底層工作',list.reduce((n,g)=>n+g.items.length,0)+' 筆')+qBox('上週逾期後完成',recoveredPreviousWeekGroups().length+' 個')+'</div>';
+    b+=secHtml('待追回工作',list.length?list.map(g=>meetingGroupItem(g,'delay')).join(''):'<div class="ad-text">目前無未關閉逾期工作。</div>');openDrawer(b);return;
   }
-  const delays=currentDelayTasks(),gate=nextMeetingGate(),rs=risksData().filter(r=>!['closed','done'].includes(r.status)),ds=decisionsData().filter(d=>d.status!=='decided');
-  setDrawerHeader('需盯進度','逾期未關、下一控制點、正式風險與待裁示','active');
-  let b='<div class="ad-quant">'+qBox('逾期未關',delays.length+' 項')+qBox('開放風險',rs.length+' 項')+qBox('待裁示',ds.length+' 項')+qBox('下一控制點',gate?fmtMD(gate.date):'—')+'</div>';
-  if(gate)b+=secHtml('下一控制點','<div class="ad-callout">'+esc((gate.label||gate.name)+'｜'+fmtMD(gate.date))+'</div>');
-  if(delays.length)b+=secHtml('逾期未關',wbsHtml(delays,12));
+  const delays=currentDelayGroups(),gate=nextMeetingGate(),events=weeklyControlEvents(),rs=risksData().filter(r=>!['closed','done'].includes(r.status)),ds=decisionsData().filter(d=>d.status!=='decided');
+  setDrawerHeader('需盯進度','本週控制點、逾期未關、正式風險與待裁示','active');
+  let b='<div class="ad-quant">'+qBox('逾期未關',delays.length+' 個主題')+qBox('本週控制點',events.length+' 個')+qBox('開放風險',rs.length+' 項')+qBox('待裁示',ds.length+' 項')+'</div>';
+  if(events.length)b+=secHtml('本週控制點',events.map(g=>meetingGroupItem(g,'control')).join(''));
+  if(gate)b+=secHtml('下一正式控制點','<div class="ad-callout">'+esc((gate.label||gate.name)+'｜'+fmtMD(gate.date))+'</div>');
+  if(delays.length)b+=secHtml('逾期未關',delays.slice(0,8).map(g=>meetingGroupItem(g,'delay')).join(''));
   if(rs.length)b+=secHtml('正式風險',rs.slice(0,8).map(r=>'<div class="wbs-i" onclick="openRisk(\''+esc(r.id)+'\')"><span class="wm2 '+(r.level==='high'?'overdue':'active')+'">!</span><span class="wtx">'+esc(r.id+' '+(r.desc||r.title||''))+'</span></div>').join(''));
   if(ds.length)b+=secHtml('待裁示',ds.slice(0,8).map(d=>'<div class="wbs-i" onclick="openDecision(\''+esc(d.id)+'\')"><span class="wm2 active">•</span><span class="wtx">'+esc(d.id+' '+(d.title||''))+'</span></div>').join(''));
   openDrawer(b);
